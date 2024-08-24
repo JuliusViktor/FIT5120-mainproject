@@ -332,19 +332,30 @@ body {
 
 
 /* bubble mind map */
-
 .container-mindmap {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: rgb(82, 50, 82); 
+    background: radial-gradient(circle, #674188 0%, #6a5081 100%);
+    flex-wrap: wrap; /* Ensure items wrap to the next line */
+}
+
+.container-mindmap h1 {
+    width: 100%; /* Make the h1 take the full width */
+    text-align: center; /* Center the text */
+    margin: 0; /* Remove default margin */
+    padding: 20px 0; /* Add some padding for spacing */
+    background-color: rgba(0, 0, 0, 0.1); /* Optional: Add a background color */
+    color: white; /* Optional: Change text color */
+    font-size: 50px;
 }
 
 .mind-map {
     position: relative;
     width: 300px;
     height: 300px;
+    margin: 60px; /* Add some margin between mind maps */
 }
 
 .bubble {
@@ -371,37 +382,42 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: linear-gradient(145deg, #4CAF50, #6fbf6f);
+    background: linear-gradient(145deg, #C8a1e0, #7b85be);
+    width: 150px; 
+    height: 150px; 
 }
 
 .sub-bubble {
     opacity: 0;
     pointer-events: none;
+    background: #C8a1e0;
+    transition: opacity 0.3s ease;
 }
 
-#subBubble1 {
+#subBubble1-1, #subBubble2-1, #subBubble3-1, #subBubble4-1 {
     top: 0;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-#subBubble2 {
+#subBubble1-2, #subBubble2-2, #subBubble3-2, #subBubble4-2 {
     top: 50%;
     left: 100%;
     transform: translate(-50%, -50%);
 }
 
-#subBubble3 {
+#subBubble1-3, #subBubble2-3, #subBubble3-3, #subBubble4-3 {
     top: 100%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-#subBubble4 {
+#subBubble1-4, #subBubble2-4, #subBubble3-4, #subBubble4-4 {
     top: 50%;
     left: 0;
     transform: translate(-50%, -50%);
 }
+
 
 
 

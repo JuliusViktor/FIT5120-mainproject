@@ -36,22 +36,25 @@ document.addEventListener('DOMContentLoaded', () => {
     showSlide(currentIndex);
 });
 
-document.getElementById('mainBubble').addEventListener('click', function() {
-    const subBubbles = document.querySelectorAll('.sub-bubble');
-    subBubbles.forEach(bubble => {
-        if (bubble.style.opacity == 0) {
-            bubble.style.opacity = 1;
-            bubble.style.pointerEvents = 'auto';
-        } else {
-            bubble.style.opacity = 0;
-            bubble.style.pointerEvents = 'none';
-        }
+document.querySelectorAll('.main-bubble').forEach(mainBubble => {
+    mainBubble.addEventListener('click', function() {
+      
+        const subBubbles = this.parentElement.querySelectorAll('.sub-bubble');
+        subBubbles.forEach(subBubble => {
+            if (subBubble.style.opacity === '1') {
+                subBubble.style.opacity = '0';
+                subBubble.style.pointerEvents = 'none';
+            } else {
+                subBubble.style.opacity = '1';
+                subBubble.style.pointerEvents = 'auto';
+            }
+        });
     });
 });
 
+
 document.querySelectorAll('.sub-bubble').forEach(bubble => {
     bubble.addEventListener('click', function(event) {
-
         console.log('myFunction has been called');
 
         // Remove any existing popups
