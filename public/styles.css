@@ -267,3 +267,137 @@ body {
     font-size: 1em;
     color: #666;
 }
+
+
+
+.carousel {
+    position: relative;
+    max-width: 600px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.carousel-item img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.carousel-control.prev {
+    left: 10px;
+}
+
+.carousel-control.next {
+    right: 10px;
+}
+
+.carousel-indicators {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.indicator {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.indicator.active {
+    background-color: #717171;
+}
+
+
+/* mind map */
+
+.container-mindmap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+.mind-map {
+    position: relative;
+    width: 300px;
+    height: 300px;
+}
+
+.bubble {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: #4CAF50;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.main-bubble {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.sub-bubble {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#subBubble1 {
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#subBubble2 {
+    top: 50%;
+    left: 100%;
+    transform: translate(-50%, -50%);
+}
+
+#subBubble3 {
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#subBubble4 {
+    top: 50%;
+    left: 0;
+    transform: translate(-50%, -50%);
+}
+
+
+
+
+
+
