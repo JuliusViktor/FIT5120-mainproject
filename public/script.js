@@ -36,9 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
     showSlide(currentIndex);
 });
 
-
-
-
 document.getElementById('mainBubble').addEventListener('click', function() {
     const subBubbles = document.querySelectorAll('.sub-bubble');
     subBubbles.forEach(bubble => {
@@ -49,6 +46,41 @@ document.getElementById('mainBubble').addEventListener('click', function() {
             bubble.style.opacity = 0;
             bubble.style.pointerEvents = 'none';
         }
+    });
+});
+
+document.querySelectorAll('.sub-bubble').forEach(bubble => {
+    bubble.addEventListener('click', function(event) {
+
+        console.log('myFunction has been called');
+
+        // Remove any existing popups
+        document.querySelectorAll('.popup').forEach(popup => popup.remove());
+
+        // Get the position of the clicked bubble
+        const rect = bubble.getBoundingClientRect();
+
+        // Create a new popup
+        const popup = document.createElement('div');
+        popup.classList.add('popup');
+        popup.style.position = 'absolute'; // Ensure the popup is positioned absolutely
+        popup.style.top = `${rect.top + window.scrollY}px`; // Adjust for any scrolling
+        popup.style.left = `${rect.left + window.scrollX}px`; // Adjust for any scrolling
+
+        // Add close button
+        const closeBtn = document.createElement('div');
+        closeBtn.classList.add('close-btn');
+        closeBtn.innerHTML = '&times;';
+        closeBtn.addEventListener('click', () => popup.remove());
+
+        // Add content to popup
+        const content = document.createElement('div');
+        content.innerText = 'This is a popup';
+
+        // Append elements
+        popup.appendChild(closeBtn);
+        popup.appendChild(content);
+        document.body.appendChild(popup);
     });
 });
 
