@@ -518,7 +518,7 @@ body {
     font-size: 18px;
 }
 
-/* role model */
+/* Role model section styling */
 
 .role-models-section {
     display: flex;
@@ -536,6 +536,23 @@ body {
     box-sizing: border-box;
     overflow-y: auto;
 }
+
+.rounded-box {
+    background-color: #e0e0e0; /* Same background color as .role-model */
+    border-radius: 15px; 
+    padding: 20px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    transition: background-color 0.3s; /* Add transition effect */
+    margin-top: 20px;    /* Top margin */
+    margin-right: 15px;  /* Right margin */
+    margin-bottom: 25px; /* Bottom margin */
+    margin-left: 10px;   /* Left margin */
+}
+
+.rounded-box:hover {
+    background-color: #d0d0d0; /* Same background color as .role-model:hover */
+}
+
 
 .role-model {
     background-color: #e0e0e0;
