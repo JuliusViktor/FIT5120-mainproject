@@ -167,3 +167,17 @@ function getChartData(bubbleId) {
         }]
     };
 }
+
+
+
+
+function showDetails(modelId) {
+    // Hide all details
+    const details = document.querySelectorAll('.details');
+    details.forEach(detail => detail.classList.remove('active'));
+
+    // Show the selected model's details
+    const selectedDetail = document.getElementById(modelId);
+    selectedDetail.classList.add('active');
+}
+
