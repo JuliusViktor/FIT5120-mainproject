@@ -530,14 +530,18 @@ body {
     overflow: hidden;
 }
 
-.left-window, .right-window {
+.left-window {
     width: 50%;
     padding: 20px;
     box-sizing: border-box;
     overflow-y: auto;
 }
 
-.rounded-box {
+.right-window {
+    width: 50%;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
     background-color: #e0e0e0; /* Same background color as .role-model */
     border-radius: 15px; 
     padding: 20px; 
@@ -547,10 +551,6 @@ body {
     margin-right: 15px;  /* Right margin */
     margin-bottom: 25px; /* Bottom margin */
     margin-left: 10px;   /* Left margin */
-}
-
-.rounded-box:hover {
-    background-color: #d0d0d0; /* Same background color as .role-model:hover */
 }
 
 
@@ -586,7 +586,7 @@ body {
 }
 
 .details img {
-    width: 60%;
+    width: 100%;
     border-radius: 10px;
     margin-bottom: 20px;
 }
