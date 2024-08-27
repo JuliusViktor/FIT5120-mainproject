@@ -203,6 +203,94 @@ function getInfoContent(bubbleId) {
 
 
 
+/* role model */
+document.querySelectorAll('.role-model').forEach(roleModel => {
+    roleModel.addEventListener('click', function() {
+        const roleId = this.getAttribute('data-id');
+        showRoleModelPopup(roleId);
+    });
+});
+
+function showRoleModelPopup(roleId) {
+    // Remove any existing role model popups
+    document.querySelectorAll('.role-model-popup').forEach(popup => popup.remove());
+
+    // Get the role model data
+    const roleModelData = getRoleModelData(roleId);
+
+    // Create a new popup
+    const popup = document.createElement('div');
+    popup.classList.add('role-model-popup');
+
+    // Add close button
+    const closeBtn = document.createElement('div');
+    closeBtn.classList.add('close-btn');
+    closeBtn.innerHTML = '&times;';
+    closeBtn.addEventListener('click', () => popup.remove());
+
+    // Add content to popup
+    const content = document.createElement('div');
+    content.classList.add('popup-content');
+    content.innerHTML = `
+        <img src="${roleModelData.image}" alt="${roleModelData.name}">
+        <h2>${roleModelData.name}</h2>
+        <ul>${roleModelData.details.map(detail => `<li>${detail}</li>`).join('')}</ul>
+    `;
+
+    // Append elements
+    popup.appendChild(closeBtn);
+    popup.appendChild(content);
+    document.body.appendChild(popup);
+}
+
+function getRoleModelData(roleId) {
+    const data = {
+        '1': {
+            image: './images/100467-engineering-student-56.jpeg',
+            name: 'Role Model 1',
+            details: [
+                'Expert in Artificial Intelligence and Machine Learning.',
+                'Pioneered research in neural networks.',
+                'Published over 50 papers in top-tier journals.',
+                'Recipient of the Turing Award.',
+                'Developed algorithms that revolutionized data processing.',
+                'Mentored over 30 PhD students.',
+                'Advocate for diversity in tech.',
+                'Grew up in a small town with limited access to technology, but persevered through self-study and online courses to become a leading figure in AI.'
+            ]
+        },
+        '2': {
+            image: './images/100467-engineering-student-56.jpeg',
+            name: 'Role Model 2',
+            details: [
+                'Renowned Astrophysicist and Cosmologist.',
+                'Discovered new exoplanets and contributed to the understanding of dark matter.',
+                'Author of several bestselling science books.',
+                'Keynote speaker at international science conferences.',
+                'Developed innovative methods for space observation.',
+                'Collaborated with NASA on multiple missions.',
+                'Promoter of science education and outreach programs.',
+                'Overcame early academic struggles and a lack of resources, eventually earning a PhD from a prestigious university and becoming a leading voice in astrophysics.'
+            ]
+        },
+        '3': {
+            image: './images/100467-engineering-student-56.jpeg',
+            name: 'Role Model 3',
+            details: [
+                'Innovative Biomedical Engineer.',
+                'Developed cutting-edge medical devices that save lives.',
+                'Holds multiple patents in medical technology.',
+                'Founder of a successful biotech startup.',
+                'Recipient of numerous innovation awards.',
+                'Published influential research in biomedical engineering.',
+                'Active in promoting women in STEM fields.',
+                'Faced significant challenges as a woman in a male-dominated field, but her determination and passion for improving healthcare led her to break barriers and inspire others.'
+            ]
+        }
+    };
+
+    return data[roleId] || {};
+}
 
 
 
