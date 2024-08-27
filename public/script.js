@@ -58,8 +58,8 @@ document.querySelectorAll('.sub-bubble').forEach(bubble => {
     bubble.addEventListener('click', function(event) {
         console.log('myFunction has been called');
 
-        // Remove any existing popups
-        document.querySelectorAll('.popup').forEach(popup => popup.remove());
+        // Remove any existing sub-bubble popups
+        document.querySelectorAll('.popup.sub-bubble-popup').forEach(popup => popup.remove());
 
         // Get the position of the clicked bubble
         const rect = bubble.getBoundingClientRect();
@@ -67,7 +67,7 @@ document.querySelectorAll('.sub-bubble').forEach(bubble => {
 
         // Create a new popup
         const popup = document.createElement('div');
-        popup.classList.add('popup');
+        popup.classList.add('popup', 'sub-bubble-popup');
 
         // Calculate the position of the popup
         let top = rect.top + window.scrollY;
