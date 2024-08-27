@@ -255,69 +255,6 @@ body {
     text-align: left;
 }
 
-/* benefits */
-
-.stem-benefits {
-    padding: 20px;
-    background-color: #f9f9f9;
-    text-align: center;
-}
-
-.stem-benefits h2 {
-    font-size: 2em;
-    margin-bottom: 20px;
-    color: #333;
-
-}
-
-.benefits-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0; /* Remove gap between items */
-}
-
-.benefit-item {
-    background-color: #fff;
-    border: 1px solid #ddd; /* Add border to make it rectangular */
-    padding: 20px;
-    width: 100%; /* Make each benefit item a full-width banner */
-    text-align: left;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    box-shadow: none; /* Remove box shadow */
-    border-radius: 0; /* Remove border radius */
-}
-
-/* Different background colors for each benefit item */
-.benefit-item:nth-child(1) {
-    background-color: #95e1d3; /* Dark red */
-}
-
-.benefit-item:nth-child(2) {
-    background-color: #eaffd0; /* Dark green */
-}
-
-.benefit-item:nth-child(3) {
-    background-color: #fce38a; /* Dark blue */
-}
-
-.benefit-item:nth-child(4) {
-    background-color: #f38181; /* Dark yellow */
-}
-
-
-
-.benefit-item h3 {
-    font-size: 2em; /* Increase font size */
-    margin: 0;
-    color: #fff; /* Change text color to white */
-}
-
-.benefit-item p {
-    font-size: 1em;
-    color: #666;
-}
 
 
 /* carousel */
@@ -476,6 +413,11 @@ body {
     width: 120px; /* Adjusted width */
     height: 120px; /* Adjusted height */
 }
+
+.main-bubble:hover {
+    transform: translate(-50%, -50%) scale(1.1); /* Ensure it scales in place */
+}
+
 
 .sub-bubble {
     opacity: 0;
