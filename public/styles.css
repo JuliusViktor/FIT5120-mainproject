@@ -1,9 +1,11 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    margin: 0;
+    margin: 20px; 
     padding: 0;
+    background-color: #f0f0f0; 
 }
+
 
 /* login */
 .login-container {
@@ -441,15 +443,15 @@ body {
 
 .mind-map {
     position: relative;
-    width: 300px;
-    height: 300px;
-    margin: 60px; /* Add some margin between mind maps */
+    width: 250px; /* Adjusted width */
+    height: 250px; /* Adjusted height */
+    margin: 40px; /* Reduced margin */
 }
 
 .bubble {
     position: absolute;
-    width: 100px;
-    height: 100px;
+    width: 80px; /* Adjusted width */
+    height: 80px; /* Adjusted height */
     background: linear-gradient(145deg, #6a3d6a, #9b5e9b);
     border-radius: 50%;
     display: flex;
@@ -471,8 +473,8 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     background: linear-gradient(145deg, #C8a1e0, #7b85be);
-    width: 150px; 
-    height: 150px; 
+    width: 120px; /* Adjusted width */
+    height: 120px; /* Adjusted height */
 }
 
 .sub-bubble {

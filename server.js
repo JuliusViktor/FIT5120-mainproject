@@ -3,7 +3,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const app = express();
-const port = 80;
+const port = 3000;
 
 // Use body-parser middleware to parse JSON request bodies
 app.use(bodyParser.json());
@@ -45,7 +45,7 @@ function isAuthenticated(req, res, next) {
   }
 }
 
-//  protected homepage
+// Serve the protected homepage
 app.get('/homepage.html', isAuthenticated, (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'homepage.html'));
 });
