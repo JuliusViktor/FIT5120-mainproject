@@ -8,7 +8,7 @@ const port = 3000;
 // Use body-parser middleware to parse JSON request bodies
 app.use(bodyParser.json());
 
-// Use express-session middleware to manage sessions
+// Use the express-session middleware to manage sessions
 app.use(session({
   secret: 'secret_key',
   resave: false,
