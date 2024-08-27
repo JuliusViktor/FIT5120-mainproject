@@ -207,120 +207,10 @@ body {
     text-decoration: underline;
 }
 
-/* Skill */
-.skills-section {
-    text-align: center;
-    padding: 2rem;
-    background-color: #fff;
-}
-
-.skills-section h1 {
-    font-size: 3rem;
-    margin-bottom: 1.5rem;
-}
-
-.skills-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 1rem; /* Add padding to the container */
-    max-width: 100%; /* Ensure the parent container is wide enough */
-    box-sizing: border-box; /* Ensure padding is included in the width */
-}
-
-.skill-box {
-    background-color: #e0e0e0;
-    border-radius: 15px;
-    padding: 1rem;
-    margin: 1.5rem; /* Add spacing between skill-boxes */
-    width: calc(50% - 3rem); /* Each skill-box takes up 50% of the width, minus the margin */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    box-sizing: border-box; /* Ensure padding and border are included in the width */
-}
-
-.skill-box img {
-    max-width: 100%;
-    border-radius: 10px;
-}
-
-.skill-box h2 {
-    font-size: 1.5rem;
-    margin: 1rem 0;
-}
-
-.skill-box p {
-    font-size: 1rem;
-    color: #333;
-    text-align: left;
-}
-
-/* benefits */
-
-.stem-benefits {
-    padding: 20px;
-    background-color: #f9f9f9;
-    text-align: center;
-}
-
-.stem-benefits h2 {
-    font-size: 2em;
-    margin-bottom: 20px;
-    color: #333;
-
-}
-
-.benefits-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0; /* Remove gap between items */
-}
-
-.benefit-item {
-    background-color: #fff;
-    border: 1px solid #ddd; /* Add border to make it rectangular */
-    padding: 20px;
-    width: 100%; /* Make each benefit item a full-width banner */
-    text-align: left;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    box-shadow: none; /* Remove box shadow */
-    border-radius: 0; /* Remove border radius */
-}
-
-/* Different background colors for each benefit item */
-.benefit-item:nth-child(1) {
-    background-color: #95e1d3; /* Dark red */
-}
-
-.benefit-item:nth-child(2) {
-    background-color: #eaffd0; /* Dark green */
-}
-
-.benefit-item:nth-child(3) {
-    background-color: #fce38a; /* Dark blue */
-}
-
-.benefit-item:nth-child(4) {
-    background-color: #f38181; /* Dark yellow */
-}
 
 
 
-.benefit-item h3 {
-    font-size: 2em; /* Increase font size */
-    margin: 0;
-    color: #fff; /* Change text color to white */
-}
-
-.benefit-item p {
-    font-size: 1em;
-    color: #666;
-}
-
-
-/* carousel */
+/* carousel: rolling slides, The Benefits of Pursuing STEM */
 .carousel {
     position: relative;
     max-width: 800px; 
@@ -419,9 +309,8 @@ body {
 }
 
 
-
-
 /* bubble mind map */
+
 .container-mindmap {
     display: flex;
     justify-content: center;
@@ -439,6 +328,15 @@ body {
     background-color: rgba(0, 0, 0, 0.1); /* Optional: Add a background color */
     color: white; /* Optional: Change text color */
     font-size: 50px;
+}
+
+.container-mindmap .description {
+    width: 100%; /* Make the description take the full width */
+    text-align: center; 
+    margin: 0; 
+    padding: 10px 0; 
+    color: white; 
+    font-size: 20px; 
 }
 
 .mind-map {
@@ -481,7 +379,6 @@ body {
     transform: translate(-50%, -50%) scale(1.1); /* Ensure it scales in place */
 }
 
-
 .sub-bubble {
     opacity: 0;
     pointer-events: none;
@@ -496,27 +393,18 @@ body {
 }
 
 #subBubble1-2, #subBubble2-2, #subBubble3-2, #subBubble4-2 {
-    top: 50%;
-    left: 100%;
-    transform: translate(-50%, -50%);
-}
-
-#subBubble1-3, #subBubble2-3, #subBubble3-3, #subBubble4-3 {
-    top: 100%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-#subBubble1-4, #subBubble2-4, #subBubble3-4, #subBubble4-4 {
-    top: 50%;
+    top: 75%;
     left: 0;
     transform: translate(-50%, -50%);
 }
 
+#subBubble1-3, #subBubble2-3, #subBubble3-3, #subBubble4-3 {
+    top: 75%;
+    left: 100%;
+    transform: translate(-50%, -50%);
+}
 
-
-
-/* popup windows */
+/* popup windows of sub-bubbles*/
 
 .popup {
     position: absolute;
@@ -556,7 +444,6 @@ body {
     background-color: #4f9965;
 }
 
-
 .popup-content {
     text-align: center;
     color: #fff;
@@ -564,81 +451,129 @@ body {
     font-size: 18px;
 }
 
-/* Role model section styling */
 
+
+
+/* Role model section styles */
 .role-models-section {
-    display: flex;
-    width: 100%;
-    height: 80%;
-    background-color: #8a478a;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.left-window {
-    width: 50%;
+    background-color: purple;
     padding: 20px;
-    box-sizing: border-box;
-    overflow-y: auto;
+    color: white;
 }
-
-.right-window {
-    width: 50%;
-    padding: 20px;
-    box-sizing: border-box;
-    overflow-y: auto;
-    background-color: #e0e0e0; /* Same background color as .role-model */
-    border-radius: 15px; 
-    padding: 20px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    transition: background-color 0.3s; /* Add transition effect */
-    margin-top: 20px;    /* Top margin */
-    margin-right: 15px;  /* Right margin */
-    margin-bottom: 25px; /* Bottom margin */
-    margin-left: 10px;   /* Left margin */
+.role-models-section h1 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 10px;
 }
-
-
+.role-models-section p.description {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
 .role-model {
-    background-color: #e0e0e0;
-    border-radius: 10px;
+    display: flex;
+    background-color: white;
+    border-radius: 15px;
+    margin: 10px 0;
     padding: 20px;
-    margin-bottom: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    color: black;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
 }
-
 .role-model:hover {
-    background-color: #d0d0d0;
+    background-color: lightgray; 
 }
-
 .role-model img {
-    width: 50%;
-    height: 100%;
-    border-radius: 10px;
+    width: 33%;
+    border-radius: 15px 0 0 15px; 
 }
-
-.role-model h3 {
-    margin: 10px 0 5px;
+.role-model-content {
+    width: 67%;
+    padding-left: 20px;
 }
-
-.role-model p {
+.role-model-content h2 {
     margin: 0;
+    font-size: 24px;
+}
+.role-model-content ul {
+    margin: 5px 0 0 0;
+    padding-left: 20px;
+}
+.role-model-content ul li {
+    margin-bottom: 5px;
 }
 
-.details {
-    display: none;
+/* Role model popup styles */
+.role-model-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 700px;
+    background: linear-gradient(135deg, #aa75b4 0%, #c7b3c3 100%);
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1000;
+    border-radius: 15px;
+    padding: 20px;
+    transition: transform 0.3s ease-in-out;
+    overflow-y: auto; /* Add scroll if content overflows */
 }
 
-.details img {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 20px;
+.role-model-popup img {
+    width: 200px; /* Increase the size of the image */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 20px; /* Increase margin for better spacing */
+    margin: 0 auto; /* Center the image */
+    max-width: 100%; /* Ensure the image does not overflow */
 }
 
-.details.active {
-    display: block;
+.role-model-popup h2 {
+    font-size: 36px; /* Increase font size */
+    margin-bottom: 20px; /* Increase margin for better spacing */
+    color: #fff; /* Change text color to white */
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Change font family */
+}
+
+.role-model-popup ul {
+    list-style: none;
+    padding: 0;
+    color: #fff; /* Change text color to white */
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Change font family */
+}
+
+.role-model-popup ul li {
+    margin-bottom: 10px; /* Increase margin for better spacing */
+    font-size: 18px; /* Increase font size for better readability */
+}
+
+.role-model-popup .close-btn {
+    align-self: flex-end;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 20px;
+    color: #fff;
+    background-color: #ff6b6b;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.role-model-popup .close-btn:hover {
+    background-color: #4f9965;
 }
 
 

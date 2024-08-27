@@ -52,13 +52,14 @@ document.querySelectorAll('.main-bubble').forEach(mainBubble => {
     });
 });
 
+/* bubble map */
 
 document.querySelectorAll('.sub-bubble').forEach(bubble => {
     bubble.addEventListener('click', function(event) {
         console.log('myFunction has been called');
 
-        // Remove any existing popups
-        document.querySelectorAll('.popup').forEach(popup => popup.remove());
+        // Remove any existing sub-bubble popups
+        document.querySelectorAll('.popup.sub-bubble-popup').forEach(popup => popup.remove());
 
         // Get the position of the clicked bubble
         const rect = bubble.getBoundingClientRect();
@@ -66,7 +67,7 @@ document.querySelectorAll('.sub-bubble').forEach(bubble => {
 
         // Create a new popup
         const popup = document.createElement('div');
-        popup.classList.add('popup');
+        popup.classList.add('popup', 'sub-bubble-popup');
 
         // Calculate the position of the popup
         let top = rect.top + window.scrollY;
@@ -97,27 +98,36 @@ document.querySelectorAll('.sub-bubble').forEach(bubble => {
 
         // Add content to popup
         const content = document.createElement('div');
-        content.innerHTML = '<canvas id="chartCanvas" width="400" height="400"></canvas>';
+        content.classList.add('popup-content');
+
+        if (bubble.innerText === 'Info') {
+            const infoContent = getInfoContent(bubble.id);
+            content.innerHTML = `<ul>${infoContent}</ul>`;
+        } else {
+            content.innerHTML = '<canvas id="chartCanvas" width="400" height="400"></canvas>';
+        }
 
         // Append elements
         popup.appendChild(closeBtn);
         popup.appendChild(content);
         document.body.appendChild(popup);
 
-        // Create chart
-        const ctx = document.getElementById('chartCanvas').getContext('2d');
-        const chartData = getChartData(bubble.id);
-        new Chart(ctx, {
-            type: 'bar',
-            data: chartData,
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
+        if (bubble.innerText !== 'Info') {
+            // Create chart
+            const ctx = document.getElementById('chartCanvas').getContext('2d');
+            const chartData = getChartData(bubble.id);
+            new Chart(ctx, {
+                type: 'bar',
+                data: chartData,
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
                     }
                 }
-            }
-        });
+            });
+        }
     });
 });
 
@@ -127,19 +137,15 @@ function getChartData(bubbleId) {
         'subBubble1-1': [12, 19, 3, 5, 2, 3],
         'subBubble1-2': [5, 10, 15, 20, 25, 30],
         'subBubble1-3': [7, 14, 21, 28, 35, 42],
-        'subBubble1-4': [3, 6, 9, 12, 15, 18],
         'subBubble2-1': [10, 20, 30, 40, 50, 60],
         'subBubble2-2': [8, 16, 24, 32, 40, 48],
         'subBubble2-3': [6, 12, 18, 24, 30, 36],
-        'subBubble2-4': [4, 8, 12, 16, 20, 24],
         'subBubble3-1': [2, 4, 6, 8, 10, 12],
         'subBubble3-2': [1, 2, 3, 4, 5, 6],
         'subBubble3-3': [9, 18, 27, 36, 45, 54],
-        'subBubble3-4': [11, 22, 33, 44, 55, 66],
         'subBubble4-1': [13, 26, 39, 52, 65, 78],
         'subBubble4-2': [14, 28, 42, 56, 70, 84],
         'subBubble4-3': [15, 30, 45, 60, 75, 90],
-        'subBubble4-4': [16, 32, 48, 64, 80, 96]
     };
 
     return {
@@ -168,16 +174,123 @@ function getChartData(bubbleId) {
     };
 }
 
+function getInfoContent(bubbleId) {
+    const info = {
+        'subBubble1-1': `
+            <li>Mathematics is the study of numbers, shapes, and patterns.</li>
+            <li>It is essential for various fields including science, engineering, and finance.</li>
+            <li>Mathematicians use mathematical theories and techniques to solve practical problems.</li>
+        `,
+        'subBubble2-1': `
+            <li>Engineering involves the application of science and math to solve problems.</li>
+            <li>Engineers design, build, and maintain structures, machines, and systems.</li>
+            <li>There are various branches of engineering including civil, mechanical, and electrical.</li>
+        `,
+        'subBubble3-1': `
+            <li>Technology refers to the use of scientific knowledge for practical purposes.</li>
+            <li>It includes the development and use of tools, machines, and systems.</li>
+            <li>Technology plays a crucial role in modern society, impacting various industries.</li>
+        `,
+        'subBubble4-1': `
+            <li>Science is the systematic study of the natural world through observation and experimentation.</li>
+            <li>It aims to understand how the universe works and to develop new knowledge.</li>
+            <li>Scientific research is essential for technological advancements and societal progress.</li>
+        `
+    };
 
-
-
-function showDetails(modelId) {
-    // Hide all details
-    const details = document.querySelectorAll('.details');
-    details.forEach(detail => detail.classList.remove('active'));
-
-    // Show the selected model's details
-    const selectedDetail = document.getElementById(modelId);
-    selectedDetail.classList.add('active');
+    return info[bubbleId] || '<li>No information available.</li>';
 }
+
+
+
+/* role model */
+document.querySelectorAll('.role-model').forEach(roleModel => {
+    roleModel.addEventListener('click', function() {
+        const roleId = this.getAttribute('data-id');
+        showRoleModelPopup(roleId);
+    });
+});
+
+function showRoleModelPopup(roleId) {
+    // Remove any existing role model popups
+    document.querySelectorAll('.role-model-popup').forEach(popup => popup.remove());
+
+    // Get the role model data
+    const roleModelData = getRoleModelData(roleId);
+
+    // Create a new popup
+    const popup = document.createElement('div');
+    popup.classList.add('role-model-popup');
+
+    // Add close button
+    const closeBtn = document.createElement('div');
+    closeBtn.classList.add('close-btn');
+    closeBtn.innerHTML = '&times;';
+    closeBtn.addEventListener('click', () => popup.remove());
+
+    // Add content to popup
+    const content = document.createElement('div');
+    content.classList.add('popup-content');
+    content.innerHTML = `
+        <img src="${roleModelData.image}" alt="${roleModelData.name}">
+        <h2>${roleModelData.name}</h2>
+        <ul>${roleModelData.details.map(detail => `<li>${detail}</li>`).join('')}</ul>
+    `;
+
+    // Append elements
+    popup.appendChild(closeBtn);
+    popup.appendChild(content);
+    document.body.appendChild(popup);
+}
+
+function getRoleModelData(roleId) {
+    const data = {
+        '1': {
+            image: './images/100467-engineering-student-56.jpeg',
+            name: 'Role Model 1',
+            details: [
+                'Expert in Artificial Intelligence and Machine Learning.',
+                'Pioneered research in neural networks.',
+                'Published over 50 papers in top-tier journals.',
+                'Recipient of the Turing Award.',
+                'Developed algorithms that revolutionized data processing.',
+                'Mentored over 30 PhD students.',
+                'Advocate for diversity in tech.',
+                'Grew up in a small town with limited access to technology, but persevered through self-study and online courses to become a leading figure in AI.'
+            ]
+        },
+        '2': {
+            image: './images/100467-engineering-student-56.jpeg',
+            name: 'Role Model 2',
+            details: [
+                'Renowned Astrophysicist and Cosmologist.',
+                'Discovered new exoplanets and contributed to the understanding of dark matter.',
+                'Author of several bestselling science books.',
+                'Keynote speaker at international science conferences.',
+                'Developed innovative methods for space observation.',
+                'Collaborated with NASA on multiple missions.',
+                'Promoter of science education and outreach programs.',
+                'Overcame early academic struggles and a lack of resources, eventually earning a PhD from a prestigious university and becoming a leading voice in astrophysics.'
+            ]
+        },
+        '3': {
+            image: './images/100467-engineering-student-56.jpeg',
+            name: 'Role Model 3',
+            details: [
+                'Innovative Biomedical Engineer.',
+                'Developed cutting-edge medical devices that save lives.',
+                'Holds multiple patents in medical technology.',
+                'Founder of a successful biotech startup.',
+                'Recipient of numerous innovation awards.',
+                'Published influential research in biomedical engineering.',
+                'Active in promoting women in STEM fields.',
+                'Faced significant challenges as a woman in a male-dominated field, but her determination and passion for improving healthcare led her to break barriers and inspire others.'
+            ]
+        }
+    };
+
+    return data[roleId] || {};
+}
+
+
 
