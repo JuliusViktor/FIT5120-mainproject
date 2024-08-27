@@ -477,6 +477,11 @@ body {
     height: 120px; /* Adjusted height */
 }
 
+.main-bubble:hover {
+    transform: translate(-50%, -50%) scale(1.1); /* Ensure it scales in place */
+}
+
+
 .sub-bubble {
     opacity: 0;
     pointer-events: none;
