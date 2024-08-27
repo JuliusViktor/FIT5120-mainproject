@@ -52,6 +52,7 @@ document.querySelectorAll('.main-bubble').forEach(mainBubble => {
     });
 });
 
+/* bubble map */
 
 document.querySelectorAll('.sub-bubble').forEach(bubble => {
     bubble.addEventListener('click', function(event) {
@@ -97,27 +98,36 @@ document.querySelectorAll('.sub-bubble').forEach(bubble => {
 
         // Add content to popup
         const content = document.createElement('div');
-        content.innerHTML = '<canvas id="chartCanvas" width="400" height="400"></canvas>';
+        content.classList.add('popup-content');
+
+        if (bubble.innerText === 'Info') {
+            const infoContent = getInfoContent(bubble.id);
+            content.innerHTML = `<ul>${infoContent}</ul>`;
+        } else {
+            content.innerHTML = '<canvas id="chartCanvas" width="400" height="400"></canvas>';
+        }
 
         // Append elements
         popup.appendChild(closeBtn);
         popup.appendChild(content);
         document.body.appendChild(popup);
 
-        // Create chart
-        const ctx = document.getElementById('chartCanvas').getContext('2d');
-        const chartData = getChartData(bubble.id);
-        new Chart(ctx, {
-            type: 'bar',
-            data: chartData,
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
+        if (bubble.innerText !== 'Info') {
+            // Create chart
+            const ctx = document.getElementById('chartCanvas').getContext('2d');
+            const chartData = getChartData(bubble.id);
+            new Chart(ctx, {
+                type: 'bar',
+                data: chartData,
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
                     }
                 }
-            }
-        });
+            });
+        }
     });
 });
 
@@ -162,6 +172,33 @@ function getChartData(bubbleId) {
             borderWidth: 1
         }]
     };
+}
+
+function getInfoContent(bubbleId) {
+    const info = {
+        'subBubble1-1': `
+            <li>Mathematics is the study of numbers, shapes, and patterns.</li>
+            <li>It is essential for various fields including science, engineering, and finance.</li>
+            <li>Mathematicians use mathematical theories and techniques to solve practical problems.</li>
+        `,
+        'subBubble2-1': `
+            <li>Engineering involves the application of science and math to solve problems.</li>
+            <li>Engineers design, build, and maintain structures, machines, and systems.</li>
+            <li>There are various branches of engineering including civil, mechanical, and electrical.</li>
+        `,
+        'subBubble3-1': `
+            <li>Technology refers to the use of scientific knowledge for practical purposes.</li>
+            <li>It includes the development and use of tools, machines, and systems.</li>
+            <li>Technology plays a crucial role in modern society, impacting various industries.</li>
+        `,
+        'subBubble4-1': `
+            <li>Science is the systematic study of the natural world through observation and experimentation.</li>
+            <li>It aims to understand how the universe works and to develop new knowledge.</li>
+            <li>Scientific research is essential for technological advancements and societal progress.</li>
+        `
+    };
+
+    return info[bubbleId] || '<li>No information available.</li>';
 }
 
 
