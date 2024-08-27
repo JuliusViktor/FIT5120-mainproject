@@ -127,19 +127,15 @@ function getChartData(bubbleId) {
         'subBubble1-1': [12, 19, 3, 5, 2, 3],
         'subBubble1-2': [5, 10, 15, 20, 25, 30],
         'subBubble1-3': [7, 14, 21, 28, 35, 42],
-        'subBubble1-4': [3, 6, 9, 12, 15, 18],
         'subBubble2-1': [10, 20, 30, 40, 50, 60],
         'subBubble2-2': [8, 16, 24, 32, 40, 48],
         'subBubble2-3': [6, 12, 18, 24, 30, 36],
-        'subBubble2-4': [4, 8, 12, 16, 20, 24],
         'subBubble3-1': [2, 4, 6, 8, 10, 12],
         'subBubble3-2': [1, 2, 3, 4, 5, 6],
         'subBubble3-3': [9, 18, 27, 36, 45, 54],
-        'subBubble3-4': [11, 22, 33, 44, 55, 66],
         'subBubble4-1': [13, 26, 39, 52, 65, 78],
         'subBubble4-2': [14, 28, 42, 56, 70, 84],
         'subBubble4-3': [15, 30, 45, 60, 75, 90],
-        'subBubble4-4': [16, 32, 48, 64, 80, 96]
     };
 
     return {
@@ -171,13 +167,5 @@ function getChartData(bubbleId) {
 
 
 
-function showDetails(modelId) {
-    // Hide all details
-    const details = document.querySelectorAll('.details');
-    details.forEach(detail => detail.classList.remove('active'));
 
-    // Show the selected model's details
-    const selectedDetail = document.getElementById(modelId);
-    selectedDetail.classList.add('active');
-}
 
