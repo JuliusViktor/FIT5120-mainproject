@@ -509,8 +509,8 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 700px;
-    height: 700px;
+    width: 600px;
+    height: 600px;
     background: linear-gradient(135deg, #aa75b4 0%, #c7b3c3 100%);
     border: 1px solid #ccc;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
