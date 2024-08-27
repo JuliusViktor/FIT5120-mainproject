@@ -45,7 +45,7 @@ function isAuthenticated(req, res, next) {
   }
 }
 
-// Serve the protected homepage
+//  protected homepage
 app.get('/homepage.html', isAuthenticated, (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'homepage.html'));
 });
