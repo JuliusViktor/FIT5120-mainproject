@@ -3,7 +3,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const app = express();
-const port = 3000;
+const port = 80;
 
 // Use body-parser middleware to parse JSON request bodies
 app.use(bodyParser.json());
