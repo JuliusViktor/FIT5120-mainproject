@@ -123,14 +123,14 @@ body {
 .title h1 {
     font-size: 3rem; /* title size */
     margin-bottom: 10px; /* adjust this value to reduce the gap */
-    color: black; /* text color */
+    color: white; /* text color */
     font-weight: bold; /* make text bold */
 }
 
 .title h2 {
     font-size: 2rem; 
     margin-top: 0; /* remove any top margin */
-    color: black; /* text color */
+    color: white;  /* text color */
     font-weight: bold; /* make text bold */
 }
 
@@ -212,7 +212,6 @@ body {
 
 
 
-/* carousel: rolling slides, The Benefits of Pursuing STEM */
 .carousel {
     position: relative;
     max-width: 800px; 
@@ -231,7 +230,7 @@ body {
 }
 
 .carousel-item {
-    min-width: 100%;
+    min-width: 33.33%; /* 每个块占据三分之一的宽度 */
     box-sizing: border-box;
     display: flex;
     flex-direction: column;

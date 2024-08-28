@@ -3,21 +3,27 @@ let currentIndex = 0;
 function showSlide(index) {
     const slides = document.querySelectorAll('.carousel-item');
     const indicators = document.querySelectorAll('.indicator');
-    
-    if (index >= slides.length) {
-        currentIndex = 0;
+    const totalSlides = slides.length;
+    const visibleSlides = 3; // block 
+
+    if (index >= totalSlides - visibleSlides + 1) {
+        currentIndex = totalSlides - visibleSlides;
     } else if (index < 0) {
-        currentIndex = slides.length - 1;
+        currentIndex = 0;
     } else {
         currentIndex = index;
     }
 
-    slides.forEach((slide, i) => {
-        slide.style.transform = `translateX(-${currentIndex * 100}%)`;
-        indicators[i].classList.remove('active');
-    });
+    const offset = -currentIndex * (100 / visibleSlides);
+    document.querySelector('.carousel-inner').style.transform = `translateX(${offset}%)`;
 
-    indicators[currentIndex].classList.add('active');
+    indicators.forEach((indicator, i) => {
+        if (i >= currentIndex && i < currentIndex + visibleSlides) {
+            indicator.classList.add('active');
+        } else {
+            indicator.classList.remove('active');
+        }
+    });
 }
 
 function nextSlide() {
@@ -35,6 +41,7 @@ function currentSlide(index) {
 document.addEventListener('DOMContentLoaded', () => {
     showSlide(currentIndex);
 });
+
 
 document.querySelectorAll('.main-bubble').forEach(mainBubble => {
     mainBubble.addEventListener('click', function() {
