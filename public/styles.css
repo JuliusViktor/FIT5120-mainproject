@@ -109,30 +109,31 @@ body {
     padding-top: 100px; 
     flex-direction: column;
     align-items: center;
-    height: 1000px; /* change the height if needed */
+    height: 600px; /* change the height if needed */
     background-color: rgb(82, 50, 82); 
     color: white;
     text-align: center;
     background-image: url('path/to/your/image.jpg'); /* replace this with your image path */
     background-size: cover;
     background-position: center;
-    padding-left: 20px; /* Add padding to the left */
-    padding-right: 20px; /* Add padding to the right */
+    padding-left: 50px; /* Add padding to the left */
+    padding-right: 50px; /* Add padding to the right */
 }
 
 .title h1 {
-    font-size: 5rem; /* title size */
+    font-size: 3rem; /* title size */
     margin-bottom: 10px; /* adjust this value to reduce the gap */
-    -webkit-text-stroke: 5px black; /* 5-pixel black outline */
-    color: white; /* text fill color */
+    color: black; /* text color */
+    font-weight: bold; /* make text bold */
 }
 
 .title h2 {
-    font-size: 5rem; 
+    font-size: 2rem; 
     margin-top: 0; /* remove any top margin */
-    -webkit-text-stroke: 5px black; /* 5-pixel black outline */
-    color: white; /* text fill color */
+    color: black; /* text color */
+    font-weight: bold; /* make text bold */
 }
+
 
 
 .stem-intro {
@@ -140,14 +141,14 @@ body {
     padding: 1rem;
     background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
     border-radius: 15px; /* Rounded corners */
-    max-width: 1500px; /* Maximum width */
+    max-width: 1000px; /* Maximum width */
     color: black; /* Text color */
     font-size: 1.5rem;
     text-align: left;
 }
 
 .stem-intro p {
-    margin: 0;
+    margin: 50px;
 }
 
 
@@ -155,14 +156,15 @@ body {
 /* STEM News */
 
 .news-section {
-    padding: 2rem;
+    padding: 6rem;
     background-color: #f4f4f4;
     text-align: center;
 }
 
 .news-section h1 {
     font-size: 3rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0;
 }
 
 .news-container {
@@ -457,7 +459,7 @@ body {
 /* Role model section styles */
 .role-models-section {
     background-color: purple;
-    padding: 20px;
+    padding: 140px;
     color: white;
 }
 .role-models-section h1 {
@@ -474,7 +476,7 @@ body {
     display: flex;
     background-color: white;
     border-radius: 15px;
-    margin: 10px 0;
+    margin: 20px 0;
     padding: 20px;
     color: black;
     font-size: 18px;
@@ -484,9 +486,11 @@ body {
     background-color: lightgray; 
 }
 .role-model img {
-    width: 33%;
+    width: 25%;
+    height: 25%; 
     border-radius: 15px 0 0 15px; 
 }
+
 .role-model-content {
     width: 67%;
     padding-left: 20px;
