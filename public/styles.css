@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    margin: 20px; 
+    margin: 0px; 
     padding: 0;
     background-color: #f0f0f0; 
 }
@@ -211,10 +211,10 @@ body {
 
 
 
-
+/* benefits */
 .carousel {
     position: relative;
-    max-width: 800px; 
+    max-width: 1400px; 
     margin: auto;
     overflow: hidden;
 }
@@ -227,10 +227,12 @@ body {
 .carousel-inner {
     display: flex;
     transition: transform 0.5s ease-in-out;
+    gap: 20px; /* Add spacing */
+    padding: 0 10px; /* Ensure the first and last items are not clipped */
 }
 
 .carousel-item {
-    min-width: 33.33%; /* 每个块占据三分之一的宽度 */
+    min-width: calc(33.33% - 20px); /* Each block occupies one-third of the width, minus the spacing */
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -262,7 +264,7 @@ body {
     background-color: #f0f0f0;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    padding: 10px;
+    padding: 30px;
     box-sizing: border-box;
 }
 
@@ -308,6 +310,7 @@ body {
 .indicator.active {
     background-color: #717171;
 }
+
 
 
 /* bubble mind map */
