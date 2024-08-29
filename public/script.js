@@ -82,7 +82,7 @@ document.querySelectorAll('.sub-bubble').forEach(bubble => {
 
         // Adjust position to ensure the popup is within the container
         if (top + 500 > containerRect.bottom + window.scrollY) {
-            top = containerRect.bottom + window.scrollY - 700;
+            top = containerRect.bottom + window.scrollY - 600;
         }
         if (left + 500 > containerRect.right + window.scrollX) {
             left = containerRect.right + window.scrollX - 700;
@@ -138,47 +138,190 @@ document.querySelectorAll('.sub-bubble').forEach(bubble => {
     });
 });
 
-function getChartData(bubbleId) {
-    // Define different datasets for different bubbles
-    const datasets = {
-        'subBubble1-1': [12, 19, 3, 5, 2, 3],
-        'subBubble1-2': [5, 10, 15, 20, 25, 30],
-        'subBubble1-3': [7, 14, 21, 28, 35, 42],
-        'subBubble2-1': [10, 20, 30, 40, 50, 60],
-        'subBubble2-2': [8, 16, 24, 32, 40, 48],
-        'subBubble2-3': [6, 12, 18, 24, 30, 36],
-        'subBubble3-1': [2, 4, 6, 8, 10, 12],
-        'subBubble3-2': [1, 2, 3, 4, 5, 6],
-        'subBubble3-3': [9, 18, 27, 36, 45, 54],
-        'subBubble4-1': [13, 26, 39, 52, 65, 78],
-        'subBubble4-2': [14, 28, 42, 56, 70, 84],
-        'subBubble4-3': [15, 30, 45, 60, 75, 90],
-    };
+// function getChartData(bubbleId) {
+//     // Define different datasets for different bubbles
+//     const datasets = {
+//         'subBubble1-1': [12, 19, 3, 5, 2, 3],
+//         'subBubble1-2': [5, 10, 15, 20, 25, 30],
+//         'subBubble1-3': [7, 14, 21, 28, 35, 42],
+//         'subBubble2-1': [10, 20, 30, 40, 50, 60],
+//         'subBubble2-2': [8, 16, 24, 32, 40, 48],
+//         'subBubble2-3': [6, 12, 18, 24, 30, 36],
+//         'subBubble3-1': [2, 4, 6, 8, 10, 12],
+//         'subBubble3-2': [1, 2, 3, 4, 5, 6],
+//         'subBubble3-3': [9, 18, 27, 36, 45, 54],
+//         'subBubble4-1': [13, 26, 39, 52, 65, 78],
+//         'subBubble4-2': [14, 28, 42, 56, 70, 84],
+//         'subBubble4-3': [15, 30, 45, 60, 75, 90],
+//     };
 
-    return {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-            label: '# of Votes',
-            data: datasets[bubbleId] || [],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    };
+//     return {
+//         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+//         datasets: [{
+//             label: '# of Votes',
+//             data: datasets[bubbleId] || [],
+//             backgroundColor: [
+//                 'rgba(255, 99, 132, 0.2)',
+//                 'rgba(54, 162, 235, 0.2)',
+//                 'rgba(255, 206, 86, 0.2)',
+//                 'rgba(75, 192, 192, 0.2)',
+//                 'rgba(153, 102, 255, 0.2)',
+//                 'rgba(255, 159, 64, 0.2)'
+//             ],
+//             borderColor: [
+//                 'rgba(255, 99, 132, 1)',
+//                 'rgba(54, 162, 235, 1)',
+//                 'rgba(255, 206, 86, 1)',
+//                 'rgba(75, 192, 192, 1)',
+//                 'rgba(153, 102, 255, 1)',
+//                 'rgba(255, 159, 64, 1)'
+//             ],
+//             borderWidth: 1
+//         }]
+//     };
+// }
+let processed_data_1,processed_data_2,processed_data_3,processed_data_4,processed_data_5,processed_data_6,processed_data_7,processed_data_8;
+
+
+// Load and process the JSON data
+d3.json("Data/1.11engineering_employed.json") // Correct file path here
+    .then(data => {
+        // Process the data
+        processed_data_1 = data.map(d => ({
+            Industry: d.Industry,
+            Year: d.Year,
+            Value: +d.Value
+        }));
+        
+        // Log the processed data inside the .then() to ensure it's loaded
+        console.log(processed_data_1);
+    })
+    .catch(error => {
+        // Handle errors gracefully
+        console.error("Error loading JSON data:", error);
+    });
+
+    d3.json("Data/1.12math_employed.json") // Correct file path here
+    .then(data => {
+        // Process the data
+        processed_data_2 = data.map(d => ({
+            Industry: d.Industry,
+            Year: d.Year,
+            Value: +d.Value
+        }));
+        
+        // Log the processed data inside the .then() to ensure it's loaded
+        console.log(processed_data_1);
+    })
+    .catch(error => {
+        // Handle errors gracefully
+        console.error("Error loading JSON data:", error);
+    });
+
+    d3.json("Data/1.13Science_employed.json") // Correct file path here
+    .then(data => {
+        // Process the data
+        processed_data_3 = data.map(d => ({
+            Industry: d.Industry,
+            Year: d.Year,
+            Value: +d.Value
+        }));
+        
+        // Log the processed data inside the .then() to ensure it's loaded
+        console.log(processed_data_1);
+    })
+    .catch(error => {
+        // Handle errors gracefully
+        console.error("Error loading JSON data:", error);
+    });
+
+    d3.json("Data/1.14tech_employed.json") // Correct file path here
+    .then(data => {
+        // Process the data
+        processed_data_4 = data.map(d => ({
+            Industry: d.Industry,
+            Year: d.Year,
+            Value: +d.Value
+        }));
+        
+        // Log the processed data inside the .then() to ensure it's loaded
+        console.log(processed_data_1);
+    })
+    .catch(error => {
+        // Handle errors gracefully
+        console.error("Error loading JSON data:", error);
+    });
+
+    d3.json("Data/2.11engineering_income.json") // Correct file path here
+    .then(data => {
+        // Process the data
+        processed_data_5 = data.map(d => ({
+            Industry: d.Industry,
+            Year: d.Year,
+            Value: +d.Value
+        }));
+        
+        // Log the processed data inside the .then() to ensure it's loaded
+        console.log(processed_data_1);
+    })
+    .catch(error => {
+        // Handle errors gracefully
+        console.error("Error loading JSON data:", error);
+    });
+
+    d3.json("Data/2.12math_income.json") // Correct file path here
+    .then(data => {
+        // Process the data
+        processed_data_6 = data.map(d => ({
+            Industry: d.Industry,
+            Year: d.Year,
+            Value: +d.Value
+        }));
+        
+        // Log the processed data inside the .then() to ensure it's loaded
+        console.log(processed_data_1);
+    })
+    .catch(error => {
+        // Handle errors gracefully
+        console.error("Error loading JSON data:", error);
+    });
+
+    d3.json("Data/1.12Science_employed.json") // Correct file path here
+    .then(data => {
+        // Process the data
+        processed_data_1 = data.map(d => ({
+            Industry: d.Industry,
+            Year: d.Year,
+            Value: +d.Value
+        }));
+        
+        // Log the processed data inside the .then() to ensure it's loaded
+        console.log(processed_data_1);
+    })
+    .catch(error => {
+        // Handle errors gracefully
+        console.error("Error loading JSON data:", error);
+    });
+
+    d3.json("Data/1.12tech_income.json") // Correct file path here
+    .then(data => {
+        // Process the data
+        processed_data_1 = data.map(d => ({
+            Industry: d.Industry,
+            Year: d.Year,
+            Value: +d.Value
+        }));
+        
+        // Log the processed data inside the .then() to ensure it's loaded
+        console.log(processed_data_1);
+    })
+    .catch(error => {
+        // Handle errors gracefully
+        console.error("Error loading JSON data:", error);
+    });
+
+function drawLinePlot(){
+    
 }
 
 function getInfoContent(bubbleId) {
@@ -253,7 +396,7 @@ function showRoleModelPopup(roleId) {
 function getRoleModelData(roleId) {
     const data = {
         '1': {
-            image: './images/100467-engineering-student-56.jpeg',
+            image: './images/role_model_1.jpg',
             name: 'Role Model 1',
             details: [
                 'Expert in Artificial Intelligence and Machine Learning.',
