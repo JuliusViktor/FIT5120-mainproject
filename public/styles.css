@@ -435,8 +435,8 @@ body {
 
 .popup {
     position: absolute;
-    width: 500px;
-    height: 500px;
+    width: auto;
+    height: auto;
     background: linear-gradient(135deg, #aa75b4 0%, #c7b3c3 100%);
     border: 1px solid #ccc;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
