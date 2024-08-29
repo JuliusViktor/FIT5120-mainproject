@@ -1,3 +1,5 @@
+const { text } = require("body-parser");
+
 let currentIndex = 0;
 
 function showSlide(index) {
@@ -218,7 +220,7 @@ d3.json("Data/1.11engineering_employed.json") // Correct file path here
         console.error("Error loading JSON data:", error);
     });
 
-    d3.json("Data/1.13Science_employed.json") // Correct file path here
+    d3.json("Data/1.13science_employed.json") // Correct file path here
     .then(data => {
         // Process the data
         processed_data_3 = data.map(d => ({
@@ -286,10 +288,10 @@ d3.json("Data/1.11engineering_employed.json") // Correct file path here
         console.error("Error loading JSON data:", error);
     });
 
-    d3.json("Data/1.12Science_employed.json") // Correct file path here
+    d3.json("Data/2.13Science_income.json") // Correct file path here
     .then(data => {
         // Process the data
-        processed_data_1 = data.map(d => ({
+        processed_data_7 = data.map(d => ({
             Industry: d.Industry,
             Year: d.Year,
             Value: +d.Value
@@ -303,10 +305,10 @@ d3.json("Data/1.11engineering_employed.json") // Correct file path here
         console.error("Error loading JSON data:", error);
     });
 
-    d3.json("Data/1.12tech_income.json") // Correct file path here
+    d3.json("Data/2.14tech_income.json") // Correct file path here
     .then(data => {
         // Process the data
-        processed_data_1 = data.map(d => ({
+        processed_data_8 = data.map(d => ({
             Industry: d.Industry,
             Year: d.Year,
             Value: +d.Value
@@ -320,9 +322,137 @@ d3.json("Data/1.11engineering_employed.json") // Correct file path here
         console.error("Error loading JSON data:", error);
     });
 
-function drawLinePlot(){
-    
+const content = document.createElement("div");
+content.classList.add('popup-content');
+content.innerHTML = '<canvas id="employmentChart" width="400" height="400"></canvas>';
+
+const employementData = {
+    Mathematics: processed_data_2,
+    Engineering: processed_data_1,
+    Technology: processed_data_4,
+    Science:processed_data_3
+};
+
+const incomedata = {
+    Mathematics: processed_data_6,
+    Engineering: processed_data_5,
+    Technology: processed_data_8,
+    Science: processed_data_7
+};
+
+
+
+// Drawing the linechart
+function drawLineChart(type)
+{
+    const ctx = document.getElementById('chartCanvas').getContext('2d');
+    const data = employmentData[type];
+
+    const years = [...new Set(data.map(item => item.Year))];
+    const industries = [...new Set(data.map(item => item.Industry))];
+
+    const datasets = industries.map(industry => {
+        return {
+            label: industry,
+            data: data.filter(item => item.Industry === industry).map(item => item.Value),
+            borderColor: getRandomColor(),
+            fill:false
+        };
+    });
+
+
+
+    new Chart(ctx,{
+        type: "line",
+        data: {
+            label: "years",
+            datasets:datasets
+        },
+        options:
+        {
+            responsive: true,
+            plugins: {
+                legend:{
+                    position: "top",
+                },
+            },
+            scales: {
+                x: {
+                    title: {
+                        display:true,
+                        text:"year"
+                    }
+                },
+                y: {
+                    title:{
+                        display:true,
+                        text:"number of employees (in thousands)"
+                    }
+                }
+            }
+        }
+    });
 }
+
+function drawBarChart(type) {
+    const ctx = document.getElementById('chartCanvas').getContext('2d');
+    const data = incomeData[type];
+
+    const years = [...new Set(data.map(item => item.Year))];
+    const industries = [...new Set(data.map(item => item.Industry))];
+
+    const datasets = industries.map(industry => {
+        return {
+            label: industry,
+            data: data.filter(item => item.Industry === industry).map(item => item.Value),
+            backgroundColor: getRandomColor()
+        };
+    });
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: years,
+            datasets: datasets
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+            },
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Year'
+                    }
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: 'Income (in currency units)'
+                    }
+                }
+            }
+        }
+    });
+}
+
+// generating random color
+
+function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
+
+
 
 function getInfoContent(bubbleId) {
     const info = {
@@ -410,7 +540,7 @@ function getRoleModelData(roleId) {
             ]
         },
         '2': {
-            image: './images/100467-engineering-student-56.jpeg',
+            image: './images/role_model_2.jpg',
             name: 'Role Model 2',
             details: [
                 'Renowned Astrophysicist and Cosmologist.',
@@ -424,7 +554,7 @@ function getRoleModelData(roleId) {
             ]
         },
         '3': {
-            image: './images/100467-engineering-student-56.jpeg',
+            image: './images/role_model_3.jpg',
             name: 'Role Model 3',
             details: [
                 'Innovative Biomedical Engineer.',

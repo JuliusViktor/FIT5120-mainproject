@@ -138,8 +138,8 @@ body {
     margin-top: 0; /* remove any top margin */
     margin-bottom: 10px; /* adjust this value to reduce the gap */
     color: white; /* text color */
-    font-weight: bold; /* make text bold */
-    -webkit-text-stroke: 3px black; /* 1-pixel black outline */
+    font-weight: 900; /* make text bold */
+    -webkit-text-stroke: 2px black; /* 1-pixel black outline */
 }
 
 .title h2 {
@@ -148,7 +148,7 @@ body {
     margin-bottom: 10px; /* adjust this value to reduce the gap */
     color: white;  /* text color */
     font-weight: bold; /* make text bold */
-    -webkit-text-stroke: 3px black; /* 1-pixel black outline */
+    -webkit-text-stroke: 2px black; /* 1-pixel black outline */
 }
 
 .stem-intro {
@@ -236,12 +236,14 @@ body {
 /* benefits */
 .carousel {
     position: relative;
+    
     max-width: 1400px; 
     margin: auto;
     overflow: hidden;
 }
 
 .carousel h1 {
+    margin-top: 100px;
     text-align: center;
     margin-bottom: 20px; 
 }
@@ -325,6 +327,7 @@ body {
 .carousel-indicators {
     text-align: center;
     margin-top: 10px;
+    margin-bottom: 100px;
 }
 
 .indicator {
@@ -488,6 +491,8 @@ body {
 
 
 
+
+
 /* Role model section styles */
 .role-models-section {
     background-color: #aa75b4;
@@ -545,8 +550,8 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 600px;
-    height: 600px;
+    width: 750px;
+    height: 750px;
     background: linear-gradient(135deg, #aa75b4 0%, #c7b3c3 100%);
     border: 1px solid #ccc;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
@@ -562,6 +567,7 @@ body {
 }
 
 .role-model-popup img {
+    border-radius: 20px;
     width: 200px; /* Increase the size of the image */
     height: auto; /* Maintain aspect ratio */
     margin-bottom: 20px; /* Increase margin for better spacing */
@@ -613,3 +619,11 @@ body {
 }
 
 
+/* for responsivness */
+@media(max-width:600px)
+{
+    .popup{
+        width: 90px;
+        height: auto;
+    }
+}
