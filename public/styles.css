@@ -352,7 +352,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50vh;
+    height: 60vh;
     background: radial-gradient(circle, #674188 0%, #6a5081 100%);
     flex-wrap: wrap; /* Ensure items wrap to the next line */
 }
@@ -456,6 +456,7 @@ body {
     flex-direction: column;
     z-index: 1000;
     border-radius: 15px;
+    margin-top: 20px;
     padding: 20px;
     transition: transform 0.3s ease-in-out;
 }

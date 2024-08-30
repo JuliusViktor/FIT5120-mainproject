@@ -1,4 +1,4 @@
-const { text } = require("body-parser");
+// const { text } = require("body-parser");
 
 let currentIndex = 0;
 
@@ -45,10 +45,17 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+
+
+/* bubble map */
 document.querySelectorAll('.main-bubble').forEach(mainBubble => {
+    console.log('Found a main bubble:', mainBubble);
     mainBubble.addEventListener('click', function() {
-      
+        console.log('Main bubble clicked:', this.innerText);
+
         const subBubbles = this.parentElement.querySelectorAll('.sub-bubble');
+        console.log('Found sub-bubbles:', subBubbles.length);
+
         subBubbles.forEach(subBubble => {
             if (subBubble.style.opacity === '1') {
                 subBubble.style.opacity = '0';
@@ -60,8 +67,6 @@ document.querySelectorAll('.main-bubble').forEach(mainBubble => {
         });
     });
 });
-
-/* bubble map */
 
 document.querySelectorAll('.sub-bubble').forEach(bubble => {
     bubble.addEventListener('click', function(event) {
@@ -108,34 +113,23 @@ document.querySelectorAll('.sub-bubble').forEach(bubble => {
         // Add content to popup
         const content = document.createElement('div');
         content.classList.add('popup-content');
-
-        if (bubble.innerText === 'Info') {
-            const infoContent = getInfoContent(bubble.id);
-            content.innerHTML = `<ul>${infoContent}</ul>`;
-        } else {
-            content.innerHTML = '<canvas id="chartCanvas" width="400" height="400"></canvas>';
-        }
+        content.innerHTML = '<canvas id="chartCanvas" width="400" height="400"></canvas>';
 
         // Append elements
         popup.appendChild(closeBtn);
         popup.appendChild(content);
         document.body.appendChild(popup);
 
-        if (bubble.innerText !== 'Info') {
-            // Create chart
-            const ctx = document.getElementById('chartCanvas').getContext('2d');
-            const chartData = getChartData(bubble.id);
-            new Chart(ctx, {
-                type: 'bar',
-                data: chartData,
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
-                    }
-                }
-            });
+        // Determine the type of chart to draw based on the bubble's inner text
+        if (bubble.innerText === 'Info') {
+            const infoContent = getInfoContent(bubble.id);
+            content.innerHTML = `<ul>${infoContent}</ul>`;
+        } else if (bubble.innerText === 'Trend') {
+            // Assuming Trend is related to employment data
+            drawLineChart(bubble.parentElement.querySelector('.main-bubble').innerText);
+        } else if (bubble.innerText === 'Income') {
+            // Assuming Income is related to income data
+            drawBarChart(bubble.parentElement.querySelector('.main-bubble').innerText);
         }
     });
 });
@@ -333,7 +327,7 @@ const employementData = {
     Science:processed_data_3
 };
 
-const incomedata = {
+const incomeData = {
     Mathematics: processed_data_6,
     Engineering: processed_data_5,
     Technology: processed_data_8,
