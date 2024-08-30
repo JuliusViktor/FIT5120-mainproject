@@ -47,92 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-/* bubble map */
-document.querySelectorAll('.main-bubble').forEach(mainBubble => {
-    console.log('Found a main bubble:', mainBubble);
-    mainBubble.addEventListener('click', function() {
-        console.log('Main bubble clicked:', this.innerText);
-
-        const subBubbles = this.parentElement.querySelectorAll('.sub-bubble');
-        console.log('Found sub-bubbles:', subBubbles.length);
-
-        subBubbles.forEach(subBubble => {
-            if (subBubble.style.opacity === '1') {
-                subBubble.style.opacity = '0';
-                subBubble.style.pointerEvents = 'none';
-            } else {
-                subBubble.style.opacity = '1';
-                subBubble.style.pointerEvents = 'auto';
-            }
-        });
-    });
-});
-
-document.querySelectorAll('.sub-bubble').forEach(bubble => {
-    bubble.addEventListener('click', function(event) {
-        console.log('myFunction has been called');
-
-        // Remove any existing sub-bubble popups
-        document.querySelectorAll('.popup.sub-bubble-popup').forEach(popup => popup.remove());
-
-        // Get the position of the clicked bubble
-        const rect = bubble.getBoundingClientRect();
-        const containerRect = document.querySelector('.container-mindmap').getBoundingClientRect();
-
-        // Create a new popup
-        const popup = document.createElement('div');
-        popup.classList.add('popup', 'sub-bubble-popup');
-
-        // Calculate the position of the popup
-        let top = rect.top + window.scrollY;
-        let left = rect.left + window.scrollX;
-
-        // Adjust position to ensure the popup is within the container
-        if (top + 500 > containerRect.bottom + window.scrollY) {
-            top = containerRect.bottom + window.scrollY - 600;
-        }
-        if (left + 500 > containerRect.right + window.scrollX) {
-            left = containerRect.right + window.scrollX - 700;
-        }
-        if (top < containerRect.top + window.scrollY) {
-            top = containerRect.top + window.scrollY;
-        }
-        if (left < containerRect.left + window.scrollX) {
-            left = containerRect.left + window.scrollX;
-        }
-
-        popup.style.top = `${top}px`;
-        popup.style.left = `${left}px`;
-
-        // Add close button
-        const closeBtn = document.createElement('div');
-        closeBtn.classList.add('close-btn');
-        closeBtn.innerHTML = '&times;';
-        closeBtn.addEventListener('click', () => popup.remove());
-
-        // Add content to popup
-        const content = document.createElement('div');
-        content.classList.add('popup-content');
-        content.innerHTML = '<canvas id="chartCanvas" width="400" height="400"></canvas>';
-
-        // Append elements
-        popup.appendChild(closeBtn);
-        popup.appendChild(content);
-        document.body.appendChild(popup);
-
-        // Determine the type of chart to draw based on the bubble's inner text
-        if (bubble.innerText === 'Info') {
-            const infoContent = getInfoContent(bubble.id);
-            content.innerHTML = `<ul>${infoContent}</ul>`;
-        } else if (bubble.innerText === 'Trend') {
-            // Assuming Trend is related to employment data
-            drawLineChart(bubble.parentElement.querySelector('.main-bubble').innerText);
-        } else if (bubble.innerText === 'Income') {
-            // Assuming Income is related to income data
-            drawBarChart(bubble.parentElement.querySelector('.main-bubble').innerText);
-        }
-    });
-});
 
 // function getChartData(bubbleId) {
 //     // Define different datasets for different bubbles
@@ -177,6 +91,11 @@ document.querySelectorAll('.sub-bubble').forEach(bubble => {
 //     };
 // }
 let processed_data_1,processed_data_2,processed_data_3,processed_data_4,processed_data_5,processed_data_6,processed_data_7,processed_data_8;
+
+const content = document.createElement("div");
+content.classList.add('popup-content');
+content.innerHTML = '<canvas id="employmentChart" width="400" height="400"></canvas>';
+
 
 
 // Load and process the JSON data
@@ -316,23 +235,20 @@ d3.json("Data/1.11engineering_employed.json") // Correct file path here
         console.error("Error loading JSON data:", error);
     });
 
-const content = document.createElement("div");
-content.classList.add('popup-content');
-content.innerHTML = '<canvas id="employmentChart" width="400" height="400"></canvas>';
+    const employmentData = {
+        Mathematics: processed_data_2,
+        Engineering: processed_data_1,
+        Technology: processed_data_4,
+        Science:processed_data_3
+    };
+    
+    const incomeData = {
+        Mathematics: processed_data_6,
+        Engineering: processed_data_5,
+        Technology: processed_data_8,
+        Science: processed_data_7
+    };
 
-const employementData = {
-    Mathematics: processed_data_2,
-    Engineering: processed_data_1,
-    Technology: processed_data_4,
-    Science:processed_data_3
-};
-
-const incomeData = {
-    Mathematics: processed_data_6,
-    Engineering: processed_data_5,
-    Technology: processed_data_8,
-    Science: processed_data_7
-};
 
 
 
@@ -445,6 +361,93 @@ function getRandomColor() {
     return color;
 }
 
+
+/* bubble map */
+document.querySelectorAll('.main-bubble').forEach(mainBubble => {
+    console.log('Found a main bubble:', mainBubble);
+    mainBubble.addEventListener('click', function() {
+        console.log('Main bubble clicked:', this.innerText);
+
+        const subBubbles = this.parentElement.querySelectorAll('.sub-bubble');
+        console.log('Found sub-bubbles:', subBubbles.length);
+
+        subBubbles.forEach(subBubble => {
+            if (subBubble.style.opacity === '1') {
+                subBubble.style.opacity = '0';
+                subBubble.style.pointerEvents = 'none';
+            } else {
+                subBubble.style.opacity = '1';
+                subBubble.style.pointerEvents = 'auto';
+            }
+        });
+    });
+});
+
+document.querySelectorAll('.sub-bubble').forEach(bubble => {
+    bubble.addEventListener('click', function(event) {
+        console.log('myFunction has been called');
+
+        // Remove any existing sub-bubble popups
+        document.querySelectorAll('.popup.sub-bubble-popup').forEach(popup => popup.remove());
+
+        // Get the position of the clicked bubble
+        const rect = bubble.getBoundingClientRect();
+        const containerRect = document.querySelector('.container-mindmap').getBoundingClientRect();
+
+        // Create a new popup
+        const popup = document.createElement('div');
+        popup.classList.add('popup', 'sub-bubble-popup');
+
+        // Calculate the position of the popup
+        let top = rect.top + window.scrollY;
+        let left = rect.left + window.scrollX;
+
+        // Adjust position to ensure the popup is within the container
+        if (top + 500 > containerRect.bottom + window.scrollY) {
+            top = containerRect.bottom + window.scrollY - 600;
+        }
+        if (left + 500 > containerRect.right + window.scrollX) {
+            left = containerRect.right + window.scrollX - 700;
+        }
+        if (top < containerRect.top + window.scrollY) {
+            top = containerRect.top + window.scrollY;
+        }
+        if (left < containerRect.left + window.scrollX) {
+            left = containerRect.left + window.scrollX;
+        }
+
+        popup.style.top = `${top}px`;
+        popup.style.left = `${left}px`;
+
+        // Add close button
+        const closeBtn = document.createElement('div');
+        closeBtn.classList.add('close-btn');
+        closeBtn.innerHTML = '&times;';
+        closeBtn.addEventListener('click', () => popup.remove());
+
+        // Add content to popup
+        const content = document.createElement('div');
+        content.classList.add('popup-content');
+        content.innerHTML = '<canvas id="chartCanvas" width="400" height="400"></canvas>';
+
+        // Append elements
+        popup.appendChild(closeBtn);
+        popup.appendChild(content);
+        document.body.appendChild(popup);
+
+        // Determine the type of chart to draw based on the bubble's inner text
+        if (bubble.innerText === 'Info') {
+            const infoContent = getInfoContent(bubble.id);
+            content.innerHTML = `<ul>${infoContent}</ul>`;
+        } else if (bubble.innerText === 'Trend') {
+            // Assuming Trend is related to employment data
+            drawLineChart(bubble.parentElement.querySelector('.-bubble').innerText);
+        } else if (bubble.innerText === 'Income') {
+            // Assuming Income is related to income data
+            drawBarChart(bubble.parentElement.querySelector('.sub-bubble').innerText);
+        }
+    });
+});
 
 
 
