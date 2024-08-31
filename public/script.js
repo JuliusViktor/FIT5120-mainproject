@@ -44,6 +44,14 @@ document.addEventListener('DOMContentLoaded', () => {
     showSlide(currentIndex);
 });
 
+document.getElementById('learnNowButton').addEventListener('click', function() {
+    // Find the section to scroll to using its ID
+    var targetSection = document.getElementById('stem-introduction');
+    
+    // Scroll into view with smooth behavior
+    targetSection.scrollIntoView({ behavior: 'smooth' });
+});
+
 // math main bubble
 document.querySelectorAll('.math').forEach(mainBubble => {
     mainBubble.addEventListener('click', function() {
@@ -610,45 +618,40 @@ function getRoleModelData(roleId) {
     const data = {
         '1': {
             image: './images/role_model_1.jpg',
-            name: 'Role Model 1',
-            details: [
-                'Expert in Artificial Intelligence and Machine Learning.',
-                'Pioneered research in neural networks.',
-                'Published over 50 papers in top-tier journals.',
-                'Recipient of the Turing Award.',
-                'Developed algorithms that revolutionized data processing.',
-                'Mentored over 30 PhD students.',
-                'Advocate for diversity in tech.',
-                'Grew up in a small town with limited access to technology, but persevered through self-study and online courses to become a leading figure in AI.'
+            name: 'List of Accolades',
+            details: [ "1. 2022 Dean's Award for  Postrgraduate Supervision, Faculty of Arts, 2022",
+                "2. 2022 Vice Chancellor's Award for Postgraduate Supervision, Monash University, 2022",
+                "3. Fellow of the Academy of Social Science in Australia, 2020",
+                "4. Medal and Citations for Excellence in Scholarship in the Social Science, 2000",
+                "5. 80 Research Articles",
+                "6. 15 Projecs"
+
             ]
         },
         '2': {
             image: './images/role_model_2.jpg',
-            name: 'Role Model 2',
+            name: 'List of Accolades',
             details: [
-                'Renowned Astrophysicist and Cosmologist.',
-                'Discovered new exoplanets and contributed to the understanding of dark matter.',
-                'Author of several bestselling science books.',
-                'Keynote speaker at international science conferences.',
-                'Developed innovative methods for space observation.',
-                'Collaborated with NASA on multiple missions.',
-                'Promoter of science education and outreach programs.',
-                'Overcame early academic struggles and a lack of resources, eventually earning a PhD from a prestigious university and becoming a leading voice in astrophysics.'
-            ]
+                "1. The Optical Society C.E.K. Mees Medal 'For pioneering innovations in the transfer of optical angular momentum to particles, using sculpted light for laser manipulation on atomic, nano- and microscales to generate fundamental insight and provide powerful probes to biomedicine.', 2021",
+                "2. Lise Meitner Lectures 'Sculpted light in nano and microsystem', 2019",
+                "3. UNSW Eureka Prize for excellence in Interdisplinary Scientific Research, 2018",
+                "4. Office of the Order Australia, 2018",
+                "5. Fellow of the Australian Academy of Science, 2016",
+                "6. Fellow of The Optical Society, 2012",
+                "7. Fellow of SPIE, the international society for optics and photonics , 2011",
+                "8. AIP Women in Physics lecturer, 2003"
+               ]
         },
         '3': {
             image: './images/role_model_3.jpg',
-            name: 'Role Model 3',
+            name: 'List of Accolades',
             details: [
-                'Innovative Biomedical Engineer.',
-                'Developed cutting-edge medical devices that save lives.',
-                'Holds multiple patents in medical technology.',
-                'Founder of a successful biotech startup.',
-                'Recipient of numerous innovation awards.',
-                'Published influential research in biomedical engineering.',
-                'Active in promoting women in STEM fields.',
-                'Faced significant challenges as a woman in a male-dominated field, but her determination and passion for improving healthcare led her to break barriers and inspire others.'
-            ]
+                "1. Fellowships of the Australian Academy of Science, 2021",
+                "2. Fellowships of The Royal Society of Chemistry, 2000",
+                "3. Honorary Member of British Biophysical Society, 2019",
+                "4. Nominated as a member of the Analytical Science Power list, 2015",
+                "5. 229 Research Articles"
+               ]
         }
     };
 
