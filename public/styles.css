@@ -105,6 +105,7 @@ body {
 /* landing page */
 .landing-page-contrainer {
     display: flex;
+    background-color: #ede8f5;
     justify-content: center;
     align-items: center;
     height: 100vh; /* Full viewport height */
