@@ -103,14 +103,13 @@ body {
 
 
 /* landing page */
-.landing-page-contrainer
-{
-    width: 100%;
-    max-width: 1800px;
-    margin: 0 auto;
-    padding: 50px 20 px;
-    background-color: #ede8f5;
-    overflow: hidden; /* Ensures no scroll bars appear */
+.landing-page-contrainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    flex-direction: column; /* Elements in a column */
+    position: relative; /* Necessary for absolute positioning of images */
 }
 
 .landing-page
@@ -133,7 +132,6 @@ body {
 }
 
 .landing-page p{
-
     color: #2d2c38;
     font-size: 3.5rem;
     align-items: center;
@@ -141,46 +139,34 @@ body {
 
 }
 
-.image-section
-{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
 .bottom-left-image {
     position: absolute;
-    bottom: 0px; /* Distance from the bottom of the screen */
-    left: 20px; /* Distance from the left side of the screen */
-    width: 300px; /* Adjust size as needed */
-    height: auto; /* Maintain aspect ratio */
+    bottom: 0;
+    left: 0;
+    width: 300px;
+    height: auto;
 }
 
 .top-right-image {
     position: absolute;
-    top: 1px; /* Distance from the top of the screen */
-    right: 20px; /* Distance from the right side of the screen */
-    width: 250px; /* Adjust size as needed */
-    height: auto; /* Maintain aspect ratio */
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: auto;
 }
 
 
 
 .cta-button {
     text-align: center;
-    align-items: center;
     padding: 15px 30px;
     font-size: 1rem;
     color: #fff;
-    margin-left: 785px;
     background-color: #293a6d;
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
     font-family: "Lexend Deca", sans-serif;
-    transform: translateY(-250px);
-
 }
 
 .cta-button:hover {
