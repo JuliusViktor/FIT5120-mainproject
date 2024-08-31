@@ -144,92 +144,83 @@ document.querySelectorAll('.sci').forEach(mainBubble => {
 /* bubble map */
 
 document.querySelectorAll('.sub-bubble').forEach(bubble => {
-    bubble.addEventListener('click', function(event) {
-        console.log('myFunction has been called');
+  bubble.addEventListener('click', function(event) {
+      console.log('myFunction has been called');
 
-        // Remove any existing sub-bubble popups
-        document.querySelectorAll('.popup.sub-bubble-popup').forEach(popup => popup.remove());
+      // Remove any existing sub-bubble popups
+      document.querySelectorAll('.popup.sub-bubble-popup').forEach(popup => popup.remove());
 
-        // Get the position of the clicked bubble
-        const rect = bubble.getBoundingClientRect();
-        const containerRect = document.querySelector('.container-mindmap').getBoundingClientRect();
+      // Get the position of the clicked bubble
+      const rect = bubble.getBoundingClientRect();
+      const containerRect = document.querySelector('.container-mindmap').getBoundingClientRect();
 
-        // Create a new popup
-        const popup = document.createElement('div');
-        popup.classList.add('popup', 'sub-bubble-popup');
+      // Create a new popup
+      const popup = document.createElement('div');
+      popup.classList.add('popup', 'sub-bubble-popup');
 
-        // Calculate the position of the popup
-        let top = rect.top + window.scrollY;
-        let left = rect.left + window.scrollX;
+      // Calculate the position of the popup
+      let top = rect.top + window.scrollY;
+      let left = rect.left + window.scrollX;
 
-        // Adjust position to ensure the popup is within the container
-        if (top + 500 > containerRect.bottom + window.scrollY) {
-            top = containerRect.bottom + window.scrollY - 600;
-        }
-        if (left + 500 > containerRect.right + window.scrollX) {
-            left = containerRect.right + window.scrollX - 700;
-        }
-        if (top < containerRect.top + window.scrollY) {
-            top = containerRect.top + window.scrollY;
-        }
-        if (left < containerRect.left + window.scrollX) {
-            left = containerRect.left + window.scrollX;
-        }
+      // Adjust position to ensure the popup is within the container
+      if (top + 500 > containerRect.bottom + window.scrollY) {
+          top = containerRect.bottom + window.scrollY - 600;
+      }
+      if (left + 500 > containerRect.right + window.scrollX) {
+          left = containerRect.right + window.scrollX - 700;
+      }
+      if (top < containerRect.top + window.scrollY) {
+          top = containerRect.top + window.scrollY;
+      }
+      if (left < containerRect.left + window.scrollX) {
+          left = containerRect.left + window.scrollX;
+      }
 
-        popup.style.top = `${top}px`;
-        popup.style.left = `${left}px`;
+      popup.style.top = `${top}px`;
+      popup.style.left = `${left}px`;
 
-        // Add close button
-        const closeBtn = document.createElement('div');
-        closeBtn.classList.add('close-btn');
-        closeBtn.innerHTML = '&times;';
-        closeBtn.addEventListener('click', () => popup.remove());
+      // Add close button
+      const closeBtn = document.createElement('div');
+      closeBtn.classList.add('close-btn');
+      closeBtn.innerHTML = '&times;';
+      closeBtn.addEventListener('click', () => popup.remove());
 
-        // Add content to popup
-        const content = document.createElement('div');
-        content.classList.add('popup-content');
-        content.innerHTML = '<canvas id="chartCanvas" width="400" height="400"></canvas>';
+      // Add content to popup
+      const content = document.createElement('div');
+      content.classList.add('popup-content');
 
-        // Append elements
-        popup.appendChild(closeBtn);
-        popup.appendChild(content);
-        document.body.appendChild(popup);
+      if (bubble.innerText == 'Info') {
+          content.innerHTML = `<ul>${getInfoContent(bubble.id)}</ul>`;
+      } else if (bubble.innerText == 'Benefits') {
+          content.innerHTML = `<ul>${getBenContent(bubble.id)}</ul>`;
+      } else if (bubble.innerText == 'Job' || bubble.innerText == 'Income') {
+          content.innerHTML = '<canvas id="chartCanvas" width="400" height="400"></canvas>';
+      }
 
-        if (bubble.innerText == 'Job') {
-            // Create chart
-            const ctx = document.getElementById('chartCanvas').getContext('2d');
-            const chartData = getChartData(bubble.id);
-            new Chart(ctx, {
-                type: 'bar',
-                data: chartData,
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
-                    }
-                }
-            });
-        }
+      // Append elements
+      popup.appendChild(closeBtn);
+      popup.appendChild(content);
+      document.body.appendChild(popup);
 
-        if (bubble.innerText == 'Income') {
-            // Create chart
-            const ctx = document.getElementById('chartCanvas').getContext('2d');
-            const chartData = getChartData(bubble.id);
-            new Chart(ctx, {
-                type: 'line',
-                data: chartData,
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
-                    }
-                }
-            });
-        }
-    });
+      if (bubble.innerText == 'Job' || bubble.innerText == 'Income') {
+          // Create chart
+          const ctx = document.getElementById('chartCanvas').getContext('2d');
+          const chartData = getChartData(bubble.id);
+          new Chart(ctx, {
+              type: bubble.innerText == 'Job' ? 'bar' : 'line',
+              data: chartData,
+              options: {
+                  scales: {
+                      y: {
+                          beginAtZero: true
+                      }
+                  }
+              }
+          });
+      }
+  });
 });
+
 
 // math_employed#########################################
 // Define global variables
@@ -570,6 +561,33 @@ function getInfoContent(bubbleId) {
     };
 
     return info[bubbleId] || '<li>No information available.</li>';
+}
+
+function getBenContent(bubbleId) {
+  const info = {
+      'subBubble1-4': `
+          <li>Mathematics is the study of numbers, shapes, and patterns.</li>
+          <li>It is essential for various fields including science, engineering, and finance.</li>
+          <li>Mathematicians use mathematical theories and techniques to solve practical problems.</li>
+      `,
+      'subBubble2-4': `
+          <li>Engineering involves the application of science and math to solve problems.</li>
+          <li>Engineers design, build, and maintain structures, machines, and systems.</li>
+          <li>There are various branches of engineering including civil, mechanical, and electrical.</li>
+      `,
+      'subBubble3-4': `
+          <li>Technology refers to the use of scientific knowledge for practical purposes.</li>
+          <li>It includes the development and use of tools, machines, and systems.</li>
+          <li>Technology plays a crucial role in modern society, impacting various industries.</li>
+      `,
+      'subBubble4-4': `
+          <li>Science is the systematic study of the natural world through observation and experimentation.</li>
+          <li>It aims to understand how the universe works and to develop new knowledge.</li>
+          <li>Scientific research is essential for technological advancements and societal progress.</li>
+      `
+  };
+
+  return info[bubbleId] || '<li>No information available.</li>';
 }
 
 
