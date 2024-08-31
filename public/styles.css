@@ -56,6 +56,7 @@ body {
 .login-container form button:hover {
     background-color: #575757;
 }
+
 /* Navigation Bar Part */
 
 
@@ -97,6 +98,18 @@ body {
 .nav-links a:hover {
     color: #FFFFFF; /* Text becomes white on hover */
     background-color: #000000; /* Background becomes black on hover */
+}
+
+
+/* landing page */
+.landing-page-contrainer
+{
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 50px 20 px;
+    color: #ff0000;
 }
 
 
