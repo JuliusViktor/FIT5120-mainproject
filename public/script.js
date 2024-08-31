@@ -44,330 +44,71 @@ document.addEventListener('DOMContentLoaded', () => {
     showSlide(currentIndex);
 });
 
-
-
-
-
-// function getChartData(bubbleId) {
-//     // Define different datasets for different bubbles
-//     const datasets = {
-//         'subBubble1-1': [12, 19, 3, 5, 2, 3],
-//         'subBubble1-2': [5, 10, 15, 20, 25, 30],
-//         'subBubble1-3': [7, 14, 21, 28, 35, 42],
-//         'subBubble2-1': [10, 20, 30, 40, 50, 60],
-//         'subBubble2-2': [8, 16, 24, 32, 40, 48],
-//         'subBubble2-3': [6, 12, 18, 24, 30, 36],
-//         'subBubble3-1': [2, 4, 6, 8, 10, 12],
-//         'subBubble3-2': [1, 2, 3, 4, 5, 6],
-//         'subBubble3-3': [9, 18, 27, 36, 45, 54],
-//         'subBubble4-1': [13, 26, 39, 52, 65, 78],
-//         'subBubble4-2': [14, 28, 42, 56, 70, 84],
-//         'subBubble4-3': [15, 30, 45, 60, 75, 90],
-//     };
-
-//     return {
-//         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-//         datasets: [{
-//             label: '# of Votes',
-//             data: datasets[bubbleId] || [],
-//             backgroundColor: [
-//                 'rgba(255, 99, 132, 0.2)',
-//                 'rgba(54, 162, 235, 0.2)',
-//                 'rgba(255, 206, 86, 0.2)',
-//                 'rgba(75, 192, 192, 0.2)',
-//                 'rgba(153, 102, 255, 0.2)',
-//                 'rgba(255, 159, 64, 0.2)'
-//             ],
-//             borderColor: [
-//                 'rgba(255, 99, 132, 1)',
-//                 'rgba(54, 162, 235, 1)',
-//                 'rgba(255, 206, 86, 1)',
-//                 'rgba(75, 192, 192, 1)',
-//                 'rgba(153, 102, 255, 1)',
-//                 'rgba(255, 159, 64, 1)'
-//             ],
-//             borderWidth: 1
-//         }]
-//     };
-// }
-let processed_data_1,processed_data_2,processed_data_3,processed_data_4,processed_data_5,processed_data_6,processed_data_7,processed_data_8;
-
-const content = document.createElement("div");
-content.classList.add('popup-content');
-content.innerHTML = '<canvas id="employmentChart" width="400" height="400"></canvas>';
-
-
-
-// Load and process the JSON data
-d3.json("Data/1.11engineering_employed.json") // Correct file path here
-    .then(data => {
-        // Process the data
-        processed_data_1 = data.map(d => ({
-            Industry: d.Industry,
-            Year: d.Year,
-            Value: +d.Value
-        }));
-        
-        // Log the processed data inside the .then() to ensure it's loaded
-        console.log(processed_data_1);
-    })
-    .catch(error => {
-        // Handle errors gracefully
-        console.error("Error loading JSON data:", error);
-    });
-
-    d3.json("Data/1.12math_employed.json") // Correct file path here
-    .then(data => {
-        // Process the data
-        processed_data_2 = data.map(d => ({
-            Industry: d.Industry,
-            Year: d.Year,
-            Value: +d.Value
-        }));
-        
-        // Log the processed data inside the .then() to ensure it's loaded
-        console.log(processed_data_1);
-    })
-    .catch(error => {
-        // Handle errors gracefully
-        console.error("Error loading JSON data:", error);
-    });
-
-    d3.json("Data/1.13science_employed.json") // Correct file path here
-    .then(data => {
-        // Process the data
-        processed_data_3 = data.map(d => ({
-            Industry: d.Industry,
-            Year: d.Year,
-            Value: +d.Value
-        }));
-        
-        // Log the processed data inside the .then() to ensure it's loaded
-        console.log(processed_data_1);
-    })
-    .catch(error => {
-        // Handle errors gracefully
-        console.error("Error loading JSON data:", error);
-    });
-
-    d3.json("Data/1.14tech_employed.json") // Correct file path here
-    .then(data => {
-        // Process the data
-        processed_data_4 = data.map(d => ({
-            Industry: d.Industry,
-            Year: d.Year,
-            Value: +d.Value
-        }));
-        
-        // Log the processed data inside the .then() to ensure it's loaded
-        console.log(processed_data_1);
-    })
-    .catch(error => {
-        // Handle errors gracefully
-        console.error("Error loading JSON data:", error);
-    });
-
-    d3.json("Data/2.11engineering_income.json") // Correct file path here
-    .then(data => {
-        // Process the data
-        processed_data_5 = data.map(d => ({
-            Industry: d.Industry,
-            Year: d.Year,
-            Value: +d.Value
-        }));
-        
-        // Log the processed data inside the .then() to ensure it's loaded
-        console.log(processed_data_1);
-    })
-    .catch(error => {
-        // Handle errors gracefully
-        console.error("Error loading JSON data:", error);
-    });
-
-    d3.json("Data/2.12math_income.json") // Correct file path here
-    .then(data => {
-        // Process the data
-        processed_data_6 = data.map(d => ({
-            Industry: d.Industry,
-            Year: d.Year,
-            Value: +d.Value
-        }));
-        
-        // Log the processed data inside the .then() to ensure it's loaded
-        console.log(processed_data_1);
-    })
-    .catch(error => {
-        // Handle errors gracefully
-        console.error("Error loading JSON data:", error);
-    });
-
-    d3.json("Data/2.13Science_income.json") // Correct file path here
-    .then(data => {
-        // Process the data
-        processed_data_7 = data.map(d => ({
-            Industry: d.Industry,
-            Year: d.Year,
-            Value: +d.Value
-        }));
-        
-        // Log the processed data inside the .then() to ensure it's loaded
-        console.log(processed_data_1);
-    })
-    .catch(error => {
-        // Handle errors gracefully
-        console.error("Error loading JSON data:", error);
-    });
-
-    d3.json("Data/2.14tech_income.json") // Correct file path here
-    .then(data => {
-        // Process the data
-        processed_data_8 = data.map(d => ({
-            Industry: d.Industry,
-            Year: d.Year,
-            Value: +d.Value
-        }));
-        
-        // Log the processed data inside the .then() to ensure it's loaded
-        console.log(processed_data_1);
-    })
-    .catch(error => {
-        // Handle errors gracefully
-        console.error("Error loading JSON data:", error);
-    });
-
-    const employmentData = {
-        Mathematics: processed_data_2,
-        Engineering: processed_data_1,
-        Technology: processed_data_4,
-        Science:processed_data_3
-    };
-    
-    const incomeData = {
-        Mathematics: processed_data_6,
-        Engineering: processed_data_5,
-        Technology: processed_data_8,
-        Science: processed_data_7
-    };
-
-
-
-
-// Drawing the linechart
-function drawLineChart(type)
-{
-    const ctx = document.getElementById('chartCanvas').getContext('2d');
-    const data = employmentData[type];
-
-    const years = [...new Set(data.map(item => item.Year))];
-    const industries = [...new Set(data.map(item => item.Industry))];
-
-    const datasets = industries.map(industry => {
-        return {
-            label: industry,
-            data: data.filter(item => item.Industry === industry).map(item => item.Value),
-            borderColor: getRandomColor(),
-            fill:false
-        };
-    });
-
-
-
-    new Chart(ctx,{
-        type: "line",
-        data: {
-            label: "years",
-            datasets:datasets
-        },
-        options:
-        {
-            responsive: true,
-            plugins: {
-                legend:{
-                    position: "top",
-                },
-            },
-            scales: {
-                x: {
-                    title: {
-                        display:true,
-                        text:"year"
-                    }
-                },
-                y: {
-                    title:{
-                        display:true,
-                        text:"number of employees (in thousands)"
-                    }
-                }
-            }
-        }
-    });
-}
-
-function drawBarChart(type) {
-    const ctx = document.getElementById('chartCanvas').getContext('2d');
-    const data = incomeData[type];
-
-    const years = [...new Set(data.map(item => item.Year))];
-    const industries = [...new Set(data.map(item => item.Industry))];
-
-    const datasets = industries.map(industry => {
-        return {
-            label: industry,
-            data: data.filter(item => item.Industry === industry).map(item => item.Value),
-            backgroundColor: getRandomColor()
-        };
-    });
-
-    new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: years,
-            datasets: datasets
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: {
-                    position: 'top',
-                },
-            },
-            scales: {
-                x: {
-                    title: {
-                        display: true,
-                        text: 'Year'
-                    }
-                },
-                y: {
-                    title: {
-                        display: true,
-                        text: 'Income (in currency units)'
-                    }
-                }
-            }
-        }
-    });
-}
-
-// generating random color
-
-function getRandomColor() {
-    const letters = '0123456789ABCDEF';
-    let color = '#';
-    for (let i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-}
-
-
-/* bubble map */
-document.querySelectorAll('.main-bubble').forEach(mainBubble => {
-    console.log('Found a main bubble:', mainBubble);
+// math main bubble
+document.querySelectorAll('.math').forEach(mainBubble => {
     mainBubble.addEventListener('click', function() {
-        console.log('Main bubble clicked:', this.innerText);
+        console.log("123")
+        math_emp();
+        math_income();
+        const subBubbles = this.parentElement.querySelectorAll('.sub-bubble');
+        subBubbles.forEach(subBubble => {
+            if (subBubble.style.opacity === '1') {
+                subBubble.style.opacity = '0';
+                subBubble.style.pointerEvents = 'none';
+            } else {
+                subBubble.style.opacity = '1';
+                subBubble.style.pointerEvents = 'auto';
+            }
+        });
+    });
+});
 
+// engineering main bubble
+document.querySelectorAll('.eng').forEach(mainBubble => {
+    mainBubble.addEventListener('click', function() {
+        math_emp();
+        eng_emp();
+        eng_income();
+        const subBubbles = this.parentElement.querySelectorAll('.sub-bubble');
+        subBubbles.forEach(subBubble => {
+            if (subBubble.style.opacity === '1') {
+                subBubble.style.opacity = '0';
+                subBubble.style.pointerEvents = 'none';
+            } else {
+                subBubble.style.opacity = '1';
+                subBubble.style.pointerEvents = 'auto';
+            }
+        });
+    });
+});
+
+
+// technology main bubble
+document.querySelectorAll('.tech').forEach(mainBubble => {
+    mainBubble.addEventListener('click', function() {
+        math_emp();
+        tech_employed();
+        tech_income();
+        const subBubbles = this.parentElement.querySelectorAll('.sub-bubble');
+        subBubbles.forEach(subBubble => {
+            if (subBubble.style.opacity === '1') {
+                subBubble.style.opacity = '0';
+                subBubble.style.pointerEvents = 'none';
+            } else {
+                subBubble.style.opacity = '1';
+                subBubble.style.pointerEvents = 'auto';
+            }
+        });
+    });
+});
+sci_employed
+
+// science main bubble
+document.querySelectorAll('.sci').forEach(mainBubble => {
+    mainBubble.addEventListener('click', function() {
+        math_emp();
+        sci_employed();
+        sci_income();
         const subBubbles = this.parentElement.querySelectorAll('.sub-bubble');
         console.log('Found sub-bubbles:', subBubbles.length);
 
@@ -382,6 +123,17 @@ document.querySelectorAll('.main-bubble').forEach(mainBubble => {
         });
     });
 });
+
+
+
+
+
+
+
+
+
+
+/* bubble map */
 
 document.querySelectorAll('.sub-bubble').forEach(bubble => {
     bubble.addEventListener('click', function(event) {
@@ -435,21 +187,355 @@ document.querySelectorAll('.sub-bubble').forEach(bubble => {
         popup.appendChild(content);
         document.body.appendChild(popup);
 
-        // Determine the type of chart to draw based on the bubble's inner text
-        if (bubble.innerText === 'Info') {
-            const infoContent = getInfoContent(bubble.id);
-            content.innerHTML = `<ul>${infoContent}</ul>`;
-        } else if (bubble.innerText === 'Trend') {
-            // Assuming Trend is related to employment data
-            drawLineChart(bubble.parentElement.querySelector('.-bubble').innerText);
-        } else if (bubble.innerText === 'Income') {
-            // Assuming Income is related to income data
-            drawBarChart(bubble.parentElement.querySelector('.sub-bubble').innerText);
+        if (bubble.innerText == 'Job') {
+            // Create chart
+            const ctx = document.getElementById('chartCanvas').getContext('2d');
+            const chartData = getChartData(bubble.id);
+            new Chart(ctx, {
+                type: 'bar',
+                data: chartData,
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+        if (bubble.innerText == 'Income') {
+            // Create chart
+            const ctx = document.getElementById('chartCanvas').getContext('2d');
+            const chartData = getChartData(bubble.id);
+            new Chart(ctx, {
+                type: 'line',
+                data: chartData,
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
         }
     });
 });
 
+// math_employed#########################################
+// Define global variables
+var math_emp_years = [];
+var math_emp_values = []
+var math_emp_ind =[]
 
+// Use fetch to get data
+function math_emp(){
+  fetch('data/math_employed.json')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    // Process the data and store it into global variables
+    math_emp_ind = data.map(item => item.Industry);
+    math_emp_years = data.map(item => item.Year);
+    math_emp_values = data.map(item => item.Value);
+    console.log("11111111",math_emp_values)
+
+  })
+  .catch(error => {
+    console.error('There was a problem(math_employed) with the fetch operation:', error);
+  });
+}
+
+// math_employed#########################################
+
+
+
+
+
+// math_income#########################################
+// Define global variables
+let math_income_years = [];
+let math_income_values = []
+let math_income_ind =[]
+// Use fetch to get data
+function math_income(){
+    fetch('data/math_income.json')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    // Process the data and store it into global variables
+    math_income_ind = data.map(item => item.Industry);
+    math_income_years = data.map(item => item.Year);
+    math_income_values = data.map(item => item.Value);
+    console.log("2222222222",math_income_values)
+  })
+  .catch(error => {
+    console.error('There was a problem(math_income) with the fetch operation:', error);
+  });
+}
+
+// math_income#########################################
+
+
+
+
+
+// engineering_employed#########################################
+// Define global variables
+let eng_emp_years = [];
+let eng_emp_values = []
+let eng_emp_ind =[]
+
+// Use fetch to get data
+function eng_emp(){
+   fetch('data/engineering_employed.json')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    // Process the data and store it into global variables
+    eng_emp_ind = data.map(item => item.Industry);
+    eng_emp_years = data.map(item => item.Year);
+    eng_emp_values = data.map(item => item.Value);
+    console.log("333333333",eng_emp_values)
+
+  })
+  .catch(error => {
+    console.error('There was a problem(engineering_employed) with the fetch operation:', error);
+  });
+
+}
+
+// engineering_employed#########################################
+
+
+
+
+
+// engineering_income#########################################
+// Define global variables
+let eng_income_years = [];
+let eng_income_values = []
+let eng_income_ind =[]
+
+// Use fetch to get data
+function eng_income(){
+   fetch('data/engineering_income.json')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    // Process the data and store it into global variables
+    eng_income_ind = data.map(item => item.Industry);
+    eng_income_years = data.map(item => item.Year);
+    eng_income_values = data.map(item => item.Value);
+    console.log("444444",eng_emp_values)
+
+  })
+  .catch(error => {
+    console.error('There was a problem(engineering_income) with the fetch operation:', error);
+  });
+
+}
+
+// engineering_income#########################################
+
+
+
+
+
+// tech_employed#########################################
+// Define global variables
+let tech_employed_years = [];
+let tech_employed_values = []
+let tech_employed_ind =[]
+
+// Use fetch to get data
+function tech_employed(){
+   fetch('data/tech_employed.json')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    // Process the data and store it into global variables
+    tech_employed_ind = data.map(item => item.Industry);
+    tech_employed_years = data.map(item => item.Year);
+    tech_employed_values = data.map(item => item.Value);
+    console.log("55555555",tech_employed_values)
+
+  })
+  .catch(error => {
+    console.error('There was a problem(tech_employed) with the fetch operation:', error);
+  });
+
+}
+
+// tech_employed#########################################
+
+
+
+
+// tech_income#########################################
+// Define global variables
+let tech_income_years = [];
+let tech_income_values = []
+let tech_income_ind =[]
+
+// Use fetch to get data
+function tech_income(){
+   fetch('data/tech_income.json')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    // Process the data and store it into global variables
+    tech_income_ind = data.map(item => item.Industry);
+    tech_income_years = data.map(item => item.Year);
+    tech_income_values = data.map(item => item.Value);
+    console.log("66666666",tech_income_values)
+
+  })
+  .catch(error => {
+    console.error('There was a problem(tech_income) with the fetch operation:', error);
+  });
+
+}
+
+// tech_income#########################################
+
+
+
+// sci_employed#########################################
+// Define global variables
+let sci_employed_years = [];
+let sci_employed_values = []
+let sci_employed_ind =[]
+
+// Use fetch to get data
+function sci_employed(){
+   fetch('data/science_employed.json')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    // Process the data and store it into global variables
+    sci_employed_ind = data.map(item => item.Industry);
+    sci_employed_years = data.map(item => item.Year);
+    sci_employed_values = data.map(item => item.Value);
+    console.log("7777777777777",sci_employed_values)
+
+  })
+  .catch(error => {
+    console.error('There was a problem(sci_employed) with the fetch operation:', error);
+  });
+
+}
+
+// sci_employed#########################################
+
+
+// sci_income#########################################
+// Define global variables
+let sci_income_years = [];
+let sci_income_values = []
+let sci_income_ind =[]
+
+// Use fetch to get data
+function sci_income(){
+   fetch('data/science_income.json')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    // Process the data and store it into global variables
+    sci_income_ind = data.map(item => item.Industry);
+    sci_income_years = data.map(item => item.Year);
+    sci_income_values = data.map(item => item.Value);
+    console.log("88888888",sci_income_values)
+
+  })
+  .catch(error => {
+    console.error('There was a problem(sci_income) with the fetch operation:', error);
+  });
+
+}
+
+// sci_employed#########################################
+
+
+
+
+
+function getChartData(bubbleId) {
+    console.log("bubbleid:",bubbleId)
+    // Define different datasets for different bubbles
+    const datasets = {
+        // 'subBubble1-1': [12, 19, 3, 5, 2, 3],
+        'subBubble1-2': math_emp_values,
+        'subBubble1-3': math_income_values,
+        // 'subBubble2-1': [10, 20, 30, 40, 50, 60],
+        'subBubble2-2': eng_emp_values,
+        'subBubble2-3': eng_income_values,
+        // 'subBubble3-1': [2, 4, 6, 8, 10, 12],
+        'subBubble3-2': tech_employed_values,
+        'subBubble3-3': tech_income_values,
+        // 'subBubble4-1': [13, 26, 39, 52, 65, 78],
+        'subBubble4-2': sci_employed_values,
+        'subBubble4-3': sci_income_values,
+    };
+
+    return {
+        labels: math_emp_years,
+        datasets: [{
+            label: 'Unit: 000',
+            data: datasets[bubbleId] || [],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 5
+        }]
+    };
+}
 
 function getInfoContent(bubbleId) {
     const info = {
