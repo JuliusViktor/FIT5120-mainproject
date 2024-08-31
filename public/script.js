@@ -1,3 +1,5 @@
+// const { text } = require("body-parser");
+
 let currentIndex = 0;
 
 function showSlide(index) {
@@ -108,6 +110,8 @@ document.querySelectorAll('.sci').forEach(mainBubble => {
         sci_employed();
         sci_income();
         const subBubbles = this.parentElement.querySelectorAll('.sub-bubble');
+        console.log('Found sub-bubbles:', subBubbles.length);
+
         subBubbles.forEach(subBubble => {
             if (subBubble.style.opacity === '1') {
                 subBubble.style.opacity = '0';
@@ -152,7 +156,7 @@ document.querySelectorAll('.sub-bubble').forEach(bubble => {
 
         // Adjust position to ensure the popup is within the container
         if (top + 500 > containerRect.bottom + window.scrollY) {
-            top = containerRect.bottom + window.scrollY - 700;
+            top = containerRect.bottom + window.scrollY - 600;
         }
         if (left + 500 > containerRect.right + window.scrollX) {
             left = containerRect.right + window.scrollX - 700;
@@ -176,13 +180,7 @@ document.querySelectorAll('.sub-bubble').forEach(bubble => {
         // Add content to popup
         const content = document.createElement('div');
         content.classList.add('popup-content');
-
-        if (bubble.innerText === 'Info') {
-            const infoContent = getInfoContent(bubble.id);
-            content.innerHTML = `<ul>${infoContent}</ul>`;
-        } else {
-            content.innerHTML = '<canvas id="chartCanvas" width="400" height="400"></canvas>';
-        }
+        content.innerHTML = '<canvas id="chartCanvas" width="400" height="400"></canvas>';
 
         // Append elements
         popup.appendChild(closeBtn);
@@ -611,7 +609,7 @@ function showRoleModelPopup(roleId) {
 function getRoleModelData(roleId) {
     const data = {
         '1': {
-            image: './images/100467-engineering-student-56.jpeg',
+            image: './images/role_model_1.jpg',
             name: 'Role Model 1',
             details: [
                 'Expert in Artificial Intelligence and Machine Learning.',
@@ -625,7 +623,7 @@ function getRoleModelData(roleId) {
             ]
         },
         '2': {
-            image: './images/100467-engineering-student-56.jpeg',
+            image: './images/role_model_2.jpg',
             name: 'Role Model 2',
             details: [
                 'Renowned Astrophysicist and Cosmologist.',
@@ -639,7 +637,7 @@ function getRoleModelData(roleId) {
             ]
         },
         '3': {
-            image: './images/100467-engineering-student-56.jpeg',
+            image: './images/role_model_3.jpg',
             name: 'Role Model 3',
             details: [
                 'Innovative Biomedical Engineer.',
