@@ -3,21 +3,27 @@ let currentIndex = 0;
 function showSlide(index) {
     const slides = document.querySelectorAll('.carousel-item');
     const indicators = document.querySelectorAll('.indicator');
-    
-    if (index >= slides.length) {
-        currentIndex = 0;
+    const totalSlides = slides.length;
+    const visibleSlides = 3; // block 
+
+    if (index >= totalSlides - visibleSlides + 1) {
+        currentIndex = totalSlides - visibleSlides;
     } else if (index < 0) {
-        currentIndex = slides.length - 1;
+        currentIndex = 0;
     } else {
         currentIndex = index;
     }
 
-    slides.forEach((slide, i) => {
-        slide.style.transform = `translateX(-${currentIndex * 100}%)`;
-        indicators[i].classList.remove('active');
-    });
+    const offset = -currentIndex * (100 / visibleSlides);
+    document.querySelector('.carousel-inner').style.transform = `translateX(${offset}%)`;
 
-    indicators[currentIndex].classList.add('active');
+    indicators.forEach((indicator, i) => {
+        if (i >= currentIndex && i < currentIndex + visibleSlides) {
+            indicator.classList.add('active');
+        } else {
+            indicator.classList.remove('active');
+        }
+    });
 }
 
 function nextSlide() {
@@ -36,9 +42,12 @@ document.addEventListener('DOMContentLoaded', () => {
     showSlide(currentIndex);
 });
 
-document.querySelectorAll('.main-bubble').forEach(mainBubble => {
+// math main bubble
+document.querySelectorAll('.math').forEach(mainBubble => {
     mainBubble.addEventListener('click', function() {
-      
+        console.log("123")
+        math_emp();
+        math_income();
         const subBubbles = this.parentElement.querySelectorAll('.sub-bubble');
         subBubbles.forEach(subBubble => {
             if (subBubble.style.opacity === '1') {
@@ -51,6 +60,74 @@ document.querySelectorAll('.main-bubble').forEach(mainBubble => {
         });
     });
 });
+
+// engineering main bubble
+document.querySelectorAll('.eng').forEach(mainBubble => {
+    mainBubble.addEventListener('click', function() {
+        math_emp();
+        eng_emp();
+        eng_income();
+        const subBubbles = this.parentElement.querySelectorAll('.sub-bubble');
+        subBubbles.forEach(subBubble => {
+            if (subBubble.style.opacity === '1') {
+                subBubble.style.opacity = '0';
+                subBubble.style.pointerEvents = 'none';
+            } else {
+                subBubble.style.opacity = '1';
+                subBubble.style.pointerEvents = 'auto';
+            }
+        });
+    });
+});
+
+
+// technology main bubble
+document.querySelectorAll('.tech').forEach(mainBubble => {
+    mainBubble.addEventListener('click', function() {
+        math_emp();
+        tech_employed();
+        tech_income();
+        const subBubbles = this.parentElement.querySelectorAll('.sub-bubble');
+        subBubbles.forEach(subBubble => {
+            if (subBubble.style.opacity === '1') {
+                subBubble.style.opacity = '0';
+                subBubble.style.pointerEvents = 'none';
+            } else {
+                subBubble.style.opacity = '1';
+                subBubble.style.pointerEvents = 'auto';
+            }
+        });
+    });
+});
+sci_employed
+
+// science main bubble
+document.querySelectorAll('.sci').forEach(mainBubble => {
+    mainBubble.addEventListener('click', function() {
+        math_emp();
+        sci_employed();
+        sci_income();
+        const subBubbles = this.parentElement.querySelectorAll('.sub-bubble');
+        subBubbles.forEach(subBubble => {
+            if (subBubble.style.opacity === '1') {
+                subBubble.style.opacity = '0';
+                subBubble.style.pointerEvents = 'none';
+            } else {
+                subBubble.style.opacity = '1';
+                subBubble.style.pointerEvents = 'auto';
+            }
+        });
+    });
+});
+
+
+
+
+
+
+
+
+
 
 /* bubble map */
 
@@ -112,7 +189,7 @@ document.querySelectorAll('.sub-bubble').forEach(bubble => {
         popup.appendChild(content);
         document.body.appendChild(popup);
 
-        if (bubble.innerText !== 'Info') {
+        if (bubble.innerText == 'Job') {
             // Create chart
             const ctx = document.getElementById('chartCanvas').getContext('2d');
             const chartData = getChartData(bubble.id);
@@ -128,30 +205,318 @@ document.querySelectorAll('.sub-bubble').forEach(bubble => {
                 }
             });
         }
+
+        if (bubble.innerText == 'Income') {
+            // Create chart
+            const ctx = document.getElementById('chartCanvas').getContext('2d');
+            const chartData = getChartData(bubble.id);
+            new Chart(ctx, {
+                type: 'line',
+                data: chartData,
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
     });
 });
 
+// math_employed#########################################
+// Define global variables
+var math_emp_years = [];
+var math_emp_values = []
+var math_emp_ind =[]
+
+// Use fetch to get data
+function math_emp(){
+  fetch('data/math_employed.json')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    // Process the data and store it into global variables
+    math_emp_ind = data.map(item => item.Industry);
+    math_emp_years = data.map(item => item.Year);
+    math_emp_values = data.map(item => item.Value);
+    console.log("11111111",math_emp_values)
+
+  })
+  .catch(error => {
+    console.error('There was a problem(math_employed) with the fetch operation:', error);
+  });
+}
+
+// math_employed#########################################
+
+
+
+
+
+// math_income#########################################
+// Define global variables
+let math_income_years = [];
+let math_income_values = []
+let math_income_ind =[]
+// Use fetch to get data
+function math_income(){
+    fetch('data/math_income.json')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    // Process the data and store it into global variables
+    math_income_ind = data.map(item => item.Industry);
+    math_income_years = data.map(item => item.Year);
+    math_income_values = data.map(item => item.Value);
+    console.log("2222222222",math_income_values)
+  })
+  .catch(error => {
+    console.error('There was a problem(math_income) with the fetch operation:', error);
+  });
+}
+
+// math_income#########################################
+
+
+
+
+
+// engineering_employed#########################################
+// Define global variables
+let eng_emp_years = [];
+let eng_emp_values = []
+let eng_emp_ind =[]
+
+// Use fetch to get data
+function eng_emp(){
+   fetch('data/engineering_employed.json')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    // Process the data and store it into global variables
+    eng_emp_ind = data.map(item => item.Industry);
+    eng_emp_years = data.map(item => item.Year);
+    eng_emp_values = data.map(item => item.Value);
+    console.log("333333333",eng_emp_values)
+
+  })
+  .catch(error => {
+    console.error('There was a problem(engineering_employed) with the fetch operation:', error);
+  });
+
+}
+
+// engineering_employed#########################################
+
+
+
+
+
+// engineering_income#########################################
+// Define global variables
+let eng_income_years = [];
+let eng_income_values = []
+let eng_income_ind =[]
+
+// Use fetch to get data
+function eng_income(){
+   fetch('data/engineering_income.json')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    // Process the data and store it into global variables
+    eng_income_ind = data.map(item => item.Industry);
+    eng_income_years = data.map(item => item.Year);
+    eng_income_values = data.map(item => item.Value);
+    console.log("444444",eng_emp_values)
+
+  })
+  .catch(error => {
+    console.error('There was a problem(engineering_income) with the fetch operation:', error);
+  });
+
+}
+
+// engineering_income#########################################
+
+
+
+
+
+// tech_employed#########################################
+// Define global variables
+let tech_employed_years = [];
+let tech_employed_values = []
+let tech_employed_ind =[]
+
+// Use fetch to get data
+function tech_employed(){
+   fetch('data/tech_employed.json')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    // Process the data and store it into global variables
+    tech_employed_ind = data.map(item => item.Industry);
+    tech_employed_years = data.map(item => item.Year);
+    tech_employed_values = data.map(item => item.Value);
+    console.log("55555555",tech_employed_values)
+
+  })
+  .catch(error => {
+    console.error('There was a problem(tech_employed) with the fetch operation:', error);
+  });
+
+}
+
+// tech_employed#########################################
+
+
+
+
+// tech_income#########################################
+// Define global variables
+let tech_income_years = [];
+let tech_income_values = []
+let tech_income_ind =[]
+
+// Use fetch to get data
+function tech_income(){
+   fetch('data/tech_income.json')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    // Process the data and store it into global variables
+    tech_income_ind = data.map(item => item.Industry);
+    tech_income_years = data.map(item => item.Year);
+    tech_income_values = data.map(item => item.Value);
+    console.log("66666666",tech_income_values)
+
+  })
+  .catch(error => {
+    console.error('There was a problem(tech_income) with the fetch operation:', error);
+  });
+
+}
+
+// tech_income#########################################
+
+
+
+// sci_employed#########################################
+// Define global variables
+let sci_employed_years = [];
+let sci_employed_values = []
+let sci_employed_ind =[]
+
+// Use fetch to get data
+function sci_employed(){
+   fetch('data/science_employed.json')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    // Process the data and store it into global variables
+    sci_employed_ind = data.map(item => item.Industry);
+    sci_employed_years = data.map(item => item.Year);
+    sci_employed_values = data.map(item => item.Value);
+    console.log("7777777777777",sci_employed_values)
+
+  })
+  .catch(error => {
+    console.error('There was a problem(sci_employed) with the fetch operation:', error);
+  });
+
+}
+
+// sci_employed#########################################
+
+
+// sci_income#########################################
+// Define global variables
+let sci_income_years = [];
+let sci_income_values = []
+let sci_income_ind =[]
+
+// Use fetch to get data
+function sci_income(){
+   fetch('data/science_income.json')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    // Process the data and store it into global variables
+    sci_income_ind = data.map(item => item.Industry);
+    sci_income_years = data.map(item => item.Year);
+    sci_income_values = data.map(item => item.Value);
+    console.log("88888888",sci_income_values)
+
+  })
+  .catch(error => {
+    console.error('There was a problem(sci_income) with the fetch operation:', error);
+  });
+
+}
+
+// sci_employed#########################################
+
+
+
+
+
 function getChartData(bubbleId) {
+    console.log("bubbleid:",bubbleId)
     // Define different datasets for different bubbles
     const datasets = {
-        'subBubble1-1': [12, 19, 3, 5, 2, 3],
-        'subBubble1-2': [5, 10, 15, 20, 25, 30],
-        'subBubble1-3': [7, 14, 21, 28, 35, 42],
-        'subBubble2-1': [10, 20, 30, 40, 50, 60],
-        'subBubble2-2': [8, 16, 24, 32, 40, 48],
-        'subBubble2-3': [6, 12, 18, 24, 30, 36],
-        'subBubble3-1': [2, 4, 6, 8, 10, 12],
-        'subBubble3-2': [1, 2, 3, 4, 5, 6],
-        'subBubble3-3': [9, 18, 27, 36, 45, 54],
-        'subBubble4-1': [13, 26, 39, 52, 65, 78],
-        'subBubble4-2': [14, 28, 42, 56, 70, 84],
-        'subBubble4-3': [15, 30, 45, 60, 75, 90],
+        // 'subBubble1-1': [12, 19, 3, 5, 2, 3],
+        'subBubble1-2': math_emp_values,
+        'subBubble1-3': math_income_values,
+        // 'subBubble2-1': [10, 20, 30, 40, 50, 60],
+        'subBubble2-2': eng_emp_values,
+        'subBubble2-3': eng_income_values,
+        // 'subBubble3-1': [2, 4, 6, 8, 10, 12],
+        'subBubble3-2': tech_employed_values,
+        'subBubble3-3': tech_income_values,
+        // 'subBubble4-1': [13, 26, 39, 52, 65, 78],
+        'subBubble4-2': sci_employed_values,
+        'subBubble4-3': sci_income_values,
     };
 
     return {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: math_emp_years,
         datasets: [{
-            label: '# of Votes',
+            label: 'Unit: 000',
             data: datasets[bubbleId] || [],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
@@ -169,7 +534,7 @@ function getChartData(bubbleId) {
                 'rgba(153, 102, 255, 1)',
                 'rgba(255, 159, 64, 1)'
             ],
-            borderWidth: 1
+            borderWidth: 5
         }]
     };
 }
