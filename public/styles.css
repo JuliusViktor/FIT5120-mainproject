@@ -517,28 +517,29 @@ body {
 }
 
 #subBubble1-1, #subBubble2-1, #subBubble3-1, #subBubble4-1 {
-    top: 0;
-    left: 0%;
+    top: 12.5%; 
+    left: 12.5%; 
     transform: translate(-50%, -50%);
 }
 
 #subBubble1-2, #subBubble2-2, #subBubble3-2, #subBubble4-2 {
-    top: 0%;
-    left: 100%;
+    top: 12.5%; 
+    left: 87.5%; 
     transform: translate(-50%, -50%);
 }
 
 #subBubble1-3, #subBubble2-3, #subBubble3-3, #subBubble4-3 {
-    top: 100%;
-    left: 0;
+    top: 87.5%; 
+    left: 12.5%; 
     transform: translate(-50%, -50%);
 }
 
 #subBubble1-4, #subBubble2-4, #subBubble3-4, #subBubble4-4 {
-    top: 100%;
-    left: 100%;
+    top: 87.5%; 
+    left: 87.5%; 
     transform: translate(-50%, -50%);
 }
+
 
 /* popup windows of sub-bubbles*/
 
