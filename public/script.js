@@ -539,21 +539,25 @@ function getChartData(bubbleId) {
 function getInfoContent(bubbleId) {
     const info = {
         'subBubble1-1': `
+            <h3>Mathematics</h3>
             <li>Mathematics is the study of numbers, shapes, and patterns.</li>
             <li>It is essential for various fields including science, engineering, and finance.</li>
             <li>Mathematicians use mathematical theories and techniques to solve practical problems.</li>
         `,
         'subBubble2-1': `
+            <h3>Engineering</h3>
             <li>Engineering involves the application of science and math to solve problems.</li>
             <li>Engineers design, build, and maintain structures, machines, and systems.</li>
             <li>There are various branches of engineering including civil, mechanical, and electrical.</li>
         `,
         'subBubble3-1': `
+            <h3>Technology</h3>
             <li>Technology refers to the use of scientific knowledge for practical purposes.</li>
             <li>It includes the development and use of tools, machines, and systems.</li>
             <li>Technology plays a crucial role in modern society, impacting various industries.</li>
         `,
         'subBubble4-1': `
+            <h3>Science</h3>
             <li>Science is the systematic study of the natural world through observation and experimentation.</li>
             <li>It aims to understand how the universe works and to develop new knowledge.</li>
             <li>Scientific research is essential for technological advancements and societal progress.</li>
@@ -565,25 +569,23 @@ function getInfoContent(bubbleId) {
 
 function getBenContent(bubbleId) {
   const info = {
-      'subBubble1-4': `
-          <li>Mathematics is the study of numbers, shapes, and patterns.</li>
-          <li>It is essential for various fields including science, engineering, and finance.</li>
-          <li>Mathematicians use mathematical theories and techniques to solve practical problems.</li>
+      'subBubble1-4': 
+        
+      `   <h2>Mathematics</h2>
+          <h3>Mathematics have a lot of benefit, some it is encourage us to do critical thinking, providing necessary skills and knowledge to tackle complex challanges, innovate and drive technological and scientific advancement</h3>
       `,
       'subBubble2-4': `
-          <li>Engineering involves the application of science and math to solve problems.</li>
-          <li>Engineers design, build, and maintain structures, machines, and systems.</li>
-          <li>There are various branches of engineering including civil, mechanical, and electrical.</li>
+          <h2>Engineering</h2>
+          <h3>Engineering is an essentialto the advancement of all industries, by providing the technical expertise and innovate thinking. </h3>
       `,
       'subBubble3-4': `
-          <li>Technology refers to the use of scientific knowledge for practical purposes.</li>
-          <li>It includes the development and use of tools, machines, and systems.</li>
-          <li>Technology plays a crucial role in modern society, impacting various industries.</li>
+          <h2>Technology</h2>
+          <h3>Technology is a critical component in stem industries, they drive efficiency, innovate, and enhance research capabilities and support the development solution that adress complex global challange.</h3>
+
       `,
       'subBubble4-4': `
-          <li>Science is the systematic study of the natural world through observation and experimentation.</li>
-          <li>It aims to understand how the universe works and to develop new knowledge.</li>
-          <li>Scientific research is essential for technological advancements and societal progress.</li>
+          <h2>Science</h2>
+          <h3>A background in science offers young female student not only the skills and knowledge to excel in STEM indsutries but also the confidence, opportunities and inspiration to make meaningful contributions to society and the world</h3>
       `
   };
 

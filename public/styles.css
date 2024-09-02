@@ -103,14 +103,14 @@ body {
 
 
 /* landing page */
-.landing-page-contrainer {
-    display: flex;
+.landing-page-contrainer
+{
+    width: 100%;
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 50px 20 px;
     background-color: #ede8f5;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Full viewport height */
-    flex-direction: column; /* Elements in a column */
-    position: relative; /* Necessary for absolute positioning of images */
+    overflow: hidden; /* Ensures no scroll bars appear */
 }
 
 .landing-page
@@ -122,7 +122,7 @@ body {
 
 .landing-page h1
 {
-    font-size: 2.5rem;
+    font-size: 5rem;
     margin-top: 0;
     font-weight: bold;
     color: #708c82;
@@ -133,6 +133,7 @@ body {
 }
 
 .landing-page p{
+
     color: #2d2c38;
     font-size: 3.5rem;
     align-items: center;
@@ -140,34 +141,46 @@ body {
 
 }
 
+.image-section
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 .bottom-left-image {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 300px;
-    height: auto;
+    bottom: 0px; /* Distance from the bottom of the screen */
+    left: 20px; /* Distance from the left side of the screen */
+    width: 300px; /* Adjust size as needed */
+    height: auto; /* Maintain aspect ratio */
 }
 
 .top-right-image {
     position: absolute;
-    top: 0;
-    right: 0;
-    width: 250px;
-    height: auto;
+    top: 1px; /* Distance from the top of the screen */
+    right: 20px; /* Distance from the right side of the screen */
+    width: 250px; /* Adjust size as needed */
+    height: auto; /* Maintain aspect ratio */
 }
 
 
 
 .cta-button {
     text-align: center;
+    align-items: center;
     padding: 15px 30px;
     font-size: 1rem;
     color: #fff;
+    margin-left: 785px;
     background-color: #293a6d;
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
     font-family: "Lexend Deca", sans-serif;
+    transform: translateY(-250px);
+
 }
 
 .cta-button:hover {
@@ -209,7 +222,7 @@ body {
 
 
 .title h1 {
-    font-size: 4rem; /* title size */
+    font-size: 7rem; /* title size */
     margin-top: 0; /* remove any top margin */
     margin-bottom: 10px; /* adjust this value to reduce the gap */
     color: white; /* text color */
@@ -526,13 +539,14 @@ body {
     left: 100%;
     transform: translate(-50%, -50%);
 }
+
 /* popup windows of sub-bubbles*/
 
 .popup {
     position: absolute;
     width: auto;
     height: auto;
-    background: linear-gradient(135deg, #ebebeb 0%, #c7b3c3 100%);
+    background: linear-gradient(135deg, #9faba3 0%, #c7b3c3 100%);
     border: 1px solid #ccc;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     display: flex;
@@ -568,12 +582,11 @@ body {
 }
 
 .popup-content {
-    /* text-align: center; */
-    color: #fff;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    text-align: center;
+    color: #2d2c38;
+    font-family: "Lexend Deca", sans-serif;
     font-size: 18px;
 }
-
 
 
 
