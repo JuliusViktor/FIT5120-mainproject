@@ -105,13 +105,12 @@ body {
 /* landing page */
 .landing-page-contrainer
 {
-    width: 100%;
-    align-items: center;
     max-width: 100%;
     margin: 0 auto;
     padding: 50px 20 px;
     background-color: #ede8f5;
-    overflow: hidden; /* Ensures no scroll bars appear */
+    display: flex;
+    justify-content: center;
 }
 
 .landing-page
@@ -122,59 +121,40 @@ body {
 }
 
 .landing-page h1
-{
+{   
+
     font-size: 5rem;
-    margin-top: 0;
     font-weight: bold;
     color: #708c82;
     padding-top: 200px ;
-    padding-bottom: 50px;
+    padding-bottom: 300px;
     font-family: "Lexend Deca", sans-serif;
 
 }
 
+.landing-page h3
+{
+    text-align: center;
+    color: #919191;
+    padding-top: 10rem;
+}
+
 .landing-page p{
 
+    padding-top: 15rem;
     color: #2d2c38;
     font-size: 3.5rem;
-    align-items: center;
-    text-align: center;
 
 }
-
-.image-section
-{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-.bottom-left-image {
-    position: absolute;
-    bottom: 0px; /* Distance from the bottom of the screen */
-    left: 20px; /* Distance from the left side of the screen */
-    width: 300px; /* Adjust size as needed */
-    height: auto; /* Maintain aspect ratio */
-}
-
-.top-right-image {
-    position: absolute;
-    top: 1px; /* Distance from the top of the screen */
-    right: 20px; /* Distance from the right side of the screen */
-    width: 250px; /* Adjust size as needed */
-    height: auto; /* Maintain aspect ratio */
-}
-
 
 
 .cta-button {
-    text-align: center;
+    align-items: center;
+    margin-top: 5rem;
     padding: 15px 30px;
     font-size: 1rem;
     color: #fff;
     background-color: #293a6d;
-    text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
     font-family: "Lexend Deca", sans-serif;
@@ -555,7 +535,6 @@ body {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     display: flex;
     justify-content: center;
-    align-items: center;
     flex-direction: column;
     z-index: 1000;
     border-radius: 15px;
@@ -568,9 +547,9 @@ body {
     align-self: flex-end;
     cursor: pointer;
     padding: 10px;
-    font-size: 20px;
+    font-size: 50px;
     color: #fff;
-    background-color: #ff6b6b;
+    background-color: #4f9965;
     border-radius: 50%;
     width: 30px;
     height: 30px;
@@ -582,7 +561,7 @@ body {
 }
 
 .popup .close-btn:hover {
-    background-color: #4f9965;
+    background-color: #ff6b6b;
 }
 
 .popup-content {
