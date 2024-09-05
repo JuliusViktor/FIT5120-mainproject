@@ -777,10 +777,86 @@ footer{
     margin-top: 0.625rem;
 }
 
+/* income insight section */
+.income-insight
+{
+    font-family: "Lexend Deca", sans-serif;
+    background-color: #ede8f5;
+    height: 90vh; 
+}
 
+.income-insight-container{
+    padding-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
+.income-insight-container h1
+{
+    background-color: rgba(0, 0, 0, 0.1); /* Optional: Add a background color */
+    width: 100%;
+    font-size: 3rem;
+    text-align: center;
+    color: #2d2c38;
+}
 
+.income-insight-container p 
+{
+    color: #7e7e7e;
+    font-size: 1rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
 
+.bubble-chart-container
+{
+    background-color: #d2d2d2;
+    padding: 20px 30px;
+    border-radius: 2rem;
+    display: none;
+
+}
+
+#bubble-chart {
+    margin: 20px;
+    border-radius: 1rem;
+}
+.legend rect {
+    stroke-width: 1;
+    stroke: #000;
+}
+
+/* Style for the button to match the look in the image */
+#show-visualization-button {
+    margin-bottom: 5rem;
+    background-color: #33436d;  /* Dark blue background */
+    color: white;  /* White text color */
+    font-size: 1.1rem;  /* Slightly smaller font size */
+    padding: 12px 24px;  /* Padding for size */
+    border: none;  /* Remove default border */
+    border-radius: 8px;  /* Slightly rounded corners */
+    cursor: pointer;  /* Pointer cursor on hover */
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);  /* Subtle shadow */
+    transition: all 0.3s ease;  /* Smooth transition for hover effect */
+    font-family: "Lexend Deca", sans-serif;  /* Clean font */
+    text-align: center;  /* Center text */
+}
+
+/* Hover effect */
+#show-visualization-button:hover {
+    background-color: #2d3a5b;  /* Slightly darker shade of blue */
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);  /* Slightly deeper shadow */
+    transform: translateY(-2px);  /* Small lift effect */
+}
+
+/* Active effect (when button is clicked) */
+#show-visualization-button:active {
+    background-color: #2d3a5b;  /* Keep hover color */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);  /* Return to a smaller shadow */
+    transform: translateY(0px);  /* Return to original position */
+}
 
 
 

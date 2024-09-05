@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.getElementById('learnNowButton').addEventListener('click', function() {
     // Find the section to scroll to using its ID
-    var targetSection = document.getElementById('stem-introduction');
+    var targetSection = document.getElementById('stem-bubble');
     
     // Scroll into view with smooth behavior
     targetSection.scrollIntoView({ behavior: 'smooth' });
@@ -590,6 +590,18 @@ function getBenContent(bubbleId) {
   return info[bubbleId] || '<li>No information available.</li>';
 }
 
+document.getElementById('show-visualization-button').addEventListener('click', function() {
+  var visualizationContainer = document.querySelector('.bubble-chart-container');
+
+  // Check if the bubble chart is currently visible
+  if (visualizationContainer.style.display === 'none' || visualizationContainer.style.display === '') {
+      visualizationContainer.style.display = 'block';  // Show the chart
+      this.textContent = "Hide it from me";  // Change button text
+  } else {
+      visualizationContainer.style.display = 'none';  // Hide the chart
+      this.textContent = "Show me";  // Change button text back
+  }
+});
 
 
 /* role model */
