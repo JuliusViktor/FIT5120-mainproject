@@ -1,0 +1,127 @@
+[
+    {
+        "Year": 2017,
+        "Emission_Source": "Coal",
+        "Emission_per_Kiloton": 1150
+    },
+    {
+        "Year": 2017,
+        "Emission_Source": "Oil",
+        "Emission_per_Kiloton": 950
+    },
+    {
+        "Year": 2017,
+        "Emission_Source": "Gas",
+        "Emission_per_Kiloton": 850
+    },
+    {
+        "Year": 2017,
+        "Emission_Source": "Cement",
+        "Emission_per_Kiloton": 420
+    },
+    {
+        "Year": 2017,
+        "Emission_Source": "Flaring",
+        "Emission_per_Kiloton": 210
+    },
+    {
+        "Year": 2018,
+        "Emission_Source": "Coal",
+        "Emission_per_Kiloton": 1170
+    },
+    {
+        "Year": 2018,
+        "Emission_Source": "Oil",
+        "Emission_per_Kiloton": 970
+    },
+    {
+        "Year": 2018,
+        "Emission_Source": "Gas",
+        "Emission_per_Kiloton": 870
+    },
+    {
+        "Year": 2018,
+        "Emission_Source": "Cement",
+        "Emission_per_Kiloton": 430
+    },
+    {
+        "Year": 2018,
+        "Emission_Source": "Flaring",
+        "Emission_per_Kiloton": 215
+    },
+    {
+        "Year": 2019,
+        "Emission_Source": "Coal",
+        "Emission_per_Kiloton": 1180
+    },
+    {
+        "Year": 2019,
+        "Emission_Source": "Oil",
+        "Emission_per_Kiloton": 980
+    },
+    {
+        "Year": 2019,
+        "Emission_Source": "Gas",
+        "Emission_per_Kiloton": 880
+    },
+    {
+        "Year": 2019,
+        "Emission_Source": "Cement",
+        "Emission_per_Kiloton": 440
+    },
+    {
+        "Year": 2019,
+        "Emission_Source": "Flaring",
+        "Emission_per_Kiloton": 220
+    },
+    {
+        "Year": 2020,
+        "Emission_Source": "Coal",
+        "Emission_per_Kiloton": 1200
+    },
+    {
+        "Year": 2020,
+        "Emission_Source": "Oil",
+        "Emission_per_Kiloton": 1000
+    },
+    {
+        "Year": 2020,
+        "Emission_Source": "Gas",
+        "Emission_per_Kiloton": 900
+    },
+    {
+        "Year": 2020,
+        "Emission_Source": "Cement",
+        "Emission_per_Kiloton": 450
+    },
+    {
+        "Year": 2020,
+        "Emission_Source": "Flaring",
+        "Emission_per_Kiloton": 220
+    },
+    {
+        "Year": 2021,
+        "Emission_Source": "Coal",
+        "Emission_per_Kiloton": 1220
+    },
+    {
+        "Year": 2021,
+        "Emission_Source": "Oil",
+        "Emission_per_Kiloton": 1020
+    },
+    {
+        "Year": 2021,
+        "Emission_Source": "Gas",
+        "Emission_per_Kiloton": 920
+    },
+    {
+        "Year": 2021,
+        "Emission_Source": "Cement",
+        "Emission_per_Kiloton": 460
+    },
+    {
+        "Year": 2021,
+        "Emission_Source": "Flaring",
+        "Emission_per_Kiloton": 230
+    }
+]
