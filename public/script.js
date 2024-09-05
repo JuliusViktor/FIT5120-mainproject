@@ -592,16 +592,20 @@ function getBenContent(bubbleId) {
 
 document.getElementById('show-visualization-button').addEventListener('click', function() {
   var visualizationContainer = document.querySelector('.bubble-chart-container');
+  var incomeInsightTitle = document.querySelector('.income-insight-container h1');
 
   // Check if the bubble chart is currently visible
   if (visualizationContainer.style.display === 'none' || visualizationContainer.style.display === '') {
       visualizationContainer.style.display = 'block';  // Show the chart
+      incomeInsightTitle.style.display = 'none';  // Hide the title
       this.textContent = "Hide it from me";  // Change button text
   } else {
       visualizationContainer.style.display = 'none';  // Hide the chart
+      incomeInsightTitle.style.display = 'block';  // Show the title
       this.textContent = "Show me";  // Change button text back
   }
 });
+
 
 
 /* role model */

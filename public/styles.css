@@ -136,12 +136,14 @@ body {
 {
     text-align: center;
     color: #919191;
-    padding-top: 10rem;
+    padding-top: 0rem;
+    margin-left: 120px;
+    margin-right: 120px;
 }
 
 .landing-page p{
 
-    padding-top: 15rem;
+    padding-top: 12rem;
     color: #2d2c38;
     font-size: 3.5rem;
 
@@ -426,9 +428,10 @@ body {
     font-family: "Lexend Deca", sans-serif;
     justify-content: center;
     align-items: center;
-    height: 75vh;
+    height: auto;
     background: radial-gradient(circle, #f8f3f8 0%, #f8f3f8 100%);
     flex-wrap: wrap; /* Ensure items wrap to the next line */
+    padding-bottom: 30px;
 }
 
 .container-mindmap h1 {
@@ -452,15 +455,15 @@ body {
 
 .mind-map {
     position: relative;
-    width: 250px; /* Adjusted width */
-    height: 250px; /* Adjusted height */
-    margin: 40px; /* Reduced margin */
+    width: 250px; 
+    height: 250px; 
+    margin: 40px; 
 }
 
 .bubble {
     position: absolute;
-    width: 80px; /* Adjusted width */
-    height: 80px; /* Adjusted height */
+    width: 80px; 
+    height: 80px; 
     background: linear-gradient(145deg, #708c82, #000000);
     border-radius: 50%;
     display: flex;
@@ -483,8 +486,8 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     background: linear-gradient(145deg, #708c82, #8b9693);
-    width: 120px; /* Adjusted width */
-    height: 120px; /* Adjusted height */
+    width: 120px; 
+    height: 120px; 
 }
 
 .main-bubble:hover {
@@ -778,14 +781,13 @@ footer{
 }
 
 /* income insight section */
-.income-insight
-{
+.income-insight {
     font-family: "Lexend Deca", sans-serif;
     background-color: #ede8f5;
     height: 90vh; 
 }
 
-.income-insight-container{
+.income-insight-container {
     padding-top: 5rem;
     display: flex;
     flex-direction: column;
@@ -793,36 +795,33 @@ footer{
     justify-content: center;
 }
 
-.income-insight-container h1
-{
-    background-color: rgba(0, 0, 0, 0.1); /* Optional: Add a background color */
+.income-insight-container h1 {
+    /* background-color: rgba(0, 0, 0, 0.1); */ /* Optional: Add a background color */
     width: 100%;
     font-size: 3rem;
     text-align: center;
     color: #2d2c38;
 }
 
-.income-insight-container p 
-{
+.income-insight-container p {
     color: #7e7e7e;
     font-size: 1rem;
     padding-top: 3rem;
     padding-bottom: 3rem;
 }
 
-.bubble-chart-container
-{
+.bubble-chart-container {
     background-color: #d2d2d2;
     padding: 20px 30px;
     border-radius: 2rem;
     display: none;
-
 }
 
 #bubble-chart {
     margin: 20px;
     border-radius: 1rem;
 }
+
 .legend rect {
     stroke-width: 1;
     stroke: #000;

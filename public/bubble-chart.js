@@ -119,7 +119,7 @@ function drawBubbleChart() {
             .style("font-size", "20px")
             .style("font-weight", "bold")
             .style("fill", "#333")
-            .text("Emission Type");
+            .text("Type");
 
         legend.selectAll("rect")
             .data(legendData)
@@ -158,7 +158,7 @@ function drawBubbleChart() {
             .style("font-size", "14px")
             .style("font-weight", "bold")
             .style("fill", "#333")
-            .text("The bubble chart on the left here shows the different of emission level along the years.")
+            .text("The bubble chart on the left here shows the mean value of salary level along the years.")
             .call(wrap, 150); 
 
     }).catch(error => console.error("Error loading bubble chart data:", error));
