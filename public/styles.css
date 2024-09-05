@@ -586,12 +586,26 @@ body {
 }
 
 .popup-content {
-    text-align: center;
+    text-align: left;
     color: #2d2c38;
     font-family: "Lexend Deca", sans-serif;
     font-size: 18px;
 }
 
+.income-insight {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; 
+}
+#bubble-chart {
+    margin: 20px;
+}
+.legend rect {
+    stroke-width: 1;
+    stroke: #000;
+}
 
 
 

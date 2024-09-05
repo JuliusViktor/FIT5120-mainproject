@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://d3js.org/d3.v7.min.js"></script>
+
 </head>
 <body>
     <nav class="navbar">
@@ -187,6 +188,9 @@
     <section class="income-insight">
 
             <h1>Let's see the different income in STEM Industries.</h1>
+            <div id="bubble-chart"></div>
+            <input type="range" id="bubbleYearSlider" min="2017" max="2021" step="1" value="2017">
+            <span id="bubbleYearDisplay">2017</span>
 
     </section>
 
@@ -327,5 +331,6 @@
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://d3js.org/topojson.v3.min.js"></script>
     <script src="script.js"></script>
+    <script src="bubble-chart.js"></script>
 </body>
 </html>
