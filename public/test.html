@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        .bubble {
+            transition: transform 0.3s ease;
+            transform-origin: center;
+        }
+        .bubble:hover {
+            transform: scale(1.1);
+            cursor: pointer;
+        }
+        .label {
+            fill: white;
+            text-anchor: middle;
+            pointer-events: none;
+        }
+        .tooltip {
+            position: absolute;
+            text-align: center;
+            width: auto;
+            height: auto;
+            padding: 5px;
+            font: 12px sans-serif;
+            background: lightsteelblue;
+            border: 0px;
+            border-radius: 8px;
+            pointer-events: none;
+            transition: font-size 0.3s ease;
+        }
+        .tooltip-large {
+            font-size: 24px; /* Adjust this value as needed */
+        }
+        .bubble-mathematics {
+            fill: rgb(233, 103, 103);
+        }
+        .bubble-engineering {
+            fill: rgb(114, 114, 232);
+        }
+        .bubble-technology {
+            fill: rgb(143, 213, 143);
+        }
+        .bubble-science {
+            fill: rgb(125, 78, 125);
+        }
+    </style>
+</head>
+<body>
+    <div id="new-bubble-chart"></div>
+    <div id="tooltip" class="tooltip" style="opacity:0;"></div>
+    <script>
+//
+    let math_test =[]
+    fetch('Data/math_income.json')
+    .then(response => {
+            if (!response.ok) {
+            throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+    .then(data => {
+            // Process the data and store it into global variables
+            math_test = data
+            console.log("ttttttttt",math_test)
+            console.log("valueeeeeeeee",math_test[0].Value)
+        })
+
+        
+//
+        // math_income#########################################
+        // Define global variables
+        let math_income_years = [];
+        let math_income_values = []
+        let math_income_ind =[]
+        // Use fetch to get data
+        function math_income(){
+            fetch('Data/math_income.json')
+        .then(response => {
+            if (!response.ok) {
+            throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Process the data and store it into global variables
+            math_income_ind = data.map(item => item.Industry);
+            math_income_years = data.map(item => item.Year);
+            math_income_values = data.map(item => item.Value);
+            console.log("2222222222",math_income_values)
+        })
+        .catch(error => {
+            console.error('There was a problem(math_income) with the fetch operation:', error);
+        });
+        }
+
+        // math_income#########################################
+
+
+        // engineering_income#########################################
+        // Define global variables
+        let eng_income_years = [];
+        let eng_income_values = []
+        let eng_income_ind =[]
+
+        // Use fetch to get data
+        function eng_income(){
+        fetch('Data/engineering_income.json')
+        .then(response => {
+            if (!response.ok) {
+            throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Process the data and store it into global variables
+            eng_income_ind = data.map(item => item.Industry);
+            eng_income_years = data.map(item => item.Year);
+            eng_income_values = data.map(item => item.Value);
+            console.log("444444",eng_emp_values)
+
+        })
+        .catch(error => {
+            console.error('There was a problem(engineering_income) with the fetch operation:', error);
+        });
+
+        }
+
+        // engineering_income#########################################
+
+
+        // tech_income#########################################
+        // Define global variables
+        let tech_income_years = [];
+        let tech_income_values = []
+        let tech_income_ind =[]
+
+        // Use fetch to get data
+        function tech_income(){
+        fetch('Data/tech_income.json')
+        .then(response => {
+            if (!response.ok) {
+            throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Process the data and store it into global variables
+            tech_income_ind = data.map(item => item.Industry);
+            tech_income_years = data.map(item => item.Year);
+            tech_income_values = data.map(item => item.Value);
+            console.log("66666666",tech_income_values)
+
+        })
+        .catch(error => {
+            console.error('There was a problem(tech_income) with the fetch operation:', error);
+        });
+
+        }
+
+        // tech_income#########################################
+
+
+
+        // sci_income#########################################
+        // Define global variables
+        let sci_income_years = [];
+        let sci_income_values = []
+        let sci_income_ind =[]
+
+        // Use fetch to get data
+        function sci_income(){
+        fetch('Data/science_income.json')
+        .then(response => {
+            if (!response.ok) {
+            throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Process the data and store it into global variables
+            sci_income_ind = data.map(item => item.Industry);
+            sci_income_years = data.map(item => item.Year);
+            sci_income_values = data.map(item => item.Value);
+            console.log("88888888",sci_income_values)
+
+        })
+        .catch(error => {
+            console.error('There was a problem(sci_income) with the fetch operation:', error);
+        });
+
+        }
+
+
+
+        const formatter = new Intl.NumberFormat('en-AU', {
+            style: 'currency',
+            currency: 'AUD',
+        });
+
+        
+        // Sample data
+        const newBubbleData = [
+            { industry: "Mathematics", salary: 30000, class: "bubble-mathematics", radius: 60, tooltip: "" },
+            { industry: "Engineering", salary: 95000, class: "bubble-engineering", radius: 100, tooltip: "Engineering: $95,000" },
+            { industry: "Technology", salary: 120000, class: "bubble-technology", radius: 140, tooltip: "Technology: $120,000" },
+            { industry: "Science", salary: 50000, class: "bubble-science", radius: 80, tooltip: "Science: $50,000" }
+        ];
+
+        // Set the width and height of the chart
+        const width = 800;
+        const height = 600;
+
+        // Create an SVG container
+        const svg = d3.select("#new-bubble-chart")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height);
+
+        // Create a simulation for positioning the bubbles
+        const simulation = d3.forceSimulation(newBubbleData)
+            .force("x", d3.forceX(width / 2).strength(0.05))
+            .force("y", d3.forceY(height / 2).strength(0.05))
+            .force("collide", d3.forceCollide(d => d.radius + 2))
+            .on("tick", ticked);
+
+        // Create bubbles
+        const bubbles = svg.selectAll("circle")
+            .data(newBubbleData)
+            .enter()
+            .append("circle")
+            .attr("class", d => `bubble ${d.class}`)
+            .attr("r", d => d.radius)
+            .on("mouseover", function(event, d) {
+                d3.select("#tooltip")
+                    .style("opacity", 1)
+                    .html(d.tooltip)
+                    .style("left", (event.pageX + 5) + "px")
+                    .style("top", (event.pageY - 28) + "px")
+                    .classed("tooltip-large", true); // Add the class for larger font size
+
+                d3.select(this)
+                    .transition()
+                    .duration(300)
+                    .attr("r", d.radius * 1.1);
+            })
+            .on("mouseout", function(event, d) {
+                d3.select("#tooltip")
+                    .style("opacity", 0)
+                    .classed("tooltip-large", false); // Remove the class for larger font size
+
+                d3.select(this)
+                    .transition()
+                    .duration(300)
+                    .attr("r", d.radius);
+            });
+
+        // Add labels
+        const labels = svg.selectAll("text")
+            .data(newBubbleData)
+            .enter()
+            .append("text")
+            .attr("class", "label")
+            .attr("font-size", d => d.radius / 3) // Adjust font size based on bubble radius
+            .text(d => d.industry);
+
+        function ticked() {
+            bubbles
+                .attr("cx", d => d.x)
+                .attr("cy", d => d.y);
+
+            labels
+                .attr("x", d => d.x)
+                .attr("y", d => d.y)
+                .attr("dy", ".35em"); // Center the text vertically
+        }
+    </script>
+</body>
+</html>
