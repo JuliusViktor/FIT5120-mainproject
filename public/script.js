@@ -17,7 +17,7 @@ function showSlide(index) {
     }
 
     const offset = -currentIndex * (100 / visibleSlides);
-    document.querySelector('.carousel-inner').style.transform = `translateX(${offset}%)`;
+    // document.querySelector('.carousel-inner').style.transform = `translateX(${offset}%)`;
 
     indicators.forEach((indicator, i) => {
         if (i >= currentIndex && i < currentIndex + visibleSlides) {
@@ -44,13 +44,13 @@ document.addEventListener('DOMContentLoaded', () => {
     showSlide(currentIndex);
 });
 
-document.getElementById('learnNowButton').addEventListener('click', function() {
-    // Find the section to scroll to using its ID
-    var targetSection = document.getElementById('stem-introduction');
+// document.getElementById('learnNowButton').addEventListener('click', function() {
+//     // Find the section to scroll to using its ID
+//     var targetSection = document.getElementById('stem-introduction');
     
-    // Scroll into view with smooth behavior
-    targetSection.scrollIntoView({ behavior: 'smooth' });
-});
+//     // Scroll into view with smooth behavior
+//     targetSection.scrollIntoView({ behavior: 'smooth' });
+// });
 
 // math main bubble
 document.querySelectorAll('.math').forEach(mainBubble => {
@@ -230,7 +230,7 @@ var math_emp_ind =[]
 
 // Use fetch to get data
 function math_emp(){
-  fetch('data/math_employed.json')
+  fetch('Data/math_employed.json')
   .then(response => {
     if (!response.ok) {
       throw new Error('Network response was not ok');
@@ -263,7 +263,7 @@ let math_income_values = []
 let math_income_ind =[]
 // Use fetch to get data
 function math_income(){
-    fetch('data/math_income.json')
+    fetch('Data/math_income.json')
   .then(response => {
     if (!response.ok) {
       throw new Error('Network response was not ok');
@@ -296,7 +296,7 @@ let eng_emp_ind =[]
 
 // Use fetch to get data
 function eng_emp(){
-   fetch('data/engineering_employed.json')
+   fetch('Data/engineering_employed.json')
   .then(response => {
     if (!response.ok) {
       throw new Error('Network response was not ok');
@@ -331,7 +331,7 @@ let eng_income_ind =[]
 
 // Use fetch to get data
 function eng_income(){
-   fetch('data/engineering_income.json')
+   fetch('Data/engineering_income.json')
   .then(response => {
     if (!response.ok) {
       throw new Error('Network response was not ok');
@@ -366,7 +366,7 @@ let tech_employed_ind =[]
 
 // Use fetch to get data
 function tech_employed(){
-   fetch('data/tech_employed.json')
+   fetch('Data/tech_employed.json')
   .then(response => {
     if (!response.ok) {
       throw new Error('Network response was not ok');
@@ -400,7 +400,7 @@ let tech_income_ind =[]
 
 // Use fetch to get data
 function tech_income(){
-   fetch('data/tech_income.json')
+   fetch('Data/tech_income.json')
   .then(response => {
     if (!response.ok) {
       throw new Error('Network response was not ok');
@@ -433,7 +433,7 @@ let sci_employed_ind =[]
 
 // Use fetch to get data
 function sci_employed(){
-   fetch('data/science_employed.json')
+   fetch('Data/science_employed.json')
   .then(response => {
     if (!response.ok) {
       throw new Error('Network response was not ok');
@@ -465,7 +465,7 @@ let sci_income_ind =[]
 
 // Use fetch to get data
 function sci_income(){
-   fetch('data/science_income.json')
+   fetch('Data/science_income.json')
   .then(response => {
     if (!response.ok) {
       throw new Error('Network response was not ok');
@@ -513,7 +513,7 @@ function getChartData(bubbleId) {
     return {
         labels: math_emp_years,
         datasets: [{
-            label: 'Unit: 000',
+            label: 'Unit: thousand Jobs / Dollar',
             data: datasets[bubbleId] || [],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',

@@ -19,44 +19,58 @@
             <a href="#"><img src="./images/AUSEE-LOGO.png" alt="Logo"></a>
         </div>
         <ul class="nav-links">
-            <li><a href="homapge.html">HOME</a></li>
+            <li><a href="homepage.html">HOME</a></li>
             <li><a href="aboutus.html">ABOUT US</a></li>
-            <!-- <li><a href="#">STEM</a></li>
+            <li><a href="#">STEM</a></li>
             <li><a href="#">STEM CAREER</a></li>
             <li><a href="#">STEM INSIGHT</a></li>
-            <li><a href="#">QUIZ</a></li> -->
+            <li><a href="#">QUIZ</a></li>
         </ul>
+        
     </nav>
     
         <div class="landing-page-contrainer">
-            <div class="landing-page">
-                    <h1>AUSEE</h1>
-                    <p>Breaking Down Barriers: Inspiring Australian Girls in STEM</p>
-            </div>
-
-                <img src="images/image_landing_page_1.png" alt="landing page 1" class="bottom-left-image">
-                <!-- <img src="images/image_landing_page_2.png" alt="landing page 2" class="top-right-image"> -->
-
-                <button id="learnNowButton" class="cta-button">Learn How</button>
-
-
-
+                <img src="./images/G3.jpg" alt="">
+                <button id="start_1" class="cta-button"
+                 style="position: absolute; top: 90%; left: 10%;">
+                 Let's get started</button>
         </div>
 
+        <script>
+            document.getElementById('start_1').addEventListener('click', function() {
+                
+                window.scrollTo({
+                    top: 800,  
+                    behavior: 'smooth'  
+                });
+            });
+        </script>
 
-    </section>
-
+        <div class="full-width-div">
+            <img src ="./images/arrow.png" alt="" class="arrow" margin: 0 auto;>
+        </div>
+        
 
     <section id="stem-introduction" class="title">
-        <h2>WHAT IS STEM?</h2>
+        <h2>Do you know what is STEM ?</h2>
 
         <section class="stem-intro">
             <p>
-                STEM stands for Science, Technology, Engineering, and Mathematics. STEM itself is an approach to learning and development that integrates the areas of science , technology , engineering and mathemtics.
+                STEM stands for Science, Technology, Engineering, 
+                and Mathematics. STEM itself is an approach to learning
+                 and development that integrates the areas of science , technology , engineering and mathemtics.
+                 <button id="learn_more_1" class="cta-button"
+                 style="position: absolute; top: 85%; left: 10%;">
+                 Learn more</button>
             </p>
-        </section>
 
+        </section>
+        <div class="full-width-div">
+            <img src ="./images/arrow.png" alt="" class="arrow" margin: 0 auto;>
+        </div>
     </section>
+    
+    
 
     <!-- <section class="news-section">
         <h1>News in STEM World</h1>
@@ -157,11 +171,9 @@
         </div>
     </section> -->
     
-
-    
     <div class="container-mindmap">
-        <h1>STEM Across Industries</h1>
-        <p class="description">[EACH BUBBLE IS CLICKABLE]Explore the interconnected fields of Science, Technology, Engineering, and Mathematics.</p>
+        <h1>You know what you're gonna get? If you join STEM.</h1>
+        <p class="description">Clicking the button below to explore some trends ( Please! Don't do it )</p>
         <div class="mind-map">
             <div class="bubble math main-bubble">Mathematic</div>
             <div class="bubble sub-bubble" id="subBubble1-1">Info</div>
@@ -190,6 +202,11 @@
             <div class="bubble sub-bubble" id="subBubble4-3">Income</div>
             <div class="bubble sub-bubble" id="subBubble4-4">Benefits</div>
         </div>
+    </div>
+    <div class="full-width-div">
+        <button id="learn_more_1" class="cta-button"
+                 style="position: relative; top: 200%; left: 10%;">
+                 Learn more</button>
     </div>
     
     <!-- <div class="carousel">
@@ -284,7 +301,7 @@
         <p class="description">Discover the journeys and achievements of these remarkable individuals who have made significant contributions to the fields of Science, Technology, Engineering, and Mathematics.</p>
 
         <div class="role-model" data-id="1">
-            <img src="./images/role_model_1.jpg" alt="Role Model 1">
+            <img src="./images/role1.jpg" alt="Role Model 1">
             <div class="role-model-content">
                 <h2>Professor Andrea Whittaker</h2>
                 <h5>Professor Andrea Whittaker is Convenor of Anthropology in the School of Social Sciences, Faculty of Arts, and Director of the Social and Political Science Higher Degree by Research Program. Professor Andrea received the Vice Chancellor’s Award for Excellence in Postgraduate Supervision (2022). She has achieved international standing in the field of medical anthropology 
@@ -293,7 +310,7 @@
         </div>
         
         <div class="role-model" data-id="2">
-            <img src="./images/role_model_2.jpg" alt="Role Model 2">
+            <img src="./images/role2.jpg" alt="Role Model 2">
             <div class="role-model-content">
                 <h2>Professor Halina Rubinztein-Dunlop</h2>
                 <h5>She has long standing experience with lasers, linear and nonlinear high-resolution spectroscopy, laser micromanipulation, and atom cooling and trapping. She was one of the originators of the widely used laser enhanced ionisation spectroscopy technique and is well known for her recent work in laser micromanipulation.</h5>
@@ -301,7 +318,7 @@
         </div>
         
         <div class="role-model" data-id="3">
-            <img src="./images/role_model_3.jpg" alt="Role Model 3">
+            <img src="./images/role3.jpg" alt="Role Model 3">
             <div class="role-model-content">
                 <h2>Professor Alison Rodger</h2>
              <h5> She is an international leader in inventing and developing polarised-light spectroscopies to understand the structure and function of biomacromolecules. She develops and uses spectroscopies including and related to
