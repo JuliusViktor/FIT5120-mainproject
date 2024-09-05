@@ -596,7 +596,7 @@ document.getElementById('show-visualization-button').addEventListener('click', f
   // Check if the bubble chart is currently visible
   if (visualizationContainer.style.display === 'none' || visualizationContainer.style.display === '') {
       visualizationContainer.style.display = 'block';  // Show the chart
-      this.textContent = "Hide Visualization";  // Change button text
+      this.textContent = "Hide it from me";  // Change button text
   } else {
       visualizationContainer.style.display = 'none';  // Hide the chart
       this.textContent = "Show me";  // Change button text back
