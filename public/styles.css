@@ -56,7 +56,9 @@ body {
 .login-container form button:hover {
     background-color: #575757;
 }
+
 /* Navigation Bar Part */
+
 
 
 .navbar {
@@ -64,7 +66,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 5px 15px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Add subtle shadow to distinguish the navbar */
 }
 
@@ -97,6 +99,92 @@ body {
 .nav-links a:hover {
     color: #FFFFFF; /* Text becomes white on hover */
     background-color: #000000; /* Background becomes black on hover */
+}
+
+
+/* landing page */
+.landing-page-contrainer
+{
+    width: 100%;
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 50px 20 px;
+    background-color: #ede8f5;
+    overflow: hidden; /* Ensures no scroll bars appear */
+}
+
+.landing-page
+{
+    text-align: center;
+    height: 900px;
+    font-family: "Lexend Deca", sans-serif;
+}
+
+.landing-page h1
+{
+    font-size: 5rem;
+    margin-top: 0;
+    font-weight: bold;
+    color: #708c82;
+    padding-top: 200px ;
+    padding-bottom: 50px;
+    font-family: "Lexend Deca", sans-serif;
+
+}
+
+.landing-page p{
+
+    color: #2d2c38;
+    font-size: 3.5rem;
+    align-items: center;
+    text-align: center;
+
+}
+
+.image-section
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.bottom-left-image {
+    position: absolute;
+    bottom: 0px; /* Distance from the bottom of the screen */
+    left: 20px; /* Distance from the left side of the screen */
+    width: 300px; /* Adjust size as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.top-right-image {
+    position: absolute;
+    top: 1px; /* Distance from the top of the screen */
+    right: 20px; /* Distance from the right side of the screen */
+    width: 250px; /* Adjust size as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+
+
+
+.cta-button {
+    text-align: center;
+    align-items: center;
+    padding: 15px 30px;
+    font-size: 1rem;
+    color: #fff;
+    margin-left: 680px;
+    background-color: #293a6d;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-family: "Lexend Deca", sans-serif;
+    transform: translateY(-250px);
+
+}
+
+.cta-button:hover {
+    background-color: #5eaaf6; /* Darker shade for hover effect */
 }
 
 
@@ -134,7 +222,7 @@ body {
 
 
 .title h1 {
-    font-size: 4rem; /* title size */
+    font-size: 7rem; /* title size */
     margin-top: 0; /* remove any top margin */
     margin-bottom: 10px; /* adjust this value to reduce the gap */
     color: white; /* text color */
@@ -145,10 +233,12 @@ body {
 .title h2 {
     font-size: 3rem; 
     margin-top: 0; /* remove any top margin */
+    font-family: "Lexend Deca", sans-serif;
+    padding-bottom: 50px;
     margin-bottom: 10px; /* adjust this value to reduce the gap */
     color: white;  /* text color */
     font-weight: bold; /* make text bold */
-    -webkit-text-stroke: 2px black; /* 1-pixel black outline */
+
 }
 
 .stem-intro {
@@ -160,7 +250,7 @@ body {
     color: rgb(0, 0, 0); /* Text color */
     font-size: 1.5rem;
     font-size: 30px;
-    font-family: "Poetsen One", sans-serif;
+    font-family: "Lexend Deca", sans-serif;
     /* font-weight: bold; */
     text-align: justify;
     /* -webkit-text-stroke: 1px rgb(255, 255, 255);  */
@@ -350,10 +440,11 @@ body {
 
 .container-mindmap {
     display: flex;
+    font-family: "Lexend Deca", sans-serif;
     justify-content: center;
     align-items: center;
-    height: 60vh;
-    background: radial-gradient(circle, #674188 0%, #6a5081 100%);
+    height: 75vh;
+    background: radial-gradient(circle, #f8f3f8 0%, #f8f3f8 100%);
     flex-wrap: wrap; /* Ensure items wrap to the next line */
 }
 
@@ -363,7 +454,7 @@ body {
     margin: 0; /* Remove default margin */
     padding: 20px 0; /* Add some padding for spacing */
     background-color: rgba(0, 0, 0, 0.1); /* Optional: Add a background color */
-    color: white; /* Optional: Change text color */
+    color: #2d2c38; /* Optional: Change text color */
     font-size: 50px;
 }
 
@@ -372,7 +463,7 @@ body {
     text-align: center; 
     margin: 0; 
     padding: 10px 0; 
-    color: white; 
+    color: 2d2c38; 
     font-size: 20px; 
 }
 
@@ -387,14 +478,14 @@ body {
     position: absolute;
     width: 80px; /* Adjusted width */
     height: 80px; /* Adjusted height */
-    background: linear-gradient(145deg, #6a3d6a, #9b5e9b);
+    background: linear-gradient(145deg, #708c82, #000000);
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: 2d2c38;
     cursor: pointer;
-    transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.8s ease, opacity 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -404,42 +495,51 @@ body {
 }
 
 .main-bubble {
+    color: white;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: linear-gradient(145deg, #C8a1e0, #7b85be);
+    background: linear-gradient(145deg, #708c82, #8b9693);
     width: 120px; /* Adjusted width */
     height: 120px; /* Adjusted height */
 }
 
 .main-bubble:hover {
-    transform: translate(-50%, -50%) scale(1.1); /* Ensure it scales in place */
+    transform: translate(-50%, -50%) scale(1.3); /* Ensure it scales in place */
 }
 
 .sub-bubble {
+    color: 2d2c38;
     opacity: 0;
     pointer-events: none;
-    background: #C8a1e0;
+    background: #d6f3ff;
     transition: opacity 0.3s ease;
 }
 
 #subBubble1-1, #subBubble2-1, #subBubble3-1, #subBubble4-1 {
-    top: 0;
-    left: 50%;
+    top: 12.5%; 
+    left: 12.5%; 
     transform: translate(-50%, -50%);
 }
 
 #subBubble1-2, #subBubble2-2, #subBubble3-2, #subBubble4-2 {
-    top: 75%;
-    left: 0;
+    top: 12.5%; 
+    left: 87.5%; 
     transform: translate(-50%, -50%);
 }
 
 #subBubble1-3, #subBubble2-3, #subBubble3-3, #subBubble4-3 {
-    top: 75%;
-    left: 100%;
+    top: 87.5%; 
+    left: 12.5%; 
     transform: translate(-50%, -50%);
 }
+
+#subBubble1-4, #subBubble2-4, #subBubble3-4, #subBubble4-4 {
+    top: 87.5%; 
+    left: 87.5%; 
+    transform: translate(-50%, -50%);
+}
+
 
 /* popup windows of sub-bubbles*/
 
@@ -447,7 +547,7 @@ body {
     position: absolute;
     width: auto;
     height: auto;
-    background: linear-gradient(135deg, #aa75b4 0%, #c7b3c3 100%);
+    background: linear-gradient(135deg, #9faba3 0%, #c7b3c3 100%);
     border: 1px solid #ccc;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     display: flex;
@@ -484,8 +584,8 @@ body {
 
 .popup-content {
     text-align: center;
-    color: #fff;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    color: #2d2c38;
+    font-family: "Lexend Deca", sans-serif;
     font-size: 18px;
 }
 
@@ -493,12 +593,12 @@ body {
 
 
 
-
 /* Role model section styles */
 .role-models-section {
-    background-color: #aa75b4;
+    background-color: #f8f3f8;
     padding: 140px;
-    color: white;
+    color: 2d2c38;
+    font-family: "Lexend Deca", sans-serif;
 }
 .role-models-section h1 {
     text-align: center;
@@ -547,13 +647,14 @@ body {
 
 /* Role model popup styles */
 .role-model-popup {
+    text-align: justify;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 750px;
     height: 750px;
-    background: linear-gradient(135deg, #aa75b4 0%, #c7b3c3 100%);
+    background: linear-gradient(135deg, #8ab19c 0%, #c7b3c3 100%);
     border: 1px solid #ccc;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     display: flex;
@@ -579,15 +680,16 @@ body {
 .role-model-popup h2 {
     font-size: 36px; /* Increase font size */
     margin-bottom: 20px; /* Increase margin for better spacing */
-    color: #fff; /* Change text color to white */
-    font-family: 'Comic Sans MS', cursive, sans-serif; /* Change font family */
+    color: #2d2c38; /* Change text color to white */
+    font-family: "Lexend Deca", sans-serif;
 }
 
 .role-model-popup ul {
+    text-align: justify;
     list-style: none;
     padding: 0;
-    color: #fff; /* Change text color to white */
-    font-family: 'Comic Sans MS', cursive, sans-serif; /* Change font family */
+    color: #2d2c38ff; /* Change text color to white */
+    font-family: "Lexend Deca", sans-serif;
 }
 
 .role-model-popup ul li {
@@ -619,8 +721,64 @@ body {
     background-color: #4f9965;
 }
 
+/* About us section */
 
-/* for responsivness */
+.about-us-section{
+    text-align: center;
+    padding: 3rem;
+    background-color: #f4f4f4;
+}
+
+.about-us-section p{
+    font-family: "Lexend Deca", sans-serif;
+    color: #2d2c38;
+}
+
+.team-container{
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.team-member
+{
+    font-family: "Lexend Deca", sans-serif;
+    color: #2d2c38;
+    width: 16rem;
+    text-align: center;
+}
+
+.team-member img 
+{
+    width: 100%;
+    border-radius: 50%          ;
+}
+
+.team-member h2 {
+
+    margin-top: 1rem;
+    font-size: 1.5rem;
+
+}
+
+.team-member h5{
+    font-size: 1.2rem;
+}
+
+.team-member p {
+    font-size:  1rem;
+    margin-top: 0.625rem;
+}
+
+
+
+
+
+
+
+
 @media(max-width:600px)
 {
     .popup{

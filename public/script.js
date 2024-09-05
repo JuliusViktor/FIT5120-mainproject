@@ -44,6 +44,14 @@ document.addEventListener('DOMContentLoaded', () => {
     showSlide(currentIndex);
 });
 
+document.getElementById('learnNowButton').addEventListener('click', function() {
+    // Find the section to scroll to using its ID
+    var targetSection = document.getElementById('stem-introduction');
+    
+    // Scroll into view with smooth behavior
+    targetSection.scrollIntoView({ behavior: 'smooth' });
+});
+
 // math main bubble
 document.querySelectorAll('.math').forEach(mainBubble => {
     mainBubble.addEventListener('click', function() {
@@ -136,92 +144,83 @@ document.querySelectorAll('.sci').forEach(mainBubble => {
 /* bubble map */
 
 document.querySelectorAll('.sub-bubble').forEach(bubble => {
-    bubble.addEventListener('click', function(event) {
-        console.log('myFunction has been called');
+  bubble.addEventListener('click', function(event) {
+      console.log('myFunction has been called');
 
-        // Remove any existing sub-bubble popups
-        document.querySelectorAll('.popup.sub-bubble-popup').forEach(popup => popup.remove());
+      // Remove any existing sub-bubble popups
+      document.querySelectorAll('.popup.sub-bubble-popup').forEach(popup => popup.remove());
 
-        // Get the position of the clicked bubble
-        const rect = bubble.getBoundingClientRect();
-        const containerRect = document.querySelector('.container-mindmap').getBoundingClientRect();
+      // Get the position of the clicked bubble
+      const rect = bubble.getBoundingClientRect();
+      const containerRect = document.querySelector('.container-mindmap').getBoundingClientRect();
 
-        // Create a new popup
-        const popup = document.createElement('div');
-        popup.classList.add('popup', 'sub-bubble-popup');
+      // Create a new popup
+      const popup = document.createElement('div');
+      popup.classList.add('popup', 'sub-bubble-popup');
 
-        // Calculate the position of the popup
-        let top = rect.top + window.scrollY;
-        let left = rect.left + window.scrollX;
+      // Calculate the position of the popup
+      let top = rect.top + window.scrollY;
+      let left = rect.left + window.scrollX;
 
-        // Adjust position to ensure the popup is within the container
-        if (top + 500 > containerRect.bottom + window.scrollY) {
-            top = containerRect.bottom + window.scrollY - 600;
-        }
-        if (left + 500 > containerRect.right + window.scrollX) {
-            left = containerRect.right + window.scrollX - 700;
-        }
-        if (top < containerRect.top + window.scrollY) {
-            top = containerRect.top + window.scrollY;
-        }
-        if (left < containerRect.left + window.scrollX) {
-            left = containerRect.left + window.scrollX;
-        }
+      // Adjust position to ensure the popup is within the container
+      if (top + 500 > containerRect.bottom + window.scrollY) {
+          top = containerRect.bottom + window.scrollY - 600;
+      }
+      if (left + 500 > containerRect.right + window.scrollX) {
+          left = containerRect.right + window.scrollX - 700;
+      }
+      if (top < containerRect.top + window.scrollY) {
+          top = containerRect.top + window.scrollY;
+      }
+      if (left < containerRect.left + window.scrollX) {
+          left = containerRect.left + window.scrollX;
+      }
 
-        popup.style.top = `${top}px`;
-        popup.style.left = `${left}px`;
+      popup.style.top = `${top}px`;
+      popup.style.left = `${left}px`;
 
-        // Add close button
-        const closeBtn = document.createElement('div');
-        closeBtn.classList.add('close-btn');
-        closeBtn.innerHTML = '&times;';
-        closeBtn.addEventListener('click', () => popup.remove());
+      // Add close button
+      const closeBtn = document.createElement('div');
+      closeBtn.classList.add('close-btn');
+      closeBtn.innerHTML = '&times;';
+      closeBtn.addEventListener('click', () => popup.remove());
 
-        // Add content to popup
-        const content = document.createElement('div');
-        content.classList.add('popup-content');
-        content.innerHTML = '<canvas id="chartCanvas" width="400" height="400"></canvas>';
+      // Add content to popup
+      const content = document.createElement('div');
+      content.classList.add('popup-content');
 
-        // Append elements
-        popup.appendChild(closeBtn);
-        popup.appendChild(content);
-        document.body.appendChild(popup);
+      if (bubble.innerText == 'Info') {
+          content.innerHTML = `<ul>${getInfoContent(bubble.id)}</ul>`;
+      } else if (bubble.innerText == 'Benefits') {
+          content.innerHTML = `<ul>${getBenContent(bubble.id)}</ul>`;
+      } else if (bubble.innerText == 'Job' || bubble.innerText == 'Income') {
+          content.innerHTML = '<canvas id="chartCanvas" width="400" height="400"></canvas>';
+      }
 
-        if (bubble.innerText == 'Job') {
-            // Create chart
-            const ctx = document.getElementById('chartCanvas').getContext('2d');
-            const chartData = getChartData(bubble.id);
-            new Chart(ctx, {
-                type: 'bar',
-                data: chartData,
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
-                    }
-                }
-            });
-        }
+      // Append elements
+      popup.appendChild(closeBtn);
+      popup.appendChild(content);
+      document.body.appendChild(popup);
 
-        if (bubble.innerText == 'Income') {
-            // Create chart
-            const ctx = document.getElementById('chartCanvas').getContext('2d');
-            const chartData = getChartData(bubble.id);
-            new Chart(ctx, {
-                type: 'line',
-                data: chartData,
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
-                    }
-                }
-            });
-        }
-    });
+      if (bubble.innerText == 'Job' || bubble.innerText == 'Income') {
+          // Create chart
+          const ctx = document.getElementById('chartCanvas').getContext('2d');
+          const chartData = getChartData(bubble.id);
+          new Chart(ctx, {
+              type: bubble.innerText == 'Job' ? 'bar' : 'line',
+              data: chartData,
+              options: {
+                  scales: {
+                      y: {
+                          beginAtZero: true
+                      }
+                  }
+              }
+          });
+      }
+  });
 });
+
 
 // math_employed#########################################
 // Define global variables
@@ -540,21 +539,25 @@ function getChartData(bubbleId) {
 function getInfoContent(bubbleId) {
     const info = {
         'subBubble1-1': `
+            <h3>Mathematics</h3>
             <li>Mathematics is the study of numbers, shapes, and patterns.</li>
             <li>It is essential for various fields including science, engineering, and finance.</li>
             <li>Mathematicians use mathematical theories and techniques to solve practical problems.</li>
         `,
         'subBubble2-1': `
+            <h3>Engineering</h3>
             <li>Engineering involves the application of science and math to solve problems.</li>
             <li>Engineers design, build, and maintain structures, machines, and systems.</li>
             <li>There are various branches of engineering including civil, mechanical, and electrical.</li>
         `,
         'subBubble3-1': `
+            <h3>Technology</h3>
             <li>Technology refers to the use of scientific knowledge for practical purposes.</li>
             <li>It includes the development and use of tools, machines, and systems.</li>
             <li>Technology plays a crucial role in modern society, impacting various industries.</li>
         `,
         'subBubble4-1': `
+            <h3>Science</h3>
             <li>Science is the systematic study of the natural world through observation and experimentation.</li>
             <li>It aims to understand how the universe works and to develop new knowledge.</li>
             <li>Scientific research is essential for technological advancements and societal progress.</li>
@@ -562,6 +565,31 @@ function getInfoContent(bubbleId) {
     };
 
     return info[bubbleId] || '<li>No information available.</li>';
+}
+
+function getBenContent(bubbleId) {
+  const info = {
+      'subBubble1-4': 
+        
+      `   <h2>Mathematics</h2>
+          <h3>Mathematics have a lot of benefit, some it is encourage us to do critical thinking, providing necessary skills and knowledge to tackle complex challanges, innovate and drive technological and scientific advancement</h3>
+      `,
+      'subBubble2-4': `
+          <h2>Engineering</h2>
+          <h3>Engineering is an essentialto the advancement of all industries, by providing the technical expertise and innovate thinking. </h3>
+      `,
+      'subBubble3-4': `
+          <h2>Technology</h2>
+          <h3>Technology is a critical component in stem industries, they drive efficiency, innovate, and enhance research capabilities and support the development solution that adress complex global challange.</h3>
+
+      `,
+      'subBubble4-4': `
+          <h2>Science</h2>
+          <h3>A background in science offers young female student not only the skills and knowledge to excel in STEM indsutries but also the confidence, opportunities and inspiration to make meaningful contributions to society and the world</h3>
+      `
+  };
+
+  return info[bubbleId] || '<li>No information available.</li>';
 }
 
 
@@ -610,45 +638,40 @@ function getRoleModelData(roleId) {
     const data = {
         '1': {
             image: './images/role_model_1.jpg',
-            name: 'Role Model 1',
-            details: [
-                'Expert in Artificial Intelligence and Machine Learning.',
-                'Pioneered research in neural networks.',
-                'Published over 50 papers in top-tier journals.',
-                'Recipient of the Turing Award.',
-                'Developed algorithms that revolutionized data processing.',
-                'Mentored over 30 PhD students.',
-                'Advocate for diversity in tech.',
-                'Grew up in a small town with limited access to technology, but persevered through self-study and online courses to become a leading figure in AI.'
+            name: 'List of Accolades',
+            details: [ "1. 2022 Dean's Award for  Postrgraduate Supervision, Faculty of Arts, 2022",
+                "2. 2022 Vice Chancellor's Award for Postgraduate Supervision, Monash University, 2022",
+                "3. Fellow of the Academy of Social Science in Australia, 2020",
+                "4. Medal and Citations for Excellence in Scholarship in the Social Science, 2000",
+                "5. 80 Research Articles",
+                "6. 15 Projecs"
+
             ]
         },
         '2': {
             image: './images/role_model_2.jpg',
-            name: 'Role Model 2',
+            name: 'List of Accolades',
             details: [
-                'Renowned Astrophysicist and Cosmologist.',
-                'Discovered new exoplanets and contributed to the understanding of dark matter.',
-                'Author of several bestselling science books.',
-                'Keynote speaker at international science conferences.',
-                'Developed innovative methods for space observation.',
-                'Collaborated with NASA on multiple missions.',
-                'Promoter of science education and outreach programs.',
-                'Overcame early academic struggles and a lack of resources, eventually earning a PhD from a prestigious university and becoming a leading voice in astrophysics.'
-            ]
+                "1. The Optical Society C.E.K. Mees Medal 'For pioneering innovations in the transfer of optical angular momentum to particles, using sculpted light for laser manipulation on atomic, nano- and microscales to generate fundamental insight and provide powerful probes to biomedicine.', 2021",
+                "2. Lise Meitner Lectures 'Sculpted light in nano and microsystem', 2019",
+                "3. UNSW Eureka Prize for excellence in Interdisplinary Scientific Research, 2018",
+                "4. Office of the Order Australia, 2018",
+                "5. Fellow of the Australian Academy of Science, 2016",
+                "6. Fellow of The Optical Society, 2012",
+                "7. Fellow of SPIE, the international society for optics and photonics , 2011",
+                "8. AIP Women in Physics lecturer, 2003"
+               ]
         },
         '3': {
             image: './images/role_model_3.jpg',
-            name: 'Role Model 3',
+            name: 'List of Accolades',
             details: [
-                'Innovative Biomedical Engineer.',
-                'Developed cutting-edge medical devices that save lives.',
-                'Holds multiple patents in medical technology.',
-                'Founder of a successful biotech startup.',
-                'Recipient of numerous innovation awards.',
-                'Published influential research in biomedical engineering.',
-                'Active in promoting women in STEM fields.',
-                'Faced significant challenges as a woman in a male-dominated field, but her determination and passion for improving healthcare led her to break barriers and inspire others.'
-            ]
+                "1. Fellowships of the Australian Academy of Science, 2021",
+                "2. Fellowships of The Royal Society of Chemistry, 2000",
+                "3. Honorary Member of British Biophysical Society, 2019",
+                "4. Nominated as a member of the Analytical Science Power list, 2015",
+                "5. 229 Research Articles"
+               ]
         }
     };
 

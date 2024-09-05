@@ -6,6 +6,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://d3js.org/d3.v7.min.js"></script>
@@ -16,17 +19,35 @@
             <a href="#"><img src="./images/AUSEE-LOGO.png" alt="Logo"></a>
         </div>
         <ul class="nav-links">
-            <!-- <li><a href="#">HOME</a></li> -->
-            <li><a href="#">ABOUT US</a></li>
+            <li><a href="homapge.html">HOME</a></li>
+            <li><a href="aboutus.html">ABOUT US</a></li>
             <!-- <li><a href="#">STEM</a></li>
             <li><a href="#">STEM CAREER</a></li>
             <li><a href="#">STEM INSIGHT</a></li>
             <li><a href="#">QUIZ</a></li> -->
         </ul>
     </nav>
+    
+        <div class="landing-page-contrainer">
+            <div class="landing-page">
+                    <h1>AUSEE</h1>
+                    <p>Breaking Down Barriers: Inspiring Australian Girls in STEM</p>
+            </div>
 
-    <section class="title">
-        <h1>AUSTRALIA STEM EDUCATION EQUALITY</h1>
+                <img src="images/image_landing_page_1.png" alt="landing page 1" class="bottom-left-image">
+                <!-- <img src="images/image_landing_page_2.png" alt="landing page 2" class="top-right-image"> -->
+
+                <button id="learnNowButton" class="cta-button">Learn How</button>
+
+
+
+        </div>
+
+
+    </section>
+
+
+    <section id="stem-introduction" class="title">
         <h2>WHAT IS STEM?</h2>
 
         <section class="stem-intro">
@@ -37,7 +58,7 @@
 
     </section>
 
-    <section class="news-section">
+    <!-- <section class="news-section">
         <h1>News in STEM World</h1>
         <div class="news-container">
             <div class="news-item">
@@ -65,7 +86,7 @@
                 <a href="https://www.education.gov.au/newsroom/articles/stem-education-resources-launched-australian-primary-school-teachers">read more</a></p>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- <section class="skills-section">
         <h1>Possible Skill in STEM</h1>
@@ -146,28 +167,32 @@
             <div class="bubble sub-bubble" id="subBubble1-1">Info</div>
             <div class="bubble sub-bubble" id="subBubble1-2">Job</div>
             <div class="bubble sub-bubble" id="subBubble1-3">Income</div>
+            <div class="bubble sub-bubble" id="subBubble1-4">Benefits</div>
         </div>
         <div class="mind-map">
             <div class="bubble eng main-bubble">Engineering</div>
             <div class="bubble sub-bubble" id="subBubble2-1">Info</div>
             <div class="bubble sub-bubble" id="subBubble2-2">Job</div>
             <div class="bubble sub-bubble" id="subBubble2-3">Income</div>
+            <div class="bubble sub-bubble" id="subBubble2-4">Benefits</div>
         </div>
         <div class="mind-map">
             <div class="bubble tech main-bubble">Technology</div>
             <div class="bubble sub-bubble" id="subBubble3-1">Info</div>
             <div class="bubble sub-bubble" id="subBubble3-2">Job</div>
             <div class="bubble sub-bubble" id="subBubble3-3">Income</div>
+            <div class="bubble sub-bubble" id="subBubble3-4">Benefits</div>
         </div>
         <div class="mind-map">
             <div class="bubble sci main-bubble">Science</div>
             <div class="bubble sub-bubble" id="subBubble4-1">Info</div>
             <div class="bubble sub-bubble" id="subBubble4-2">Job</div>
             <div class="bubble sub-bubble" id="subBubble4-3">Income</div>
+            <div class="bubble sub-bubble" id="subBubble4-4">Benefits</div>
         </div>
     </div>
     
-    <div class="carousel">
+    <!-- <div class="carousel">
         <h1>The Benefits of Pursuing STEM</h1>
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -251,28 +276,19 @@
             <span class="indicator" onclick="currentSlide(3)"></span>
             <span class="indicator" onclick="currentSlide(4)"></span>
         </div>
-    </div>
+    </div> -->
     
     
     <section class="role-models-section">
         <h1>Inspiring Role Models in STEM</h1>
-        <p class="description">[CLICK ON EACH BLOCK TO SEE DETAILED]</p>
         <p class="description">Discover the journeys and achievements of these remarkable individuals who have made significant contributions to the fields of Science, Technology, Engineering, and Mathematics.</p>
 
         <div class="role-model" data-id="1">
             <img src="./images/role_model_1.jpg" alt="Role Model 1">
             <div class="role-model-content">
                 <h2>Professor Andrea Whittaker</h2>
-                <ul>
-                    <li>Expert in Artificial Intelligence and Machine Learning.</li>
-                    <li>Pioneered research in neural networks.</li>
-                    <li>Published over 50 papers in top-tier journals.</li>
-                    <li>Recipient of the Turing Award.</li>
-                    <li>Developed algorithms that revolutionized data processing.</li>
-                    <li>Mentored over 30 PhD students.</li>
-                    <li>Advocate for diversity in tech.</li>
-                    <li>Grew up in a small town with limited access to technology, but persevered through self-study and online courses to become a leading figure in AI.</li>
-                </ul>
+                <h5>Professor Andrea Whittaker is Convenor of Anthropology in the School of Social Sciences, Faculty of Arts, and Director of the Social and Political Science Higher Degree by Research Program. Professor Andrea received the Vice Chancellor’s Award for Excellence in Postgraduate Supervision (2022). She has achieved international standing in the field of medical anthropology 
+                </h5>
             </div>
         </div>
         
@@ -280,16 +296,7 @@
             <img src="./images/role_model_2.jpg" alt="Role Model 2">
             <div class="role-model-content">
                 <h2>Professor Halina Rubinztein-Dunlop</h2>
-                <ul>
-                    <li>Renowned Astrophysicist and Cosmologist.</li>
-                    <li>Discovered new exoplanets and contributed to the understanding of dark matter.</li>
-                    <li>Author of several bestselling science books.</li>
-                    <li>Keynote speaker at international science conferences.</li>
-                    <li>Developed innovative methods for space observation.</li>
-                    <li>Collaborated with NASA on multiple missions.</li>
-                    <li>Promoter of science education and outreach programs.</li>
-                    <li>Overcame early academic struggles and a lack of resources, eventually earning a PhD from a prestigious university and becoming a leading voice in astrophysics.</li>
-                </ul>
+                <h5>She has long standing experience with lasers, linear and nonlinear high-resolution spectroscopy, laser micromanipulation, and atom cooling and trapping. She was one of the originators of the widely used laser enhanced ionisation spectroscopy technique and is well known for her recent work in laser micromanipulation.</h5>
             </div>
         </div>
         
@@ -297,16 +304,17 @@
             <img src="./images/role_model_3.jpg" alt="Role Model 3">
             <div class="role-model-content">
                 <h2>Professor Alison Rodger</h2>
-                <ul>
-                    <li>Innovative Biomedical Engineer.</li>
-                    <li>Developed cutting-edge medical devices that save lives.</li>
-                    <li>Holds multiple patents in medical technology.</li>
-                    <li>Founder of a successful biotech startup.</li>
-                    <li>Recipient of numerous innovation awards.</li>
-                    <li>Published influential research in biomedical engineering.</li>
-                    <li>Active in promoting women in STEM fields.</li>
-                    <li>Faced significant challenges as a woman in a male-dominated field, but her determination and passion for improving healthcare led her to break barriers and inspire others.</li>
-                </ul>
+             <h5> She is an international leader in inventing and developing polarised-light spectroscopies to understand the structure and function of biomacromolecules. She develops and uses spectroscopies including and related to
+                1.    Electronic circular dichroism
+                2.    Vibrational circular dichroism
+                3.    Electronic linear dichroism
+                4.    Vibrational linear dichroism
+                5.    Electronic absorbance
+                6.    Infra-red absorbance
+                7.    Solution-phase Raman
+                8.    Raman optical activity
+                9.    Dynamic light scattering
+                10.    Fluorescence spectroscopy</h5>
             </div>
         </div>
     </section>
