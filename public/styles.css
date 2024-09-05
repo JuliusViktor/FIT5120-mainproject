@@ -721,8 +721,64 @@ body {
     background-color: #4f9965;
 }
 
+/* About us section */
 
-/* for responsivness */
+.about-us-section{
+    text-align: center;
+    padding: 3rem;
+    background-color: #f4f4f4;
+}
+
+.about-us-section p{
+    font-family: "Lexend Deca", sans-serif;
+    color: #2d2c38;
+}
+
+.team-container{
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.team-member
+{
+    font-family: "Lexend Deca", sans-serif;
+    color: #2d2c38;
+    width: 16rem;
+    text-align: center;
+}
+
+.team-member img 
+{
+    width: 100%;
+    border-radius: 50%          ;
+}
+
+.team-member h2 {
+
+    margin-top: 1rem;
+    font-size: 1.5rem;
+
+}
+
+.team-member h5{
+    font-size: 1.2rem;
+}
+
+.team-member p {
+    font-size:  1rem;
+    margin-top: 0.625rem;
+}
+
+
+
+
+
+
+
+
 @media(max-width:600px)
 {
     .popup{
