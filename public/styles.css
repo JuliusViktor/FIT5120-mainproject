@@ -106,7 +106,8 @@ body {
 .landing-page-contrainer
 {
     width: 100%;
-    max-width: 1800px;
+    align-items: center;
+    max-width: 100%;
     margin: 0 auto;
     padding: 50px 20 px;
     background-color: #ede8f5;
@@ -169,17 +170,14 @@ body {
 
 .cta-button {
     text-align: center;
-    align-items: center;
     padding: 15px 30px;
     font-size: 1rem;
     color: #fff;
-    margin-left: 680px;
     background-color: #293a6d;
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
     font-family: "Lexend Deca", sans-serif;
-    transform: translateY(-250px);
 
 }
 
@@ -320,6 +318,11 @@ body {
 .news-item a:hover {
     text-decoration: underline;
 }
+
+
+/* income insight */
+
+.income-insight
 
 
 
@@ -517,26 +520,26 @@ body {
 }
 
 #subBubble1-1, #subBubble2-1, #subBubble3-1, #subBubble4-1 {
-    top: 12.5%; 
-    left: 12.5%; 
+    top: 0%; 
+    left: 50%; 
     transform: translate(-50%, -50%);
 }
 
 #subBubble1-2, #subBubble2-2, #subBubble3-2, #subBubble4-2 {
-    top: 12.5%; 
-    left: 87.5%; 
+    top: 25%; 
+    left: 25%; 
     transform: translate(-50%, -50%);
 }
 
 #subBubble1-3, #subBubble2-3, #subBubble3-3, #subBubble4-3 {
-    top: 87.5%; 
-    left: 12.5%; 
+    top: 25%; 
+    left: 25%; 
     transform: translate(-50%, -50%);
 }
 
 #subBubble1-4, #subBubble2-4, #subBubble3-4, #subBubble4-4 {
-    top: 87.5%; 
-    left: 87.5%; 
+    top: 100%; 
+    left: 50%; 
     transform: translate(-50%, -50%);
 }
 
