@@ -729,6 +729,10 @@ body {
     background-color: #f8f3f8;
 }
 
+.about-us-section img{
+    width: 25%;
+}
+
 .about-us-section p{
     font-family: "Lexend Deca", sans-serif;
     color: #2d2c38;
@@ -751,7 +755,9 @@ body {
     text-align: center;
 }
 
-
+footer{
+    text-align: center;
+}
 
 .team-member img 
 {
