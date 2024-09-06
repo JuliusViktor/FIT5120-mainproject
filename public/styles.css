@@ -136,7 +136,8 @@ body {
 {
     text-align: center;
     color: #919191;
-    padding-top: 0rem;
+    font-size: 1rem;
+    padding-top: 7rem;
     margin-left: 120px;
     margin-right: 120px;
 }
@@ -788,17 +789,19 @@ footer{
 }
 
 .income-insight-container {
-    padding-top: 5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 100%;
+
 }
 
 .income-insight-container h1 {
     /* background-color: rgba(0, 0, 0, 0.1); */ /* Optional: Add a background color */
     width: 100%;
     font-size: 3rem;
+    padding-bottom: 2rem;
     text-align: center;
     color: #2d2c38;
 }
@@ -806,12 +809,12 @@ footer{
 .income-insight-container p {
     color: #7e7e7e;
     font-size: 1rem;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    padding-top: 2rem;
+    padding-bottom: 4rem;
 }
 
 .bubble-chart-container {
-    background-color: #d2d2d2;
+    background-color: #e8e8e8;
     padding: 20px 30px;
     border-radius: 2rem;
     display: none;

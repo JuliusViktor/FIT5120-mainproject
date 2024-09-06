@@ -12,6 +12,19 @@ function drawBubbleChart() {
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+    // Initialize tooltip
+    const tooltip = d3.select("#bubble-chart").append("div")
+        .attr("class", "tooltip")
+        .style("opacity", 0)
+        .style("position", "absolute")
+        .style("background-color", "white")
+        .style("border", "solid 1px #ccc")
+        .style("padding", "8px")
+        .style("border-radius", "8px")
+        .style("pointer-events", "none")
+        .style("font-size", "12px")
+        .style("text-align", "center");
+
     // Load data from JSON
     d3.json("json/femal_industry_income_final.json").then(data => {
         const types = ["Science", "Technology", "Engineering", "Mathematic"];
@@ -51,7 +64,22 @@ function drawBubbleChart() {
                 .attr("r", d => z(d.AverageValue))
                 .style("fill", d => color(d.Type))
                 .style("opacity", "0.7")
-                .attr("stroke", "black");
+                .attr("stroke", "black")
+                .on("mouseover", function(event, d) {
+                    d3.select(this).transition().duration(200).style("opacity", 1);
+                    tooltip.transition().duration(200).style("opacity", 1);
+                    tooltip.html(`Industry: ${d.Type}<br>Income: ${d3.format(".2f")(d.AverageValue)}`)
+                        .style("left", (event.pageX + 10) + "px")
+                        .style("top", (event.pageY - 30) + "px");
+                })
+                .on("mousemove", function(event) {
+                    tooltip.style("left", (event.pageX + 10) + "px")
+                           .style("top", (event.pageY - 30) + "px");
+                })
+                .on("mouseout", function() {
+                    d3.select(this).transition().duration(200).style("opacity", 0.7);
+                    tooltip.transition().duration(200).style("opacity", 0);
+                });
 
             nodesEnter.append("text")
                 .attr("class", "name")
@@ -119,7 +147,7 @@ function drawBubbleChart() {
             .style("font-size", "20px")
             .style("font-weight", "bold")
             .style("fill", "#333")
-            .text("Type");
+            .text("Industries");
 
         legend.selectAll("rect")
             .data(legendData)
@@ -140,26 +168,6 @@ function drawBubbleChart() {
             .style("font-size", "12px")
             .text(d => d);
 
-        svg.append("text")
-            .attr("x", width + 30)
-            .attr("y", height / 2.3 - 18)
-            .attr("dy", ".35em")
-            .attr("text-anchor", "start")
-            .style("font-size", "20px")
-            .style("font-weight", "bold")
-            .style("fill", "#333")
-            .text("Explanation");
-
-        svg.append("text")
-            .attr("x", width + 30)
-            .attr("y", height / 2 - 8)
-            .attr("dy", ".35em")
-            .attr("text-anchor", "start")
-            .style("font-size", "14px")
-            .style("font-weight", "bold")
-            .style("fill", "#333")
-            .text("The bubble chart on the left here shows the mean value of salary level along the years.")
-            .call(wrap, 150); 
 
     }).catch(error => console.error("Error loading bubble chart data:", error));
 }
