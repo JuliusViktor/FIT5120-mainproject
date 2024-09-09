@@ -3,7 +3,7 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const session = require("express-session");
 const app = express();
-const port = 80;
+const port = 3000;
 
 // Use body-parser middleware to parse JSON request bodies
 app.use(bodyParser.json());
@@ -18,11 +18,15 @@ app.use(
   })
 );
 
-// Serve static files from the 'public' directory
-app.use(express.static(path.join(__dirname, "public")));
+// Serve static files from the 'dist' directory
+app.use(
+  express.static(path.join(__dirname, "/dist/fit5120-mainproject/browser"))
+);
 
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
+app.get("/*", function (req, res) {
+  res.sendFile(
+    path.join(__dirname, "/dist/fit5120-mainproject/browser/index.html")
+  );
 });
 
 // Handle login requests
