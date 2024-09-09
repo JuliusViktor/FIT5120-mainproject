@@ -1,1 +1,31 @@
-<p>header works!</p>
+<!-- <header class="wrapper">
+  <img src="" alt="Logo" />
+
+  <div class="row">
+    <a routerLink="/" routerLinkActive="active">Home</a>
+    <a routerLink="/timeline" routerLinkActive="active">Timeline</a>
+  </div>
+</header> -->
+
+<!-- <nav>
+  <img src="images/logo.png" alt="Logo" />
+  <a routerLink="/" routerLinkActive="active">Home</a>
+  <a routerLink="/timeline" routerLinkActive="active">Timeline</a>
+</nav> -->
+
+<nav class="navbar">
+  <div class="navbar-logo">
+    <img src="assets/image.png" alt="App Logo" />
+  </div>
+  <ul class="navbar-links">
+    <li>
+      <a
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >Home</a
+      >
+    </li>
+    <li><a routerLink="/timeline" routerLinkActive="active">Timeline</a></li>
+  </ul>
+</nav>
