@@ -1,0 +1,17 @@
+.footer {
+  background-color: #ffffff;
+  padding: 15px;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-content p {
+  color: #333;
+  margin: 0;
+  font-size: 0.9rem;
+}
