@@ -141,7 +141,7 @@ new Chart(lineCtx, {
     },
 });
 
-// Learn How button
+// Learn How button scroll behavior
 document.addEventListener("DOMContentLoaded", function () {
     const learnHowBtn = document.getElementById("learnHowBtn");
     const insightStatSection = document.querySelector(".insight_stat_section");
