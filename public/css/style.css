@@ -1188,7 +1188,26 @@ form input[type="submit"]:focus {
     font-weight: 400;
 }
 
+/* Insight page  */
+.insight_bg_color {
+    background-color: #ACA7CB;
+}
+
+.insight_bg_color_white {
+    background-color: #FFFFFF;
+}
+
+.insight_stat_section .box {
+    text-align: center;
+    margin-top: 45px;
+    background-color: #ffffff;
+    padding: 45px 50px;
+    border-radius: 5px;
+    color: #ACA7CB;
+    border-radius: 40px;
+}
+
+
 http://kute-themes.com/html/boutique/html/index.html
 https://template.hasthemes.com/noraure/noraure/index.html
 https://preview.hasthemes.com/xoss-preview/xoss/index.html
-
