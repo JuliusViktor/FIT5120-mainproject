@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const session = require("express-session");
 const app = express();
 const port = 3000;
+const pool = require("./database");
 
 // Use body-parser middleware to parse JSON request bodies
 app.use(bodyParser.json());
@@ -50,6 +51,22 @@ function isAuthenticated(req, res, next) {
 // Serve the protected homepage
 app.get("/homepage.html", isAuthenticated, (req, res) => {
     res.sendFile(path.join(__dirname, "public", "homepage.html"));
+});
+
+// Example database api
+app.get("/api/insight-data", async (req, res) => {
+    try {
+        const client = await pool.connect();
+        const result = await client.query(
+            "SELECT * FROM public.industry_job_final LIMIT 3"
+        );
+        const data = result.rows;
+        client.release();
+        res.json(data);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: "Internal server error" });
+    }
 });
 
 app.listen(port, () => {
