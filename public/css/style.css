@@ -1207,6 +1207,19 @@ form input[type="submit"]:focus {
     border-radius: 40px;
 }
 
+.insight_stat_section .chart-box {
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.insight_stat_section .chart-container {
+    position: relative;
+    flex-grow: 1;
+    width: 100%;
+    height: 100%;
+}
+
 /* Career Page */
 .career_bg_color {
   background-color: #ACA7CB;
