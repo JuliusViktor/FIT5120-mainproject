@@ -1282,7 +1282,7 @@ form input[type="submit"]:focus {
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease; 
-  margin-bottom: 40px;
+  margin-bottom: 10px;
 }
 
 .submit-button:hover {
@@ -1290,6 +1290,29 @@ form input[type="submit"]:focus {
   color: #ACA7CB; 
 }
 
+/*  */
+.status-bar {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  background-color: #ACA7CB; /* Default red background */
+  margin-bottom: 40px;
+}
+
+.status-bar.loading {
+  background-color: #f3be6e; /* Orange background */
+}
+
+.status-bar.success {
+  background-color: #6bb36d; /* Green background */
+}
+
+.status-bar.fail {
+  background-color: #f44336; /* Red background */
+}
 
 /*  */
 .circle {
@@ -1316,7 +1339,78 @@ form input[type="submit"]:focus {
 }
 
 
+/* skip quiz button */
+.skip-quiz-button {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid #ACA7CB;
+    border-radius: 10px;
+    background-color: white;
+    color: #ACA7CB;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
 
+.custom-button.active {
+    background-color: #ACA7CB;
+    color: white;
+}
+
+/* quiz list */
+.quiz-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.quiz-block {
+  background-color: white;
+  border: 1px solid #ACA7CB;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 10px;
+  max-width: 700px;
+  min-width: 300px;
+  text-align: center;
+}
+
+.question {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.image img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.quiz-button {
+  border: 2px solid #ACA7CB;
+  background-color: white;
+  color: #ACA7CB;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.quiz-button.selected {
+  background-color: #ACA7CB;
+  color: white;
+}
+
+
+.quiz-submit-buttons {
+  margin-top: 10px;
+}
 
 http://kute-themes.com/html/boutique/html/index.html
 https://template.hasthemes.com/noraure/noraure/index.html
