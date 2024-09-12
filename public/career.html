@@ -119,12 +119,13 @@
                     <div class="row">
                         <div class="col-md-7 col-lg-12">
                             <div class="detail-box">
-                                <h1>STEM Industry Insights</h1>
+                                <h1>CAREER IN STEM</h1>
                                 <p>
-                                    Discover the Future: Unlock STEM Career Opportunities with Industry Insights
+                                    Forge Your Path: Explore Endless
+                                    Opportunities in a STEM Career
                                 </p>
                                 <img
-                                    src="images/insight-intro.png"
+                                    src="images/Woman Power Gathering (1).png"
                                     alt=""
                                     style="
                                         width: 100%;
@@ -150,62 +151,56 @@
         </div>
 
         <!-- Intro stat section -->
-        <section class="insight_stat_section insight_bg_color layout_padding">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="box">
-                            <div class="img-box"></div>
-                            <div class="detail-box">
-                                <p>Only</p>
-                                <h1>X %</h1>
-                                <p>Gender gap</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="box">
-                            <div class="img-box"></div>
-                            <div class="detail-box">
-                                <p>Women only represent</p>
-                                <h1>X %</h1>
-                                <p>of University STEM enrolments</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="box">
-                            <div class="img-box"></div>
-                            <div class="detail-box">
-                                <p>Women only represent</p>
-                                <h1>X %</h1>
-                                <p>of people in STEM occupations</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="box">
-                    <h1>Gender Gap/STEM enrolments/STEM occupation</h1>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <canvas id="bubbleChart"></canvas>
-                        </div>
-                        <div class="col-md-6">
-                            <canvas
-                                id="pieChart"
-                                style="height: 300px"
-                            ></canvas>
-                        </div>
-                    </div>
-                    <div class="row mt-4">
-                        <div class="col-md-6">
-                            <div id="genderComparison"></div>
-                        </div>
-                        <div class="col-md-6">
-                            <canvas id="lineChart"></canvas>
-                        </div>
-                    </div>
+    
 
+        <!-- quiz for useers who havent thought for dream job -->
+        <section class="career_quiz_section career_bg_color layout_padding">
+            <div class="container">
+                
+
+                <div class="box">
+                    <h2>Which occupation may suit for you?</h2>
+                    
+
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="circle">
+                                <div class="text">
+                                    <div>Science</div>
+                                    <div id="percentage1">X%</div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="circle">
+                                <div class="text">
+                                    <div>Technology</div>
+                                    <div id="percentage2">X%</div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="circle">
+                                <div class="text">
+                                    <div>Engineering</div>
+                                    <div id="percentage3">X%</div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="circle">
+                                <div class="text">
+                                    <div>Mathematics</div>
+                                    <div id="percentage4">X%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h1>Guideline</h1>
                     <p>
                         "Lorem ipsum dolor sit amet, consectetur adipiscing
                         elit, sed do eiusmod tempor incididunt ut labore et
@@ -217,17 +212,90 @@
                         non proident, sunt in culpa qui officia deserunt mollit
                         anim id est laborum."
                     </p>
+                    
                 </div>
             </div>
 
-            <!-- TODO: Testing purpose. Remove -->
+            
+        </section>
+
+        <!-- after getting the dream job, base on their occupation preference giving their skills&subjects suggestion-->
+        <section class="career_suggest_section career_bg_color layout_padding">
             <div class="container">
+
+
                 <div class="box">
-                    <h2>Test Fetch Data From AWS</h2>
-                    <pre class="text-left" id="fetchedData"></pre>
+                    <h2>Key Skills & Subject May Brighten your Future</h2>
+                    <h2></h2>
+                    <h2>I want to become:</h2>
+
+                    <div class="occup-search-container">
+                        <input type="text" class="search-bar" placeholder="type in here please">
+                        <button class="clear-btn" onclick="clearInput()">×</button>
+                    </div>
+
+                    <div class="occup-submit-button">
+                        <button class="submit-button">Submit</button>
+                    </div>
+                    
+
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="circle">
+                                <div class="text">
+                                    <div>Science</div>
+                                    <div id="percentage5">X%</div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="circle">
+                                <div class="text">
+                                    <div>Technology</div>
+                                    <div id="percentage6">X%</div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="circle">
+                                <div class="text">
+                                    <div>Engineering</div>
+                                    <div id="percentage7">X%</div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="circle">
+                                <div class="text">
+                                    <div>Mathematics</div>
+                                    <div id="percentage8">X%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    <h1>Subject Guideline</h1>
+                    <p>
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing
+                        elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis
+                        nostrud exercitation ullamco laboris nisi ut aliquip ex
+                        ea commodo consequat. Duis aute irure dolor in
+                        reprehenderit in voluptate velit esse cillum dolore eu
+                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                        non proident, sunt in culpa qui officia deserunt mollit
+                        anim id est laborum."
+                    </p>
+                    
                 </div>
             </div>
         </section>
+
 
         <div class="cpy_">
             <p class="mx-auto">© 2024 All Rights Reserved By <br /></p>
@@ -242,5 +310,7 @@
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <!-- Custome scripts -->
         <script src="js/insight.js"></script>
+        <!-- Career scripts -->
+        <script src="js/career.js"></script>
     </body>
 </html>

@@ -1207,6 +1207,116 @@ form input[type="submit"]:focus {
     border-radius: 40px;
 }
 
+/* Career Page */
+.career_bg_color {
+  background-color: #ACA7CB;
+}
+
+.career_bg_color_white {
+  background-color: #FFFFFF;
+}
+
+.career_quiz_section .box {
+  text-align: center;
+  margin-top: 45px;
+  background-color: #ffffff;
+  padding: 45px 50px;
+  border-radius: 5px;
+  color: #ACA7CB;
+  border-radius: 40px;
+}
+
+
+
+.career_suggest_section .box {
+  text-align: center;
+  margin-top: 45px;
+  background-color: #ffffff;
+  padding: 45px 50px;
+  border-radius: 5px;
+  color: #ACA7CB;
+  border-radius: 40px;
+}
+/*  */
+.occup-search-container {
+  position: relative;
+  width: 300px;
+  margin: 50px auto;
+}
+
+.search-bar {
+  width: 100%;
+  padding: 10px 40px 10px 20px;
+  border: 2px solid #ACA7CB;
+  border-radius: 25px;
+  outline: none;
+  font-size: 16px;
+  color: #333;
+  background-color: white;
+}
+
+.search-bar::placeholder {
+  color: #aaa;
+}
+
+
+/*  */
+.clear-btn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: #ACA7CB;
+}
+
+.submit-button {
+  background-color: #ACA7CB;
+  color: white;
+  border: 2px solid #ACA7CB; 
+  border-radius: 10px; 
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease; 
+  margin-bottom: 40px;
+}
+
+.submit-button:hover {
+  background-color: white; 
+  color: #ACA7CB; 
+}
+
+
+/*  */
+.circle {
+  width: 200px;
+  height: 200px;
+  border: 5px solid #ACA7CB;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.circle .text {
+  color: #ACA7CB;
+  font-family: Arial, sans-serif;
+}
+
+.circle .text div {
+  margin: 5px;
+  font-size: 20px;
+}
+
+
+
 
 http://kute-themes.com/html/boutique/html/index.html
 https://template.hasthemes.com/noraure/noraure/index.html
