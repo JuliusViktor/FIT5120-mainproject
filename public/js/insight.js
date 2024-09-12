@@ -86,6 +86,12 @@ new Chart(bubbleCtx, {
                     display: true,
                     text: "Year",
                 },
+                ticks: {
+                    stepSize: 1,
+                    callback: function (value, index, values) {
+                        return Math.floor(value);
+                    },
+                },
             },
             y: {
                 title: {
