@@ -1,24 +1,36 @@
 // Data for charts
 const bubbleChartData = [
-    { x: 20, y: 30, r: 15 },
-    { x: 40, y: 10, r: 10 },
-    { x: 30, y: 20, r: 8 },
+    { x: 2017, y: 18, r: 15, field: "Engineering" },
+    { x: 2018, y: 20, r: 16, field: "Engineering" },
+    { x: 2019, y: 22, r: 17, field: "Engineering" },
+    { x: 2020, y: 23, r: 18, field: "Engineering" },
+    { x: 2021, y: 25, r: 19, field: "Engineering" },
+    { x: 2017, y: 35, r: 20, field: "Science" },
+    { x: 2018, y: 37, r: 21, field: "Science" },
+    { x: 2019, y: 38, r: 22, field: "Science" },
+    { x: 2020, y: 40, r: 23, field: "Science" },
+    { x: 2021, y: 42, r: 24, field: "Science" },
+    { x: 2017, y: 28, r: 18, field: "Technology" },
+    { x: 2018, y: 30, r: 19, field: "Technology" },
+    { x: 2019, y: 32, r: 20, field: "Technology" },
+    { x: 2020, y: 33, r: 21, field: "Technology" },
+    { x: 2021, y: 35, r: 22, field: "Technology" },
 ];
 
 const pieChartData = {
-    labels: ["Red", "Blue", "Yellow"],
-    values: [300, 50, 100],
-    colors: ["#FF6384", "#36A2EB", "#FFCE56"],
+    labels: ["Engineering", "Science", "Technology", "Mathematics"],
+    values: [25, 42, 35, 30],
+    colors: ["#FF6384", "#36A2EB", "#FFCE56", "#4BC0C0"],
 };
 
 const genderData = [
-    { gender: "Women", value: 15, icon: "images/woman-silhouette.svg" },
-    { gender: "Men", value: 70, icon: "images/man-silhouette.svg" },
+    { gender: "Women", value: 32, icon: "images/woman-silhouette.svg" },
+    { gender: "Men", value: 68, icon: "images/man-silhouette.svg" },
 ];
 
 const lineChartData = {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
-    values: [65, 59, 80, 81, 56, 55, 40],
+    labels: ["2017", "2018", "2019", "2020", "2021"],
+    values: [28, 30, 32, 34, 36],
 };
 
 // Bubble Chart
@@ -28,17 +40,65 @@ new Chart(bubbleCtx, {
     data: {
         datasets: [
             {
-                label: "Bubble Chart",
-                data: bubbleChartData,
+                label: "Engineering",
+                data: bubbleChartData.filter((d) => d.field === "Engineering"),
                 backgroundColor: "rgba(255, 99, 132, 0.6)",
+            },
+            {
+                label: "Science",
+                data: bubbleChartData.filter((d) => d.field === "Science"),
+                backgroundColor: "rgba(54, 162, 235, 0.6)",
+            },
+            {
+                label: "Technology",
+                data: bubbleChartData.filter((d) => d.field === "Technology"),
+                backgroundColor: "rgba(255, 206, 86, 0.6)",
             },
         ],
     },
     options: {
         responsive: true,
-        title: {
-            display: true,
-            text: "Bubble Chart",
+        maintainAspectRatio: false,
+        plugins: {
+            title: {
+                display: true,
+                text: "Women's Enrolment in STEM Fields (2017-2021)",
+                font: {
+                    size: 18,
+                },
+            },
+            legend: {
+                position: "top",
+            },
+            tooltip: {
+                callbacks: {
+                    label: function (context) {
+                        return `${context.dataset.label}: ${context.parsed.y}% in ${context.parsed.x}`;
+                    },
+                },
+            },
+        },
+        scales: {
+            x: {
+                type: "linear",
+                position: "bottom",
+                title: {
+                    display: true,
+                    text: "Year",
+                },
+                ticks: {
+                    stepSize: 1,
+                    callback: function (value, index, values) {
+                        return Math.floor(value);
+                    },
+                },
+            },
+            y: {
+                title: {
+                    display: true,
+                    text: "Percentage of Women Enrolled",
+                },
+            },
         },
     },
 });
@@ -59,19 +119,31 @@ new Chart(pieCtx, {
     options: {
         responsive: true,
         maintainAspectRatio: false,
-        title: {
-            display: true,
-            text: "Pie Chart",
-        },
-        legend: {
-            position: "bottom",
+        plugins: {
+            title: {
+                display: true,
+                text: "Distribution of Women in STEM Fields (2021)",
+                font: {
+                    size: 18,
+                },
+            },
+            legend: {
+                position: "bottom",
+            },
+            tooltip: {
+                callbacks: {
+                    label: function (context) {
+                        return `${context.label}: ${context.parsed}%`;
+                    },
+                },
+            },
         },
     },
 });
 
 // Gender Comparison Visualization
-const width = 500; // Increased from 300
-const height = 300; // Increased from 200
+const width = 500;
+const height = 300;
 
 const svg = d3
     .select("#genderComparison")
@@ -79,13 +151,13 @@ const svg = d3
     .attr("width", width)
     .attr("height", height);
 
-const maxSize = 150; // Increased from 100
+const maxSize = 150;
 const scale = d3
     .scaleLinear()
     .domain([0, d3.max(genderData, (d) => d.value)])
-    .range([30, maxSize]); // Increased minimum size from 20 to 30
+    .range([30, maxSize]);
 
-const iconSpacing = 180; // Reduced from 250 to bring icons closer
+const iconSpacing = 180;
 
 genderData.forEach((d, i) => {
     d3.xml(d.icon).then((data) => {
@@ -113,8 +185,17 @@ genderData.forEach((d, i) => {
         .attr("text-anchor", "middle")
         .text(`${d.gender}: ${d.value}%`)
         .attr("fill", "#333")
-        .attr("font-size", "16px"); // Increased font size
+        .attr("font-size", "16px");
 });
+
+svg.append("text")
+    .attr("x", width / 2)
+    .attr("y", 30)
+    .attr("text-anchor", "middle")
+    .text("Gender Distribution in STEM Workforce (2021)")
+    .attr("fill", "#333")
+    .attr("font-size", "18px")
+    .attr("font-weight", "bold");
 
 // Line Chart
 const lineCtx = document.getElementById("lineChart").getContext("2d");
@@ -124,7 +205,7 @@ new Chart(lineCtx, {
         labels: lineChartData.labels,
         datasets: [
             {
-                label: "Line Chart",
+                label: "Women in STEM Workforce",
                 data: lineChartData.values,
                 fill: false,
                 borderColor: "rgb(75, 192, 192)",
@@ -134,9 +215,41 @@ new Chart(lineCtx, {
     },
     options: {
         responsive: true,
-        title: {
-            display: true,
-            text: "Line Chart",
+        maintainAspectRatio: false,
+        plugins: {
+            title: {
+                display: true,
+                text: "Percentage of Women in STEM Workforce (2017-2021)",
+                font: {
+                    size: 18,
+                },
+            },
+            legend: {
+                position: "bottom",
+            },
+            tooltip: {
+                callbacks: {
+                    label: function (context) {
+                        return `Women in STEM: ${context.parsed.y}%`;
+                    },
+                },
+            },
+        },
+        scales: {
+            x: {
+                title: {
+                    display: true,
+                    text: "Year",
+                },
+            },
+            y: {
+                title: {
+                    display: true,
+                    text: "Percentage of Women",
+                },
+                suggestedMin: 0,
+                suggestedMax: 50,
+            },
         },
     },
 });
