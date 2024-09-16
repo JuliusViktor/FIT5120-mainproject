@@ -1403,23 +1403,7 @@ form input[type="submit"]:focus {
 }
 
 
-/* skip quiz button */
-.skip-quiz-button {
-    display: inline-block;
-    padding: 10px 20px;
-    border: 2px solid #ACA7CB;
-    border-radius: 10px;
-    background-color: white;
-    color: #ACA7CB;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-}
 
-.custom-button.active {
-    background-color: #ACA7CB;
-    color: white;
-}
 
 /* quiz list */
 .quiz-container {
@@ -1465,6 +1449,7 @@ form input[type="submit"]:focus {
   padding: 10px 20px;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
+  max-width: 300px;
 }
 
 .quiz-button.selected {

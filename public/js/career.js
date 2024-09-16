@@ -76,15 +76,6 @@ updatePercentage('percentage7', 35); // Engineer
 updatePercentage('percentage8', 40); // Math
 
 
-//skip quiz button
-function scrollToBottom(button) {
-    button.classList.add('active');
-    window.scrollTo({
-        top: document.body.scrollHeight,
-        behavior: 'smooth'
-    });
-}
-
 //quiz list
 function selectAnswer(quizId, answer) {
     const quizBlock = document.getElementById(quizId);
