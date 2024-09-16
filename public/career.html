@@ -67,7 +67,7 @@
                             id="navbarSupportedContent"
                         >
                             <ul class="navbar-nav">
-                                <li class="nav-item active">
+                                <li class="nav-item">
                                     <a class="nav-link" href="homepage.html"
                                         >Home
                                         <span class="sr-only"
@@ -80,7 +80,7 @@
                                         >Insight</a
                                     >
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item active">
                                     <a class="nav-link" href="career.html"
                                         >Career</a
                                     >
@@ -124,7 +124,6 @@
                                     Forge Your Path: Explore Endless
                                     Opportunities in a STEM Career
                                 </p>
-                               
                             </div>
                         </div>
                     </div>
@@ -134,203 +133,573 @@
         </div>
 
         <!-- Intro stat section -->
-    
 
         <!-- quiz for useers who havent thought for dream job -->
         <section class="career_quiz_section career_bg_color layout_padding">
             <div class="container">
-                
-               
-
                 <div class="box">
                     <h2>Find your career match</h2>
-                    <p>Do you want to know what your future career in STEM could be? The quiz helps you to think about your interest preferences, and shows you the STEM study-areas and careers which suit your interests. 
-                        Choose which one you prefer based on the question, then submit quiz to get your result!</p>
-                    
-                  
+                    <p>
+                        Do you want to know what your future career in STEM
+                        could be? The quiz helps you to think about your
+                        interest preferences, and shows you the STEM study-areas
+                        and careers which suit your interests. Choose which one
+                        you prefer based on the question, then submit quiz to
+                        get your result!
+                    </p>
 
                     <div class="quiz-container">
                         <div class="quiz-block" id="quiz1">
-                            <div class="question">1. Which would you prefer? working independently(T) on tasks or collaborating with others(E)</div>
-                            <div class="image"><img src="images/Quiz-Pic-PNG/Quiz Pic PNG/1.png" alt="Image 1"></div>
+                            <div class="question">
+                                1. Which would you prefer? working
+                                independently(T) on tasks or collaborating with
+                                others(E)
+                            </div>
+                            <div class="image">
+                                <img
+                                    src="images/Quiz-Pic-PNG/Quiz Pic PNG/1.png"
+                                    alt="Image 1"
+                                />
+                            </div>
                             <div class="buttons">
-                                <button class="quiz-button" onclick="selectAnswer('quiz1', 'T')">T. working independently</button>
-                                <button class="quiz-button" onclick="selectAnswer('quiz1', 'E')">E. collaborating with others</button>
+                                <button
+                                    class="quiz-button"
+                                    onclick="selectAnswer('quiz1', 'T')"
+                                >
+                                    T. working independently
+                                </button>
+                                <button
+                                    class="quiz-button"
+                                    onclick="selectAnswer('quiz1', 'E')"
+                                >
+                                    E. collaborating with others
+                                </button>
                             </div>
                         </div>
                         <div class="quiz-block" id="quiz2">
-                            <div class="question">2. Which would you prefer when you solve the problem? rely more on logic and data(M) or creativity and intuition(S)</div>
-                            <div class="image"><img src="images/Quiz-Pic-PNG/Quiz Pic PNG/2.png" alt="Image 2"></div>
+                            <div class="question">
+                                2. Which would you prefer when you solve the
+                                problem? rely more on logic and data(M) or
+                                creativity and intuition(S)
+                            </div>
+                            <div class="image">
+                                <img
+                                    src="images/Quiz-Pic-PNG/Quiz Pic PNG/2.png"
+                                    alt="Image 2"
+                                />
+                            </div>
                             <div class="buttons">
-                                <button class="quiz-button" onclick="selectAnswer('quiz2', 'M')">M. rely more on logic and data</button>
-                                <button class="quiz-button" onclick="selectAnswer('quiz2', 'S')">S. creativity and intuition</button>
+                                <button
+                                    class="quiz-button"
+                                    onclick="selectAnswer('quiz2', 'M')"
+                                >
+                                    M. rely more on logic and data
+                                </button>
+                                <button
+                                    class="quiz-button"
+                                    onclick="selectAnswer('quiz2', 'S')"
+                                >
+                                    S. creativity and intuition
+                                </button>
                             </div>
                         </div>
                         <div class="quiz-block" id="quiz3">
-                            <div class="question">3. Which would you prefer? completing detailed projects(E) or brainstorming new ideas(S)</div>
-                            <div class="image"><img src="images/Quiz-Pic-PNG/Quiz Pic PNG/3.png" alt="Image 3"></div>
+                            <div class="question">
+                                3. Which would you prefer? completing detailed
+                                projects(E) or brainstorming new ideas(S)
+                            </div>
+                            <div class="image">
+                                <img
+                                    src="images/Quiz-Pic-PNG/Quiz Pic PNG/3.png"
+                                    alt="Image 3"
+                                />
+                            </div>
                             <div class="buttons">
-                                <button class="quiz-button" onclick="selectAnswer('quiz3', 'E')">E. completing detailed projects</button>
-                                <button class="quiz-button" onclick="selectAnswer('quiz3', 'S')">S. brainstorming new ideas</button>
+                                <button
+                                    class="quiz-button"
+                                    onclick="selectAnswer('quiz3', 'E')"
+                                >
+                                    E. completing detailed projects
+                                </button>
+                                <button
+                                    class="quiz-button"
+                                    onclick="selectAnswer('quiz3', 'S')"
+                                >
+                                    S. brainstorming new ideas
+                                </button>
                             </div>
                         </div>
                         <div class="quiz-block" id="quiz4">
-                            <div class="question">4. Which would you prefer? learning through hands-on experiments(T) or theoretical discussions(S)</div>
-                            <div class="image"><img src="images/Quiz-Pic-PNG/Quiz Pic PNG/4.png" alt="Image 4"></div>
+                            <div class="question">
+                                4. Which would you prefer? learning through
+                                hands-on experiments(T) or theoretical
+                                discussions(S)
+                            </div>
+                            <div class="image">
+                                <img
+                                    src="images/Quiz-Pic-PNG/Quiz Pic PNG/4.png"
+                                    alt="Image 4"
+                                />
+                            </div>
                             <div class="buttons">
-                                <button class="quiz-button" onclick="selectAnswer('quiz4', 'T')">T. hands-on experiments</button>
-                                <button class="quiz-button" onclick="selectAnswer('quiz4', 'S')">S. theoretical discussions</button>
+                                <button
+                                    class="quiz-button"
+                                    onclick="selectAnswer('quiz4', 'T')"
+                                >
+                                    T. hands-on experiments
+                                </button>
+                                <button
+                                    class="quiz-button"
+                                    onclick="selectAnswer('quiz4', 'S')"
+                                >
+                                    S. theoretical discussions
+                                </button>
                             </div>
                         </div>
                         <div class="quiz-block" id="quiz5">
-                            <div class="question">5. Which would you prefer? inclined to focus on long-term projects(E) or shorter, more immediate goals(M)</div>
-                            <div class="image"><img src="images/Quiz-Pic-PNG/Quiz Pic PNG/5.png" alt="Image 5"></div>
+                            <div class="question">
+                                5. Which would you prefer? inclined to focus on
+                                long-term projects(E) or shorter, more immediate
+                                goals(M)
+                            </div>
+                            <div class="image">
+                                <img
+                                    src="images/Quiz-Pic-PNG/Quiz Pic PNG/5.png"
+                                    alt="Image 5"
+                                />
+                            </div>
                             <div class="buttons">
-                                <button class="quiz-button" onclick="selectAnswer('quiz5', 'E')">E. long-term projects</button>
-                                <button class="quiz-button" onclick="selectAnswer('quiz5', 'M')">M. shorter, more immediate goals</button>
+                                <button
+                                    class="quiz-button"
+                                    onclick="selectAnswer('quiz5', 'E')"
+                                >
+                                    E. long-term projects
+                                </button>
+                                <button
+                                    class="quiz-button"
+                                    onclick="selectAnswer('quiz5', 'M')"
+                                >
+                                    M. shorter, more immediate goals
+                                </button>
                             </div>
                         </div>
                         <div class="quiz-block" id="quiz6">
-                            <div class="question">6. Which would you prefer? enjoy challenges that involve solving complex technical problems(T) or ones that require interpersonal communication(E)</div>
-                            <div class="image"><img src="images/Quiz-Pic-PNG/Quiz Pic PNG/6.png" alt="Image 6"></div>
+                            <div class="question">
+                                6. Which would you prefer? enjoy challenges that
+                                involve solving complex technical problems(T) or
+                                ones that require interpersonal communication(E)
+                            </div>
+                            <div class="image">
+                                <img
+                                    src="images/Quiz-Pic-PNG/Quiz Pic PNG/6.png"
+                                    alt="Image 6"
+                                />
+                            </div>
                             <div class="buttons">
-                                <button class="quiz-button" onclick="selectAnswer('quiz6', 'T')">T. solving complex technical problems</button>
-                                <button class="quiz-button" onclick="selectAnswer('quiz6', 'E')">E. interpersonal communication</button>
+                                <button
+                                    class="quiz-button"
+                                    onclick="selectAnswer('quiz6', 'T')"
+                                >
+                                    T. solving complex technical problems
+                                </button>
+                                <button
+                                    class="quiz-button"
+                                    onclick="selectAnswer('quiz6', 'E')"
+                                >
+                                    E. interpersonal communication
+                                </button>
                             </div>
                         </div>
                         <div class="quiz-block" id="quiz7">
-                            <div class="question">7. Which would you prefer? motivated by the potential for discovery(S) or by the potential to improve existing systems and processes(E)</div>
-                            <div class="image"><img src="images/Quiz-Pic-PNG/Quiz Pic PNG/7.png" alt="Image 7"></div>
+                            <div class="question">
+                                7. Which would you prefer? motivated by the
+                                potential for discovery(S) or by the potential
+                                to improve existing systems and processes(E)
+                            </div>
+                            <div class="image">
+                                <img
+                                    src="images/Quiz-Pic-PNG/Quiz Pic PNG/7.png"
+                                    alt="Image 7"
+                                />
+                            </div>
                             <div class="buttons">
-                                <button class="quiz-button" onclick="selectAnswer('quiz7', 'S')">S. potential for discovery</button>
-                                <button class="quiz-button" onclick="selectAnswer('quiz7', 'E')">E. improve existing systems and processes</button>
+                                <button
+                                    class="quiz-button"
+                                    onclick="selectAnswer('quiz7', 'S')"
+                                >
+                                    S. potential for discovery
+                                </button>
+                                <button
+                                    class="quiz-button"
+                                    onclick="selectAnswer('quiz7', 'E')"
+                                >
+                                    E. improve existing systems and processes
+                                </button>
                             </div>
                         </div>
                         <div class="quiz-block" id="quiz8">
-                            <div class="question">8. Which would you prefer? dive into research immediately(S) or wait until you have a clearer direction(M)</div>
-                            <div class="image"><img src="images/Quiz-Pic-PNG/Quiz Pic PNG/8.png" alt="Image 8"></div>
+                            <div class="question">
+                                8. Which would you prefer? dive into research
+                                immediately(S) or wait until you have a clearer
+                                direction(M)
+                            </div>
+                            <div class="image">
+                                <img
+                                    src="images/Quiz-Pic-PNG/Quiz Pic PNG/8.png"
+                                    alt="Image 8"
+                                />
+                            </div>
                             <div class="buttons">
-                                <button class="quiz-button" onclick="selectAnswer('quiz8', 'S')">S. dive into research immediately</button>
-                                <button class="quiz-button" onclick="selectAnswer('quiz8', 'M')">M. wait until you have a clearer direction</button>
+                                <button
+                                    class="quiz-button"
+                                    onclick="selectAnswer('quiz8', 'S')"
+                                >
+                                    S. dive into research immediately
+                                </button>
+                                <button
+                                    class="quiz-button"
+                                    onclick="selectAnswer('quiz8', 'M')"
+                                >
+                                    M. wait until you have a clearer direction
+                                </button>
                             </div>
                         </div>
                         <div class="quiz-block" id="quiz9">
-                            <div class="question">9. Which would you prefer? to follow established guidelines(E), or do you prefer to create your own path in problem-solving(S)</div>
-                            <div class="image"><img src="images/Quiz-Pic-PNG/Quiz Pic PNG/9.png" alt="Image 9"></div>
+                            <div class="question">
+                                9. Which would you prefer? to follow established
+                                guidelines(E), or do you prefer to create your
+                                own path in problem-solving(S)
+                            </div>
+                            <div class="image">
+                                <img
+                                    src="images/Quiz-Pic-PNG/Quiz Pic PNG/9.png"
+                                    alt="Image 9"
+                                />
+                            </div>
                             <div class="buttons">
-                                <button class="quiz-button" onclick="selectAnswer('quiz9', 'E')">E. follow established guidelines</button>
-                                <button class="quiz-button" onclick="selectAnswer('quiz9', 'S')">S. create your own path</button>
+                                <button
+                                    class="quiz-button"
+                                    onclick="selectAnswer('quiz9', 'E')"
+                                >
+                                    E. follow established guidelines
+                                </button>
+                                <button
+                                    class="quiz-button"
+                                    onclick="selectAnswer('quiz9', 'S')"
+                                >
+                                    S. create your own path
+                                </button>
                             </div>
                         </div>
                         <div class="quiz-block" id="quiz10">
-                            <div class="question">10. Which would you prefer when you do your work? prioritize accuracy and precision(M) or speed and efficiency(T)</div>
-                            <div class="image"><img src="images/Quiz-Pic-PNG/Quiz Pic PNG/10.png" alt="Image 10"></div>
+                            <div class="question">
+                                10. Which would you prefer when you do your
+                                work? prioritize accuracy and precision(M) or
+                                speed and efficiency(T)
+                            </div>
+                            <div class="image">
+                                <img
+                                    src="images/Quiz-Pic-PNG/Quiz Pic PNG/10.png"
+                                    alt="Image 10"
+                                />
+                            </div>
                             <div class="buttons">
-                                <button class="quiz-button" onclick="selectAnswer('quiz10', 'M')">M. accuracy and precision</button>
-                                <button class="quiz-button" onclick="selectAnswer('quiz10', 'T')">T. speed and efficiency</button>
+                                <button
+                                    class="quiz-button"
+                                    onclick="selectAnswer('quiz10', 'M')"
+                                >
+                                    M. accuracy and precision
+                                </button>
+                                <button
+                                    class="quiz-button"
+                                    onclick="selectAnswer('quiz10', 'T')"
+                                >
+                                    T. speed and efficiency
+                                </button>
                             </div>
                         </div>
                         <div class="quiz-block" id="quiz11">
-                            <div class="question">11. When working on a project do you feel? more confident with structured plans(M) or adaptable, flexible approaches(S)</div>
-                            <div class="image"><img src="images/Quiz-Pic-PNG/Quiz Pic PNG/11.png" alt="Image 11"></div>
+                            <div class="question">
+                                11. When working on a project do you feel? more
+                                confident with structured plans(M) or adaptable,
+                                flexible approaches(S)
+                            </div>
+                            <div class="image">
+                                <img
+                                    src="images/Quiz-Pic-PNG/Quiz Pic PNG/11.png"
+                                    alt="Image 11"
+                                />
+                            </div>
                             <div class="buttons">
-                                <button class="quiz-button" onclick="selectAnswer('quiz11', 'M')">M. structured plans</button>
-                                <button class="quiz-button" onclick="selectAnswer('quiz11', 'S')">S. adaptable, flexible approaches</button>
+                                <button
+                                    class="quiz-button"
+                                    onclick="selectAnswer('quiz11', 'M')"
+                                >
+                                    M. structured plans
+                                </button>
+                                <button
+                                    class="quiz-button"
+                                    onclick="selectAnswer('quiz11', 'S')"
+                                >
+                                    S. adaptable, flexible approaches
+                                </button>
                             </div>
                         </div>
                         <div class="quiz-block" id="quiz12">
-                            <div class="question">12. Which would you prefer? working with abstract theories(M) or applying concepts to real-world situations(E)</div>
-                            <div class="image"><img src="images/Quiz-Pic-PNG/Quiz Pic PNG/12.png" alt="Image 12"></div>
+                            <div class="question">
+                                12. Which would you prefer? working with
+                                abstract theories(M) or applying concepts to
+                                real-world situations(E)
+                            </div>
+                            <div class="image">
+                                <img
+                                    src="images/Quiz-Pic-PNG/Quiz Pic PNG/12.png"
+                                    alt="Image 12"
+                                />
+                            </div>
                             <div class="buttons">
-                                <button class="quiz-button" onclick="selectAnswer('quiz12', 'M')">M. abstract theories</button>
-                                <button class="quiz-button" onclick="selectAnswer('quiz12', 'E')">E. real-world situations</button>
+                                <button
+                                    class="quiz-button"
+                                    onclick="selectAnswer('quiz12', 'M')"
+                                >
+                                    M. abstract theories
+                                </button>
+                                <button
+                                    class="quiz-button"
+                                    onclick="selectAnswer('quiz12', 'E')"
+                                >
+                                    E. real-world situations
+                                </button>
                             </div>
                         </div>
                         <div class="quiz-block" id="quiz13">
-                            <div class="question">13. Which would you prefer? analyzing data and numbers(M) or exploring patterns and trends(S)</div>
-                            <div class="image"><img src="images/Quiz-Pic-PNG/Quiz Pic PNG/13.png" alt="Image 13"></div>
+                            <div class="question">
+                                13. Which would you prefer? analyzing data and
+                                numbers(M) or exploring patterns and trends(S)
+                            </div>
+                            <div class="image">
+                                <img
+                                    src="images/Quiz-Pic-PNG/Quiz Pic PNG/13.png"
+                                    alt="Image 13"
+                                />
+                            </div>
                             <div class="buttons">
-                                <button class="quiz-button" onclick="selectAnswer('quiz13', 'M')">M. analyzing data and numbers</button>
-                                <button class="quiz-button" onclick="selectAnswer('quiz13', 'S')">S. exploring patterns and trends</button>
+                                <button
+                                    class="quiz-button"
+                                    onclick="selectAnswer('quiz13', 'M')"
+                                >
+                                    M. analyzing data and numbers
+                                </button>
+                                <button
+                                    class="quiz-button"
+                                    onclick="selectAnswer('quiz13', 'S')"
+                                >
+                                    S. exploring patterns and trends
+                                </button>
                             </div>
                         </div>
                         <div class="quiz-block" id="quiz14">
-                            <div class="question">14. Which would you prefer? focus on one project at a time(E) or manage multiple projects simultaneously(T)</div>
-                            <div class="image"><img src="images/Quiz-Pic-PNG/Quiz Pic PNG/14.png" alt="Image 14"></div>
+                            <div class="question">
+                                14. Which would you prefer? focus on one project
+                                at a time(E) or manage multiple projects
+                                simultaneously(T)
+                            </div>
+                            <div class="image">
+                                <img
+                                    src="images/Quiz-Pic-PNG/Quiz Pic PNG/14.png"
+                                    alt="Image 14"
+                                />
+                            </div>
                             <div class="buttons">
-                                <button class="quiz-button" onclick="selectAnswer('quiz14', 'E')">E. one project at a time</button>
-                                <button class="quiz-button" onclick="selectAnswer('quiz14', 'T')">T. multiple projects simultaneously</button>
+                                <button
+                                    class="quiz-button"
+                                    onclick="selectAnswer('quiz14', 'E')"
+                                >
+                                    E. one project at a time
+                                </button>
+                                <button
+                                    class="quiz-button"
+                                    onclick="selectAnswer('quiz14', 'T')"
+                                >
+                                    T. multiple projects simultaneously
+                                </button>
                             </div>
                         </div>
                         <div class="quiz-block" id="quiz15">
-                            <div class="question">15. Which would you prefer? driven by curiosity and a desire to learn(S), or by achieving specific goals and milestones(E)</div>
-                            <div class="image"><img src="images/Quiz-Pic-PNG/Quiz Pic PNG/15.png" alt="Image 15"></div>
+                            <div class="question">
+                                15. Which would you prefer? driven by curiosity
+                                and a desire to learn(S), or by achieving
+                                specific goals and milestones(E)
+                            </div>
+                            <div class="image">
+                                <img
+                                    src="images/Quiz-Pic-PNG/Quiz Pic PNG/15.png"
+                                    alt="Image 15"
+                                />
+                            </div>
                             <div class="buttons">
-                                <button class="quiz-button" onclick="selectAnswer('quiz15', 'S')">S. curiosity and a desire to learn</button>
-                                <button class="quiz-button" onclick="selectAnswer('quiz15', 'E')">E. achieving specific goals and milestones</button>
+                                <button
+                                    class="quiz-button"
+                                    onclick="selectAnswer('quiz15', 'S')"
+                                >
+                                    S. curiosity and a desire to learn
+                                </button>
+                                <button
+                                    class="quiz-button"
+                                    onclick="selectAnswer('quiz15', 'E')"
+                                >
+                                    E. achieving specific goals and milestones
+                                </button>
                             </div>
                         </div>
                         <div class="quiz-block" id="quiz16">
-                            <div class="question">16. Which would you prefer? work with computers and software(T) or conduct experiments in a lab(S)</div>
-                            <div class="image"><img src="images/Quiz-Pic-PNG/Quiz Pic PNG/16.png" alt="Image 16"></div>
+                            <div class="question">
+                                16. Which would you prefer? work with computers
+                                and software(T) or conduct experiments in a
+                                lab(S)
+                            </div>
+                            <div class="image">
+                                <img
+                                    src="images/Quiz-Pic-PNG/Quiz Pic PNG/16.png"
+                                    alt="Image 16"
+                                />
+                            </div>
                             <div class="buttons">
-                                <button class="quiz-button" onclick="selectAnswer('quiz16', 'T')">T. computers and software</button>
-                                <button class="quiz-button" onclick="selectAnswer('quiz16', 'S')">S. experiments in a lab</button>
+                                <button
+                                    class="quiz-button"
+                                    onclick="selectAnswer('quiz16', 'T')"
+                                >
+                                    T. computers and software
+                                </button>
+                                <button
+                                    class="quiz-button"
+                                    onclick="selectAnswer('quiz16', 'S')"
+                                >
+                                    S. experiments in a lab
+                                </button>
                             </div>
                         </div>
                         <div class="quiz-block" id="quiz17">
-                            <div class="question">17. Which would you prefer? analyzing graphs and statistics(M) or exploring nature and its phenomena(S)</div>
-                            <div class="image"><img src="images/Quiz-Pic-PNG/Quiz Pic PNG/17.png" alt="Image 17"></div>
+                            <div class="question">
+                                17. Which would you prefer? analyzing graphs and
+                                statistics(M) or exploring nature and its
+                                phenomena(S)
+                            </div>
+                            <div class="image">
+                                <img
+                                    src="images/Quiz-Pic-PNG/Quiz Pic PNG/17.png"
+                                    alt="Image 17"
+                                />
+                            </div>
                             <div class="buttons">
-                                <button class="quiz-button" onclick="selectAnswer('quiz17', 'M')">M. analyzing graphs and statistics</button>
-                                <button class="quiz-button" onclick="selectAnswer('quiz17', 'S')">S. exploring nature and its phenomena</button>
+                                <button
+                                    class="quiz-button"
+                                    onclick="selectAnswer('quiz17', 'M')"
+                                >
+                                    M. analyzing graphs and statistics
+                                </button>
+                                <button
+                                    class="quiz-button"
+                                    onclick="selectAnswer('quiz17', 'S')"
+                                >
+                                    S. exploring nature and its phenomena
+                                </button>
                             </div>
                         </div>
                         <div class="quiz-block" id="quiz18">
-                            <div class="question">18. Which would you prefer? learning how machines work(E) or understanding natural processes(M)</div>
-                            <div class="image"><img src="images/Quiz-Pic-PNG/Quiz Pic PNG/18.png" alt="Image 18"></div>
+                            <div class="question">
+                                18. Which would you prefer? learning how
+                                machines work(E) or understanding natural
+                                processes(M)
+                            </div>
+                            <div class="image">
+                                <img
+                                    src="images/Quiz-Pic-PNG/Quiz Pic PNG/18.png"
+                                    alt="Image 18"
+                                />
+                            </div>
                             <div class="buttons">
-                                <button class="quiz-button" onclick="selectAnswer('quiz18', 'E')">E. learning how machines work</button>
-                                <button class="quiz-button" onclick="selectAnswer('quiz18', 'M')">M. understanding natural processes</button>
+                                <button
+                                    class="quiz-button"
+                                    onclick="selectAnswer('quiz18', 'E')"
+                                >
+                                    E. learning how machines work
+                                </button>
+                                <button
+                                    class="quiz-button"
+                                    onclick="selectAnswer('quiz18', 'M')"
+                                >
+                                    M. understanding natural processes
+                                </button>
                             </div>
                         </div>
                         <div class="quiz-block" id="quiz19">
-                            <div class="question">19. Which would you prefer? using apps and learning how they work(T), or would you rather explore how the human body functions(S)</div>
-                            <div class="image"><img src="images/Quiz-Pic-PNG/Quiz Pic PNG/19.png" alt="Image 19"></div>
+                            <div class="question">
+                                19. Which would you prefer? using apps and
+                                learning how they work(T), or would you rather
+                                explore how the human body functions(S)
+                            </div>
+                            <div class="image">
+                                <img
+                                    src="images/Quiz-Pic-PNG/Quiz Pic PNG/19.png"
+                                    alt="Image 19"
+                                />
+                            </div>
                             <div class="buttons">
-                                <button class="quiz-button" onclick="selectAnswer('quiz19', 'T')">T. using apps and learning how they work</button>
-                                <button class="quiz-button" onclick="selectAnswer('quiz19', 'S')">S. explore how the human body functions</button>
+                                <button
+                                    class="quiz-button"
+                                    onclick="selectAnswer('quiz19', 'T')"
+                                >
+                                    T. using apps and learning how they work
+                                </button>
+                                <button
+                                    class="quiz-button"
+                                    onclick="selectAnswer('quiz19', 'S')"
+                                >
+                                    S. explore how the human body functions
+                                </button>
                             </div>
                         </div>
                         <div class="quiz-block" id="quiz20">
-                            <div class="question">20. Which would you prefer? to understand how mathematical formulas work(M) or build physical models(S)</div>
-                            <div class="image"><img src="images/Quiz-Pic-PNG/Quiz Pic PNG/20.png" alt="Image 20"></div>
+                            <div class="question">
+                                20. Which would you prefer? to understand how
+                                mathematical formulas work(M) or build physical
+                                models(S)
+                            </div>
+                            <div class="image">
+                                <img
+                                    src="images/Quiz-Pic-PNG/Quiz Pic PNG/20.png"
+                                    alt="Image 20"
+                                />
+                            </div>
                             <div class="buttons">
-                                <button class="quiz-button" onclick="selectAnswer('quiz20', 'M')">M. understand how mathematical formulas work</button>
-                                <button class="quiz-button" onclick="selectAnswer('quiz20', 'S')">S. build physical models</button>
+                                <button
+                                    class="quiz-button"
+                                    onclick="selectAnswer('quiz20', 'M')"
+                                >
+                                    M. understand how mathematical formulas work
+                                </button>
+                                <button
+                                    class="quiz-button"
+                                    onclick="selectAnswer('quiz20', 'S')"
+                                >
+                                    S. build physical models
+                                </button>
                             </div>
                         </div>
                     </div>
 
-
                     <div class="quiz-submit-buttons">
-                        <button id="submit-button" onclick="submitQuiz()">Submit Quiz</button>
+                        <button id="submit-button" onclick="submitQuiz()">
+                            Submit Quiz
+                        </button>
                     </div>
-                    <div id="loading" style="display: none;">Loading...</div>
+                    <div id="loading" style="display: none">Loading...</div>
                     <div id="result" class="result"></div>
-                    
-                    
-                
                 </div>
-                
-                
-                
-                
-                
-                
+
                 <div class="box">
                     <h2>Which occupation may suit for you?</h2>
-                    
 
                     <div class="row">
                         <div class="col-lg-3 col-md-6 col-sm-12">
@@ -341,7 +710,7 @@
                                 </div>
                             </div>
                         </div>
-                    
+
                         <div class="col-lg-3 col-md-6 col-sm-12">
                             <div class="circle">
                                 <div class="text">
@@ -350,7 +719,7 @@
                                 </div>
                             </div>
                         </div>
-                    
+
                         <div class="col-lg-3 col-md-6 col-sm-12">
                             <div class="circle">
                                 <div class="text">
@@ -359,7 +728,7 @@
                                 </div>
                             </div>
                         </div>
-                    
+
                         <div class="col-lg-3 col-md-6 col-sm-12">
                             <div class="circle">
                                 <div class="text">
@@ -369,31 +738,40 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <h1>Occupation Guideline</h1>
                     <p id="occupation-guideline">
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing
+                        elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis
+                        nostrud exercitation ullamco laboris nisi ut aliquip ex
+                        ea commodo consequat. Duis aute irure dolor in
+                        reprehenderit in voluptate velit esse cillum dolore eu
+                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                        non proident, sunt in culpa qui officia deserunt mollit
+                        anim id est laborum."
                     </p>
-                    
                 </div>
             </div>
-
-            
         </section>
 
         <!-- after getting the dream job, base on their occupation preference giving their skills&subjects suggestion-->
         <section class="career_suggest_section career_bg_color layout_padding">
             <div class="container">
-
-
                 <div class="box">
                     <h2>Key Skills & Subject May Brighten your Future</h2>
                     <h2></h2>
                     <h2>I want to become:</h2>
 
                     <div class="occup-search-container">
-                        <input type="text" class="search-bar" placeholder="type in here please">
-                        <button class="clear-btn" onclick="clearInput()">×</button>
+                        <input
+                            type="text"
+                            class="search-bar"
+                            placeholder="type in here please"
+                        />
+                        <button class="clear-btn" onclick="clearInput()">
+                            ×
+                        </button>
                     </div>
 
                     <div class="occup-submit-button">
@@ -404,7 +782,6 @@
                     <div id="suggest-status-bar" class="status-bar">
                         You have not submitted your answer!
                     </div>
-                    
 
                     <div class="row">
                         <div class="col-lg-3 col-md-6 col-sm-12">
@@ -415,7 +792,7 @@
                                 </div>
                             </div>
                         </div>
-                    
+
                         <div class="col-lg-3 col-md-6 col-sm-12">
                             <div class="circle">
                                 <div class="text">
@@ -424,7 +801,7 @@
                                 </div>
                             </div>
                         </div>
-                    
+
                         <div class="col-lg-3 col-md-6 col-sm-12">
                             <div class="circle">
                                 <div class="text">
@@ -433,7 +810,7 @@
                                 </div>
                             </div>
                         </div>
-                    
+
                         <div class="col-lg-3 col-md-6 col-sm-12">
                             <div class="circle">
                                 <div class="text">
@@ -443,22 +820,25 @@
                             </div>
                         </div>
                     </div>
-                    
-                    
-                    
+
                     <h1>Subject Guideline</h1>
                     <p id="subject-guideline">
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing
+                        elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis
+                        nostrud exercitation ullamco laboris nisi ut aliquip ex
+                        ea commodo consequat. Duis aute irure dolor in
+                        reprehenderit in voluptate velit esse cillum dolore eu
+                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                        non proident, sunt in culpa qui officia deserunt mollit
+                        anim id est laborum."
                     </p>
-                    
                 </div>
             </div>
         </section>
 
-       <!-- Scroll to Top Button -->
-    <button id="scrollToTopBtn" title="Go to top">&#8679;</button>
-
-
+        <!-- Scroll to Top Button -->
+        <button id="scrollToTopBtn" title="Go to top">&#8679;</button>
 
         <div class="cpy_">
             <p class="mx-auto">© 2024 All Rights Reserved By <br /></p>

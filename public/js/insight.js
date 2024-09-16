@@ -17,11 +17,6 @@ function displayChart(chartId) {
         canvas.id = "pieChart";
         chartContainer.appendChild(canvas);
         createPieChart();
-    } else if (chartId === "genderComparison") {
-        const div = document.createElement("div");
-        div.id = "genderComparison";
-        chartContainer.appendChild(div);
-        createGenderComparison();
     } else if (chartId === "industry_income") {
         const canvas = document.createElement("canvas");
         canvas.id = "incomePieChart";
@@ -203,66 +198,6 @@ function createIncomePieChart() {
             });
         })
         .catch((error) => console.error("Error fetching data:", error));
-}
-
-function createGenderComparison() {
-    const width = 500;
-    const height = 300;
-
-    const svg = d3
-        .select("#genderComparison")
-        .append("svg")
-        .attr("width", width)
-        .attr("height", height);
-
-    const maxSize = 150;
-    const scale = d3
-        .scaleLinear()
-        .domain([0, d3.max(genderData, (d) => d.value)])
-        .range([30, maxSize]);
-
-    const iconSpacing = 180;
-
-    genderData.forEach((d, i) => {
-        d3.xml(d.icon).then((data) => {
-            const importedNode = document.importNode(
-                data.documentElement,
-                true
-            );
-
-            svg.node().appendChild(importedNode);
-
-            d3.select(importedNode)
-                .attr("width", scale(d.value))
-                .attr("height", scale(d.value))
-                .attr(
-                    "x",
-                    i * iconSpacing +
-                        width / 2 -
-                        iconSpacing / 2 -
-                        scale(d.value) / 2
-                )
-                .attr("y", height - scale(d.value) - 40)
-                .attr("fill", i === 0 ? "#FF69B4" : "#4169E1");
-        });
-
-        svg.append("text")
-            .attr("x", i * iconSpacing + width / 2 - iconSpacing / 2)
-            .attr("y", height - 15)
-            .attr("text-anchor", "middle")
-            .text(`${d.gender}: ${d.value}%`)
-            .attr("fill", "#333")
-            .attr("font-size", "16px");
-    });
-
-    svg.append("text")
-        .attr("x", width / 2)
-        .attr("y", 30)
-        .attr("text-anchor", "middle")
-        .text("Gender Distribution in STEM Workforce (2021)")
-        .attr("fill", "#333")
-        .attr("font-size", "18px")
-        .attr("font-weight", "bold");
 }
 
 function createEnrollmentPieChart() {
