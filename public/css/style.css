@@ -1477,6 +1477,217 @@ form input[type="submit"]:focus {
   margin-top: 10px;
 }
 
+
+
+/* home page slider section */
+.home_slider_section {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 90px 0 90px 0;
+  background-color: #d4ced0;
+}
+
+.home_slider_section .row {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-content: center;
+}
+
+.home_slider_section .detail-box{
+  text-align: center;
+}
+
+
+.home_slider_section .detail-box h1 {
+    font-size: 4.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #002c3e;
+    line-height: 70px;
+}
+
+.home_slider_section .detail-box h1 span {
+  color: #f7444e;
+}
+
+.home_slider_section .detail-box p {
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 1.5rem;
+}
+
+.home_slider_section .detail-box a {
+    display: inline-block;
+    padding: 12px 45px;
+    background-color: #f7444e;
+    border: 1px solid #f7444e;
+    color: #ffffff;
+    border-radius: 0;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    margin-top: 10px;
+    font-weight: 700;
+}
+
+.home_slider_section .detail-box a:hover {
+  background-color: transparent;
+  color: #f7444e;
+}
+
+.home_slider_section .img-box img {
+  width: 100%;
+}
+
+
+/* insight page slider section */
+.insight_slider_section {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 90px 0 90px 0;
+  
+}
+
+.insight_slider_section .row {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-content: center;
+}
+
+.insight_slider_section .detail-box{
+  text-align: center;
+}
+
+
+.insight_slider_section .detail-box h1 {
+    font-size: 4.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #002c3e;
+    line-height: 70px;
+}
+
+.insight_slider_section .detail-box h1 span {
+  color: #f7444e;
+}
+
+.insight_slider_section .detail-box p {
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 1.5rem;
+}
+
+.insight_slider_section .detail-box a {
+    display: inline-block;
+    padding: 12px 45px;
+    background-color: #f7444e;
+    border: 1px solid #f7444e;
+    color: #ffffff;
+    border-radius: 0;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    margin-top: 10px;
+    font-weight: 700;
+}
+
+.insight_slider_section .detail-box a:hover {
+  background-color: transparent;
+  color: #f7444e;
+}
+
+.insight_slider_section .img-box img {
+  width: 100%;
+}
+
+/* career page slider section */
+.career_slider_section {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 90px 0 90px 0;
+  
+}
+
+.career_slider_section .row {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-content: center;
+}
+
+.career_slider_section .detail-box{
+  text-align: center;
+}
+
+
+.career_slider_section .detail-box h1 {
+    font-size: 4.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #002c3e;
+    line-height: 70px;
+}
+
+.career_slider_section .detail-box h1 span {
+  color: #f7444e;
+}
+
+.career_slider_section .detail-box p {
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 1.5rem;
+}
+
+.career_slider_section .detail-box a {
+    display: inline-block;
+    padding: 12px 45px;
+    background-color: #f7444e;
+    border: 1px solid #f7444e;
+    color: #ffffff;
+    border-radius: 0;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    margin-top: 10px;
+    font-weight: 700;
+}
+
+.career_slider_section .detail-box a:hover {
+  background-color: transparent;
+  color: #f7444e;
+}
+
+.career_slider_section .img-box img {
+  width: 100%;
+}
+
+
 http://kute-themes.com/html/boutique/html/index.html
 https://template.hasthemes.com/noraure/noraure/index.html
 https://preview.hasthemes.com/xoss-preview/xoss/index.html

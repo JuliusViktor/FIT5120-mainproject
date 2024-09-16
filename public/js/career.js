@@ -38,27 +38,6 @@ function clearInput() {
     }, 2000); // Simulate a 2-second loading time
 });
 
-document.querySelector('.submit-button').addEventListener('click', function() {
-    var statusBar = document.getElementById('quiz-status-bar');
-    
-    // Set to loading state
-    statusBar.textContent = 'Loading...';
-    statusBar.className = 'status-bar loading';
-    
-    // Simulate an asynchronous operation
-    setTimeout(function() {
-        // Assume the search is successful
-        var isSuccess = true; // You can set this value based on actual conditions
-        
-        if (isSuccess) {
-            statusBar.textContent = 'Searching successful, data below has been updated';
-            statusBar.className = 'status-bar success';
-        } else {
-            statusBar.textContent = 'Searching fail...try again please!';
-            statusBar.className = 'status-bar fail';
-        }
-    }, 2000); // Simulate a 2-second loading time
-});
 
 function clearInput() {
     document.querySelector('.search-bar').value = '';
