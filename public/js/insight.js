@@ -92,7 +92,7 @@ function createPieChart() {
                     plugins: {
                         title: {
                             display: true,
-                            text: "Employed Women in STEM",
+                            text: "Employed Women in STEM's Industries, 2021",
                             font: {
                                 size: 18,
                             },
@@ -170,7 +170,7 @@ function createIncomePieChart() {
                     plugins: {
                         title: {
                             display: true,
-                            text: "STEM Industry income",
+                            text: "Average women's income in STEM, 2017-2021",
                             font: {
                                 size: 18,
                             },
@@ -248,7 +248,7 @@ function createEnrollmentPieChart() {
                     plugins: {
                         title: {
                             display: true,
-                            text: "Female University STEM Enrolment in 2022",
+                            text: "STEM Enrollment of Women in Universities, 2022",
                             font: {
                                 size: 18,
                             },
@@ -327,7 +327,7 @@ function createEmploymentOutcomesPieChart() {
                     plugins: {
                         title: {
                             display: true,
-                            text: "Undergraduate employment outcomes, 2023, Male & Female",
+                            text: "Percentage of STEM Undergraduates Securing Full Employment in 2023, by Gender",
                             font: {
                                 size: 18,
                             },
