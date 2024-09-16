@@ -3,51 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Button</title>
+    <title>Home Slider Section</title>
     <style>
-        .quiz-button {
-            border: 2px solid #ACA7CB;
-            background-color: white;
-            color: #ACA7CB;
-            border-radius: 8px;
-            padding: 10px 20px;
-            cursor: pointer;
-            transition: background-color 0.3s, color 0.3s;
-            max-width: 300px;
-        }
-
-        .quiz-button.selected {
+        /* home page slider section */
+        .home_slider_section {
+            -webkit-box-flex: 1;
+                -ms-flex: 1;
+                    flex: 1;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 90px 0 90px 0;
             background-color: #ACA7CB;
-            color: white;
         }
 
-        .quiz-submit-buttons {
+        .home_slider_section .row {
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
+            justify-content: center;
+        }
+
+        .home_slider_section .detail-box{
+            text-align: center;
+        }
+
+        .home_slider_section .detail-box h1 {
+            font-size: 4.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #002c3e;
+            line-height: 70px;
+        }
+
+        .home_slider_section .detail-box h1 span {
+            color: #442757;
+        }
+
+        .home_slider_section .detail-box p {
+            font-size: 16px;
+            margin-top: 20px;
+            margin-bottom: 1.5rem;
+        }
+
+        .home_slider_section .detail-box a {
+            display: inline-block;
+            padding: 12px 45px;
+            background-color: #4B0082;
+            border: 1px solid #4B0082;
+            color: #ffffff;
+            border-radius: 0;
+            -webkit-transition: all 0.3s;
+            transition: all 0.3s;
             margin-top: 10px;
+            font-weight: 700;
+        }
+
+        .home_slider_section .detail-box a:hover {
+            background-color: transparent;
+            color: #4B0082;
+        }
+
+        .home_slider_section .img-box img {
+            width: 100%;
+        }
+
+        /* Gender distribution section */
+        .gender-distribution {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .gender-distribution .man, .gender-distribution .woman {
+            margin: 0 20px;
+            position: relative;
+        }
+
+        .gender-distribution .man img, .gender-distribution .woman img {
+            width: 100px; /* Adjust size as needed */
+        }
+
+        .gender-distribution .percentage {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .gender-distribution .description {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #002c3e;
         }
     </style>
 </head>
 <body>
-    <button class="quiz-button">Option 1</button>
-    <button class="quiz-button">Option 2</button>
-    <button class="quiz-button">Option 3</button>
-
-    <div class="quiz-submit-buttons">
-        <button class="quiz-button">Submit</button>
-    </div>
-
-    <script>
-        // Get all quiz buttons
-        const quizButtons = document.querySelectorAll('.quiz-button');
-
-        // Add click event listener to each button
-        quizButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Remove 'selected' class from all buttons
-                quizButtons.forEach(btn => btn.classList.remove('selected'));
-                // Add 'selected' class to the clicked button
-                button.classList.add('selected');
-            });
-        });
-    </script>
+    <section class="home_slider_section">
+        <div class="slider_bg_box">
+            <img src="images/landingpage_girl" alt="">
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7 col-lg-12">
+                    <div class="detail-box">
+                        <h1>
+                            <span>
+                            AUSEE
+                            </span>
+                            <br>
+                            Breaking Down Barriers: Inspiring Australian Girls in STEM
+                        </h1>
+                        <p>
+                          STEM stands for Science, Technology, Engineering, and Mathematics. STEM education will play an indispensable role in building a strong future, which is why we need more new talent to become STEM professionals.
+                        </p>
+                        <div class="btn-box">
+                          <a href="javascript:void(0);" class="btn1" id="learnHowBtn">
+                          Learn How
+                          </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="gender-distribution">
+                <div class="man">
+                    <img src="images/man_icon.png" alt="Man Icon">
+                    <div class="percentage">68%</div>
+                </div>
+                <div class="woman">
+                    <img src="images/woman_icon.png" alt="Woman Icon">
+                    <div class="percentage">32%</div>
+                </div>
+                <div class="description">Gender Distribution in STEM Workforce (2021)</div>
+            </div>
+        </div>
+    </section>
 </body>
 </html>

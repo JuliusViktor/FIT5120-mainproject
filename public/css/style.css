@@ -1160,6 +1160,7 @@ form input[type="submit"]:focus {
 .insight_stat_section .box {
     text-align: center;
     margin-top: 45px;
+    margin-bottom: 45px;
     background-color: #ffffff;
     padding: 45px 50px;
     border-radius: 5px;
