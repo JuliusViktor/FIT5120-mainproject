@@ -176,7 +176,7 @@ function createIncomePieChart() {
                     plugins: {
                         title: {
                             display: true,
-                            text: "Industry Income by Type",
+                            text: "STEM Industry income",
                             font: {
                                 size: 18,
                             },
@@ -308,7 +308,7 @@ function createEnrollmentPieChart() {
                     plugins: {
                         title: {
                             display: true,
-                            text: "Enrollments in 2022 by STEM Category",
+                            text: "Female University STEM Enrolment in 2022",
                             font: {
                                 size: 18,
                             },
@@ -381,7 +381,7 @@ function createEmploymentOutcomesPieChart() {
                     plugins: {
                         title: {
                             display: true,
-                            text: "Employment Outcomes in 2023 by Gender",
+                            text: "Undergraduate employment outcomes, 2023, Male & Female",
                             font: {
                                 size: 18,
                             },
