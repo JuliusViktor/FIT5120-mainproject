@@ -64,7 +64,7 @@ h2 {
     display: block;
     width: 70px;
     height: 5px;
-    background: #f7444e;
+    background: #ACA7CB;
     margin: 10px auto 10px;
 }
 
@@ -167,7 +167,7 @@ a:focus {
 }
 
 .custom_nav-container .navbar-nav .nav-item:hover .nav-link, .custom_nav-container .navbar-nav .nav-item.active .nav-link {
-  color: #f7444e;
+  color: #ACA7CB;
 }
 
 .custom_nav-container .navbar-nav .nav-item:hover .nav-link svg, .custom_nav-container .navbar-nav .nav-item.active .nav-link svg {
@@ -385,7 +385,23 @@ a:focus {
           transform: translateY(0);
 }
 .arrival_section {
-    background-color: #d4ced0;
+    background-color: #ACA7CB;
+}
+.arrival_section .career-btn-box a{
+  display: inline-block;
+            padding: 10px 40px;
+            background-color: #4B0082;
+            border: 1px solid #4B0082;
+            color: #ffffff;
+            border-radius: 0;
+            -webkit-transition: all 0.3s;
+            transition: all 0.3s;
+            text-decoration: none; /* Ensure the link has no underline */
+}
+
+.arrival_section .career-btn-box a:hover{
+  background-color: transparent;
+            color: #4B0082;
 }
 .product_section .option_container {
   position: absolute;
@@ -1478,7 +1494,7 @@ form input[type="submit"]:focus {
   justify-content: center;
   position: relative;
   padding: 90px 0 90px 0;
-  background-color: #d4ced0;
+  background-color: #ACA7CB;
 }
 
 .home_slider_section .row {
@@ -1502,7 +1518,7 @@ form input[type="submit"]:focus {
 }
 
 .home_slider_section .detail-box h1 span {
-  color: #f7444e;
+  color: #442757;
 }
 
 .home_slider_section .detail-box p {
@@ -1514,8 +1530,8 @@ form input[type="submit"]:focus {
 .home_slider_section .detail-box a {
     display: inline-block;
     padding: 12px 45px;
-    background-color: #f7444e;
-    border: 1px solid #f7444e;
+    background-color: #4B0082;
+    border: 1px solid #4B0082;
     color: #ffffff;
     border-radius: 0;
     -webkit-transition: all 0.3s;
@@ -1526,7 +1542,7 @@ form input[type="submit"]:focus {
 
 .home_slider_section .detail-box a:hover {
   background-color: transparent;
-  color: #f7444e;
+  color: #4B0082;
 }
 
 .home_slider_section .img-box img {
