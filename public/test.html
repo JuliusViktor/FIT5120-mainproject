@@ -1,152 +1,196 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Slider Section</title>
-    <style>
-        /* home page slider section */
-        .home_slider_section {
-            -webkit-box-flex: 1;
-                -ms-flex: 1;
-                    flex: 1;
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-align: center;
-                -ms-flex-align: center;
-                    align-items: center;
-            justify-content: center;
-            position: relative;
-            padding: 90px 0 90px 0;
-            background-color: #ACA7CB;
-        }
+<section class="career_suggest_section career_bg_color layout_padding">
+    <div class="container">
+        <div class="box">
+            <h2>Key Skills & Subject May Brighten your Future</h2>
+            <h2></h2>
+            <h2>I want to become:</h2>
 
-        .home_slider_section .row {
-            -webkit-box-align: center;
-                -ms-flex-align: center;
-                    align-items: center;
-            justify-content: center;
-        }
+            <div class="occup-search-container">
+                <input
+                    type="text"
+                    class="search-bar"
+                    placeholder="type in here please"
+                />
+                <button class="clear-btn" onclick="clearInput()">
+                    ×
+                </button>
+            </div>
 
-        .home_slider_section .detail-box{
-            text-align: center;
-        }
+            <div class="occup-submit-button">
+                <button class="submit-button">Submit</button>
+            </div>
 
-        .home_slider_section .detail-box h1 {
-            font-size: 4.5rem;
-            font-weight: bold;
-            margin-bottom: 15px;
-            color: #002c3e;
-            line-height: 70px;
-        }
+            <!-- Status bar -->
+            <div id="suggest-status-bar" class="status-bar">
+                You have not submitted your answer!
+            </div>
 
-        .home_slider_section .detail-box h1 span {
-            color: #442757;
-        }
-
-        .home_slider_section .detail-box p {
-            font-size: 16px;
-            margin-top: 20px;
-            margin-bottom: 1.5rem;
-        }
-
-        .home_slider_section .detail-box a {
-            display: inline-block;
-            padding: 12px 45px;
-            background-color: #4B0082;
-            border: 1px solid #4B0082;
-            color: #ffffff;
-            border-radius: 0;
-            -webkit-transition: all 0.3s;
-            transition: all 0.3s;
-            margin-top: 10px;
-            font-weight: 700;
-        }
-
-        .home_slider_section .detail-box a:hover {
-            background-color: transparent;
-            color: #4B0082;
-        }
-
-        .home_slider_section .img-box img {
-            width: 100%;
-        }
-
-        /* Gender distribution section */
-        .gender-distribution {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 50px;
-            text-align: center;
-        }
-
-        .gender-distribution .man, .gender-distribution .woman {
-            margin: 0 20px;
-            position: relative;
-        }
-
-        .gender-distribution .man img, .gender-distribution .woman img {
-            width: 100px; /* Adjust size as needed */
-        }
-
-        .gender-distribution .percentage {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 24px;
-            font-weight: bold;
-            color: #ffffff;
-        }
-
-        .gender-distribution .description {
-            margin-top: 20px;
-            font-size: 18px;
-            color: #002c3e;
-        }
-    </style>
-</head>
-<body>
-    <section class="home_slider_section">
-        <div class="slider_bg_box">
-            <img src="images/landingpage_girl" alt="">
-        </div>
-        <div class="container">
             <div class="row">
-                <div class="col-md-7 col-lg-12">
-                    <div class="detail-box">
-                        <h1>
-                            <span>
-                            AUSEE
-                            </span>
-                            <br>
-                            Breaking Down Barriers: Inspiring Australian Girls in STEM
-                        </h1>
-                        <p>
-                          STEM stands for Science, Technology, Engineering, and Mathematics. STEM education will play an indispensable role in building a strong future, which is why we need more new talent to become STEM professionals.
-                        </p>
-                        <div class="btn-box">
-                          <a href="javascript:void(0);" class="btn1" id="learnHowBtn">
-                          Learn How
-                          </a>
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="circle">
+                        <div class="text">
+                            <div>Science</div>
+                            <div id="percentage5">X%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="circle">
+                        <div class="text">
+                            <div>Technology</div>
+                            <div id="percentage6">X%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="circle">
+                        <div class="text">
+                            <div>Engineering</div>
+                            <div id="percentage7">X%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="circle">
+                        <div class="text">
+                            <div>Mathematics</div>
+                            <div id="percentage8">X%</div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="gender-distribution">
-                <div class="man">
-                    <img src="images/man_icon.png" alt="Man Icon">
-                    <div class="percentage">68%</div>
-                </div>
-                <div class="woman">
-                    <img src="images/woman_icon.png" alt="Woman Icon">
-                    <div class="percentage">32%</div>
-                </div>
-                <div class="description">Gender Distribution in STEM Workforce (2021)</div>
-            </div>
+
+            <h1>Subject Guideline</h1>
+            <div id="subject-guideline"></div>
         </div>
-    </section>
-</body>
-</html>
+    </div>
+</section>
+
+<script>
+const recommendations = [
+    {
+        "STEM_CAT": "Science",
+        "Rcommendation_list": [
+            "3D Animator", "Horticulturist", "Paleontologist", "Dentist", "Paramedic", 
+            "Diagnostic Medical Sonographer", "Hydrologist", "Park Naturalist", "Doctor", 
+            "Pharmacist", "Ecologist", "Lab Research Technician", "Physicist", "Ecologist", 
+            "Physicist", "Archaeologist", "Astrobiologist", "Psychologist", "Astronaut", 
+            "Marine Biologist", "Astronomer", "Radiologic Technician", "Radiologist", 
+            "Environmental Scientist", "Meteorologist", "Science Illustrator", "Epidemiologist", 
+            "Microbiologist", "Sociologist", "Exercise Physiologist", "Museum Conservator", 
+            "Botanist", "Forensic Scientist", "Nutritionist", "Chemist", "Forensic Pathologist", 
+            "Climate Scientist", "Geologist", "Oceanographer", "Genetic Counselor", "Zoologist"
+        ]
+    },
+    {
+        "STEM_CAT": "Technology",
+        "Rcommendation_list": [
+            "Information Security Analyst", "Educational Technologist", "Librarian", 
+            "Lighting Designer", "Production Engineer", "Market Research Analyst", 
+            "Audio Engineer", "Computer Graphic Designer", "Computer Hardware Engineer", 
+            "Computer Software Developer", "Computer Systems Analyst", "Graphics Designer", 
+            "Video Game Designer", "Special Effects Technician", "Biometrics Technician", 
+            "Nanosystems Engineer", "CAD Technician", "Solar Technician"
+        ]
+    },
+    {
+        "STEM_CAT": "Engineering",
+        "Rcommendation_list": [
+            "HVACR Technician", "Aerospace Engineer", "Industrial Designer", 
+            "Agricultural Engineer", "Agriculturalist", "Air Traffic Controller", 
+            "Architect", "Automotive Designer", "Automotive Service Technician", 
+            "Avionics", "Biomedical Engineer", "Building Inspector", "Chemical Engineer", 
+            "Chemical Technician", "Civil Engineer", "Construction Supervisor", 
+            "Electrical Engineer", "Electrician", "Environmental Engineer", 
+            "General Contractor", "Mechanical Engineer", "Medical Roboticist", 
+            "Naval Architect", "Nuclear Engineer", "Robotics Technician", "Safety Engineer", 
+            "Structural Engineer", "Surveyor", "Urban Planner"
+        ]
+    },
+    {
+        "STEM_CAT": "Mathematics",
+        "Rcommendation_list": [
+            "Actuary", "Accountant", "Economist", "Financial Analyst", "Mathematician", 
+            "Mathematics Teacher", "Statistician", "Forensic Accountant", "Stockbroker", 
+            "Quantity Surveyor"
+        ]
+    }
+];
+
+const courses = {
+    "Science": "1. Biology\n2. Chemistry\n3. Earth and Environmental Science\n4. Physics",
+    "Technology": "1. Information and Communication Technology\n2. Computer Science / Computing Studies\n3. Design and Technology\n4. Digital Technologies\n5. Mathematics and Data Analysis",
+    "Engineering": "1. Essential Mathematics\n2. General Mathematics\n3. Physics\n4. Chemistry\n5. Information and Communication Technology\n6. Engineering Studies",
+    "Mathematics": "1. Essential Mathematics\n2. General Mathematics\n3. Mathematical Methods\n4. Specialist Mathematics"
+};
+
+function clearInput() {
+    document.querySelector('.search-bar').value = '';
+}
+
+document.querySelector('.submit-button').addEventListener('click', function() {
+    var statusBar = document.getElementById('suggest-status-bar');
+    var searchInput = document.querySelector('.search-bar').value.trim();
+    var found = false;
+    var matchedCategory = '';
+
+    // Set to loading state
+    statusBar.textContent = 'Loading...';
+    statusBar.className = 'status-bar loading';
+
+    // Simulate an asynchronous operation
+    setTimeout(function() {
+        recommendations.forEach(category => {
+            if (category.Rcommendation_list.includes(searchInput)) {
+                found = true;
+                matchedCategory = category.STEM_CAT;
+            }
+        });
+
+        if (found) {
+            statusBar.textContent = 'Searching successful, data below has been updated';
+            statusBar.className = 'status-bar success';
+
+            // Display the relevant courses
+            document.getElementById('subject-guideline').textContent = courses[matchedCategory];
+
+            // Update percentages
+            updatePercentages(matchedCategory);
+        } else {
+            statusBar.textContent = 'You entered a profession that is not on the list.';
+            statusBar.className = 'status-bar fail';
+        }
+    }, 2000); // Simulate a 2-second loading time
+});
+
+function updatePercentages(category) {
+    const percentages = {
+        "Science": [95, 40, 35, 40],
+        "Technology": [40, 95, 35, 40],
+        "Engineering": [35, 40, 95, 40],
+        "Mathematics": [40, 40, 35, 95]
+    };
+
+    const randomize = (arr) => arr.map((val, idx) => idx === 0 ? val : Math.floor(Math.random() * 50));
+
+    const [p5, p6, p7, p8] = randomize(percentages[category]);
+
+    updatePercentage('percentage5', p5);
+    updatePercentage('percentage6', p6);
+    updatePercentage('percentage7', p7);
+    updatePercentage('percentage8', p8);
+}
+
+function updatePercentage(id, value) {
+    document.getElementById(id).textContent = `${value}%`;
+}
+
+// Initial percentage update for demonstration
+updatePercentage('percentage5', 95); // Science
+updatePercentage('percentage6', 40); // Tech
+updatePercentage('percentage7', 35); // Engineer
+updatePercentage('percentage8', 40); // Math
+</script>
