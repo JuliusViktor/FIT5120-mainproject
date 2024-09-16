@@ -1239,6 +1239,147 @@ form input[type="submit"]:focus {
   background-color: #575757;
 }
 
+/* homepage slider */
+
+.homepage_slider_section {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 90px 0 90px 0;
+  background-color: #d4ced0;
+}
+
+.homepage_slider_section .row {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-content: center;
+}
+
+.homepage_slider_section .detail-box{
+  text-align: center;
+}
+
+
+.homepage_slider_section .detail-box h1 {
+    font-size: 4.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #002c3e;
+    line-height: 70px;
+}
+
+.homepage_slider_section .detail-box h1 span {
+  color: #f7444e;
+}
+
+.homepage_slider_section .detail-box p {
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 1.5rem;
+}
+
+.homepage_slider_section .detail-box a {
+    display: inline-block;
+    padding: 12px 45px;
+    background-color: #f7444e;
+    border: 1px solid #f7444e;
+    color: #ffffff;
+    border-radius: 0;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    margin-top: 10px;
+    font-weight: 700;
+}
+
+.homepage_slider_section .detail-box a:hover {
+  background-color: transparent;
+  color: #f7444e;
+}
+
+.homepage_slider_section .img-box img {
+  width: 100%;
+}
+
+/* career page slider */
+
+.careerpage_slider_section {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 10px 0 10px 0;
+  background-color: #d4ced0;
+}
+
+.careerpage_slider_section .row {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-content: center;
+}
+
+.careerpage_slider_section .detail-box{
+  text-align: center;
+}
+
+
+.careerpage_slider_section .detail-box h1 {
+    font-size: 4.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #002c3e;
+    line-height: 70px;
+}
+
+.careerpage_slider_section .detail-box h1 span {
+  color: #f7444e;
+}
+
+.careerpage_slider_section .detail-box p {
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 1.5rem;
+}
+
+.careerpage_slider_section .detail-box a {
+    display: inline-block;
+    padding: 12px 45px;
+    background-color: #f7444e;
+    border: 1px solid #f7444e;
+    color: #ffffff;
+    border-radius: 0;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    margin-top: 10px;
+    font-weight: 700;
+}
+
+.careerpage_slider_section .detail-box a:hover {
+  background-color: transparent;
+  color: #f7444e;
+}
+
+.careerpage_slider_section .img-box img {
+  width: 100%;
+}
+
+
 /* Insight page  */
 .insight_bg_color {
     background-color: #ACA7CB;
