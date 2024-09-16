@@ -1,13 +1,5 @@
 
-/* learn how button action */
 
-document.getElementById('learnHowBtn').addEventListener('click', function() {
-    window.scrollBy({
-        top: window.innerHeight,
-        left: 0,
-        behavior: 'smooth'
-    });
-});
 /* X in searching bar */
 function clearInput() {
     document.querySelector('.search-bar').value = '';
@@ -38,27 +30,6 @@ function clearInput() {
     }, 2000); // Simulate a 2-second loading time
 });
 
-document.querySelector('.submit-button').addEventListener('click', function() {
-    var statusBar = document.getElementById('quiz-status-bar');
-    
-    // Set to loading state
-    statusBar.textContent = 'Loading...';
-    statusBar.className = 'status-bar loading';
-    
-    // Simulate an asynchronous operation
-    setTimeout(function() {
-        // Assume the search is successful
-        var isSuccess = true; // You can set this value based on actual conditions
-        
-        if (isSuccess) {
-            statusBar.textContent = 'Searching successful, data below has been updated';
-            statusBar.className = 'status-bar success';
-        } else {
-            statusBar.textContent = 'Searching fail...try again please!';
-            statusBar.className = 'status-bar fail';
-        }
-    }, 2000); // Simulate a 2-second loading time
-});
 
 function clearInput() {
     document.querySelector('.search-bar').value = '';
@@ -88,22 +59,6 @@ function updatePercentage(circleId, percentage) {
     // Ensure percentage is a number
     percentage = Number(percentage);
     document.getElementById(circleId).innerText = percentage + '%';
-}
-
-// Update the percentage for each circle
-updatePercentage('percentage5', 95); // Science
-updatePercentage('percentage6', 40); // Tech
-updatePercentage('percentage7', 35); // Engineer
-updatePercentage('percentage8', 40); // Math
-
-
-//skip quiz button
-function scrollToBottom(button) {
-    button.classList.add('active');
-    window.scrollTo({
-        top: document.body.scrollHeight,
-        behavior: 'smooth'
-    });
 }
 
 //quiz list
@@ -176,4 +131,28 @@ const answers = {};
 
             
         }
-        
+
+// Update the percentage for each circle
+updatePercentage('percentage5', 95); // Science
+updatePercentage('percentage6', 40); // Tech
+updatePercentage('percentage7', 35); // Engineer
+updatePercentage('percentage8', 40); // Math
+
+    
+// scroll up bottom
+// Get the button
+const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        scrollToTopBtn.classList.add("show");
+    } else {
+        scrollToTopBtn.classList.remove("show");
+    }
+};
+
+// When the user clicks on the button, scroll to the top of the document
+scrollToTopBtn.onclick = function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+};

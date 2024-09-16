@@ -137,6 +137,7 @@ function drawBubbleChart() {
             updateChart(year);
         });
 
+        /* legend
         const legend = svg.append("g")
             .attr("class", "legend")
             .attr("transform", `translate(${width + 20}, 0)`);
@@ -181,7 +182,7 @@ function drawBubbleChart() {
             .style("text-anchor", "start")
             .style("font-size", "12px")
             .text(d => d);
-
+            */
 
     }).catch(error => console.error("Error loading bubble chart data:", error));
 }
