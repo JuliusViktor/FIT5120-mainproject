@@ -40,26 +40,17 @@ function displayChart(chartId) {
     }
 }
 
-// Initial display
-document.addEventListener("DOMContentLoaded", function () {
-    const chartSelector = document.getElementById("chartSelector");
-    displayChart(chartSelector.value); // Display the chart based on the selected dropdown option
+// Define an array of colors
+const colors = [
+    "#FF6384",
+    "#36A2EB",
+    "#FFCE56",
+    "#4BC0C0",
+    "#9966FF",
+    "#FF9F40",
+];
 
-    // Add event listener to the dropdown
-    chartSelector.addEventListener("change", function () {
-        displayChart(chartSelector.value);
-    });
-
-    // Add event listener to the scroll button
-    const scrollToChartBtn = document.getElementById("scrollToChartBtn");
-    scrollToChartBtn.addEventListener("click", function () {
-        document.querySelector(".insight_stat_section").scrollIntoView({
-            behavior: "smooth",
-        });
-    });
-});
-
-// Functions to create charts
+// Function to create the pie chart for employed women
 function createPieChart() {
     fetch("json/femal_industry_jobs_final.json")
         .then((response) => {
@@ -96,6 +87,7 @@ function createPieChart() {
                             data: femalIndustryJobs.map(
                                 (job) => job["Number_of_jobs(thousand)"]
                             ),
+                            backgroundColor: colors, // Set the colors here
                         },
                     ],
                 },
@@ -119,6 +111,12 @@ function createPieChart() {
                                     return `${context.label}: ${context.raw} thousand jobs`;
                                 },
                             },
+                        },
+                        datalabels: {
+                            formatter: (value, context) => {
+                                return `${value}k`;
+                            },
+                            color: "#fff",
                         },
                     },
                 },
@@ -167,6 +165,7 @@ function createIncomePieChart() {
                     datasets: [
                         {
                             data: femalIndustryIncome.map((job) => job.Value),
+                            backgroundColor: colors, // Set the colors here
                         },
                     ],
                 },
@@ -192,6 +191,12 @@ function createIncomePieChart() {
                                     }: $${context.raw.toLocaleString()}`;
                                 },
                             },
+                        },
+                        datalabels: {
+                            formatter: (value, context) => {
+                                return `$${value.toLocaleString()}`;
+                            },
+                            color: "#fff",
                         },
                     },
                 },
@@ -299,6 +304,7 @@ function createEnrollmentPieChart() {
                             data: enrollmentData.map(
                                 (entry) => entry.Num_of_enrollment
                             ),
+                            backgroundColor: colors, // Set the colors here
                         },
                     ],
                 },
@@ -324,6 +330,12 @@ function createEnrollmentPieChart() {
                                     }: ${context.raw.toLocaleString()} enrollments`;
                                 },
                             },
+                        },
+                        datalabels: {
+                            formatter: (value, context) => {
+                                return `${value.toLocaleString()}`;
+                            },
+                            color: "#fff",
                         },
                     },
                 },
@@ -372,6 +384,7 @@ function createEmploymentOutcomesPieChart() {
                             data: employmentData.map(
                                 (entry) => entry.Percentage_get_job
                             ),
+                            backgroundColor: colors, // Set the colors here
                         },
                     ],
                 },
@@ -396,9 +409,35 @@ function createEmploymentOutcomesPieChart() {
                                 },
                             },
                         },
+                        datalabels: {
+                            formatter: (value, context) => {
+                                return `${value}%`;
+                            },
+                            color: "#fff",
+                        },
                     },
                 },
             });
         })
         .catch((error) => console.error("Error fetching data:", error));
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    Chart.register(ChartDataLabels); // Ensure ChartDataLabels is registered
+
+    const chartSelector = document.getElementById("chartSelector");
+    displayChart(chartSelector.value); // Display the chart based on the selected dropdown option
+
+    // Add event listener to the dropdown
+    chartSelector.addEventListener("change", function () {
+        displayChart(chartSelector.value);
+    });
+
+    // Add event listener to the scroll button
+    const scrollToChartBtn = document.getElementById("scrollToChartBtn");
+    scrollToChartBtn.addEventListener("click", function () {
+        document.querySelector(".insight_stat_section").scrollIntoView({
+            behavior: "smooth",
+        });
+    });
+});
