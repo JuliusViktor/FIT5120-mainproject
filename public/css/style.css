@@ -510,110 +510,6 @@ a:focus {
     text-align: left;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-* {
-  box-sizing: border-box;
-}
-body {
-  font-family: 'Montserrat', sans-serif;
-  color: #0c0c0c;
-  background-color: #ffffff;
-  overflow-x: hidden;
-}
-
-.layout_padding {
-  padding: 70px 0;
-}
-
-.layout_padding2 {
-  padding: 75px 0;
-}
-
-.layout_padding2-top {
-  padding-top: 75px;
-}
-
-.layout_padding2-bottom {
-  padding-bottom: 75px;
-}
-
-.layout_padding-top {
-  padding-top: 90px;
-}
-
-.layout_padding-bottom {
-  padding-bottom: 90px;
-}
-
-h1,
-h2 {
-  font-family: 'Lexend Deca', serif;
-}
-
-.heading_container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-}
-
-.heading_container h2 {
-    position: relative;
-    margin-bottom: 0;
-    font-size: 3.5rem;
-    font-weight: bold;
-}
-
-.heading_container h2::after {
-    content: "";
-    display: block;
-    width: 70px;
-    height: 5px;
-    background: #ACA7CB;
-    margin: 10px auto 10px;
-}
-
-.heading_container h2 span {
-  color: #f7444e;
-}
-
-.heading_container p {
-  margin-top: 10px;
-  margin-bottom: 0;
-}
-
-.heading_container.heading_center {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  text-align: center;
-}
-
-a,
-a:hover,
-a:focus {
-  text-decoration: none;
-}
-
-a:hover,
-a:focus {
-  color: initial;
-}
-
-.btn,
-.btn:focus {
-  outline: none !important;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-
 /*header section*/
 .hero_area {
   position: relative;
@@ -1902,12 +1798,6 @@ form input[type="submit"]:focus {
   background-color: #ACA7CB;
 }
 
-.home_slider_section .row {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  justify-content: center;
-}
 
 .home_slider_section .detail-box{
   text-align: center;
@@ -1954,6 +1844,16 @@ form input[type="submit"]:focus {
   width: 100%;
 }
 
+.home_slider_section #genderComparison {
+    width: 100%;
+    height: 100%;
+    min-height: 300px
+}
+
+.home_slider_section #genderComparison svg{
+    width: 100%;
+    height: 100%;
+}
 
 /* insight page slider section */
 .insight_slider_section {
@@ -1970,13 +1870,6 @@ form input[type="submit"]:focus {
   position: relative;
   padding: 90px 0 90px 0;
   
-}
-
-.insight_slider_section .row {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  justify-content: center;
 }
 
 .insight_slider_section .detail-box{
