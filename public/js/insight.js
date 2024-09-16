@@ -7,7 +7,7 @@ const genderData = [
     { gender: "Men", value: 68, icon: "images/man-silhouette.svg" },
 ];
 
-// Function to display the selected chart
+// Display the selected chart in chartContainer div
 function displayChart(chartId) {
     const chartContainer = document.getElementById("chartContainer");
     chartContainer.innerHTML = ""; // Clear previous chart
@@ -40,7 +40,7 @@ function displayChart(chartId) {
     }
 }
 
-// Define an array of colors
+// Color arrays for charts
 const colors = [
     "#FF6384",
     "#36A2EB",
@@ -87,7 +87,7 @@ function createPieChart() {
                             data: femalIndustryJobs.map(
                                 (job) => job["Number_of_jobs(thousand)"]
                             ),
-                            backgroundColor: colors, // Set the colors here
+                            backgroundColor: colors,
                         },
                     ],
                 },
@@ -165,7 +165,7 @@ function createIncomePieChart() {
                     datasets: [
                         {
                             data: femalIndustryIncome.map((job) => job.Value),
-                            backgroundColor: colors, // Set the colors here
+                            backgroundColor: colors,
                         },
                     ],
                 },
@@ -265,7 +265,6 @@ function createGenderComparison() {
         .attr("font-weight", "bold");
 }
 
-// New function to create the enrollment pie chart
 function createEnrollmentPieChart() {
     fetch("json/university_stem_enrollment.json")
         .then((response) => {
@@ -344,7 +343,6 @@ function createEnrollmentPieChart() {
         .catch((error) => console.error("Error fetching data:", error));
 }
 
-// New function to create the employment outcomes pie chart
 function createEmploymentOutcomesPieChart() {
     fetch("json/Undergraduate employment outcomes, 2022 and 2023 (_).json")
         .then((response) => {
@@ -423,17 +421,17 @@ function createEmploymentOutcomesPieChart() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    Chart.register(ChartDataLabels); // Ensure ChartDataLabels is registered
+    Chart.register(ChartDataLabels); // Required by chartjs plugin
 
     const chartSelector = document.getElementById("chartSelector");
-    displayChart(chartSelector.value); // Display the chart based on the selected dropdown option
+    displayChart(chartSelector.value);
 
-    // Add event listener to the dropdown
+    // Event listener to the dropdown
     chartSelector.addEventListener("change", function () {
         displayChart(chartSelector.value);
     });
 
-    // Add event listener to the scroll button
+    // Event listener to the scroll button
     const scrollToChartBtn = document.getElementById("scrollToChartBtn");
     scrollToChartBtn.addEventListener("click", function () {
         document.querySelector(".insight_stat_section").scrollIntoView({
