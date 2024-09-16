@@ -1,13 +1,5 @@
 
-/* learn how button action */
 
-document.getElementById('learnHowBtn').addEventListener('click', function() {
-    window.scrollBy({
-        top: window.innerHeight,
-        left: 0,
-        behavior: 'smooth'
-    });
-});
 /* X in searching bar */
 function clearInput() {
     document.querySelector('.search-bar').value = '';
@@ -68,13 +60,6 @@ function updatePercentage(circleId, percentage) {
     percentage = Number(percentage);
     document.getElementById(circleId).innerText = percentage + '%';
 }
-
-// Update the percentage for each circle
-updatePercentage('percentage5', 95); // Science
-updatePercentage('percentage6', 40); // Tech
-updatePercentage('percentage7', 35); // Engineer
-updatePercentage('percentage8', 40); // Math
-
 
 //quiz list
 function selectAnswer(quizId, answer) {
@@ -147,6 +132,13 @@ const answers = {};
             
         }
 
+// Update the percentage for each circle
+updatePercentage('percentage5', 95); // Science
+updatePercentage('percentage6', 40); // Tech
+updatePercentage('percentage7', 35); // Engineer
+updatePercentage('percentage8', 40); // Math
+
+    
 // scroll up bottom
 // Get the button
 const scrollToTopBtn = document.getElementById("scrollToTopBtn");

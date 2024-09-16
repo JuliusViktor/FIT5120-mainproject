@@ -1366,7 +1366,6 @@ form input[type="submit"]:focus {
   color: white;
 }
 
-
 .quiz-submit-buttons {
   margin-top: 10px;
 }
@@ -1525,7 +1524,7 @@ form input[type="submit"]:focus {
           align-items: center;
   justify-content: center;
   position: relative;
-  padding: 90px 0 90px 0;
+  
   
 }
 

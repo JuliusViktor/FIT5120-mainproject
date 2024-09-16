@@ -254,16 +254,7 @@ new Chart(lineCtx, {
     },
 });
 
-// Learn How button scroll behavior
-document.addEventListener("DOMContentLoaded", function () {
-    const learnHowBtn = document.getElementById("learnHowBtn");
-    const insightStatSection = document.querySelector(".insight_stat_section");
 
-    learnHowBtn.addEventListener("click", function (e) {
-        e.preventDefault();
-        insightStatSection.scrollIntoView({ behavior: "smooth" });
-    });
-});
 
 // Fetch data from the server
 fetch("/api/insight-data")

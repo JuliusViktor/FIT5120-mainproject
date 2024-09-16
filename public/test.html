@@ -3,41 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Button Example</title>
+    <title>Quiz Button</title>
     <style>
-        .product_section .btn-box {
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-pack: center;
-                -ms-flex-pack: center;
-                    justify-content: center;
-            margin-top: 45px;
+        .quiz-button {
+            border: 2px solid #ACA7CB;
+            background-color: white;
+            color: #ACA7CB;
+            border-radius: 8px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            max-width: 300px;
         }
 
-        .product_section .btn-box a {
-            display: inline-block;
-            padding: 10px 40px;
-            background-color: #f7444e;
-            border: 1px solid #f7444e;
-            color: #ffffff;
-            border-radius: 0;
-            -webkit-transition: all 0.3s;
-            transition: all 0.3s;
-            text-decoration: none; /* Ensure the link has no underline */
+        .quiz-button.selected {
+            background-color: #ACA7CB;
+            color: white;
         }
 
-        .product_section .btn-box a:hover {
-            background-color: transparent;
-            color: #f7444e;
+        .quiz-submit-buttons {
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
-    <div class="product_section">
-        <div class="btn-box">
-            <a href="career.html">Go to Career Page</a>
-        </div>
+    <button class="quiz-button">Option 1</button>
+    <button class="quiz-button">Option 2</button>
+    <button class="quiz-button">Option 3</button>
+
+    <div class="quiz-submit-buttons">
+        <button class="quiz-button">Submit</button>
     </div>
+
+    <script>
+        // Get all quiz buttons
+        const quizButtons = document.querySelectorAll('.quiz-button');
+
+        // Add click event listener to each button
+        quizButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove 'selected' class from all buttons
+                quizButtons.forEach(btn => btn.classList.remove('selected'));
+                // Add 'selected' class to the clicked button
+                button.classList.add('selected');
+            });
+        });
+    </script>
 </body>
 </html>
