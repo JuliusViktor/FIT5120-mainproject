@@ -3,245 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz</title>
+    <title>Home Slider Section</title>
     <style>
-        .quiz-container {
-            max-width: 600px;
-            margin: auto;
+        /* home page slider section */
+        .home_slider_section {
+            -webkit-box-flex: 1;
+                -ms-flex: 1;
+                    flex: 1;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 90px 0 90px 0;
+            background-color: #ACA7CB;
         }
-        .quiz-block {
-            margin-bottom: 20px;
+
+        .home_slider_section .row {
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
+            justify-content: center;
         }
-        .buttons {
-            margin-top: 10px;
+
+        .home_slider_section .detail-box{
+            text-align: center;
         }
-        .result {
-            margin-top: 20px;
+
+        .home_slider_section .detail-box h1 {
+            font-size: 4.5rem;
             font-weight: bold;
+            margin-bottom: 15px;
+            color: #002c3e;
+            line-height: 70px;
+        }
+
+        .home_slider_section .detail-box h1 span {
+            color: #442757;
+        }
+
+        .home_slider_section .detail-box p {
+            font-size: 16px;
+            margin-top: 20px;
+            margin-bottom: 1.5rem;
+        }
+
+        .home_slider_section .detail-box a {
+            display: inline-block;
+            padding: 12px 45px;
+            background-color: #4B0082;
+            border: 1px solid #4B0082;
+            color: #ffffff;
+            border-radius: 0;
+            -webkit-transition: all 0.3s;
+            transition: all 0.3s;
+            margin-top: 10px;
+            font-weight: 700;
+        }
+
+        .home_slider_section .detail-box a:hover {
+            background-color: transparent;
+            color: #4B0082;
+        }
+
+        .home_slider_section .img-box img {
+            width: 100%;
+        }
+
+        /* Gender distribution section */
+        .gender-distribution {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .gender-distribution .man, .gender-distribution .woman {
+            margin: 0 20px;
+            position: relative;
+        }
+
+        .gender-distribution .man img, .gender-distribution .woman img {
+            width: 100px; /* Adjust size as needed */
+        }
+
+        .gender-distribution .percentage {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .gender-distribution .description {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #002c3e;
         }
     </style>
 </head>
 <body>
-    <div class="quiz-container">
-        <!-- Quiz questions go here -->
-        <div class="quiz-block" id="quiz1">
-            <div class="question">1. Which would you prefer? working independently(T) on tasks or collaborating with others(E)</div>
-            <div class="image"><img src="images/Quiz-Pic-PNG/Quiz Pic PNG/1.png" alt="Image 1"></div>
-            <div class="buttons">
-                <button class="quiz-button" onclick="selectAnswer('quiz1', 'T')">T. working independently</button>
-                <button class="quiz-button" onclick="selectAnswer('quiz1', 'E')">E. collaborating with others</button>
+    <section class="home_slider_section">
+        <div class="slider_bg_box">
+            <img src="images/landingpage_girl" alt="">
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7 col-lg-12">
+                    <div class="detail-box">
+                        <h1>
+                            <span>
+                            AUSEE
+                            </span>
+                            <br>
+                            Breaking Down Barriers: Inspiring Australian Girls in STEM
+                        </h1>
+                        <p>
+                          STEM stands for Science, Technology, Engineering, and Mathematics. STEM education will play an indispensable role in building a strong future, which is why we need more new talent to become STEM professionals.
+                        </p>
+                        <div class="btn-box">
+                          <a href="javascript:void(0);" class="btn1" id="learnHowBtn">
+                          Learn How
+                          </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="gender-distribution">
+                <div class="man">
+                    <img src="images/man_icon.png" alt="Man Icon">
+                    <div class="percentage">68%</div>
+                </div>
+                <div class="woman">
+                    <img src="images/woman_icon.png" alt="Woman Icon">
+                    <div class="percentage">32%</div>
+                </div>
+                <div class="description">Gender Distribution in STEM Workforce (2021)</div>
             </div>
         </div>
-        <div class="quiz-block" id="quiz2">
-            <div class="question">2. Which would you prefer when you solve the problem? rely more on logic and data(M) or creativity and intuition(S)</div>
-            <div class="image"><img src="images/Quiz-Pic-PNG/Quiz Pic PNG/2.png" alt="Image 2"></div>
-            <div class="buttons">
-                <button class="quiz-button" onclick="selectAnswer('quiz2', 'M')">M. rely more on logic and data</button>
-                <button class="quiz-button" onclick="selectAnswer('quiz2', 'S')">S. creativity and intuition</button>
-            </div>
-        </div>
-        <div class="quiz-block" id="quiz3">
-            <div class="question">3. Which would you prefer? completing detailed projects(E) or brainstorming new ideas(S)</div>
-            <div class="image"><img src="images/Quiz-Pic-PNG/Quiz Pic PNG/3.png" alt="Image 3"></div>
-            <div class="buttons">
-                <button class="quiz-button" onclick="selectAnswer('quiz3', 'E')">E. completing detailed projects</button>
-                <button class="quiz-button" onclick="selectAnswer('quiz3', 'S')">S. brainstorming new ideas</button>
-            </div>
-        </div>
-        <div class="quiz-block" id="quiz4">
-            <div class="question">4. Which would you prefer? learning through hands-on experiments(T) or theoretical discussions(S)</div>
-            <div class="image"><img src="images/Quiz-Pic-PNG/Quiz Pic PNG/4.png" alt="Image 4"></div>
-            <div class="buttons">
-                <button class="quiz-button" onclick="selectAnswer('quiz4', 'T')">T. hands-on experiments</button>
-                <button class="quiz-button" onclick="selectAnswer('quiz4', 'S')">S. theoretical discussions</button>
-            </div>
-        </div>
-        <div class="quiz-block" id="quiz5">
-            <div class="question">5. Which would you prefer? inclined to focus on long-term projects(E) or shorter, more immediate goals(M)</div>
-            <div class="image"><img src="images/Quiz-Pic-PNG/Quiz Pic PNG/5.png" alt="Image 5"></div>
-            <div class="buttons">
-                <button class="quiz-button" onclick="selectAnswer('quiz5', 'E')">E. long-term projects</button>
-                <button class="quiz-button" onclick="selectAnswer('quiz5', 'M')">M. shorter, more immediate goals</button>
-            </div>
-        </div>
-        <div class="quiz-block" id="quiz6">
-            <div class="question">6. Which would you prefer? enjoy challenges that involve solving complex technical problems(T) or ones that require interpersonal communication(E)</div>
-            <div class="image"><img src="images/Quiz-Pic-PNG/Quiz Pic PNG/6.png" alt="Image 6"></div>
-            <div class="buttons">
-                <button class="quiz-button" onclick="selectAnswer('quiz6', 'T')">T. solving complex technical problems</button>
-                <button class="quiz-button" onclick="selectAnswer('quiz6', 'E')">E. interpersonal communication</button>
-            </div>
-        </div>
-        <div class="quiz-block" id="quiz7">
-            <div class="question">7. Which would you prefer? motivated by the potential for discovery(S) or by the potential to improve existing systems and processes(E)</div>
-            <div class="image"><img src="images/Quiz-Pic-PNG/Quiz Pic PNG/7.png" alt="Image 7"></div>
-            <div class="buttons">
-                <button class="quiz-button" onclick="selectAnswer('quiz7', 'S')">S. potential for discovery</button>
-                <button class="quiz-button" onclick="selectAnswer('quiz7', 'E')">E. improve existing systems and processes</button>
-            </div>
-        </div>
-        <div class="quiz-block" id="quiz8">
-            <div class="question">8. Which would you prefer? dive into research immediately(S) or wait until you have a clearer direction(M)</div>
-            <div class="image"><img src="images/Quiz-Pic-PNG/Quiz Pic PNG/8.png" alt="Image 8"></div>
-            <div class="buttons">
-                <button class="quiz-button" onclick="selectAnswer('quiz8', 'S')">S. dive into research immediately</button>
-                <button class="quiz-button" onclick="selectAnswer('quiz8', 'M')">M. wait until you have a clearer direction</button>
-            </div>
-        </div>
-        <div class="quiz-block" id="quiz9">
-            <div class="question">9. Which would you prefer? to follow established guidelines(E), or do you prefer to create your own path in problem-solving(S)</div>
-            <div class="image"><img src="images/Quiz-Pic-PNG/Quiz Pic PNG/9.png" alt="Image 9"></div>
-            <div class="buttons">
-                <button class="quiz-button" onclick="selectAnswer('quiz9', 'E')">E. follow established guidelines</button>
-                <button class="quiz-button" onclick="selectAnswer('quiz9', 'S')">S. create your own path</button>
-            </div>
-        </div>
-        <div class="quiz-block" id="quiz10">
-            <div class="question">10. Which would you prefer when you do your work? prioritize accuracy and precision(M) or speed and efficiency(T)</div>
-            <div class="image"><img src="images/Quiz-Pic-PNG/Quiz Pic PNG/10.png" alt="Image 10"></div>
-            <div class="buttons">
-                <button class="quiz-button" onclick="selectAnswer('quiz10', 'M')">M. accuracy and precision</button>
-                <button class="quiz-button" onclick="selectAnswer('quiz10', 'T')">T. speed and efficiency</button>
-            </div>
-        </div>
-        <div class="quiz-block" id="quiz11">
-            <div class="question">11. When working on a project do you feel? more confident with structured plans(M) or adaptable, flexible approaches(S)</div>
-            <div class="image"><img src="images/Quiz-Pic-PNG/Quiz Pic PNG/11.png" alt="Image 11"></div>
-            <div class="buttons">
-                <button class="quiz-button" onclick="selectAnswer('quiz11', 'M')">M. structured plans</button>
-                <button class="quiz-button" onclick="selectAnswer('quiz11', 'S')">S. adaptable, flexible approaches</button>
-            </div>
-        </div>
-        <div class="quiz-block" id="quiz12">
-            <div class="question">12. Which would you prefer? working with abstract theories(M) or applying concepts to real-world situations(E)</div>
-            <div class="image"><img src="images/Quiz-Pic-PNG/Quiz Pic PNG/12.png" alt="Image 12"></div>
-            <div class="buttons">
-                <button class="quiz-button" onclick="selectAnswer('quiz12', 'M')">M. abstract theories</button>
-                <button class="quiz-button" onclick="selectAnswer('quiz12', 'E')">E. real-world situations</button>
-            </div>
-        </div>
-        <div class="quiz-block" id="quiz13">
-            <div class="question">13. Which would you prefer? analyzing data and numbers(M) or exploring patterns and trends(S)</div>
-            <div class="image"><img src="images/Quiz-Pic-PNG/Quiz Pic PNG/13.png" alt="Image 13"></div>
-            <div class="buttons">
-                <button class="quiz-button" onclick="selectAnswer('quiz13', 'M')">M. analyzing data and numbers</button>
-                <button class="quiz-button" onclick="selectAnswer('quiz13', 'S')">S. exploring patterns and trends</button>
-            </div>
-        </div>
-        <div class="quiz-block" id="quiz14">
-            <div class="question">14. Which would you prefer? focus on one project at a time(E) or manage multiple projects simultaneously(T)</div>
-            <div class="image"><img src="images/Quiz-Pic-PNG/Quiz Pic PNG/14.png" alt="Image 14"></div>
-            <div class="buttons">
-                <button class="quiz-button" onclick="selectAnswer('quiz14', 'E')">E. one project at a time</button>
-                <button class="quiz-button" onclick="selectAnswer('quiz14', 'T')">T. multiple projects simultaneously</button>
-            </div>
-        </div>
-        <div class="quiz-block" id="quiz15">
-            <div class="question">15. Which would you prefer? driven by curiosity and a desire to learn(S), or by achieving specific goals and milestones(E)</div>
-            <div class="image"><img src="images/Quiz-Pic-PNG/Quiz Pic PNG/15.png" alt="Image 15"></div>
-            <div class="buttons">
-                <button class="quiz-button" onclick="selectAnswer('quiz15', 'S')">S. curiosity and a desire to learn</button>
-                <button class="quiz-button" onclick="selectAnswer('quiz15', 'E')">E. achieving specific goals and milestones</button>
-            </div>
-        </div>
-        <div class="quiz-block" id="quiz16">
-            <div class="question">16. Which would you prefer? work with computers and software(T) or conduct experiments in a lab(S)</div>
-            <div class="image"><img src="images/Quiz-Pic-PNG/Quiz Pic PNG/16.png" alt="Image 16"></div>
-            <div class="buttons">
-                <button class="quiz-button" onclick="selectAnswer('quiz16', 'T')">T. computers and software</button>
-                <button class="quiz-button" onclick="selectAnswer('quiz16', 'S')">S. experiments in a lab</button>
-            </div>
-        </div>
-        <div class="quiz-block" id="quiz17">
-            <div class="question">17. Which would you prefer? analyzing graphs and statistics(M) or exploring nature and its phenomena(S)</div>
-            <div class="image"><img src="images/Quiz-Pic-PNG/Quiz Pic PNG/17.png" alt="Image 17"></div>
-            <div class="buttons">
-                <button class="quiz-button" onclick="selectAnswer('quiz17', 'M')">M. analyzing graphs and statistics</button>
-                <button class="quiz-button" onclick="selectAnswer('quiz17', 'S')">S. exploring nature and its phenomena</button>
-            </div>
-        </div>
-        <div class="quiz-block" id="quiz18">
-            <div class="question">18. Which would you prefer? learning how machines work(E) or understanding natural processes(M)</div>
-            <div class="image"><img src="images/Quiz-Pic-PNG/Quiz Pic PNG/18.png" alt="Image 18"></div>
-            <div class="buttons">
-                <button class="quiz-button" onclick="selectAnswer('quiz18', 'E')">E. learning how machines work</button>
-                <button class="quiz-button" onclick="selectAnswer('quiz18', 'M')">M. understanding natural processes</button>
-            </div>
-        </div>
-        <div class="quiz-block" id="quiz19">
-            <div class="question">19. Which would you prefer? using apps and learning how they work(T), or would you rather explore how the human body functions(S)</div>
-            <div class="image"><img src="images/Quiz-Pic-PNG/Quiz Pic PNG/19.png" alt="Image 19"></div>
-            <div class="buttons">
-                <button class="quiz-button" onclick="selectAnswer('quiz19', 'T')">T. using apps and learning how they work</button>
-                <button class="quiz-button" onclick="selectAnswer('quiz19', 'S')">S. explore how the human body functions</button>
-            </div>
-        </div>
-        <div class="quiz-block" id="quiz20">
-            <div class="question">20. Which would you prefer? to understand how mathematical formulas work(M) or build physical models(S)</div>
-            <div class="image"><img src="images/Quiz-Pic-PNG/Quiz Pic PNG/20.png" alt="Image 20"></div>
-            <div class="buttons">
-                <button class="quiz-button" onclick="selectAnswer('quiz20', 'M')">M. understand how mathematical formulas work</button>
-                <button class="quiz-button" onclick="selectAnswer('quiz20', 'S')">S. build physical models</button>
-            </div>
-        </div>
-    
-        <!-- ... (your quiz questions) ... -->
-        <div class="buttons">
-            <button id="submit-button" onclick="submitQuiz()">Submit Quiz</button>
-        </div>
-        <div id="loading" style="display: none;">Loading...</div>
-        <div id="result" class="result"></div>
-    </div>
-
-    <script>
-        const answers = {};
-
-        function selectAnswer(quizId, answer) {
-            answers[quizId] = answer;
-        }
-
-        function submitQuiz() {
-            const totalQuestions = 20;
-            const unansweredQuestions = [];
-
-            for (let i = 1; i <= totalQuestions; i++) {
-                if (!answers[`quiz${i}`]) {
-                    unansweredQuestions.push(i);
-                }
-            }
-
-            if (unansweredQuestions.length > 0) {
-                alert(`You missed the following questions: ${unansweredQuestions.join(', ')}`);
-                return;
-            }
-
-            document.getElementById('loading').style.display = 'block';
-            document.getElementById('result').innerHTML = '';
-
-            setTimeout(() => {
-                const counts = { T: 0, E: 0, M: 0, S: 0 };
-
-                for (let key in answers) {
-                    counts[answers[key]]++;
-                }
-
-                const percentages = {
-                    T: (counts.T / totalQuestions * 100).toFixed(2),
-                    E: (counts.E / totalQuestions * 100).toFixed(2),
-                    M: (counts.M / totalQuestions * 100).toFixed(2),
-                    S: (counts.S / totalQuestions * 100).toFixed(2)
-                };
-
-                document.getElementById('loading').style.display = 'none';
-                document.getElementById('result').innerHTML = `
-                    T: ${percentages.T}%<br>
-                    E: ${percentages.E}%<br>
-                    M: ${percentages.M}%<br>
-                    S: ${percentages.S}%<br>
-                    Data updated!
-                `;
-            }, 2000); // Simulate a delay for calculation
-        }
-    </script>
+    </section>
 </body>
 </html>
