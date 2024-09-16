@@ -387,117 +387,24 @@ a:focus {
 .arrival_section {
     background-color: #ACA7CB;
 }
-.arrival_section .career-btn-box a{
-  display: inline-block;
-            padding: 10px 40px;
-            background-color: #4B0082;
-            border: 1px solid #4B0082;
-            color: #ffffff;
-            border-radius: 0;
-            -webkit-transition: all 0.3s;
-            transition: all 0.3s;
-            text-decoration: none; /* Ensure the link has no underline */
-}
-
-.arrival_section .career-btn-box a:hover{
-  background-color: transparent;
-            color: #4B0082;
-}
-.product_section .option_container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background-color: rgba(255, 255, 255, 0.6);
-  z-index: 3;
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transition: all .2s;
-  transition: all .2s;
-  -webkit-transform: translateY(100%);
-          transform: translateY(100%);
-}
-
-.product_section .options {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.product_section .options a {
-  display: inline-block;
-  padding: 8px 15px;
-  border-radius: 30px;
-  width: 165px;
-  text-align: center;
-  -webkit-transition: all .3s;
-  transition: all .3s;
-  margin: 5px 0;
-}
-
-.product_section .options .option1 {
-  background-color: #f7444e;
-  border: 1px solid #f7444e;
-  color: #ffffff;
-}
-
-.product_section .options .option1:hover {
-  background-color: transparent;
-  color: #f7444e;
-}
-
-.product_section .options .option2 {
-  background-color: #000000;
-  border: 1px solid #000000;
-  color: #ffffff;
-}
-
-.product_section .options .option2:hover {
-  background-color: transparent;
-  color: #000000;
-}
-
-.product_section .btn-box {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin-top: 45px;
-}
-
-.product_section .btn-box a {
+.arrival_section .career-btn-box a {
   display: inline-block;
   padding: 10px 40px;
-  background-color: #f7444e;
-  border: 1px solid #f7444e;
+  background-color: #4B0082;
+  border: 1px solid #4B0082;
   color: #ffffff;
   border-radius: 0;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
+  text-decoration: none; /* Ensure the link has no underline */
+  position: relative; 
+  z-index: 4; 
 }
 
-.product_section .btn-box a:hover {
+
+.arrival_section .career-btn-box a:hover{
   background-color: transparent;
-  color: #f7444e;
+            color: #4B0082;
 }
 
 .arrival_section .heading_container {
@@ -516,7 +423,7 @@ a:focus {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 3;
+    z-index: 1;
 }
 
 .arrival_section .arrival_bg_box img {
@@ -528,21 +435,7 @@ a:focus {
     object-position: top left;
 }
 
-.arrival_section a {
-  display: inline-block;
-  padding: 10px 45px;
-  background-color: #f7444e;
-  border: 1px solid #f7444e;
-  color: #ffffff;
-  border-radius: 0;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-}
 
-.arrival_section a:hover {
-  background-color: transparent;
-  color: #f7444e;
-}
 
 .why_section .box {
     text-align: center;
