@@ -1,283 +1,404 @@
 // Data for charts
-const bubbleChartData = [
-    { x: 2017, y: 18, r: 15, field: "Engineering" },
-    { x: 2018, y: 20, r: 16, field: "Engineering" },
-    { x: 2019, y: 22, r: 17, field: "Engineering" },
-    { x: 2020, y: 23, r: 18, field: "Engineering" },
-    { x: 2021, y: 25, r: 19, field: "Engineering" },
-    { x: 2017, y: 35, r: 20, field: "Science" },
-    { x: 2018, y: 37, r: 21, field: "Science" },
-    { x: 2019, y: 38, r: 22, field: "Science" },
-    { x: 2020, y: 40, r: 23, field: "Science" },
-    { x: 2021, y: 42, r: 24, field: "Science" },
-    { x: 2017, y: 28, r: 18, field: "Technology" },
-    { x: 2018, y: 30, r: 19, field: "Technology" },
-    { x: 2019, y: 32, r: 20, field: "Technology" },
-    { x: 2020, y: 33, r: 21, field: "Technology" },
-    { x: 2021, y: 35, r: 22, field: "Technology" },
-];
-
-const pieChartData = {
-    labels: ["Engineering", "Science", "Technology", "Mathematics"],
-    values: [25, 42, 35, 30],
-    colors: ["#FF6384", "#36A2EB", "#FFCE56", "#4BC0C0"],
-};
+let femalIndustryJobs = [];
+let femalIndustryIncome = [];
 
 const genderData = [
     { gender: "Women", value: 32, icon: "images/woman-silhouette.svg" },
     { gender: "Men", value: 68, icon: "images/man-silhouette.svg" },
 ];
 
-const lineChartData = {
-    labels: ["2017", "2018", "2019", "2020", "2021"],
-    values: [28, 30, 32, 34, 36],
-};
+// Function to display the selected chart
+function displayChart(chartId) {
+    const chartContainer = document.getElementById("chartContainer");
+    chartContainer.innerHTML = ""; // Clear previous chart
 
-// Bubble Chart
-const bubbleCtx = document.getElementById("bubbleChart").getContext("2d");
-new Chart(bubbleCtx, {
-    type: "bubble",
-    data: {
-        datasets: [
-            {
-                label: "Engineering",
-                data: bubbleChartData.filter((d) => d.field === "Engineering"),
-                backgroundColor: "rgba(255, 99, 132, 0.6)",
-            },
-            {
-                label: "Science",
-                data: bubbleChartData.filter((d) => d.field === "Science"),
-                backgroundColor: "rgba(54, 162, 235, 0.6)",
-            },
-            {
-                label: "Technology",
-                data: bubbleChartData.filter((d) => d.field === "Technology"),
-                backgroundColor: "rgba(255, 206, 86, 0.6)",
-            },
-        ],
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-            title: {
-                display: true,
-                text: "Women's Enrolment in STEM Fields (2017-2021)",
-                font: {
-                    size: 18,
-                },
-            },
-            legend: {
-                position: "top",
-            },
-            tooltip: {
-                callbacks: {
-                    label: function (context) {
-                        return `${context.dataset.label}: ${context.parsed.y}% in ${context.parsed.x}`;
-                    },
-                },
-            },
-        },
-        scales: {
-            x: {
-                type: "linear",
-                position: "bottom",
-                title: {
-                    display: true,
-                    text: "Year",
-                },
-                ticks: {
-                    stepSize: 1,
-                    callback: function (value, index, values) {
-                        return Math.floor(value);
-                    },
-                },
-            },
-            y: {
-                title: {
-                    display: true,
-                    text: "Percentage of Women Enrolled",
-                },
-            },
-        },
-    },
+    if (chartId === "employed_women") {
+        const canvas = document.createElement("canvas");
+        canvas.id = "pieChart";
+        chartContainer.appendChild(canvas);
+        createPieChart();
+    } else if (chartId === "genderComparison") {
+        const div = document.createElement("div");
+        div.id = "genderComparison";
+        chartContainer.appendChild(div);
+        createGenderComparison();
+    } else if (chartId === "industry_income") {
+        const canvas = document.createElement("canvas");
+        canvas.id = "incomePieChart";
+        chartContainer.appendChild(canvas);
+        createIncomePieChart();
+    } else if (chartId === "enrollment_2022") {
+        const canvas = document.createElement("canvas");
+        canvas.id = "enrollmentPieChart";
+        chartContainer.appendChild(canvas);
+        createEnrollmentPieChart();
+    } else if (chartId === "employment_outcomes_2023") {
+        const canvas = document.createElement("canvas");
+        canvas.id = "employmentOutcomesPieChart";
+        chartContainer.appendChild(canvas);
+        createEmploymentOutcomesPieChart();
+    }
+}
+
+// Initial display
+document.addEventListener("DOMContentLoaded", function () {
+    const chartSelector = document.getElementById("chartSelector");
+    displayChart(chartSelector.value); // Display the chart based on the selected dropdown option
+
+    // Add event listener to the dropdown
+    chartSelector.addEventListener("change", function () {
+        displayChart(chartSelector.value);
+    });
+
+    // Add event listener to the scroll button
+    const scrollToChartBtn = document.getElementById("scrollToChartBtn");
+    scrollToChartBtn.addEventListener("click", function () {
+        document.querySelector(".insight_stat_section").scrollIntoView({
+            behavior: "smooth",
+        });
+    });
 });
 
-// Pie Chart
-const pieCtx = document.getElementById("pieChart").getContext("2d");
-new Chart(pieCtx, {
-    type: "pie",
-    data: {
-        labels: pieChartData.labels,
-        datasets: [
-            {
-                data: pieChartData.values,
-                backgroundColor: pieChartData.colors,
-            },
-        ],
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-            title: {
-                display: true,
-                text: "Distribution of Women in STEM Fields (2021)",
-                font: {
-                    size: 18,
+// Functions to create charts
+function createPieChart() {
+    fetch("json/femal_industry_jobs_final.json")
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            return response.json();
+        })
+        .then((data) => {
+            // Filter and group data by STEM_CAT
+            const groupedData = data
+                .filter((job) => job.Gender === "Femal")
+                .reduce((acc, job) => {
+                    if (!acc[job.STEM_CAT]) {
+                        acc[job.STEM_CAT] = 0;
+                    }
+                    acc[job.STEM_CAT] += job["Number_of_jobs(thousand)"];
+                    return acc;
+                }, {});
+
+            // Convert grouped data to array format for chart and round values
+            femalIndustryJobs = Object.keys(groupedData).map((key) => ({
+                STEM_CAT: key,
+                "Number_of_jobs(thousand)": Math.round(groupedData[key]),
+            }));
+
+            const pieCtx = document.getElementById("pieChart").getContext("2d");
+            new Chart(pieCtx, {
+                type: "pie",
+                data: {
+                    labels: femalIndustryJobs.map((job) => job.STEM_CAT),
+                    datasets: [
+                        {
+                            data: femalIndustryJobs.map(
+                                (job) => job["Number_of_jobs(thousand)"]
+                            ),
+                        },
+                    ],
                 },
-            },
-            legend: {
-                position: "bottom",
-            },
-            tooltip: {
-                callbacks: {
-                    label: function (context) {
-                        return `${context.label}: ${context.parsed}%`;
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: "Employed Women in STEM",
+                            font: {
+                                size: 18,
+                            },
+                        },
+                        legend: {
+                            position: "bottom",
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+                                    return `${context.label}: ${context.raw} thousand jobs`;
+                                },
+                            },
+                        },
                     },
                 },
-            },
-        },
-    },
-});
+            });
+        })
+        .catch((error) => console.error("Error fetching data:", error));
+}
 
-// Gender Comparison Visualization
-const width = 500;
-const height = 300;
+function createIncomePieChart() {
+    fetch("json/femal_industry_income_final.json")
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            return response.json();
+        })
+        .then((data) => {
+            // Filter and group data by Type
+            const groupedData = data
+                .filter((job) => job.Gender === "Female")
+                .reduce((acc, job) => {
+                    const type = job.Type || "Not STEM";
+                    if (!acc[type]) {
+                        acc[type] = { total: 0, count: 0 };
+                    }
+                    acc[type].total += job.Value;
+                    acc[type].count += 1;
+                    return acc;
+                }, {});
 
-const svg = d3
-    .select("#genderComparison")
-    .append("svg")
-    .attr("width", width)
-    .attr("height", height);
+            // Convert grouped data to array format for chart and calculate average values
+            femalIndustryIncome = Object.keys(groupedData).map((key) => ({
+                Type: key,
+                Value: Math.round(
+                    groupedData[key].total / groupedData[key].count
+                ),
+            }));
 
-const maxSize = 150;
-const scale = d3
-    .scaleLinear()
-    .domain([0, d3.max(genderData, (d) => d.value)])
-    .range([30, maxSize]);
+            const pieCtx = document
+                .getElementById("incomePieChart")
+                .getContext("2d");
+            new Chart(pieCtx, {
+                type: "pie",
+                data: {
+                    labels: femalIndustryIncome.map((job) => job.Type),
+                    datasets: [
+                        {
+                            data: femalIndustryIncome.map((job) => job.Value),
+                        },
+                    ],
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: "Industry Income by Type",
+                            font: {
+                                size: 18,
+                            },
+                        },
+                        legend: {
+                            position: "bottom",
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+                                    return `${
+                                        context.label
+                                    }: $${context.raw.toLocaleString()}`;
+                                },
+                            },
+                        },
+                    },
+                },
+            });
+        })
+        .catch((error) => console.error("Error fetching data:", error));
+}
 
-const iconSpacing = 180;
+function createGenderComparison() {
+    const width = 500;
+    const height = 300;
 
-genderData.forEach((d, i) => {
-    d3.xml(d.icon).then((data) => {
-        const importedNode = document.importNode(data.documentElement, true);
+    const svg = d3
+        .select("#genderComparison")
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height);
 
-        svg.node().appendChild(importedNode);
+    const maxSize = 150;
+    const scale = d3
+        .scaleLinear()
+        .domain([0, d3.max(genderData, (d) => d.value)])
+        .range([30, maxSize]);
 
-        d3.select(importedNode)
-            .attr("width", scale(d.value))
-            .attr("height", scale(d.value))
-            .attr(
-                "x",
-                i * iconSpacing +
-                    width / 2 -
-                    iconSpacing / 2 -
-                    scale(d.value) / 2
-            )
-            .attr("y", height - scale(d.value) - 40)
-            .attr("fill", i === 0 ? "#FF69B4" : "#4169E1");
+    const iconSpacing = 180;
+
+    genderData.forEach((d, i) => {
+        d3.xml(d.icon).then((data) => {
+            const importedNode = document.importNode(
+                data.documentElement,
+                true
+            );
+
+            svg.node().appendChild(importedNode);
+
+            d3.select(importedNode)
+                .attr("width", scale(d.value))
+                .attr("height", scale(d.value))
+                .attr(
+                    "x",
+                    i * iconSpacing +
+                        width / 2 -
+                        iconSpacing / 2 -
+                        scale(d.value) / 2
+                )
+                .attr("y", height - scale(d.value) - 40)
+                .attr("fill", i === 0 ? "#FF69B4" : "#4169E1");
+        });
+
+        svg.append("text")
+            .attr("x", i * iconSpacing + width / 2 - iconSpacing / 2)
+            .attr("y", height - 15)
+            .attr("text-anchor", "middle")
+            .text(`${d.gender}: ${d.value}%`)
+            .attr("fill", "#333")
+            .attr("font-size", "16px");
     });
 
     svg.append("text")
-        .attr("x", i * iconSpacing + width / 2 - iconSpacing / 2)
-        .attr("y", height - 15)
+        .attr("x", width / 2)
+        .attr("y", 30)
         .attr("text-anchor", "middle")
-        .text(`${d.gender}: ${d.value}%`)
+        .text("Gender Distribution in STEM Workforce (2021)")
         .attr("fill", "#333")
-        .attr("font-size", "16px");
-});
+        .attr("font-size", "18px")
+        .attr("font-weight", "bold");
+}
 
-svg.append("text")
-    .attr("x", width / 2)
-    .attr("y", 30)
-    .attr("text-anchor", "middle")
-    .text("Gender Distribution in STEM Workforce (2021)")
-    .attr("fill", "#333")
-    .attr("font-size", "18px")
-    .attr("font-weight", "bold");
+// New function to create the enrollment pie chart
+function createEnrollmentPieChart() {
+    fetch("json/university_stem_enrollment.json")
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            return response.json();
+        })
+        .then((data) => {
+            // Filter data for the year 2022 and group by STEM_CAT
+            const groupedData = data
+                .filter((entry) => entry.Year === 2022)
+                .reduce((acc, entry) => {
+                    if (!acc[entry.STEM_CAT]) {
+                        acc[entry.STEM_CAT] = 0;
+                    }
+                    acc[entry.STEM_CAT] += entry.Num_of_enrollment;
+                    return acc;
+                }, {});
 
-// Line Chart
-const lineCtx = document.getElementById("lineChart").getContext("2d");
-new Chart(lineCtx, {
-    type: "line",
-    data: {
-        labels: lineChartData.labels,
-        datasets: [
-            {
-                label: "Women in STEM Workforce",
-                data: lineChartData.values,
-                fill: false,
-                borderColor: "rgb(75, 192, 192)",
-                tension: 0.1,
-            },
-        ],
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-            title: {
-                display: true,
-                text: "Percentage of Women in STEM Workforce (2017-2021)",
-                font: {
-                    size: 18,
+            // Convert grouped data to array format for chart
+            const enrollmentData = Object.keys(groupedData).map((key) => ({
+                STEM_CAT: key,
+                Num_of_enrollment: groupedData[key],
+            }));
+
+            const pieCtx = document
+                .getElementById("enrollmentPieChart")
+                .getContext("2d");
+            new Chart(pieCtx, {
+                type: "pie",
+                data: {
+                    labels: enrollmentData.map((entry) => entry.STEM_CAT),
+                    datasets: [
+                        {
+                            data: enrollmentData.map(
+                                (entry) => entry.Num_of_enrollment
+                            ),
+                        },
+                    ],
                 },
-            },
-            legend: {
-                position: "bottom",
-            },
-            tooltip: {
-                callbacks: {
-                    label: function (context) {
-                        return `Women in STEM: ${context.parsed.y}%`;
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: "Enrollments in 2022 by STEM Category",
+                            font: {
+                                size: 18,
+                            },
+                        },
+                        legend: {
+                            position: "bottom",
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+                                    return `${
+                                        context.label
+                                    }: ${context.raw.toLocaleString()} enrollments`;
+                                },
+                            },
+                        },
                     },
                 },
-            },
-        },
-        scales: {
-            x: {
-                title: {
-                    display: true,
-                    text: "Year",
+            });
+        })
+        .catch((error) => console.error("Error fetching data:", error));
+}
+
+// New function to create the employment outcomes pie chart
+function createEmploymentOutcomesPieChart() {
+    fetch("json/Undergraduate employment outcomes, 2022 and 2023 (_).json")
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            return response.json();
+        })
+        .then((data) => {
+            // Filter data for the year 2023
+            const filteredData = data.filter((entry) => entry.Year === 2023);
+
+            // Group data by Gender
+            const groupedData = filteredData.reduce((acc, entry) => {
+                if (!acc[entry.Gender]) {
+                    acc[entry.Gender] = 0;
+                }
+                acc[entry.Gender] += entry.Percentage_get_job;
+                return acc;
+            }, {});
+
+            // Convert grouped data to array format for chart
+            const employmentData = Object.keys(groupedData).map((key) => ({
+                Gender: key,
+                Percentage_get_job: groupedData[key],
+            }));
+
+            const pieCtx = document
+                .getElementById("employmentOutcomesPieChart")
+                .getContext("2d");
+            new Chart(pieCtx, {
+                type: "pie",
+                data: {
+                    labels: employmentData.map((entry) => entry.Gender),
+                    datasets: [
+                        {
+                            data: employmentData.map(
+                                (entry) => entry.Percentage_get_job
+                            ),
+                        },
+                    ],
                 },
-            },
-            y: {
-                title: {
-                    display: true,
-                    text: "Percentage of Women",
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: "Employment Outcomes in 2023 by Gender",
+                            font: {
+                                size: 18,
+                            },
+                        },
+                        legend: {
+                            position: "bottom",
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+                                    return `${context.label}: ${context.raw}%`;
+                                },
+                            },
+                        },
+                    },
                 },
-                suggestedMin: 0,
-                suggestedMax: 50,
-            },
-        },
-    },
-});
-
-// Learn How button scroll behavior
-document.addEventListener("DOMContentLoaded", function () {
-    const learnHowBtn = document.getElementById("learnHowBtn");
-    const insightStatSection = document.querySelector(".insight_stat_section");
-
-    learnHowBtn.addEventListener("click", function (e) {
-        e.preventDefault();
-        insightStatSection.scrollIntoView({ behavior: "smooth" });
-    });
-});
-
-// Fetch data from the server
-fetch("/api/insight-data")
-    .then((response) => response.json())
-    .then((data) => {
-        console.log(data);
-        // Display fetched data in the new section
-        const fetchedDataElement = document.getElementById("fetchedData");
-        fetchedDataElement.textContent = JSON.stringify(data, null, 2);
-    })
-    .catch((error) => {
-        console.error("Error fetching data:", error);
-        // Display error message in the new section
-        const fetchedDataElement = document.getElementById("fetchedData");
-        fetchedDataElement.textContent =
-            "Error fetching data. Please try again later.";
-    });
+            });
+        })
+        .catch((error) => console.error("Error fetching data:", error));
+}
