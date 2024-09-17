@@ -1770,15 +1770,28 @@ form input[type="submit"]:focus {
   max-width: 300px;
 }
 
-.quiz-button.selected {
+.quiz-button .selected {
   background-color: #ACA7CB;
   color: white;
 }
 
-.quiz-submit-buttons {
+.quiz-submit-buttons #submit-button{
   margin-top: 10px;
+  background-color: #ACA7CB;
+  color: white;
+  border: 2px solid #ACA7CB; 
+  border-radius: 10px; 
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease; 
+  margin-bottom: 10px;
 }
 
+.quiz-submit-buttons #submit-button:hover{
+  background-color: white; 
+  color: #ACA7CB; 
+}
 
 
 /* home page slider section */
