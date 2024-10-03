@@ -359,6 +359,15 @@ function createEmploymentOutcomesPieChart() {
 
 let employedWomenChart;
 
+// Define colors for each STEM category
+const stemColors = {
+    "Science": "rgba(255, 99, 132, 0.8)",
+    "Technology": "rgba(54, 162, 235, 0.8)",
+    "Engineering": "rgba(255, 206, 86, 0.8)",
+    "Mathmatics": "rgba(75, 192, 192, 0.8)",
+    "Non-stem": "rgba(153, 102, 255, 0.8)"
+};
+
 function createEmployedWomenBarChart(year) {
     fetch("json/femal_industry_jobs_final.json")
         .then((response) => response.json())
@@ -377,24 +386,24 @@ function createEmployedWomenBarChart(year) {
 
             // Calculate top STEM category (excluding Non-stem)
             const stemCategories = Object.keys(groupedData).filter(cat => cat !== "Non-stem");
-            const topStemCategory = stemCategories.reduce((a, b) => 
+            const employedTopSTEM = stemCategories.reduce((a, b) => 
                 groupedData[a].reduce((sum, entry) => sum + entry["Number_of_jobs(thousand)"], 0) >
                 groupedData[b].reduce((sum, entry) => sum + entry["Number_of_jobs(thousand)"], 0) ? a : b
             );
 
             // Calculate top STEM industry
             const stemIndustries = filteredData.filter(entry => entry.STEM_CAT !== "Non-stem");
-            const topStemIndustry = stemIndustries.reduce((a, b) => 
+            const employedTopStemIndustry = stemIndustries.reduce((a, b) => 
                 a["Number_of_jobs(thousand)"] > b["Number_of_jobs(thousand)"] ? a : b
             );
 
             // Calculate total STEM jobs
-            const totalStemJobs = stemIndustries.reduce((sum, entry) => sum + entry["Number_of_jobs(thousand)"], 0);
+            const employedTotalStemJobs = stemIndustries.reduce((sum, entry) => sum + entry["Number_of_jobs(thousand)"], 0);
 
             // Update the info boxes
-            document.getElementById("topStemCategory").textContent = `${topStemCategory} (${groupedData[topStemCategory].reduce((sum, entry) => sum + entry["Number_of_jobs(thousand)"], 0).toFixed(2)}k jobs)`;
-            document.getElementById("topStemIndustry").textContent = `${topStemIndustry.Industry} (${topStemIndustry["Number_of_jobs(thousand)"].toFixed(2)}k jobs)`;
-            document.getElementById("totalStemJobs").textContent = `${totalStemJobs.toFixed(2)}k jobs`;
+            document.getElementById("employedTopSTEM").textContent = `${employedTopSTEM} (${groupedData[employedTopSTEM].reduce((sum, entry) => sum + entry["Number_of_jobs(thousand)"], 0).toFixed(2)}k jobs)`;
+            document.getElementById("employedTopStemIndustry").textContent = `${employedTopStemIndustry.Industry} (${employedTopStemIndustry["Number_of_jobs(thousand)"].toFixed(2)}k jobs)`;
+            document.getElementById("employedTotalStemJobs").textContent = `${employedTotalStemJobs.toFixed(2)}k jobs`;
 
             // Sort STEM categories
             const sortedCategories = Object.keys(groupedData).sort();
@@ -403,15 +412,6 @@ function createEmployedWomenBarChart(year) {
             const sortedData = sortedCategories.flatMap(category => 
                 groupedData[category].sort((a, b) => b["Number_of_jobs(thousand)"] - a["Number_of_jobs(thousand)"])
             );
-
-            // Define colors for each STEM category
-            const stemColors = {
-                "Science": "rgba(255, 99, 132, 0.8)",
-                "Technology": "rgba(54, 162, 235, 0.8)",
-                "Engineering": "rgba(255, 206, 86, 0.8)",
-                "Mathmatics": "rgba(75, 192, 192, 0.8)",
-                "Non-stem": "rgba(153, 102, 255, 0.8)"
-            };
 
             const ctx = document.getElementById("employedWomenChart").getContext("2d");
             
@@ -492,6 +492,120 @@ function createEmployedWomenBarChart(year) {
         .catch((error) => console.error("Error fetching data:", error));
 }
 
+function createEnrolledWomenLineChart() {
+    fetch("json/university_stem_enrollment.json")
+        .then((response) => response.json())
+        .then((data) => {
+            // Group and sum data by year and STEM category
+            const groupedData = data.reduce((acc, entry) => {
+                const year = entry.Year;
+                const stemCat = entry.STEM_CAT.trim(); // Trim whitespace
+                
+                if (stemCat.toLowerCase() !== "non-stem") {
+                    if (!acc[year]) {
+                        acc[year] = {};
+                    }
+                    if (!acc[year][stemCat]) {
+                        acc[year][stemCat] = 0;
+                    }
+                    acc[year][stemCat] += entry.Num_of_enrollment;
+                }
+                return acc;
+            }, {});
+
+            // Calculate info for 2022
+            const data2022 = data.filter(entry => entry.Year === 2022);
+            
+            // Top STEM category
+            const topStemCategoryEntry = Object.entries(groupedData[2022])
+                .reduce((a, b) => a[1] > b[1] ? a : b);
+            const topStemCategory = topStemCategoryEntry[0];
+            const topStemCategoryEnrollment = topStemCategoryEntry[1];
+            
+            // Most popular subject (excluding non-stem)
+            const mostPopularSubjectEntry = data2022
+                .filter(entry => entry.STEM_CAT.trim().toLowerCase() !== "non-stem")
+                .reduce((a, b) => a.Num_of_enrollment > b.Num_of_enrollment ? a : b);
+            const mostPopularSubject = mostPopularSubjectEntry.Subjects.trim();
+            const mostPopularSubjectEnrollment = mostPopularSubjectEntry.Num_of_enrollment;
+            
+            // Total STEM enrollment
+            const totalStemEnrollment = data2022
+                .filter(entry => entry.STEM_CAT.trim().toLowerCase() !== "non-stem")
+                .reduce((sum, entry) => sum + entry.Num_of_enrollment, 0);
+
+            // Update info boxes
+            document.getElementById("enrollmentTopCategory").textContent = 
+                `${topStemCategory} (${topStemCategoryEnrollment.toLocaleString()} enrollments)`;
+            document.getElementById("enrollmentMostPopularSubject").textContent = 
+                `${mostPopularSubject} (${mostPopularSubjectEnrollment.toLocaleString()} enrollments)`;
+            document.getElementById("enrollmentTotal").textContent = `${totalStemEnrollment.toLocaleString()} enrollments`;
+
+            // Prepare data for Chart.js
+            const years = Object.keys(groupedData).sort();
+            const stemCategories = ["Science", "Technology", "Engineering", "Mathmatics"];
+            const datasets = stemCategories.map(category => ({
+                label: category,
+                data: years.map(year => {
+                    // Handle different capitalizations and trim spaces
+                    const matchingCategory = Object.keys(groupedData[year]).find(
+                        cat => cat.toLowerCase().trim() === category.toLowerCase()
+                    );
+                    return groupedData[year][matchingCategory] || 0;
+                }),
+                borderColor: stemColors[category],
+                backgroundColor: stemColors[category].replace("0.8", "0.2"),
+                fill: false,
+                tension: 0.1
+            }));
+
+            const ctx = document.getElementById("enrolledWomenChart").getContext("2d");
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: years,
+                    datasets: datasets
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Women Enrolled in STEM Fields',
+                            font: {
+                                size: 18,
+                            },
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false,
+                        },
+                        legend: {
+                            position: 'top',
+                        }
+                    },
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Year'
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Number of Enrollments'
+                            },
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        })
+        .catch((error) => console.error("Error fetching data:", error));
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     Chart.register(ChartDataLabels); // Required by chartjs plugin
 
@@ -514,6 +628,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // Create the employed women bar chart
     const yearSelector = document.getElementById("yearSelector");
     createEmployedWomenBarChart(yearSelector.value);
+
+    // Create the enrolled women line chart
+    createEnrolledWomenLineChart();
 
     // Event listener for year selection
     yearSelector.addEventListener("change", function () {
