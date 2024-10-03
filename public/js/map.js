@@ -1,8 +1,11 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiamlhbmJpbnpob3UiLCJhIjoiY2x6aHF1amJmMDc2bTJrcTJxY2lubnBxeiJ9.vQZhyROyZYPlAlVahk4HHA';
 
-// Create an array to hold university objects
-const universities = [];
-
+// Create an array to hold university info objects
+const universities_info = [];
+// Create university objects with sorted courses
+const universities_major = [];
+// Create university objects with vacancies
+const vacancies_info = [];
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -51,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
         map.flyTo({ center, zoom });
 
         // Filter universities by selected state
-        const filteredUniversities = universities.filter(university => university.state.toLowerCase() === selectedState || selectedState === 'all');
+        const filteredUniversities = universities_info.filter(university => university.state.toLowerCase() === selectedState || selectedState === 'all');
 
         // Remove existing markers
         document.querySelectorAll('.mapboxgl-marker').forEach(marker => marker.remove());
@@ -62,19 +65,36 @@ document.addEventListener('DOMContentLoaded', function () {
                 .setLngLat([university.longitude, university.latitude])
                 .setPopup(new mapboxgl.Popup().setText(university.universityName))
                 .addTo(map);
-    
+            
+
+            universities_major.forEach(obj => {
+                console.log(`universityName: ${obj.universityName}, lowestAtarCourseName: ${obj.lowestAtarCourseName}, lowestAtarScore: ${obj.lowestAtarScore}`);
+              });
+
+              universities_major.forEach(obj => {
+                console.log(`universityName: ${obj.universityName}, lowestAtarCourseName: ${obj.lowestAtarCourseName}, lowestAtarScore: ${obj.lowestAtarScore}`);
+              });
+              
+
             // Add click event to update the information block
             marker.getElement().addEventListener('click', () => {
                 const details = `
                     <strong>Name:</strong> ${university.universityName} (${university.universityAcronym})<br>
                     <strong>Campus:</strong> ${university.campusName} (${university.campusType})<br>
-                    <strong>Address:</strong> ${university.campusAddress}, ${university.state}, ${university.country}, ${university.postcode}<br>         
+                    <strong>Address:</strong> ${university.campusAddress}, ${university.state}, ${university.country}, ${university.postcode}<br> 
+                    <strong>lowestAtarCourseName:</strong> ${university.postcode}<br>
+                    <strong>lowestAtarScore:</strong> ${university.postcode}<br>     
                 `;
                 document.getElementById('universityDetails').innerHTML = details;
             });
         });
 
     });
+
+    
+    
+
+   
 
     //map control part for vacancy information
     document.getElementById('location_vac').addEventListener('change', function() {
@@ -109,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-/* load university json file */
+/* load university  info json file */
 
 fetch('json/university_australia_info.json')
   .then(response => response.json())
@@ -135,10 +155,91 @@ fetch('json/university_australia_info.json')
 
       // Add the university object to the array
       if(universityObject.campusType == 'Main'){
-        universities.push(universityObject);
+        universities_info.push(universityObject);
       }
       
     });
 
   })
   .catch(error => console.error('Error loading JSON:', error));
+
+  
+/* load university majors */
+fetch('json/ATAR.json')
+  .then(response => response.json())
+  .then(data => {
+
+    // Group courses by university
+    const universityGroups = data.reduce((acc, course) => {
+      const university = course['University'];
+      const courseName = course['Course name'];
+      const atarScore = course['ATAR Score'];
+
+      if (!acc[university]) {
+        acc[university] = [];
+      }
+      acc[university].push({ courseName, atarScore });
+      return acc;
+    }, {});
+
+    const universities_major = [];
+
+    for (const [universityName, courses] of Object.entries(universityGroups)) {
+      // Sort courses by ATAR score
+      courses.sort((a, b) => a.atarScore - b.atarScore);
+
+      // Get the course with the lowest ATAR score
+      const lowestAtarCourse = courses[0];
+      const lowestAtarCourseName = lowestAtarCourse.courseName;
+      const lowestAtarScore = lowestAtarCourse.atarScore;
+
+      // Create university object
+      const universityObject = {
+        universityName,
+        courses,
+        lowestAtarCourseName,
+        lowestAtarScore
+      };
+
+      // Add to the universities_major array
+      universities_major.push(universityObject);
+    }
+
+    console.log(universities_major);
+  })
+  .catch(error => console.error('Error loading JSON:', error));
+
+
+
+
+
+
+
+  /* load job vacancies data */
+  fetch('json/Stem_state_vacanies_final.json')
+  .then(response => response.json())
+  .then(data => {
+    
+
+    // Iterate over each vacancy object in the JSON array
+    data.forEach(vacancy => {
+      // Create an object for each vacancy with its attributes
+      const vacancyObject = {
+        level: vacancy.Level,
+        anzscoCode: vacancy.ANZSCO_CODE,
+        title: vacancy.Title,
+        state: vacancy.State,
+        year: vacancy.Year,
+        month: vacancy.Month,
+        numberOfVacancies: vacancy["Number of vacancies (thousand)"]
+      };
+
+      // Add the vacancy object to the array
+      vacancies_info.push(vacancyObject);
+    });
+
+    // You can now use the vacancies_info array as needed
+    console.log(vacancies_info);
+  })
+  .catch(error => console.error('Error loading JSON:', error));
+
