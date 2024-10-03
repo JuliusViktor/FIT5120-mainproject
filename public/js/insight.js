@@ -365,6 +365,7 @@ const stemColors = {
     "Technology": "rgba(54, 162, 235, 0.8)",
     "Engineering": "rgba(255, 206, 86, 0.8)",
     "Mathmatics": "rgba(75, 192, 192, 0.8)",
+    "Mathematics": "rgba(75, 192, 192, 0.8)",
     "Non-stem": "rgba(153, 102, 255, 0.8)"
 };
 
@@ -606,6 +607,109 @@ function createEnrolledWomenLineChart() {
         .catch((error) => console.error("Error fetching data:", error));
 }
 
+function createWomenIncomeLineChart() {
+    fetch("json/undergraduate_salary(2015-2023).json")
+        .then((response) => response.json())
+        .then((data) => {
+            // Group and average data by year and STEM category
+            const groupedData = data.reduce((acc, entry) => {
+                const year = entry.Year;
+                const stemCat = entry.STEM_CAT;
+                
+                if (!acc[year]) {
+                    acc[year] = {};
+                }
+                if (!acc[year][stemCat]) {
+                    acc[year][stemCat] = { sum: 0, count: 0 };
+                }
+                acc[year][stemCat].sum += entry.Full_time_salaries;
+                acc[year][stemCat].count += 1;
+                return acc;
+            }, {});
+
+            // Calculate averages
+            Object.keys(groupedData).forEach(year => {
+                Object.keys(groupedData[year]).forEach(stemCat => {
+                    groupedData[year][stemCat] = Math.round(groupedData[year][stemCat].sum / groupedData[year][stemCat].count);
+                });
+            });
+
+            // Prepare data for Chart.js
+            const years = Object.keys(groupedData).sort();
+            const stemCategories = ["Science", "Technology", "Engineering", "Mathematics"];
+            const datasets = stemCategories.map(category => ({
+                label: category,
+                data: years.map(year => groupedData[year][category] || null),
+                borderColor: stemColors[category],
+                backgroundColor: stemColors[category].replace("0.8", "0.2"),
+                fill: false,
+                tension: 0.1
+            }));
+
+            const ctx = document.getElementById("IncomeChart").getContext("2d");
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: years,
+                    datasets: datasets
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Women\'s Income in STEM Fields',
+                            font: {
+                                size: 18,
+                            },
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false,
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed.y !== null) {
+                                        label += new Intl.NumberFormat('en-AU', { style: 'currency', currency: 'AUD' }).format(context.parsed.y);
+                                    }
+                                    return label;
+                                }
+                            }
+                        },
+                        legend: {
+                            position: 'top',
+                        }
+                    },
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Year'
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Average Salary (AUD)'
+                            },
+                            beginAtZero: false,
+                            ticks: {
+                                callback: function(value, index, values) {
+                                    return new Intl.NumberFormat('en-AU', { style: 'currency', currency: 'AUD', maximumFractionDigits: 0 }).format(value);
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        })
+        .catch((error) => console.error("Error fetching data:", error));
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     Chart.register(ChartDataLabels); // Required by chartjs plugin
 
@@ -631,6 +735,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Create the enrolled women line chart
     createEnrolledWomenLineChart();
+
+    // Create the women's income line chart
+    createWomenIncomeLineChart();
 
     // Event listener for year selection
     employedYearSelector.addEventListener("change", function () {
