@@ -118,6 +118,12 @@
             <section class="map_and_stats career_bg_color layout_padding">
                 <div class="container">
                     <div class="box">
+
+                        <h1>STEM Majors Admissions and Employment Insights</h1>
+                        <p>This page provides valuable insights into the admission scores for various STEM programs at 
+                            universities throughout Australia, alongside recent data on job vacancies in STEM fields across different states. Click on these two buttons to get start. </p>
+
+
                         <div class="row">
 
                             <div class="col-sm-12 col-md-8">
@@ -132,7 +138,7 @@
 
                                     <div class="col-4">
                                         <label for="location">Location:</label>
-                                        <select id="location">
+                                        <select id="location_uni">
                                             <option value="all">All</option>
                                             <option value="nsw">New South Wales</option>
                                             <option value="vic">Victoria</option>
@@ -148,11 +154,12 @@
                                     <div class="col-4">
                                         <label for="atarScore">Atar:</label>
                                         <select id="atarScore">
-                                            <option value="50">Over 50</option>
-                                            <option value="60">Over 60</option>
-                                            <option value="70">Over 70</option>
-                                            <option value="80">Over 80</option>
-                                            <option value="90">Over 90</option>
+                                            <option value="All">All</option>
+                                            <option value="50">Minimum Admission Score Over 50</option>
+                                            <option value="60">Minimum Admission Score Over 60</option>
+                                            <option value="70">Minimum Admission Score Over 70</option>
+                                            <option value="80">Minimum Admission Score Over 80</option>
+                                            <option value="90">Minimum Admission Score Over 90</option>
                                         </select>
                                     </div>
 
@@ -163,7 +170,7 @@
 
                                     <div class="col-4">
                                         <label for="location">Location:</label>
-                                        <select id="location">
+                                        <select id="location_vac">
                                             <option value="all">All</option>
                                             <option value="nsw">New South Wales</option>
                                             <option value="vic">Victoria</option>
@@ -244,9 +251,12 @@
                             </div>
         
                             <div class="col-sm-12 col-md-4">
-                                <p>Information detailed Block</p>
-        
+                                <div id="infoBlock" class="info-block">
+                                    <h2>Uni Info</h2>
+                                    <p id="universityDetails">Click on a university marker to see details here.</p>
+                                </div>
                             </div>
+                            
                             
                         </div>
                     </div>

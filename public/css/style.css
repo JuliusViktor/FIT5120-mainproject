@@ -2072,6 +2072,29 @@ form input[type="submit"]:focus {
   margin: 30px;
 }
 
+/* university detailed info block */
+.info-block {
+  border-color: #ACA7CB;
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.info-block h2 {
+  color: #ACA7CB;
+  margin-bottom: 15px;
+}
+
+.info-block p {
+  text-align: left;
+  color: #ACA7CB;
+  line-height: 1.6;
+
+}
+
+
 /* Apply a consistent width to all select elements */
 .dropdown-container select {
   width: 200px; 
