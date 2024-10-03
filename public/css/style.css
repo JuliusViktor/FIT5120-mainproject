@@ -2024,6 +2024,60 @@ form input[type="submit"]:focus {
   opacity: 1;
   visibility: visible;
 }
+
+
+/* map part */
+.map_and_stats .box {
+  text-align: center;
+  margin-top: 45px;
+  background-color: #ffffff;
+  padding: 45px 50px;
+  border-radius: 5px;
+  color: #ACA7CB;
+  border-radius: 40px;
+}
+
+#map {
+  border-radius: 3%;
+  width: 100%;
+  height: 500px; 
+}
+.button-container {
+  margin-bottom: 20px;
+}
+.button-container button {
+  width: 300px;
+  height: 80px;
+  margin: 20px;
+  cursor: pointer;
+  background-color: #ACA7CB;
+  color: white;
+  border: 2px solid #ACA7CB; 
+  border-radius: 10px; 
+  padding: 10px 20px;
+  font-size: 16px;
+  transition: background-color 0.3s ease, color 0.3s ease; 
+}
+
+.button-container button:hover {
+  background-color: white; 
+  color: #ACA7CB; 
+}
+
+.dropdown-container {
+  display: none;
+}
+.dropdown-container.active {
+  display: block;
+  margin: 30px;
+}
+
+/* Apply a consistent width to all select elements */
+.dropdown-container select {
+  width: 200px; 
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
 http://kute-themes.com/html/boutique/html/index.html
 https://template.hasthemes.com/noraure/noraure/index.html
 https://preview.hasthemes.com/xoss-preview/xoss/index.html

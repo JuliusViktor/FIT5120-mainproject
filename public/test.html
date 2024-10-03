@@ -1,196 +1,204 @@
-<section class="career_suggest_section career_bg_color layout_padding">
-    <div class="container">
-        <div class="box">
-            <h2>Key Skills & Subject May Brighten your Future</h2>
-            <h2></h2>
-            <h2>I want to become:</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="shortcut icon" href="images/AUSEE-LOGO.png" type="" />
+    <title>AUSEE</title>
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <!-- font awesome style -->
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="css/responsive.css" rel="stylesheet" />
+    <!--0-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
 
-            <div class="occup-search-container">
-                <input
-                    type="text"
-                    class="search-bar"
-                    placeholder="type in here please"
-                />
-                <button class="clear-btn" onclick="clearInput()">
-                    ×
-                </button>
-            </div>
-
-            <div class="occup-submit-button">
-                <button class="submit-button">Submit</button>
-            </div>
-
-            <!-- Status bar -->
-            <div id="suggest-status-bar" class="status-bar">
-                You have not submitted your answer!
-            </div>
-
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div class="circle">
-                        <div class="text">
-                            <div>Science</div>
-                            <div id="percentage5">X%</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div class="circle">
-                        <div class="text">
-                            <div>Technology</div>
-                            <div id="percentage6">X%</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div class="circle">
-                        <div class="text">
-                            <div>Engineering</div>
-                            <div id="percentage7">X%</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div class="circle">
-                        <div class="text">
-                            <div>Mathematics</div>
-                            <div id="percentage8">X%</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <h1>Subject Guideline</h1>
-            <div id="subject-guideline"></div>
-        </div>
-    </div>
-</section>
-
-<script>
-const recommendations = [
-    {
-        "STEM_CAT": "Science",
-        "Rcommendation_list": [
-            "3D Animator", "Horticulturist", "Paleontologist", "Dentist", "Paramedic", 
-            "Diagnostic Medical Sonographer", "Hydrologist", "Park Naturalist", "Doctor", 
-            "Pharmacist", "Ecologist", "Lab Research Technician", "Physicist", "Ecologist", 
-            "Physicist", "Archaeologist", "Astrobiologist", "Psychologist", "Astronaut", 
-            "Marine Biologist", "Astronomer", "Radiologic Technician", "Radiologist", 
-            "Environmental Scientist", "Meteorologist", "Science Illustrator", "Epidemiologist", 
-            "Microbiologist", "Sociologist", "Exercise Physiologist", "Museum Conservator", 
-            "Botanist", "Forensic Scientist", "Nutritionist", "Chemist", "Forensic Pathologist", 
-            "Climate Scientist", "Geologist", "Oceanographer", "Genetic Counselor", "Zoologist"
-        ]
-    },
-    {
-        "STEM_CAT": "Technology",
-        "Rcommendation_list": [
-            "Information Security Analyst", "Educational Technologist", "Librarian", 
-            "Lighting Designer", "Production Engineer", "Market Research Analyst", 
-            "Audio Engineer", "Computer Graphic Designer", "Computer Hardware Engineer", 
-            "Computer Software Developer", "Computer Systems Analyst", "Graphics Designer", 
-            "Video Game Designer", "Special Effects Technician", "Biometrics Technician", 
-            "Nanosystems Engineer", "CAD Technician", "Solar Technician"
-        ]
-    },
-    {
-        "STEM_CAT": "Engineering",
-        "Rcommendation_list": [
-            "HVACR Technician", "Aerospace Engineer", "Industrial Designer", 
-            "Agricultural Engineer", "Agriculturalist", "Air Traffic Controller", 
-            "Architect", "Automotive Designer", "Automotive Service Technician", 
-            "Avionics", "Biomedical Engineer", "Building Inspector", "Chemical Engineer", 
-            "Chemical Technician", "Civil Engineer", "Construction Supervisor", 
-            "Electrical Engineer", "Electrician", "Environmental Engineer", 
-            "General Contractor", "Mechanical Engineer", "Medical Roboticist", 
-            "Naval Architect", "Nuclear Engineer", "Robotics Technician", "Safety Engineer", 
-            "Structural Engineer", "Surveyor", "Urban Planner"
-        ]
-    },
-    {
-        "STEM_CAT": "Mathematics",
-        "Rcommendation_list": [
-            "Actuary", "Accountant", "Economist", "Financial Analyst", "Mathematician", 
-            "Mathematics Teacher", "Statistician", "Forensic Accountant", "Stockbroker", 
-            "Quantity Surveyor"
-        ]
-    }
-];
-
-const courses = {
-    "Science": "1. Biology\n2. Chemistry\n3. Earth and Environmental Science\n4. Physics",
-    "Technology": "1. Information and Communication Technology\n2. Computer Science / Computing Studies\n3. Design and Technology\n4. Digital Technologies\n5. Mathematics and Data Analysis",
-    "Engineering": "1. Essential Mathematics\n2. General Mathematics\n3. Physics\n4. Chemistry\n5. Information and Communication Technology\n6. Engineering Studies",
-    "Mathematics": "1. Essential Mathematics\n2. General Mathematics\n3. Mathematical Methods\n4. Specialist Mathematics"
-};
-
-function clearInput() {
-    document.querySelector('.search-bar').value = '';
-}
-
-document.querySelector('.submit-button').addEventListener('click', function() {
-    var statusBar = document.getElementById('suggest-status-bar');
-    var searchInput = document.querySelector('.search-bar').value.trim();
-    var found = false;
-    var matchedCategory = '';
-
-    // Set to loading state
-    statusBar.textContent = 'Loading...';
-    statusBar.className = 'status-bar loading';
-
-    // Simulate an asynchronous operation
-    setTimeout(function() {
-        recommendations.forEach(category => {
-            if (category.Rcommendation_list.includes(searchInput)) {
-                found = true;
-                matchedCategory = category.STEM_CAT;
-            }
-        });
-
-        if (found) {
-            statusBar.textContent = 'Searching successful, data below has been updated';
-            statusBar.className = 'status-bar success';
-
-            // Display the relevant courses
-            document.getElementById('subject-guideline').textContent = courses[matchedCategory];
-
-            // Update percentages
-            updatePercentages(matchedCategory);
-        } else {
-            statusBar.textContent = 'You entered a profession that is not on the list.';
-            statusBar.className = 'status-bar fail';
+    <style>
+        #map {
+            width: 100%;
+            height: 500px; 
         }
-    }, 2000); // Simulate a 2-second loading time
-});
+    </style>
+</head>
+<body>
+    <div class="hero_area">
+        <!-- header section strats -->
+        <header class="header_section">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg custom_nav-container">
+                    <a class="navbar-brand" href="homepage.html"><img width="250" src="images/AUSEE-LOGO.png" alt="#" /></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class=""> </span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="homepage.html">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="insight.html">Insight</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="career.html">Career</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="map.html">Map</a>
+                            </li>
+                            <!-- <li class="nav-item">
+                                <a class="nav-link" href="contact.html">Contact</a>
+                            </li> -->
 
-function updatePercentages(category) {
-    const percentages = {
-        "Science": [95, 40, 35, 40],
-        "Technology": [40, 95, 35, 40],
-        "Engineering": [35, 40, 95, 40],
-        "Mathematics": [40, 40, 35, 95]
-    };
+                            <form class="form-inline">
+                                <button class="btn my-2 my-sm-0 nav_search-btn" type="submit">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </button>
+                            </form>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <!-- end header section -->
+        <!-- slider section -->
+        <section class="map_and_stats career_bg_color layout_padding">
+            <div class="container">
+                <div class="box">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <p>aaa</p>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <p>aaa</p>
+                        </div>
+                    </div>
+                    <div class="row"></div>
+                    <div class="col-sm-12 col-md-7">
+                        <div id="map"></div>
+                    </div>
+                    <div class="col-sm-12 col-md-5">
+                        <p>aaa</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end slider section -->
+    </div>
 
-    const randomize = (arr) => arr.map((val, idx) => idx === 0 ? val : Math.floor(Math.random() * 50));
+    <!-- Intro stat section -->
 
-    const [p5, p6, p7, p8] = randomize(percentages[category]);
+    <div class="cpy_">
+        <p class="mx-auto">© 2024 All Rights Reserved By <br /></p>
+    </div>
+    <!-- Mapbox GL JS -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css' rel='stylesheet' />
+    
+    <!-- Mapbox GL Directions -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js'></script>
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css' type='text/css' />
 
-    updatePercentage('percentage5', p5);
-    updatePercentage('percentage6', p6);
-    updatePercentage('percentage7', p7);
-    updatePercentage('percentage8', p8);
-}
+    <!-- map js -->
+    <script src="js/map.js" defer></script>
+    <!-- jQery -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <!-- popper js -->
+    <script src="js/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="js/bootstrap.js"></script>
+    <!-- bubble chart libraries-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Custome scripts -->
+    <script src="js/insight.js"></script>
+    <!-- Career scripts -->
+    <script src="js/career.js"></script>
 
-function updatePercentage(id, value) {
-    document.getElementById(id).textContent = `${value}%`;
-}
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoiamlhbmJpbnpob3UiLCJhIjoiY2x6aHF1amJmMDc2bTJrcTJxY2lubnBxeiJ9.vQZhyROyZYPlAlVahk4HHA';
 
-// Initial percentage update for demonstration
-updatePercentage('percentage5', 95); // Science
-updatePercentage('percentage6', 40); // Tech
-updatePercentage('percentage7', 35); // Engineer
-updatePercentage('percentage8', 40); // Math
-</script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/streets-v12',
+                center: [144.9631, -37.8136], // Melbourne coordinates
+                zoom: 12
+            });
+
+            // Direction control section
+            const directions = new MapboxDirections({
+                accessToken: mapboxgl.accessToken,
+                unit: 'metric',
+                profile: 'mapbox/cycling', // Set default mode to cycling
+                alternatives: true, // Show alternative routes
+                geometries: 'geojson',
+                controls: {
+                    inputs: true,
+                    instructions: true, // Enable turn-by-turn instructions
+                    profileSwitcher: true // Ensure mode switching options are displayed
+                },
+                flyTo: false
+            });
+
+            map.addControl(directions, 'top-left');
+
+            // Load GeoJSON data for Australian states
+            map.on('load', function () {
+                map.addSource('states', {
+                    type: 'geojson',
+                    data: 'path/to/australia-states.geojson' // Replace with the path to your GeoJSON file
+                });
+
+                map.addLayer({
+                    id: 'state-fills',
+                    type: 'fill',
+                    source: 'states',
+                    layout: {},
+                    paint: {
+                        'fill-color': [
+                            'match',
+                            ['get', 'state_name'], // Replace 'state_name' with the property name in your GeoJSON file
+                            'New South Wales', '#f28cb1',
+                            'Victoria', '#3bb2d0',
+                            'Queensland', '#223b53',
+                            'South Australia', '#e55e5e',
+                            'Western Australia', '#3bb2d0',
+                            'Tasmania', '#f28cb1',
+                            'Northern Territory', '#51bbd6',
+                            'Australian Capital Territory', '#f1f075',
+                            '#ccc' // Default color
+                        ],
+                        'fill-opacity': 0.7
+                    }
+                });
+
+                map.addLayer({
+                    id: 'state-borders',
+                    type: 'line',
+                    source: 'states',
+                    layout: {},
+                    paint: {
+                        'line-color': '#627BC1',
+                        'line-width': 2
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
