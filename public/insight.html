@@ -174,6 +174,43 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="box">
+                            <h2>Employed Women in STEM</h2>
+                            <div class="row mb-3">
+                                <div class="col-md-4">
+                                    <div class="info-box pt-2">
+                                        <h3>Top STEM Category</h3>
+                                        <p id="topStemCategory"></p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="info-box pt-2">
+                                        <h3>Top STEM Industry</h3>
+                                        <p id="topStemIndustry"></p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="info-box pt-2">
+                                        <h3>Total STEM Jobs</h3>
+                                        <p id="totalStemJobs"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-end mb-3 align-items-center">
+                                <label for="yearSelector" class="mr-2">Select Year:</label>
+                                <select id="yearSelector" class="form-control" style="width: auto;">
+                                    <option value="2021">2021</option>
+                                    <option value="2020">2020</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2017">2017</option>
+                                </select>
+                            </div>
+                            <div style="height: 600px;">
+                                <canvas id="employedWomenChart"></canvas>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
