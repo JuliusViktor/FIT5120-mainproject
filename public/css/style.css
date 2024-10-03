@@ -1589,6 +1589,13 @@ form input[type="submit"]:focus {
     height: 400px;
 }
 
+.info-box {
+  color: #ffffff;
+  background-color: #ACA7CB;
+  height: 100%;
+  border-radius: 5px;
+}
+
 /* Career Page */
 .career_bg_color {
   background-color: #ACA7CB;

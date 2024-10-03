@@ -174,10 +174,96 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="box">
+                            <h2>Employed Women in STEM</h2>
+                            <div class="row mb-3">
+                                <div class="col-md-4">
+                                    <div class="info-box pt-2">
+                                        <h3>Top STEM Category</h3>
+                                        <p id="employedTopSTEM"></p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="info-box pt-2">
+                                        <h3>Top STEM Industry</h3>
+                                        <p id="employedTopStemIndustry"></p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="info-box pt-2">
+                                        <h3>Total STEM Jobs</h3>
+                                        <p id="employedTotalStemJobs"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-end mb-3 align-items-center">
+                                <label for="employedYearSelector" class="mr-2">Select Year:</label>
+                                <select id="employedYearSelector" class="form-control" style="width: auto;">
+                                    <option value="2021">2021</option>
+                                    <option value="2020">2020</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2017">2017</option>
+                                </select>
+                            </div>
+                            <div style="height: 600px;">
+                                <canvas id="employedWomenChart"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="box">
+                            <h2>Women Enrolled in STEM Fields</h2>
+                            <div class="row mb-3">
+                                <div class="col-md-4">
+                                    <div class="info-box pt-2">
+                                        <h3>Top STEM Category</h3>
+                                        <p id="enrollmentTopCategory"></p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="info-box pt-2">
+                                        <h3>Most Popular Subject</h3>
+                                        <p id="enrollmentMostPopularSubject"></p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="info-box pt-2">
+                                        <h3>Total STEM Enrollment</h3>
+                                        <p id="enrollmentTotal"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="height: 600px;">
+                                <canvas id="enrolledWomenChart"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="box">
+                            <h2>Women's Income in STEM</h2>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <div class="info-box pt-2">
+                                        <h3>Average Women Income in STEM</h3>
+                                        <p id="IncomeAverage"></p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="info-box pt-2">
+                                        <h3>Average Income growth rate</h3>
+                                        <p id="IncomeGrowthRate"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="height: 600px;">
+                                <canvas id="IncomeChart"></canvas>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
+            
             <!-- TODO: Testing purpose. Remove -->
             <!-- <div class="container">
                 <div class="box">
