@@ -626,14 +626,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Create the employed women bar chart
-    const yearSelector = document.getElementById("yearSelector");
-    createEmployedWomenBarChart(yearSelector.value);
+    const employedYearSelector = document.getElementById("employedYearSelector");
+    createEmployedWomenBarChart(employedYearSelector.value);
 
     // Create the enrolled women line chart
     createEnrolledWomenLineChart();
 
     // Event listener for year selection
-    yearSelector.addEventListener("change", function () {
-        createEmployedWomenBarChart(yearSelector.value);
+    employedYearSelector.addEventListener("change", function () {
+        createEmployedWomenBarChart(employedYearSelector.value);
     });
 });
