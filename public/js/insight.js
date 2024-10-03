@@ -634,8 +634,20 @@ function createWomenIncomeLineChart() {
                 });
             });
 
-            // Prepare data for Chart.js
+            // Calculate average income in STEM for 2023
+            const averageIncome2023 = Object.values(groupedData[2023]).reduce((sum, value) => sum + value, 0) / Object.keys(groupedData[2023]).length;
+
+            // Calculate average growth rate
             const years = Object.keys(groupedData).sort();
+            const earliestYear = years[0];
+            const latestYear = years[years.length - 1];
+            const averageGrowthRate = calculateAverageGrowthRate(groupedData, earliestYear, latestYear);
+
+            // Update info boxes
+            document.getElementById("IncomeAverage").textContent = new Intl.NumberFormat('en-AU', { style: 'currency', currency: 'AUD', maximumFractionDigits: 0 }).format(averageIncome2023);
+            document.getElementById("IncomeGrowthRate").textContent = `${(averageGrowthRate * 100).toFixed(2)}%`;
+
+            // Prepare data for Chart.js
             const stemCategories = ["Science", "Technology", "Engineering", "Mathematics"];
             const datasets = stemCategories.map(category => ({
                 label: category,
@@ -708,6 +720,17 @@ function createWomenIncomeLineChart() {
             });
         })
         .catch((error) => console.error("Error fetching data:", error));
+}
+
+function calculateAverageGrowthRate(data, startYear, endYear) {
+    const categories = Object.keys(data[startYear]);
+    const growthRates = categories.map(category => {
+        const startValue = data[startYear][category];
+        const endValue = data[endYear][category];
+        const years = endYear - startYear;
+        return Math.pow(endValue / startValue, 1 / years) - 1;
+    });
+    return growthRates.reduce((sum, rate) => sum + rate, 0) / growthRates.length;
 }
 
 document.addEventListener("DOMContentLoaded", function () {
