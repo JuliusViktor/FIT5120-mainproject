@@ -82,8 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     <strong>Name:</strong> ${university.universityName} (${university.universityAcronym})<br>
                     <strong>Campus:</strong> ${university.campusName} (${university.campusType})<br>
                     <strong>Address:</strong> ${university.campusAddress}, ${university.state}, ${university.country}, ${university.postcode}<br> 
-                    <strong>lowestAtarCourseName:</strong> ${university.postcode}<br>
-                    <strong>lowestAtarScore:</strong> ${university.postcode}<br>     
+                        
                 `;
                 document.getElementById('universityDetails').innerHTML = details;
             });
@@ -91,7 +90,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     });
 
-    
+    {/* <strong>lowestAtarCourseName:</strong> ${university.postcode}<br>
+    <strong>lowestAtarScore:</strong> ${university.postcode}<br>  */}
     
 
    
