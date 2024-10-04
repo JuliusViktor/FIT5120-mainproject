@@ -1589,6 +1589,13 @@ form input[type="submit"]:focus {
     height: 400px;
 }
 
+.info-box {
+  color: #ffffff;
+  background-color: #ACA7CB;
+  height: 100%;
+  border-radius: 5px;
+}
+
 /* Career Page */
 .career_bg_color {
   background-color: #ACA7CB;
@@ -1770,15 +1777,28 @@ form input[type="submit"]:focus {
   max-width: 300px;
 }
 
-.quiz-button.selected {
+.quiz-button .selected {
   background-color: #ACA7CB;
   color: white;
 }
 
-.quiz-submit-buttons {
+.quiz-submit-buttons #submit-button{
   margin-top: 10px;
+  background-color: #ACA7CB;
+  color: white;
+  border: 2px solid #ACA7CB; 
+  border-radius: 10px; 
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease; 
+  margin-bottom: 10px;
 }
 
+.quiz-submit-buttons #submit-button:hover{
+  background-color: white; 
+  color: #ACA7CB; 
+}
 
 
 /* home page slider section */
@@ -2011,6 +2031,83 @@ form input[type="submit"]:focus {
   opacity: 1;
   visibility: visible;
 }
+
+
+/* map part */
+.map_and_stats .box {
+  text-align: center;
+  margin-top: 45px;
+  background-color: #ffffff;
+  padding: 45px 50px;
+  border-radius: 5px;
+  color: #ACA7CB;
+  border-radius: 40px;
+}
+
+#map {
+  border-radius: 3%;
+  width: 100%;
+  height: 500px; 
+}
+.button-container {
+  margin-bottom: 20px;
+}
+.button-container button {
+  width: 300px;
+  height: 80px;
+  margin: 20px;
+  cursor: pointer;
+  background-color: #ACA7CB;
+  color: white;
+  border: 2px solid #ACA7CB; 
+  border-radius: 10px; 
+  padding: 10px 20px;
+  font-size: 16px;
+  transition: background-color 0.3s ease, color 0.3s ease; 
+}
+
+.button-container button:hover {
+  background-color: white; 
+  color: #ACA7CB; 
+}
+
+.dropdown-container {
+  display: none;
+}
+.dropdown-container.active {
+  display: block;
+  margin: 30px;
+}
+
+/* university detailed info block */
+.info-block {
+  border-color: #ACA7CB;
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.info-block h2 {
+  color: #ACA7CB;
+  margin-bottom: 15px;
+}
+
+.info-block p {
+  text-align: left;
+  color: #ACA7CB;
+  line-height: 1.6;
+
+}
+
+
+/* Apply a consistent width to all select elements */
+.dropdown-container select {
+  width: 200px; 
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
 http://kute-themes.com/html/boutique/html/index.html
 https://template.hasthemes.com/noraure/noraure/index.html
 https://preview.hasthemes.com/xoss-preview/xoss/index.html
