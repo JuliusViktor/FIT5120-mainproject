@@ -3,7 +3,7 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const session = require("express-session");
 const app = express();
-const port = 80;
+const port = 3000;
 const pool = require("./database");
 
 // Use body-parser middleware to parse JSON request bodies
@@ -15,7 +15,7 @@ app.use(
         secret: "secret_key",
         resave: false,
         saveUninitialized: true,
-        cookie: { maxAge: 10 * 60 * 1000, secure: false }, // Set session to expire in 10 minutes
+        cookie: { secure: false }, // Set to true if using HTTPS
     })
 );
 
@@ -33,7 +33,6 @@ app.post("/login", (req, res) => {
 
     if (password === correctPassword) {
         req.session.authenticated = true;
-        req.session.cookie.expires = new Date(Date.now() + 10 * 60 * 1000); // Reset session expiration time
         res.json({ success: true });
     } else {
         res.json({ success: false });
@@ -43,39 +42,19 @@ app.post("/login", (req, res) => {
 // Middleware to check if the user is authenticated
 function isAuthenticated(req, res, next) {
     if (req.session.authenticated) {
-        // Check if session has expired
-        if (req.session.cookie.expires < new Date()) {
-            req.session.destroy(err => {
-                if (err) {
-                    return next(err);
-                }
-                res.redirect("/");
-            });
-        } else {
-            // Reset session expiration time on each request
-            req.session.cookie.expires = new Date(Date.now() + 10 * 60 * 1000);
-            return next();
-        }
+        return next();
     } else {
         res.redirect("/");
     }
 }
 
-// Serve the protected pages
+// Serve the protected homepage
 app.get("/homepage.html", isAuthenticated, (req, res) => {
     res.sendFile(path.join(__dirname, "public", "homepage.html"));
 });
 
-app.get("/career.html", isAuthenticated, (req, res) => {
-    res.sendFile(path.join(__dirname, "public", "career.html"));
-});
-
-app.get("/insight.html", isAuthenticated, (req, res) => {
-    res.sendFile(path.join(__dirname, "public", "insight.html"));
-});
-
 // Example database api
-app.get("/api/insight-data", isAuthenticated, async (req, res) => {
+app.get("/api/insight-data", async (req, res) => {
     try {
         const client = await pool.connect();
         const result = await client.query(
