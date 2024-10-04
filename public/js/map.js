@@ -1,5 +1,7 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiamlhbmJpbnpob3UiLCJhIjoiY2x6aHF1amJmMDc2bTJrcTJxY2lubnBxeiJ9.vQZhyROyZYPlAlVahk4HHA';
 
+
+//global variables list
 // Create an array to hold university info objects
 const universities_info = [];
 // Create university objects with sorted courses
