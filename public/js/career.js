@@ -186,7 +186,7 @@ function updatePercentage(circleId, percentage) {
 const answers = {};
 
 // Function to select an answer for a quiz question
-function selectAnswer(quizId, answer) {
+function selectAnswer(quizId, answerCode) {
     const quizBlock = document.getElementById(quizId);
     const buttons = quizBlock.getElementsByClassName('quiz-button');
     
@@ -195,15 +195,21 @@ function selectAnswer(quizId, answer) {
         button.classList.remove('selected');
     }
     
-    // Find and select the button with the specified answer
-    const selectedButton = Array.from(buttons).find(button => button.textContent.includes(answer));
+    // Find and select the button with the specified answer code
+    const selectedButton = Array.from(buttons).find(button => {
+        return button.getAttribute('data-answer') === answerCode;
+    });
+
     if (selectedButton) {
         selectedButton.classList.add('selected');
+    } else {
+        console.log('Button not found for answer code:', answerCode);
     }
     
     // Store the selected answer
-    answers[quizId] = answer;
+    answers[quizId] = answerCode;
 }
+
 
 // Function to submit the quiz
 function submitQuiz() {

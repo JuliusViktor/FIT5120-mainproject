@@ -1777,7 +1777,7 @@ form input[type="submit"]:focus {
   max-width: 300px;
 }
 
-.quiz-button .selected {
+.quiz-button.selected {
   background-color: #ACA7CB;
   color: white;
 }
