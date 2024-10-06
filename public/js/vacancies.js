@@ -2,10 +2,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiamlhbmJpbnpob3UiLCJhIjoiY2x6aHF1amJmMDc2bTJrc
 
 
 //global variables list
-// Create an array to hold university info objects
-const universities_info = [];
-// Create university objects with sorted courses
-const universities_major = [];
+
 // Create university objects with vacancies
 const vacancies_info = [];
 
@@ -62,21 +59,68 @@ document.addEventListener('DOMContentLoaded', function () {
 
        
     });
-    
 
+    // Get all dropdown menus and info block
+    const locationSelect = document.getElementById('location_vac');
+    const yearSelect = document.getElementById('year');
+    const monthSelect = document.getElementById('month');
+    const jobTitlesSelect = document.getElementById('jobTitles');
+    const universityDetails = document.getElementById('universityDetails');
 
+    // Add change event listeners to all dropdown menus
+    [locationSelect, yearSelect, monthSelect, jobTitlesSelect].forEach(select => {
+        select.addEventListener('change', updateInfo);
+    });
 
+    function updateInfo() {
+      const selectedState = locationSelect.value.toUpperCase();
+      const selectedYear = yearSelect.value;
+      const selectedMonth = monthSelect.value;
+      const selectedJob = jobTitlesSelect.value.toLowerCase();
 
-
-
-    
-
-    
-
-
+  
+      // Filter vacancies_info
+      const filteredVacancies = vacancies_info.filter(vacancy => {
+        // Normalize the vacancy title: lowercase, remove spaces, commas, and 'and'
+        const normalizedVacancyTitle = vacancy.title.toLowerCase().replace(/[, ]/g, '').replace(/and/g, '');
         
-        
+        // Normalize the selected job title: remove spaces, commas, and 'and'
+        const normalizedSelectedJob = selectedJob.toLowerCase().replace(/[, ]/g, '').replace(/and/g, '');
+      
+        console.log('vacancy.title', vacancy.title);
+        console.log('selectedJob', selectedJob);
+        console.log('normalizedVacancyTitle', normalizedVacancyTitle);
+        console.log('normalizedSelectedJob', normalizedSelectedJob);
+      
+        return (selectedState === 'ALL' || vacancy.state === selectedState) &&
+               (selectedYear === 'All Year' || vacancy.year.toString() === selectedYear) &&
+               (selectedMonth === 'All Year' || vacancy.month.toString() === selectedMonth) &&
+               (selectedJob === 'all' || normalizedVacancyTitle === normalizedSelectedJob);
+      });
+  
+      // Update info block
+      if (filteredVacancies.length > 0) {
+          let infoHTML = '<ul>';
+          filteredVacancies.forEach(vacancy => {
+              infoHTML += `<li>
+                  <strong>${vacancy.title}</strong><br>
+                  State: ${vacancy.state}<br>
+                  Year: ${vacancy.year}<br>
+                  Month: ${vacancy.month}<br>
+                  Number of Vacancies: ${Math.floor(vacancy.numberOfVacancies)}
+              </li>`;
+          });
+          infoHTML += '</ul>';
+          universityDetails.innerHTML = infoHTML;
+      } else {
+          universityDetails.innerHTML = 'No matching vacancies found.';
+      }
+  }
+
+    // Update info once on initial load
+    updateInfo();
     
+   
 });
 
 
