@@ -768,7 +768,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-
 // scroll up bottom
 // Get the button
 const scrollToTopBtn = document.getElementById("scrollToTopBtn");

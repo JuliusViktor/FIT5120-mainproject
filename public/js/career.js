@@ -182,79 +182,93 @@ function updatePercentage(circleId, percentage) {
     document.getElementById(circleId).innerText = percentage + '%';
 }
 
-//quiz list
-function selectAnswer(quizId, answer) {
+// Initialize an object to store answers
+const answers = {};
+
+// Function to select an answer for a quiz question
+function selectAnswer(quizId, answerCode) {
     const quizBlock = document.getElementById(quizId);
     const buttons = quizBlock.getElementsByClassName('quiz-button');
     
+    // Remove 'selected' class from all buttons
     for (let button of buttons) {
         button.classList.remove('selected');
     }
     
-    const selectedButton = Array.from(buttons).find(button => button.textContent.includes(answer));
-    selectedButton.classList.add('selected');
+    // Find and select the button with the specified answer code
+    const selectedButton = Array.from(buttons).find(button => {
+        return button.getAttribute('data-answer') === answerCode;
+    });
+
+    if (selectedButton) {
+        selectedButton.classList.add('selected');
+    } else {
+        console.log('Button not found for answer code:', answerCode);
+    }
+    
+    // Store the selected answer
+    answers[quizId] = answerCode;
 }
 
-//quiz submit logic
-const answers = {};
 
-        function selectAnswer(quizId, answer) {
-            answers[quizId] = answer;
+// Function to submit the quiz
+function submitQuiz() {
+    const totalQuestions = 20;
+    const unansweredQuestions = [];
+
+    // Check for unanswered questions
+    for (let i = 1; i <= totalQuestions; i++) {
+        if (!answers[`quiz${i}`]) {
+            unansweredQuestions.push(i);
+        }
+    }
+
+    // Alert if there are unanswered questions
+    if (unansweredQuestions.length > 0) {
+        alert(`You missed the following questions: ${unansweredQuestions.join(', ')}`);
+        return;
+    }
+
+    // Show loading indicator
+    document.getElementById('loading').style.display = 'block';
+    document.getElementById('result').innerHTML = '';
+
+    // Simulate a delay for calculation
+    setTimeout(() => {
+        const counts = { T: 0, E: 0, M: 0, S: 0 };
+
+        // Count the occurrences of each answer type
+        for (let key in answers) {
+            if (counts[answers[key]] !== undefined) {
+                counts[answers[key]]++;
+            }
         }
 
-        function submitQuiz() {
-            const totalQuestions = 20;
-            const unansweredQuestions = [];
+        // Calculate percentages for each category
+        const percentages = {
+            T: ((counts.T / totalQuestions) * 100).toFixed(2),
+            E: ((counts.E / totalQuestions) * 100).toFixed(2),
+            M: ((counts.M / totalQuestions) * 100).toFixed(2),
+            S: ((counts.S / totalQuestions) * 100).toFixed(2)
+        };
 
-            for (let i = 1; i <= totalQuestions; i++) {
-                if (!answers[`quiz${i}`]) {
-                    unansweredQuestions.push(i);
-                }
-            }
+        // Hide loading indicator and display results
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('result').innerHTML = `
+            Data has been updated, please scroll down!
+        `;
 
-            if (unansweredQuestions.length > 0) {
-                alert(`You missed the following questions: ${unansweredQuestions.join(', ')}`);
-                return;
-            }
+        // Update quiz part circles
+        updatePercentage('percentage1', percentages.S); // Science
+        updatePercentage('percentage2', percentages.T); // Tech
+        updatePercentage('percentage3', percentages.E); // Engineer
+        updatePercentage('percentage4', percentages.M); // Math
 
-            document.getElementById('loading').style.display = 'block';
-            document.getElementById('result').innerHTML = '';
+        // Display career recommendations
+        displayCareerRecommendations(percentages);
+    }, 2000);
+}
 
-            setTimeout(() => {
-                const counts = { T: 0, E: 0, M: 0, S: 0 };
-
-                for (let key in answers) {
-                    counts[answers[key]]++;
-                }
-
-                const percentages = {
-                    T: (counts.T / totalQuestions * 100).toFixed(2),
-                    E: (counts.E / totalQuestions * 100).toFixed(2),
-                    M: (counts.M / totalQuestions * 100).toFixed(2),
-                    S: (counts.S / totalQuestions * 100).toFixed(2)
-                };
-
-                document.getElementById('loading').style.display = 'none';
-                document.getElementById('result').innerHTML = `
-                    T: ${percentages.T}%<br>
-                    E: ${percentages.E}%<br>
-                    M: ${percentages.M}%<br>
-                    S: ${percentages.S}%<br>
-                    Data updated!
-                `;
-
-                //quiz part circles update
-                updatePercentage('percentage1', percentages.S); // Science
-                updatePercentage('percentage2', percentages.T); // Tech
-                updatePercentage('percentage3', percentages.E); // Engineer
-                updatePercentage('percentage4', percentages.M); // Math
-
-                // Display the career recommendations
-                displayCareerRecommendations(percentages);
-            }, 2000); // Simulate a delay for calculation
-
-            
-        }
 
         const recommendations = [
             {
@@ -394,11 +408,7 @@ const answers = {};
             document.getElementById('occupation-guideline').innerText = recommendation ? recommendation.Rcommendation_list : 'No recommendations available';
         }
 
-// Update the percentage for each circle
-updatePercentage('percentage5', 95); // Science
-updatePercentage('percentage6', 40); // Tech
-updatePercentage('percentage7', 35); // Engineer
-updatePercentage('percentage8', 40); // Math
+
 
     
 // scroll up bottom
