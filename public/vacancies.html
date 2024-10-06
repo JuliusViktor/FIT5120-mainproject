@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Basic -->
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <!-- Mobile Metas -->
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+        <!-- Site Metas -->
+        <meta name="keywords" content="" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <link rel="shortcut icon" href="images/AUSEE-LOGO.png" type="" />
+        <title>AUSEE</title>
+        <!-- bootstrap core css -->
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+        <!-- font awesome style -->
+        <link href="css/font-awesome.min.css" rel="stylesheet" />
+        <!-- Custom styles for this template -->
+        <link href="css/style.css" rel="stylesheet" />
+        <!-- responsive style -->
+        <link href="css/responsive.css" rel="stylesheet" />
+        <!--0-->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap"
+            rel="stylesheet"
+        />
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    </head>
+    <body>
+        <div class="hero_area">
+            <!-- header section strats -->
+            <header class="header_section">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg custom_nav-container">
+                        <a class="navbar-brand" href="homepage.html"
+                            ><img
+                                width="250"
+                                src="images/AUSEE-LOGO.png"
+                                alt="#"
+                        /></a>
+                        <button
+                            class="navbar-toggler"
+                            type="button"
+                            data-toggle="collapse"
+                            data-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation"
+                        >
+                            <span class=""> </span>
+                        </button>
+                        <div
+                            class="collapse navbar-collapse"
+                            id="navbarSupportedContent"
+                        >
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="homepage.html"
+                                        >Home
+                                        <span class="sr-only"
+                                            >(current)</span
+                                        ></a
+                                    >
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="insight.html"
+                                        >Insight</a
+                                    >
+                                </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="career.html"
+                                        >Career</a
+                                    >
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="map.html"
+                                        >Uni</a
+                                    >
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="vacancies.html"
+                                        >Vacancies</a
+                                    >
+                                </li>
+                                <!-- <li class="nav-item">
+                                    <a class="nav-link" href="contact.html"
+                                        >Contact</a
+                                    >
+                                </li> -->
+
+                                <form class="form-inline">
+                                    <button
+                                        class="btn my-2 my-sm-0 nav_search-btn"
+                                        type="submit"
+                                    >
+                                        <i
+                                            class="fa fa-search"
+                                            aria-hidden="true"
+                                        ></i>
+                                    </button>
+                                </form>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </header>
+            <!-- end header section -->
+            <!-- slider section -->
+            <section class="map_and_stats career_bg_color layout_padding">
+                <div class="container">
+                    <div class="box">
+
+                        <h1>Employment Insights</h1>
+                        <p>This page provides valuable recent data on job vacancies in STEM fields across different states. 
+                            The darker the colour of the map indicates that more jobs are available in that state as a percentage of the total number of jobs. </p>
+
+                        <div class="row">
+                            <div class="col-7">
+
+                                <div class="container mt-5">
+                                    <div class="row justify-content-center">
+                                        <div class="col-md-8">
+                                            <div class="dropdown-container">
+                                                <div class="dropdown-wrapper">
+                                                    <label for="location_vac">Location:</label>
+                                                    <select id="location_vac" class="form-select">
+                                                        <option value="all">All</option>
+                                                        <option value="nsw">New South Wales</option>
+                                                        <option value="vic">Victoria</option>
+                                                        <option value="qld">Queensland</option>
+                                                        <option value="sa">South Australia</option>
+                                                        <option value="wa">Western Australia</option>
+                                                        <option value="tas">Tasmania</option>
+                                                        <option value="nt">Northern Territory</option>
+                                                        <option value="act">Australian Capital Territory</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                            
+                                            <div class="dropdown-container">
+                                                <div class="dropdown-wrapper">
+                                                    <label for="year">Year:</label>
+                                                    <select id="year" class="form-select">
+                                                        <option value="2024">2024</option>
+                                                        <option value="2023">2023</option>
+                                                        <option value="2022">2022</option>
+                                                        <option value="2021">2021</option>
+                                                        <option value="2020">2020</option>
+                                                        <option value="2019">2019</option>
+                                                        <option value="2018">2018</option>
+                                                        <option value="2017">2017</option>
+                                                        <option value="2016">2016</option>
+                                                        <option value="2015">2015</option>
+                                                        <option value="2014">2014</option>
+                                                        <option value="2013">2013</option>
+                                                        <option value="2012">2012</option>
+                                                        <option value="2011">2011</option>
+                                                        <option value="2010">2010</option>
+                                                        <option value="2009">2009</option>
+                                                        <option value="2008">2008</option>
+                                                        <option value="2007">2007</option>
+                                                        <option value="2006">2006</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                            
+                                            <div class="dropdown-container">
+                                                <div class="dropdown-wrapper">
+                                                    <label for="month">Month:</label>
+                                                    <select id="month" class="form-select">
+                                                        <option value="All Year">All Year</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                        <option value="7">7</option>
+                                                        <option value="8">8</option>
+                                                        <option value="9">9</option>
+                                                        <option value="10">10</option>
+                                                        <option value="11">11</option>
+                                                        <option value="12">12</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                            
+                                            <div class="dropdown-container">
+                                                <div class="dropdown-wrapper">
+                                                    <label for="jobTitles">Occupation:</label>
+                                                    <select id="jobTitles" class="form-select job-multiline-options">
+                                                        <option value="all">All</option>
+                                                        <option value="constructionProductionDistributionManagers">Construction, Production and Distribution Managers</option>
+                                                        <option value="professionals">PROFESSIONALS</option>
+                                                        <option value="ictProfessionals">ICT Professionals</option>
+                                                        <option value="businessFinanceHRProfessionals">Business, Finance and Human Resource Professionals</option>
+                                                        <option value="informationProfessionals">Information Professionals</option>
+                                                        <option value="transportDesignProfessionalsArchitects">Transport and Design Professionals, and Architects</option>
+                                                        <option value="engineers">Engineers</option>
+                                                        <option value="scienceProfessionalsVeterinarians">Science Professionals and Veterinarians</option>
+                                                        <option value="techniciansTradesWorkers">TECHNICIANS AND TRADES WORKERS</option>
+                                                        <option value="engineeringICTScienceTechnicians">Engineering, ICT and Science Technicians</option>
+                                                        <option value="automotiveEngineeringTradesWorkers">Automotive and Engineering Trades Workers</option>
+                                                        <option value="constructionTradesWorkers">Construction Trades Workers</option>
+                                                        <option value="electrotechnologyTelecommunicationsTradesWorkers">Electrotechnology and Telecommunications Trades Workers</option>
+                                                        <option value="numericalClerks">Numerical Clerks</option>
+                                                        <option value="machineryOperatorsDrivers">MACHINERY OPERATORS AND DRIVERS</option>
+                                                        <option value="machineStationaryPlantOperators">Machine and Stationary Plant Operators</option>
+                                                        <option value="constructionMiningLabourers">Construction and Mining Labourers</option>
+                                                        <option value="factoryProcessWorkers">Factory Process Workers</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+            
+                            
+                                    
+                                    
+                                        
+                                        
+                                <div id="map" style="background-color: #f0f0f0;"></div>
+                                        
+                                        
+                                        
+                                        
+                                    
+            
+                                
+
+                            </div>
+
+
+                            <div class="col-5">
+
+                                
+            
+                                
+                                    <div id="infoBlock" class="info-block">
+                                        <h2>Uni Info</h2>
+                                        <p id="universityDetails">See details here.</p>
+                                    </div>
+                                
+                                
+                                
+                            </div>
+
+                        </div>
+
+                    </div>
+                
+                    
+                </div>
+            </section>
+            <!-- end slider section -->
+        </div>
+
+        <!-- Intro stat section -->
+
+        
+
+        <div class="cpy_">
+            <p class="mx-auto">© 2024 All Rights Reserved By <br /></p>
+        </div>
+        <!-- Mapbox GL JS -->
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css' rel='stylesheet' />
+        
+        <!-- Mapbox GL Directions -->
+        <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js'></script>
+        <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css' type='text/css' />
+
+        <!-- vac js -->
+        <script src="js/vacancies.js" defer></script>
+        <!-- jQery -->
+        <script src="js/jquery-3.4.1.min.js"></script>
+        <!-- popper js -->
+        <script src="js/popper.min.js"></script>
+        <!-- bootstrap js -->
+        <script src="js/bootstrap.js"></script>
+        <!-- bubble chart libraries-->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <!-- Custome scripts -->
+        <script src="js/insight.js"></script>
+        <!-- Career scripts -->
+        <script src="js/career.js"></script>
+    </body>
+</html>

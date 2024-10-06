@@ -2077,10 +2077,12 @@ form input[type="submit"]:focus {
 }
 
 #map {
-  border-radius: 3%;
   width: 100%;
-  height: 500px; 
+  height: 500px;
+  border-radius: 3%;
 }
+
+
 .button-container {
   margin-bottom: 20px;
 }
@@ -2104,12 +2106,35 @@ form input[type="submit"]:focus {
 }
 
 .dropdown-container {
-  display: none;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
 }
-.dropdown-container.active {
-  display: block;
-  margin: 30px;
+
+.dropdown-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 450px; 
 }
+
+label {
+  text-align: right;
+  margin-right: 10px;
+  white-space: nowrap;
+  width: 100px; 
+}
+
+select {
+  width: 250px; 
+  flex-grow: 1;
+}
+
+.job-multiline-options {
+  height: auto;
+}
+
+
 
 /* university detailed info block */
 .info-block {
