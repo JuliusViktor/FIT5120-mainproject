@@ -255,11 +255,7 @@ function submitQuiz() {
         // Hide loading indicator and display results
         document.getElementById('loading').style.display = 'none';
         document.getElementById('result').innerHTML = `
-            T: ${percentages.T}%<br>
-            E: ${percentages.E}%<br>
-            M: ${percentages.M}%<br>
-            S: ${percentages.S}%<br>
-            Data updated!
+            Data has been updated, please scroll down!
         `;
 
         // Update quiz part circles

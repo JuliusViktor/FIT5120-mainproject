@@ -2032,6 +2032,39 @@ form input[type="submit"]:focus {
   visibility: visible;
 }
 
+/* career page turn page button*/
+.turn-button1 {
+  border: 2px solid #ACA7CB;
+  background-color: white;
+  color: #ACA7CB;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  max-width: 300px;
+}
+
+.turn-button1.selected {
+  background-color: #ACA7CB;
+  color: white;
+}
+
+.turn-button2 {
+  border: 2px solid #ACA7CB;
+  background-color: white;
+  color: #ACA7CB;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  max-width: 300px;
+}
+
+.turn-button2.selected {
+  background-color: #ACA7CB;
+  color: white;
+}
+
 
 /* map part */
 .map_and_stats .box {
