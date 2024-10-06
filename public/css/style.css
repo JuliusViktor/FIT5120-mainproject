@@ -2033,37 +2033,36 @@ form input[type="submit"]:focus {
 }
 
 /* career page turn page button*/
-.turn-button1 {
-  border: 2px solid #ACA7CB;
-  background-color: white;
-  color: #ACA7CB;
-  border-radius: 8px;
-  padding: 10px 20px;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
-  max-width: 300px;
-}
-
-.turn-button1.selected {
+#turn-button1, #turn-button2 {
+  margin-top: 10px;
   background-color: #ACA7CB;
   color: white;
-}
-
-.turn-button2 {
-  border: 2px solid #ACA7CB;
-  background-color: white;
-  color: #ACA7CB;
-  border-radius: 8px;
+  border: 2px solid #ACA7CB; 
+  border-radius: 10px; 
   padding: 10px 20px;
+  font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
-  max-width: 300px;
+  transition: background-color 0.3s ease, color 0.3s ease; 
+  margin-bottom: 10px;
+  width: 100%; 
 }
 
-.turn-button2.selected {
-  background-color: #ACA7CB;
-  color: white;
+#turn-button1:hover, #turn-button2:hover {
+  background-color: white; 
+  color: #ACA7CB; 
 }
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin: -10px; 
+}
+
+.col-sm-6 {
+  padding: 10px;
+  flex: 1;
+}
+
 
 
 /* map part */
