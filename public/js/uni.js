@@ -10,6 +10,9 @@ const universities_major = [];
 const vacancies_info = [];
 
 
+
+
+
 document.addEventListener('DOMContentLoaded', function () {
     const map = new mapboxgl.Map({
         container: 'map',
@@ -98,14 +101,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
    
 
-    //map control part for vacancy information
-    document.getElementById('location_vac').addEventListener('change', function() {
-        const selectedState = this.value.toLowerCase();
-        const { center, zoom } = stateCenters[selectedState];
-        map.flyTo({ center, zoom });
-
-       
-    });
     
 
 
@@ -113,21 +108,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-    document.getElementById('universityInfoBtn').addEventListener('click', function() {
-        // add dropdwon menu related to university and remove dropdown menu related to job vacancies
-        document.getElementById('universityInfoDropdowns').classList.add('active');
-        document.getElementById('vacanciesDropdowns').classList.remove('active');
-    });
+    
+     
+        
+     
+  
 
-    document.getElementById('vacanciesBtn').addEventListener('click', function() {
-
-        // Remove existing markers
-        document.querySelectorAll('.mapboxgl-marker').forEach(marker => marker.remove());
-
-        // add dropdwon menu related to job vacancies and remove dropdown menu related to university
-        document.getElementById('vacanciesDropdowns').classList.add('active');
-        document.getElementById('universityInfoDropdowns').classList.remove('active');
-    });
+    
 });
 
 
@@ -216,32 +203,4 @@ fetch('json/ATAR.json')
 
 
 
-
-  /* load job vacancies data */
-  fetch('json/Stem_state_vacanies_final.json')
-  .then(response => response.json())
-  .then(data => {
-    
-
-    // Iterate over each vacancy object in the JSON array
-    data.forEach(vacancy => {
-      // Create an object for each vacancy with its attributes
-      const vacancyObject = {
-        level: vacancy.Level,
-        anzscoCode: vacancy.ANZSCO_CODE,
-        title: vacancy.Title,
-        state: vacancy.State,
-        year: vacancy.Year,
-        month: vacancy.Month,
-        numberOfVacancies: vacancy["Number of vacancies (thousand)"]
-      };
-
-      // Add the vacancy object to the array
-      vacancies_info.push(vacancyObject);
-    });
-
-    // You can now use the vacancies_info array as needed
-    console.log(vacancies_info);
-  })
-  .catch(error => console.error('Error loading JSON:', error));
 

@@ -87,13 +87,8 @@
                                     >
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="uni.html"
+                                    <a class="nav-link" href="map.html"
                                         >Uni</a
-                                    >
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="vacancies.html"
-                                        >Vacancies</a
                                     >
                                 </li>
                                 <!-- <li class="nav-item">
@@ -101,6 +96,11 @@
                                         >Contact</a
                                     >
                                 </li> -->
+                                <li class="nav-item">
+                                    <a class="nav-link" href="vacancies.html"
+                                        >Vacancies</a
+                                    >
+                                </li>
 
                                 <form class="form-inline">
                                     <button
@@ -124,86 +124,86 @@
                 <div class="container">
                     <div class="box">
 
-                        <h1>Employment Insights</h1>
-                        <p>This page provides valuable recent data on job vacancies in STEM fields across different states. 
-                            The darker the colour of the map indicates that more jobs are available in that state as a percentage of the total number of jobs. </p>
+                        <h1>Uni Inforamion and STEM Majors Admissions</h1>
+                        <p>This page provides Universities basic information and valuable insights into the 
+                            admission scores for various STEM programs. </p>
 
-                        <div class="row">
-                            <div class="col-7">
 
-                                <div class="container mt-5">
-                                    <div class="row justify-content-center">
-                                        <div class="col-md-8">
-                                            <div class="dropdown-container">
-                                                <div class="dropdown-wrapper">
-                                                    <label-dr for="location_uni">Location:</label-dr>
-                                                    <select id="location_uni" class="form-select">
-                                                        <option value="all">All</option>
-                                                        <option value="nsw">New South Wales</option>
-                                                        <option value="vic">Victoria</option>
-                                                        <option value="qld">Queensland</option>
-                                                        <option value="sa">South Australia</option>
-                                                        <option value="wa">Western Australia</option>
-                                                        <option value="tas">Tasmania</option>
-                                                        <option value="nt">Northern Territory</option>
-                                                        <option value="act">Australian Capital Territory</option>
-                                                    </select>
+                            <div class="row">
+                                <div class="col-7">
+    
+                                    <div class="container mt-5">
+                                        <div class="row justify-content-center">
+                                            <div class="col-md-8">
+                                                <div class="dropdown-container">
+                                                    <div class="dropdown-wrapper">
+                                                        <label-dr for="location_uni">Location:</label-dr>
+                                                        <select id="location_uni" class="form-select">
+                                                            <option value="all">All</option>
+                                                            <option value="nsw">New South Wales</option>
+                                                            <option value="vic">Victoria</option>
+                                                            <option value="qld">Queensland</option>
+                                                            <option value="sa">South Australia</option>
+                                                            <option value="wa">Western Australia</option>
+                                                            <option value="tas">Tasmania</option>
+                                                            <option value="nt">Northern Territory</option>
+                                                            <option value="act">Australian Capital Territory</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
-                                            </div>
-                            
-                                            <div class="dropdown-container">
-                                                <div class="dropdown-wrapper">
-                                                    <label-dr for="atarScore">ATAR:</label-dr>
-                                                    <select id="atarScore" class="form-select">
-                                                        <option value="All">All</option>
-                                                        <option value="49">Minimum Admission Score below 50</option>
-                                                        <option value="50">Minimum Admission Score Over 50</option>
-                                                        <option value="60">Minimum Admission Score Over 60</option>
-                                                        <option value="70">Minimum Admission Score Over 70</option>
-                                                        <option value="80">Minimum Admission Score Over 80</option>
-                                                    </select>
+                                
+                                                <div class="dropdown-container">
+                                                    <div class="dropdown-wrapper">
+                                                        <label-dr for="atarScore">ATAR:</label-dr>
+                                                        <select id="atarScore" class="form-select">
+                                                            <option value="All">All</option>
+                                                            <option value="49">Minimum Admission Score below 50</option>
+                                                            <option value="50">Minimum Admission Score Over 50</option>
+                                                            <option value="60">Minimum Admission Score Over 60</option>
+                                                            <option value="70">Minimum Admission Score Over 70</option>
+                                                            <option value="80">Minimum Admission Score Over 80</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                
+                                                
                             
-                                            
-                        
+                                            </div>
                                         </div>
                                     </div>
+                
+                                
+                                        
+                                        
+                                            
+                                            
+                                    <div id="map" style="background-color: #f0f0f0;"></div>
+                                            
+                                            
+                                            
+                                            
+                                        
+                
+                                    
+    
                                 </div>
-            
-                            
+    
+    
+                                <div class="col-5">
+    
+                                    
+                
+                                    
+                                        <div id="infoBlock" class="info-block">
+                                            <h2>Uni Info</h2>
+                                            <p id="universityDetails">See details here.</p>
+                                        </div>
                                     
                                     
-                                        
-                                        
-                                <div id="map" style="background-color: #f0f0f0;"></div>
-                                        
-                                        
-                                        
-                                        
                                     
-            
-                                
-
+                                </div>
+    
                             </div>
-
-
-                            <div class="col-5">
-
-                                
-            
-                                
-                                    <div id="infoBlock" class="info-block">
-                                        <h2>Uni Info</h2>
-                                        <p id="universityDetails">See details here.</p>
-                                    </div>
-                                
-                                
-                                
-                            </div>
-
-                        </div>
-
                     </div>
                 
                     
@@ -227,8 +227,8 @@
         <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js'></script>
         <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css' type='text/css' />
 
-        <!-- vac js -->
-        <script src="js/vacancies.js" defer></script>
+        <!-- map js -->
+        <script src="js/uni.js" defer></script>
         <!-- jQery -->
         <script src="js/jquery-3.4.1.min.js"></script>
         <!-- popper js -->

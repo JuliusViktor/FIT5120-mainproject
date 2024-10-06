@@ -2118,7 +2118,7 @@ form input[type="submit"]:focus {
   max-width: 450px; 
 }
 
-label {
+label-dr {
   text-align: right;
   margin-right: 10px;
   white-space: nowrap;
