@@ -17,8 +17,18 @@ document.addEventListener('DOMContentLoaded', function () {
         zoom: 3
     });
 
+
+
+
+    map.on('load', function() {
+      addStatesBoundaries(map);
+    
+      
+    });
+
+
     // Direction control section
-    const directions = new MapboxDirections({
+    /* const directions = new MapboxDirections({
         accessToken: mapboxgl.accessToken,
         unit: 'metric',
         profile: 'mapbox/cycling', // Set default mode to cycling
@@ -30,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
             profileSwitcher: true // Ensure mode switching options are displayed
         },
         flyTo: false
-    });
+    }); */
 
     //map.addControl(directions, 'top-left');
 
@@ -87,10 +97,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Normalize the selected job title: remove spaces, commas, and 'and'
         const normalizedSelectedJob = selectedJob.toLowerCase().replace(/[, ]/g, '').replace(/and/g, '');
       
-        console.log('vacancy.title', vacancy.title);
-        console.log('selectedJob', selectedJob);
-        console.log('normalizedVacancyTitle', normalizedVacancyTitle);
-        console.log('normalizedSelectedJob', normalizedSelectedJob);
+        
       
         return (selectedState === 'ALL' || vacancy.state === selectedState) &&
                (selectedYear === 'All Year' || vacancy.year.toString() === selectedYear) &&
@@ -155,4 +162,45 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log(vacancies_info);
   })
   .catch(error => console.error('Error loading JSON:', error));
+
+  function addStatesBoundaries(map) {
+    map.addSource('states', {
+        type: 'geojson',
+        data: '../json/australian-states.geojson' 
+    });
+
+    map.addLayer({
+        'id': 'state-fills',
+        'type': 'fill',
+        'source': 'states',
+        'layout': {},
+        'paint': {
+            'fill-color': [
+                'match',
+                ['get', 'STATE_NAME'],
+                'New South Wales', '#FF5733',
+                'Victoria', '#33FF57',
+                'Queensland', '#3357FF',
+                'South Australia', '#FF33F1',
+                'Western Australia', '#33FFF1',
+                'Tasmania', '#F1FF33',
+                'Northern Territory', '#FF8C33',
+                'Australian Capital Territory', '#8C33FF',
+                '#AAAAAA' // default color
+            ],
+            'fill-opacity': 0.5
+        }
+    });
+
+    map.addLayer({
+        'id': 'state-borders',
+        'type': 'line',
+        'source': 'states',
+        'layout': {},
+        'paint': {
+            'line-color': '#000',
+            'line-width': 1
+        }
+    });
+}
 
