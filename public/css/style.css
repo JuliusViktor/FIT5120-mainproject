@@ -1140,7 +1140,7 @@ fill: #ffffff;
 }
 
 /* Style for the button to match the look in the image */
-#show-visualization-button {
+#show-me-button {
   margin-bottom: 5rem;
   background-color: #33436d;  /* Dark blue background */
   color: white;  /* White text color */
@@ -1156,14 +1156,14 @@ fill: #ffffff;
 }
 
 /* Hover effect */
-#show-visualization-button:hover {
+#show-me-button:hover {
   background-color: #2d3a5b;  /* Slightly darker shade of blue */
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);  /* Slightly deeper shadow */
   transform: translateY(-2px);  /* Small lift effect */
 }
 
 /* Active effect (when button is clicked) */
-#show-visualization-button:active {
+#show-me-button:active {
   background-color: #2d3a5b;  /* Keep hover color */
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);  /* Return to a smaller shadow */
   transform: translateY(0px);  /* Return to original position */
