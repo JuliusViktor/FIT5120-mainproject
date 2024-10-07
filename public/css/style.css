@@ -2071,6 +2071,10 @@ form input[type="submit"]:focus {
 
 
 /* map part */
+.map_and_stats {
+  flex:1
+}
+
 .map_and_stats .box {
   text-align: center;
   margin-top: 45px;
