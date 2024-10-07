@@ -69,27 +69,39 @@ document.addEventListener('DOMContentLoaded', function () {
                 .setPopup(new mapboxgl.Popup().setText(university.universityName))
                 .addTo(map);
 
-            marker.getElement().addEventListener('click', () => {
-                const matchingUniversity = universities_major.find(u => u.universityAcronym === university.universityAcronym);
-
-                let lowestAtarCourseName = 'No data available';
-                let lowestAtarScore = 'No data available';
-
-                if (matchingUniversity) {
-                    lowestAtarCourseName = matchingUniversity.lowestAtarCourseName || 'No data available';
-                    lowestAtarScore = matchingUniversity.lowestAtarScore || 'No data available';
-                }
-
-                const details = `
-                    <strong>Name:</strong> ${university.universityName} (${university.universityAcronym})<br>
-                    <strong>Campus:</strong> ${university.campusName} (${university.campusType})<br>
-                    <strong>Address:</strong> ${university.campusAddress}, ${university.state}, ${university.country}, ${university.postcode}<br>
-                    <strong>Lowest ATAR Major:</strong> ${lowestAtarCourseName}<br>
-                    <strong>Lowest ATAR Score:</strong> ${lowestAtarScore}<br>
-                `;
-                document.getElementById('universityDetails').innerHTML = details;
-            });
-        });
+                marker.getElement().addEventListener('click', () => {
+                  const matchingUniversity = universities_major.find(u => u.universityAcronym === university.universityAcronym);
+              
+                  let lowestAtarCourseName = 'No data available';
+                  let lowestAtarScore = 'No data available';
+                  let majorsAndScoresList = '<p>No data available</p>';
+              
+                  if (matchingUniversity) {
+                      lowestAtarCourseName = matchingUniversity.lowestAtarCourseName || 'No data available';
+                      lowestAtarScore = matchingUniversity.lowestAtarScore || 'No data available';
+              
+                      if (lowestAtarScore !== 'No data available' && matchingUniversity.majorsAndScores) {
+                          majorsAndScoresList = '<ul style="max-height: 200px; overflow-y: auto;">';
+                          matchingUniversity.majorsAndScores.forEach(item => {
+                              majorsAndScoresList += `<li>${item.major}: ${item.score}</li>`;
+                          });
+                          majorsAndScoresList += '</ul>';
+                      }
+                  }
+              
+                  const details = `
+                      <strong>Name:</strong> ${university.universityName} (${university.universityAcronym})<br>
+                      <strong>Campus:</strong> ${university.campusName} (${university.campusType})<br>
+                      <strong>Address:</strong> ${university.campusAddress}, ${university.state}, ${university.country}, ${university.postcode}<br>
+                      <strong>Lowest ATAR Major:</strong> ${lowestAtarCourseName}<br>
+                      <strong>Lowest ATAR Score:</strong> ${lowestAtarScore}<br>
+                      <strong>Majors and Scores:</strong><br>
+                      ${majorsAndScoresList}
+                  `;
+                  document.getElementById('universityDetails').innerHTML = details;
+              });
+              
+      });
     }
 
     document.getElementById('location_uni').addEventListener('change', function() {
