@@ -1,4 +1,3 @@
-
 const courses = {
     "Science": "1. Biology\n2. Chemistry\n3. Earth and Environmental Science\n4. Physics",
     "Technology": "1. Information and Communication Technology\n2. Computer Science / Computing Studies\n3. Design and Technology\n4. Digital Technologies\n5. Mathematics and Data Analysis",
@@ -10,7 +9,7 @@ function clearInput() {
     document.querySelector('.search-bar').value = '';
 }
 
-document.querySelector('.submit-button').addEventListener('click', function() {
+document.querySelector('.submit-button').addEventListener('click', function () {
     var statusBar = document.getElementById('suggest-status-bar');
     var searchInput = document.querySelector('.search-bar').value.trim();
     var found = false;
@@ -29,7 +28,7 @@ document.querySelector('.submit-button').addEventListener('click', function() {
     }
 
     // Simulate an asynchronous operation
-    setTimeout(function() {
+    setTimeout(function () {
         recommendations1.forEach(category => {
             if (category.Rcommendation_list.includes(searchInput)) {
                 found = true;
@@ -106,47 +105,47 @@ const recommendations1 = [
     {
         "STEM_CAT": "Science",
         "Rcommendation_list": [
-            "3D Animator", "Horticulturist", "Paleontologist", "Dentist", "Paramedic", 
-            "Diagnostic Medical Sonographer", "Hydrologist", "Park Naturalist", "Doctor", 
-            "Pharmacist", "Ecologist", "Lab Research Technician", "Physicist", "Ecologist", 
-            "Physicist", "Archaeologist", "Astrobiologist", "Psychologist", "Astronaut", 
-            "Marine Biologist", "Astronomer", "Radiologic Technician", "Radiologist", 
-            "Environmental Scientist", "Meteorologist", "Science Illustrator", "Epidemiologist", 
-            "Microbiologist", "Sociologist", "Exercise Physiologist", "Museum Conservator", 
-            "Botanist", "Forensic Scientist", "Nutritionist", "Chemist", "Forensic Pathologist", 
+            "3D Animator", "Horticulturist", "Paleontologist", "Dentist", "Paramedic",
+            "Diagnostic Medical Sonographer", "Hydrologist", "Park Naturalist", "Doctor",
+            "Pharmacist", "Ecologist", "Lab Research Technician", "Physicist", "Ecologist",
+            "Physicist", "Archaeologist", "Astrobiologist", "Psychologist", "Astronaut",
+            "Marine Biologist", "Astronomer", "Radiologic Technician", "Radiologist",
+            "Environmental Scientist", "Meteorologist", "Science Illustrator", "Epidemiologist",
+            "Microbiologist", "Sociologist", "Exercise Physiologist", "Museum Conservator",
+            "Botanist", "Forensic Scientist", "Nutritionist", "Chemist", "Forensic Pathologist",
             "Climate Scientist", "Geologist", "Oceanographer", "Genetic Counselor", "Zoologist"
         ]
     },
     {
         "STEM_CAT": "Technology",
         "Rcommendation_list": [
-            "Information Security Analyst", "Educational Technologist", "Librarian", 
-            "Lighting Designer", "Production Engineer", "Market Research Analyst", 
-            "Audio Engineer", "Computer Graphic Designer", "Computer Hardware Engineer", 
-            "Computer Software Developer", "Computer Systems Analyst", "Graphics Designer", 
-            "Video Game Designer", "Special Effects Technician", "Biometrics Technician", 
+            "Information Security Analyst", "Educational Technologist", "Librarian",
+            "Lighting Designer", "Production Engineer", "Market Research Analyst",
+            "Audio Engineer", "Computer Graphic Designer", "Computer Hardware Engineer",
+            "Computer Software Developer", "Computer Systems Analyst", "Graphics Designer",
+            "Video Game Designer", "Special Effects Technician", "Biometrics Technician",
             "Nanosystems Engineer", "CAD Technician", "Solar Technician"
         ]
     },
     {
         "STEM_CAT": "Engineering",
         "Rcommendation_list": [
-            "HVACR Technician", "Aerospace Engineer", "Industrial Designer", 
-            "Agricultural Engineer", "Agriculturalist", "Air Traffic Controller", 
-            "Architect", "Automotive Designer", "Automotive Service Technician", 
-            "Avionics", "Biomedical Engineer", "Building Inspector", "Chemical Engineer", 
-            "Chemical Technician", "Civil Engineer", "Construction Supervisor", 
-            "Electrical Engineer", "Electrician", "Environmental Engineer", "General Contractor", 
-            "Mechanical Engineer", "Medical Roboticist", "Naval Architect", "Nuclear Engineer", 
-            "Robotics Technician", "Safety Engineer", "Structural Engineer", "Surveyor", 
+            "HVACR Technician", "Aerospace Engineer", "Industrial Designer",
+            "Agricultural Engineer", "Agriculturalist", "Air Traffic Controller",
+            "Architect", "Automotive Designer", "Automotive Service Technician",
+            "Avionics", "Biomedical Engineer", "Building Inspector", "Chemical Engineer",
+            "Chemical Technician", "Civil Engineer", "Construction Supervisor",
+            "Electrical Engineer", "Electrician", "Environmental Engineer", "General Contractor",
+            "Mechanical Engineer", "Medical Roboticist", "Naval Architect", "Nuclear Engineer",
+            "Robotics Technician", "Safety Engineer", "Structural Engineer", "Surveyor",
             "Urban Planner"
         ]
     },
     {
         "STEM_CAT": "Mathematics",
         "Rcommendation_list": [
-            "Actuary", "Accountant", "Economist", "Financial Analyst", "Mathematician", 
-            "Mathematics Teacher", "Statistician", "Forensic Accountant", "Stockbroker", 
+            "Actuary", "Accountant", "Economist", "Financial Analyst", "Mathematician",
+            "Mathematics Teacher", "Statistician", "Forensic Accountant", "Stockbroker",
             "Quantity Surveyor"
         ]
     }
@@ -189,12 +188,12 @@ const answers = {};
 function selectAnswer(quizId, answerCode) {
     const quizBlock = document.getElementById(quizId);
     const buttons = quizBlock.getElementsByClassName('quiz-button');
-    
+
     // Remove 'selected' class from all buttons
     for (let button of buttons) {
         button.classList.remove('selected');
     }
-    
+
     // Find and select the button with the specified answer code
     const selectedButton = Array.from(buttons).find(button => {
         return button.getAttribute('data-answer') === answerCode;
@@ -205,7 +204,7 @@ function selectAnswer(quizId, answerCode) {
     } else {
         console.log('Button not found for answer code:', answerCode);
     }
-    
+
     // Store the selected answer
     answers[quizId] = answerCode;
 }
@@ -270,10 +269,10 @@ function submitQuiz() {
 }
 
 
-        const recommendations = [
-            {
-                "STEM_CAT": "Science",
-                "Rcommendation_list": `
+const recommendations = [
+    {
+        "STEM_CAT": "Science",
+        "Rcommendation_list": `
                     1. 3D Animator
                     2. Horticulturist
                     3. Paleontologist
@@ -316,10 +315,10 @@ function submitQuiz() {
                     40. Genetic Counselor
                     41. Zoologist
                 `
-            },
-            {
-                "STEM_CAT": "Technology",
-                "Rcommendation_list": `
+    },
+    {
+        "STEM_CAT": "Technology",
+        "Rcommendation_list": `
                     1. Information Security Analyst
                     2. Educational Technologist
                     3. Librarian
@@ -339,10 +338,10 @@ function submitQuiz() {
                     17. CAD Technician
                     18. Solar Technician
                 `
-            },
-            {
-                "STEM_CAT": "Engineering",
-                "Rcommendation_list": `
+    },
+    {
+        "STEM_CAT": "Engineering",
+        "Rcommendation_list": `
                     1. HVACR Technician
                     2. Aerospace Engineer
                     3. Industrial Designer
@@ -373,10 +372,10 @@ function submitQuiz() {
                     28. Surveyor
                     29. Urban Planner
                 `
-            },
-            {
-                "STEM_CAT": "Mathematics",
-                "Rcommendation_list": `
+    },
+    {
+        "STEM_CAT": "Mathematics",
+        "Rcommendation_list": `
                     1. Actuary
                     2. Accountant
                     3. Economist
@@ -388,26 +387,50 @@ function submitQuiz() {
                     9. Stockbroker
                     10. Quantity Surveyor
                 `
-            }
-        ];
+    }
+];
 
-        function displayCareerRecommendations(percentages) {
-            
-            
-            let highestCategory = '';
-            let highestPercentage = 0;
+function displayCareerRecommendations(percentages) {
 
-            for (let category in percentages) {
-                if (percentages[category] > highestPercentage) {
-                    highestPercentage = percentages[category];
-                    highestCategory = category;
-                }
-            }
 
-            const recommendation = recommendations.find(rec => rec.STEM_CAT.charAt(0) === highestCategory);
-            document.getElementById('occupation-guideline').innerText = recommendation ? recommendation.Rcommendation_list : 'No recommendations available';
+    let highestCategory = '';
+    let highestPercentage = 0;
+
+    for (let category in percentages) {
+        if (percentages[category] > highestPercentage) {
+            highestPercentage = percentages[category];
+            highestCategory = category;
         }
+    }
 
+    const recommendation = recommendations.find(rec => rec.STEM_CAT.charAt(0) === highestCategory);
+    document.getElementById('occupation-guideline').innerText = recommendation ? recommendation.Rcommendation_list : 'No recommendations available';
+}
 
+document.addEventListener("DOMContentLoaded", function () {
+    //Scroll to quiz button
+    const scrollToQuizBtn = document.getElementById("scrollToQuizBtn");
+    scrollToQuizBtn.addEventListener("click", function () {
+        document.querySelector(".career_quiz_section").scrollIntoView({
+            behavior: "smooth",
+        });
+    });
 
-    
+    // Scroll up bottom
+    const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            scrollToTopBtn.classList.add("show");
+        } else {
+            scrollToTopBtn.classList.remove("show");
+        }
+    };
+
+    // When the user clicks on the button, scroll to the top of the document
+    scrollToTopBtn.onclick = function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+});
