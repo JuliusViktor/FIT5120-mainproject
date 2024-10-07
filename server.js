@@ -2,8 +2,10 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 const session = require("express-session");
+const https = require("https");
+const fs = require("fs");
 const app = express();
-const port = 80;
+const port = 443; // Change to 443 for HTTPS
 const pool = require("./database");
 
 // Use body-parser middleware to parse JSON request bodies
@@ -15,7 +17,7 @@ app.use(
         secret: "secret_key",
         resave: false,
         saveUninitialized: true,
-        cookie: { secure: false }, // Set to true if using HTTPS
+        cookie: { secure: true }, // Set to true if using HTTPS
     })
 );
 
@@ -74,6 +76,17 @@ app.use((req, res) => {
     res.status(404).sendFile(path.join(__dirname, "public", "404.html"));
 });
 
-app.listen(port, () => {
-    console.log(`Server running on http://localhost:${port}`);
+// HTTPS options
+const httpsOptions = {
+    key: fs.readFileSync('private.key'),
+    cert: fs.readFileSync('certificate.crt'),
+    ca: fs.readFileSync('ca_bundle.crt')
+};
+
+// Create HTTPS server
+const server = https.createServer(httpsOptions, app);
+
+// Change app.listen to server.listen
+server.listen(port, () => {
+    console.log(`HTTPS Server running on https://localhost:${port}`);
 });
