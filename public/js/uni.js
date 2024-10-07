@@ -66,32 +66,36 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Add new markers
         filteredUniversities.forEach(university => {
-            const marker = new mapboxgl.Marker()
-                .setLngLat([university.longitude, university.latitude])
-                .setPopup(new mapboxgl.Popup().setText(university.universityName))
-                .addTo(map);
-            
-
-            universities_major.forEach(obj => {
-                console.log(`universityName: ${obj.universityName}, lowestAtarCourseName: ${obj.lowestAtarCourseName}, lowestAtarScore: ${obj.lowestAtarScore}`);
-              });
-
-              universities_major.forEach(obj => {
-                console.log(`universityName: ${obj.universityName}, lowestAtarCourseName: ${obj.lowestAtarCourseName}, lowestAtarScore: ${obj.lowestAtarScore}`);
-              });
-              
-
-            // Add click event to update the information block
-            marker.getElement().addEventListener('click', () => {
-                const details = `
-                    <strong>Name:</strong> ${university.universityName} (${university.universityAcronym})<br>
-                    <strong>Campus:</strong> ${university.campusName} (${university.campusType})<br>
-                    <strong>Address:</strong> ${university.campusAddress}, ${university.state}, ${university.country}, ${university.postcode}<br> 
-                        
-                `;
-                document.getElementById('universityDetails').innerHTML = details;
-            });
+          const marker = new mapboxgl.Marker()
+              .setLngLat([university.longitude, university.latitude])
+              .setPopup(new mapboxgl.Popup().setText(university.universityName))
+              .addTo(map);
+      
+          // Add click event to update the information block
+          marker.getElement().addEventListener('click', () => {
+              // Find the matching university in universities_major
+              const matchingUniversity = universities_major.find(u => u.universityAcronym === university.universityAcronym);
+      
+              let lowestAtarCourseName = 'No data available';
+              let lowestAtarScore = 'No data available';
+      
+              if (matchingUniversity) {
+                  lowestAtarCourseName = matchingUniversity.lowestAtarCourseName || 'No data available';
+                  lowestAtarScore = matchingUniversity.lowestAtarScore || 'No data available';
+              }
+      
+              const details = `
+                  <strong>Name:</strong> ${university.universityName} (${university.universityAcronym})<br>
+                  <strong>Campus:</strong> ${university.campusName} (${university.campusType})<br>
+                  <strong>Address:</strong> ${university.campusAddress}, ${university.state}, ${university.country}, ${university.postcode}<br>
+                  <strong>Lowest ATAR Course:</strong> ${lowestAtarCourseName}<br>
+                  <strong>Lowest ATAR Score:</strong> ${lowestAtarScore}<br>
+              `;
+              document.getElementById('universityDetails').innerHTML = details;
+          });
         });
+      
+      
 
     });
 
@@ -163,29 +167,33 @@ fetch('json/ATAR.json')
       const university = course['University'];
       const courseName = course['Course name'];
       const atarScore = course['ATAR Score'];
+      const universityAcronym = course['University_Acronym'];
 
       if (!acc[university]) {
-        acc[university] = [];
+        acc[university] = {
+          courses: [],
+          universityAcronym: universityAcronym
+        };
       }
-      acc[university].push({ courseName, atarScore });
+      acc[university].courses.push({ courseName, atarScore });
       return acc;
     }, {});
 
-    const universities_major = [];
 
-    for (const [universityName, courses] of Object.entries(universityGroups)) {
+    for (const [universityName, universityData] of Object.entries(universityGroups)) {
       // Sort courses by ATAR score
-      courses.sort((a, b) => a.atarScore - b.atarScore);
+      universityData.courses.sort((a, b) => a.atarScore - b.atarScore);
 
       // Get the course with the lowest ATAR score
-      const lowestAtarCourse = courses[0];
+      const lowestAtarCourse = universityData.courses[0];
       const lowestAtarCourseName = lowestAtarCourse.courseName;
       const lowestAtarScore = lowestAtarCourse.atarScore;
 
       // Create university object
       const universityObject = {
         universityName,
-        courses,
+        universityAcronym: universityData.universityAcronym,
+        courses: universityData.courses,
         lowestAtarCourseName,
         lowestAtarScore
       };
