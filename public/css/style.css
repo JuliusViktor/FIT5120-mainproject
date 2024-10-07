@@ -134,6 +134,11 @@ a:focus {
   font-family: 'Lexend Deca', serif;
 }
 
+.logo-image {
+  height: 45px;
+  width: auto;
+}
+
 .navbar-brand span {
   font-weight: bold;
   font-size: 32px;
