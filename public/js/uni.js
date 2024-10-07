@@ -132,43 +132,48 @@ function loadUniversityInfo() {
 // Load university majors
 function loadUniversityMajors() {
   return fetch('json/ATAR.json')
-      .then(response => response.json())
-      .then(data => {
-          const universityGroups = data.reduce((acc, course) => {
-              const university = course['University'];
-              const courseName = course['Course name'];
-              const atarScore = course['ATAR Score'];
-              const universityAcronym = course['University_Acronym'];
+    .then(response => response.json())
+    .then(data => {
+      const universityGroups = data.reduce((acc, course) => {
+        const university = course['University'];
+        const courseName = course['Course name'];
+        const atarScore = course['ATAR Score'];
+        const universityAcronym = course['University_Acronym'];
 
-              if (!acc[university]) {
-                  acc[university] = {
-                      courses: [],
-                      universityAcronym: universityAcronym
-                  };
-              }
-              acc[university].courses.push({ courseName, atarScore });
-              return acc;
-          }, {});
+        if (!acc[university]) {
+          acc[university] = {
+            courses: [],
+            universityAcronym: universityAcronym,
+            majorsAndScores: [] // New property to store majors and scores
+          };
+        }
+        acc[university].courses.push({ courseName, atarScore });
+        acc[university].majorsAndScores.push({ major: courseName, score: atarScore }); // Add major and score
+        return acc;
+      }, {});
 
-          for (const [universityName, universityData] of Object.entries(universityGroups)) {
-              universityData.courses.sort((a, b) => a.atarScore - b.atarScore);
+      for (const [universityName, universityData] of Object.entries(universityGroups)) {
+        universityData.courses.sort((a, b) => a.atarScore - b.atarScore);
 
-              const lowestAtarCourse = universityData.courses[0];
-              const lowestAtarCourseName = lowestAtarCourse ? lowestAtarCourse.courseName : 'No data available';
-              const lowestAtarScore = lowestAtarCourse ? lowestAtarCourse.atarScore : 'No data available';
+        const lowestAtarCourse = universityData.courses[0];
+        const lowestAtarCourseName = lowestAtarCourse ? lowestAtarCourse.courseName : 'No data available';
+        const lowestAtarScore = lowestAtarCourse ? lowestAtarCourse.atarScore : 'No data available';
 
-              const universityObject = {
-                  universityName,
-                  universityAcronym: universityData.universityAcronym,
-                  courses: universityData.courses,
-                  lowestAtarCourseName,
-                  lowestAtarScore
-              };
+        const universityObject = {
+          universityName,
+          universityAcronym: universityData.universityAcronym,
+          courses: universityData.courses,
+          lowestAtarCourseName,
+          lowestAtarScore,
+          majorsAndScores: universityData.majorsAndScores // Add the new property to universityObject
+        };
 
-              universities_major.push(universityObject);
-          }
-      })
-      .catch(error => console.error('Error loading university majors:', error));
+        universities_major.push(universityObject);
+      }
+
+      console.log(universities_major)
+    })
+    .catch(error => console.error('Error loading university majors:', error));
 }
 
 // Load all data and initialize
