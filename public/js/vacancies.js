@@ -57,13 +57,18 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         if (filteredVacancies.length > 0) {
+            const monthNames = {
+                1: 'Jan', 2: 'Feb', 3: 'Mar', 4: 'Apr', 5: 'May', 6: 'Jun',
+                7: 'Jul', 8: 'Aug', 9: 'Sep', 10: 'Oct', 11: 'Nov', 12: 'Dec'
+            };
+        
             let infoHTML = '<ul>';
             filteredVacancies.forEach(vacancy => {
                 infoHTML += `<li>
                     <strong>${vacancy.title}</strong><br>
                     State: ${vacancy.state}<br>
                     Year: ${vacancy.year}<br>
-                    Month: ${vacancy.month}<br>
+                    Month: ${monthNames[vacancy.month] || vacancy.month}<br>
                     Number of Vacancies: ${Math.floor(vacancy.numberOfVacancies)}
                 </li>`;
             });
@@ -72,6 +77,7 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             universityDetails.innerHTML = 'No matching vacancies found.';
         }
+        
     }
 
     // New function to update map colors based on vacancies
