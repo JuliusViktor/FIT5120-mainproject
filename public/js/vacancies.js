@@ -137,7 +137,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
         } else {
             
-            map.setPaintProperty('state-fills', 'fill-color', '#E6E6E6');
+            const stateFullNames = {
+                'NSW': 'New South Wales',
+                'VIC': 'Victoria',
+                'QLD': 'Queensland',
+                'SA': 'South Australia',
+                'WA': 'Western Australia',
+                'TAS': 'Tasmania',
+                'NT': 'Northern Territory',
+                'ACT': 'Australian Capital Territory'
+            };
+    
+            // set the filling color
+            map.setPaintProperty('state-fills', 'fill-color', [
+                'match',
+                ['get', 'STATE_NAME'],
+                stateFullNames[selectedState], '#2a801b', // selected state is setting to specific color
+                '#E6E6E6' // orthers state key grey
+            ]);
         }
     }
 
