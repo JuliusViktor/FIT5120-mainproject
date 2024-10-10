@@ -256,9 +256,11 @@ function submitQuiz() {
 
         // Hide loading indicator and display results
         document.getElementById('loading').style.display = 'none';
-        document.getElementById('result').innerHTML = `
-            Data has been updated, please scroll down!
-        `;
+        document.getElementById('result').innerHTML = '';
+        window.scrollTo({
+            top: window.scrollY + 800,
+            behavior: 'smooth'
+        });
 
         // Update quiz part circles
         updatePercentage('percentage1', percentages.S); // Science
