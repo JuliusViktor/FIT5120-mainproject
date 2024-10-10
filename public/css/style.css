@@ -1881,6 +1881,24 @@ form input[type="submit"]:focus {
   color: #4B0082;
 }
 
+#custom-btn-box a {
+  display: inline-block;
+  padding: 12px 45px;
+  background-color: #4B0082;
+  border: 1px solid #4B0082;
+  color: #ffffff;
+  border-radius: 0;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  margin-top: 10px;
+  font-weight: 700;
+}
+
+#custom-btn-box .detail-box a:hover {
+background-color: transparent;
+color: #4B0082;
+}
+
 .home_slider_section .img-box img {
   width: 100%;
 }
