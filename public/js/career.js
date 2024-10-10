@@ -258,7 +258,7 @@ function submitQuiz() {
         document.getElementById('loading').style.display = 'none';
         document.getElementById('result').innerHTML = '';
         window.scrollTo({
-            top: window.scrollY + 800,
+            top: window.scrollY + 700,
             behavior: 'smooth'
         });
 
