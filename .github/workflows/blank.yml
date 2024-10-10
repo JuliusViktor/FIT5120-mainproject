@@ -27,6 +27,6 @@ jobs:
       - name: Pull image from docker hub
         run: docker pull ghoang0004/fit5120-ausee:latest
       - name: Delete old container
-        run: docker rm -f nodejs-app-container 
+        run: docker rm -f nodejs-app-container || true
       - name: Run docker container
-        run: docker run -d -p 80:80 --name nodejs-app-container ghoang0004/fit5120-ausee
+        run: docker run -d -p 443:443 --name nodejs-app-container ghoang0004/fit5120-ausee

@@ -9,11 +9,16 @@ COPY package*.json ./
 # Install dependencies
 RUN npm install
 
+# Copy SSL certificates
+COPY ./private.key ./
+COPY ./certificate.crt ./
+COPY ./ca_bundle.crt ./
+
 # Copy the rest of the application
 COPY . .
 
-# Expose the port
-EXPOSE 80
+# Expose the HTTPS port
+EXPOSE 443
 
 # Start the application
 CMD ["npm", "start"]
