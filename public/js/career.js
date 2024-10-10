@@ -29,37 +29,40 @@ document.querySelector('.submit-button').addEventListener('click', function () {
 
     // Simulate an asynchronous operation
     setTimeout(function () {
+        let searchInputLower = searchInput.toLowerCase();
         recommendations1.forEach(category => {
-            if (category.Rcommendation_list.includes(searchInput)) {
+            let lowercaseList = category.Rcommendation_list.map(item => item.toLowerCase());
+            if (lowercaseList.includes(searchInputLower)) {
                 found = true;
                 matchedCategory = category.STEM_CAT;
             }
         });
-
+    
         if (found) {
             statusBar.textContent = 'Searching successful, data below has been updated';
             statusBar.className = 'status-bar success';
-
+    
             // Display the relevant courses
             document.getElementById('subject-guideline').textContent = courses[matchedCategory];
-
+    
             // Update percentages
             updatePercentages(matchedCategory);
         } else {
             statusBar.textContent = 'You entered a profession that is not on the list.';
             statusBar.className = 'status-bar fail';
             alert('The profession you entered is not on the list. Please try again.');
-
+    
             // Reset percentages to X
             updatePercentage('percentage5', 'X');
             updatePercentage('percentage6', 'X');
             updatePercentage('percentage7', 'X');
             updatePercentage('percentage8', 'X');
-
+    
             // Clear the subject guideline
             document.getElementById('subject-guideline').textContent = '';
         }
     }, 2000); // Simulate a 2-second loading time
+    
 });
 
 function updatePercentages(category) {

@@ -857,6 +857,7 @@ a:focus {
     padding: 45px 50px;
     border-radius: 5px;
     color: #ffffff;
+    cursor: pointer;
 }
 
 .detail-box h5 {
@@ -890,9 +891,6 @@ a:focus {
   transform: translateY(-5px);
 }
 
-.box {
-  cursor: pointer;
-}
 
 
 
