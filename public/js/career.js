@@ -215,7 +215,7 @@ function selectAnswer(quizId, answerCode) {
 
 // Function to submit the quiz
 function submitQuiz() {
-    const totalQuestions = 20;
+    const totalQuestions = 10;
     const unansweredQuestions = [];
 
     // Check for unanswered questions
