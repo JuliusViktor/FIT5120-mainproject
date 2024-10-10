@@ -878,6 +878,24 @@ a:focus {
   fill: #ffffff;
 }
 
+
+.box-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease;
+}
+
+.box-link:hover {
+  transform: translateY(-5px);
+}
+
+.box {
+  cursor: pointer;
+}
+
+
+
 .subscribe_section {
   text-align: center;
 }
