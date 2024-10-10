@@ -38,7 +38,6 @@
         />
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script src="https://d3js.org/d3.v7.min.js"></script>
-
     </head>
     <body>
         <div class="hero_area">
@@ -48,7 +47,7 @@
                     <nav class="navbar navbar-expand-lg custom_nav-container">
                         <a class="navbar-brand" href="homepage.html"
                             ><img
-                                width="250"
+                                class="logo-image"
                                 src="images/AUSEE-LOGO.png"
                                 alt="#"
                         /></a>
@@ -120,93 +119,28 @@
             </header>
             <!-- end header section -->
             <!-- slider section -->
-            <section class="map_and_stats career_bg_color layout_padding">
+            <section class="career_slider_section career_bg_color">
                 <div class="container">
-                    <div class="box">
-
-                        <h1>Employment Insights</h1>
-                        <p>This page provides valuable recent data on job vacancies in STEM fields across different states. 
-                            The darker the colour of the map indicates that more jobs are available in that state as a percentage of the total number of jobs. </p>
-
-                        <div class="row">
-                            <div class="col-7">
-
-                                <div class="container mt-5">
-                                    <div class="row justify-content-center">
-                                        <div class="col-md-8">
-                                            <div class="dropdown-container">
-                                                <div class="dropdown-wrapper">
-                                                    <label-dr for="location_uni">Location:</label-dr>
-                                                    <select id="location_uni" class="form-select">
-                                                        <option value="all">All</option>
-                                                        <option value="nsw">New South Wales</option>
-                                                        <option value="vic">Victoria</option>
-                                                        <option value="qld">Queensland</option>
-                                                        <option value="sa">South Australia</option>
-                                                        <option value="wa">Western Australia</option>
-                                                        <option value="tas">Tasmania</option>
-                                                        <option value="nt">Northern Territory</option>
-                                                        <option value="act">Australian Capital Territory</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                            
-                                            <div class="dropdown-container">
-                                                <div class="dropdown-wrapper">
-                                                    <label-dr for="atarScore">ATAR:</label-dr>
-                                                    <select id="atarScore" class="form-select">
-                                                        <option value="All">All</option>
-                                                        <option value="49">Minimum Admission Score below 50</option>
-                                                        <option value="50">Minimum Admission Score Over 50</option>
-                                                        <option value="60">Minimum Admission Score Over 60</option>
-                                                        <option value="70">Minimum Admission Score Over 70</option>
-                                                        <option value="80">Minimum Admission Score Over 80</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                            
-                                            
-                        
-                                        </div>
-                                    </div>
+                    <div class="row">
+                        <div class="col-md-7 col-lg-12">
+                            <div class="detail-box">
+                                <h1>CAREER IN STEM</h1>
+                                <p>
+                                    Forge Your Path: Explore Endless
+                                    Opportunities in a STEM Career
+                                </p>
+                                <div class="btn-box">
+                                    <a
+                                        href="javascript:void(0);"
+                                        class="btn1"
+                                        id="scrollToQuizBtn"
+                                    >
+                                        Let's Do A Quiz!
+                                    </a>
                                 </div>
-            
-                            
-                                    
-                                    
-                                        
-                                        
-                                <div id="map" style="background-color: #f0f0f0;"></div>
-                                        
-                                        
-                                        
-                                        
-                                    
-            
-                                
-
                             </div>
-
-
-                            <div class="col-5">
-
-                                
-            
-                                
-                                    <div id="infoBlock" class="info-block">
-                                        <h2>Uni Info</h2>
-                                        <p id="universityDetails">See details here.</p>
-                                    </div>
-                                
-                                
-                                
-                            </div>
-
                         </div>
-
                     </div>
-                
-                    
                 </div>
             </section>
             <!-- end slider section -->
@@ -214,21 +148,472 @@
 
         <!-- Intro stat section -->
 
-        
+        <!-- quiz for useers who havent thought for dream job -->
+        <section class="career_quiz_section career_bg_color layout_padding">
+            <div class="container">
+                <div class="box">
+                    <h2>Find your career match</h2>
+                    <p>
+                        Do you want to know what your future career in STEM
+                        could be? The quiz helps you to think about your
+                        interest preferences, and shows you the STEM study-areas
+                        and careers which suit your interests. Choose which one
+                        you prefer based on the question, then submit quiz to
+                        get your result!
+                    </p>
+
+                    <div class="quiz-container">
+                        <div class="quiz-block" id="quiz1">
+                            <div class="question">
+                                1. Which would you prefer? working
+                                independently on tasks or collaborating with
+                                others
+                            </div>
+                            <div class="image">
+                                <img
+                                    src="images/Quiz-Pic-PNG/Quiz Pic PNG/1.png"
+                                    alt="Image 1"
+                                />
+                            </div>
+                            <div class="buttons">
+                                <button
+                                    class="quiz-button"
+                                    data-answer="T"
+                                    onclick="selectAnswer('quiz1', 'T')"
+                                >
+                                    Working independently
+                                </button>
+                                <button
+                                    class="quiz-button"
+                                    data-answer="E"
+                                    onclick="selectAnswer('quiz1', 'E')"
+                                >
+                                    Collaborating with others
+                                </button>
+                            </div>
+                        </div>
+                        <div class="quiz-block" id="quiz2">
+                            <div class="question">
+                                2. Which would you prefer when you solve the
+                                problem? rely more on logic and data or
+                                creativity and intuition
+                            </div>
+                            <div class="image">
+                                <img
+                                    src="images/Quiz-Pic-PNG/Quiz Pic PNG/2.png"
+                                    alt="Image 2"
+                                />
+                            </div>
+                            <div class="buttons">
+                                <button
+                                    class="quiz-button"
+                                    data-answer="M"
+                                    onclick="selectAnswer('quiz2', 'M')"
+                                >
+                                    Rely more on logic and data
+                                </button>
+                                <button
+                                    class="quiz-button"
+                                    data-answer="S"
+                                    onclick="selectAnswer('quiz2', 'S')"
+                                >
+                                    Creativity and intuition
+                                </button>
+                            </div>
+                        </div>
+                        <div class="quiz-block" id="quiz3">
+                            <div class="question">
+                                4. Which would you prefer? learning through
+                                hands-on experiments or theoretical
+                                discussions
+                            </div>
+                            <div class="image">
+                                <img
+                                    src="images/Quiz-Pic-PNG/Quiz Pic PNG/4.png"
+                                    alt="Image 3"
+                                />
+                            </div>
+                            <div class="buttons">
+                                <button
+                                    class="quiz-button"
+                                    data-answer="T"
+                                    onclick="selectAnswer('quiz4', 'T')"
+                                >
+                                    Hands-on experiments
+                                </button>
+                                <button
+                                    class="quiz-button"
+                                    data-answer="S"
+                                    onclick="selectAnswer('quiz4', 'S')"
+                                >
+                                    Theoretical discussions
+                                </button>
+                            </div>
+                        </div>
+                        <div class="quiz-block" id="quiz4">
+                            <div class="question">
+                                6. Which would you prefer? enjoy challenges that
+                                involve solving complex technical problems or
+                                ones that require interpersonal communication
+                            </div>
+                            <div class="image">
+                                <img
+                                    src="images/Quiz-Pic-PNG/Quiz Pic PNG/6.png"
+                                    alt="Image 4"
+                                />
+                            </div>
+                            <div class="buttons">
+                                <button
+                                    class="quiz-button"
+                                    data-answer="T"
+                                    onclick="selectAnswer('quiz6', 'T')"
+                                >
+                                    Solving complex technical problems
+                                </button>
+                                <button
+                                    class="quiz-button"
+                                    data-answer="E"
+                                    onclick="selectAnswer('quiz6', 'E')"
+                                >
+                                    Interpersonal communication
+                                </button>
+                            </div>
+                        </div> 
+                        <div class="quiz-block" id="quiz5">
+                            <div class="question">
+                                8. Which would you prefer? dive into research
+                                immediately or wait until you have a clearer
+                                direction
+                            </div>
+                            <div class="image">
+                                <img
+                                    src="images/Quiz-Pic-PNG/Quiz Pic PNG/8.png"
+                                    alt="Image 5"
+                                />
+                            </div>
+                            <div class="buttons">
+                                <button
+                                    class="quiz-button"
+                                    data-answer="S"
+                                    onclick="selectAnswer('quiz8', 'S')"
+                                >
+                                    Dive into research immediately
+                                </button>
+                                <button
+                                    class="quiz-button"
+                                    data-answer="M"
+                                    onclick="selectAnswer('quiz8', 'M')"
+                                >
+                                    Wait until you have a clearer direction
+                                </button>
+                            </div>
+                        </div>
+                        <div class="quiz-block" id="quiz6">
+                            <div class="question">
+                                9. Which would you prefer? to follow established
+                                guidelines, or do you prefer to create your
+                                own path in problem-solving
+                            </div>
+                            <div class="image">
+                                <img
+                                    src="images/Quiz-Pic-PNG/Quiz Pic PNG/9.png"
+                                    alt="Image 6"
+                                />
+                            </div>
+                            <div class="buttons">
+                                <button
+                                    class="quiz-button"
+                                    data-answer="E"
+                                    onclick="selectAnswer('quiz9', 'E')"
+                                >
+                                    Follow established guidelines
+                                </button>
+                                <button
+                                    class="quiz-button"
+                                    data-answer="S"
+                                    onclick="selectAnswer('quiz9', 'S')"
+                                >
+                                    Create your own path
+                                </button>
+                            </div>
+                        </div>
+                        <div class="quiz-block" id="quiz7">
+                            <div class="question">
+                                11. When working on a project do you feel? more
+                                confident with structured plans or adaptable,
+                                flexible approaches
+                            </div>
+                            <div class="image">
+                                <img
+                                    src="images/Quiz-Pic-PNG/Quiz Pic PNG/11.png"
+                                    alt="Image 7"
+                                />
+                            </div>
+                            <div class="buttons">
+                                <button
+                                    class="quiz-button"
+                                    data-answer="M"
+                                    onclick="selectAnswer('quiz11', 'M')"
+                                >
+                                    Structured plans
+                                </button>
+                                <button
+                                    class="quiz-button"
+                                    data-answer="S"
+                                    onclick="selectAnswer('quiz11', 'S')"
+                                >
+                                    Adaptable, flexible approaches
+                                </button>
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="quiz-block" id="quiz8">
+                            <div class="question">
+                                14. Which would you prefer? focus on one project
+                                at a time or manage multiple projects
+                                simultaneously
+                            </div>
+                            <div class="image">
+                                <img
+                                    src="images/Quiz-Pic-PNG/Quiz Pic PNG/14.png"
+                                    alt="Image 8"
+                                />
+                            </div>
+                            <div class="buttons">
+                                <button
+                                    class="quiz-button"
+                                    data-answer="E"
+                                    onclick="selectAnswer('quiz14', 'E')"
+                                >
+                                    One project at a time
+                                </button>
+                                <button
+                                    class="quiz-button"
+                                    data-answer="T"
+                                    onclick="selectAnswer('quiz14', 'T')"
+                                >
+                                    Multiple projects simultaneously
+                                </button>
+                            </div>
+                        </div>
+                        <div class="quiz-block" id="quiz9">
+                            <div class="question">
+                                16. Which would you prefer? work with computers
+                                and software or conduct experiments in a
+                                lab
+                            </div>
+                            <div class="image">
+                                <img
+                                    src="images/Quiz-Pic-PNG/Quiz Pic PNG/16.png"
+                                    alt="Image 9"
+                                />
+                            </div>
+                            <div class="buttons">
+                                <button
+                                    class="quiz-button"
+                                    data-answer="T"
+                                    onclick="selectAnswer('quiz16', 'T')"
+                                >
+                                    Computers and software
+                                </button>
+                                <button
+                                    class="quiz-button"
+                                    data-answer="S"
+                                    onclick="selectAnswer('quiz16', 'S')"
+                                >
+                                    Experiments in a lab
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="quiz-block" id="quiz10">
+                            <div class="question">
+                                18. Which would you prefer? learning how
+                                machines work or understanding natural
+                                processes
+                            </div>
+                            <div class="image">
+                                <img
+                                    src="images/Quiz-Pic-PNG/Quiz Pic PNG/18.png"
+                                    alt="Image 10"
+                                />
+                            </div>
+                            <div class="buttons">
+                                <button
+                                    class="quiz-button"
+                                    data-answer="E"
+                                    onclick="selectAnswer('quiz18', 'E')"
+                                >
+                                    Learning how machines work
+                                </button>
+                                <button
+                                    class="quiz-button"
+                                    data-answer="M"
+                                    onclick="selectAnswer('quiz18', 'M')"
+                                >
+                                    Understanding natural processes
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quiz-submit-buttons">
+                        <button id="submit-button" onclick="submitQuiz()">
+                            Submit Quiz
+                        </button>
+                    </div>
+                    <div id="loading" style="display: none">Loading...</div>
+                    <div id="result" class="result"></div>
+                </div>
+
+                <div class="box">
+                    <h2>Which occupation may suit for you?</h2>
+
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="circle">
+                                <div class="text">
+                                    <div>Science</div>
+                                    <div id="percentage1">X%</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="circle">
+                                <div class="text">
+                                    <div>Technology</div>
+                                    <div id="percentage2">X%</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="circle">
+                                <div class="text">
+                                    <div>Engineering</div>
+                                    <div id="percentage3">X%</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="circle">
+                                <div class="text">
+                                    <div>Mathematics</div>
+                                    <div id="percentage4">X%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h1>Recommended Occupation List</h1>
+                    <div id="occupation-guideline"></div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- after getting the dream job, base on their occupation preference giving their skills&subjects suggestion-->
+        <section class="career_suggest_section career_bg_color layout_padding">
+            <div class="container">
+                <div class="box">
+                    <h2>Key Subject May Brighten your Future</h2>
+                    
+                    <h2>I want to become:</h2>
+                    <p>(Please enter an occupation that was just recommended to you in the quiz section)</p>
+
+                    <div class="occup-search-container">
+                        <input
+                            type="text"
+                            class="search-bar"
+                            placeholder="type in here please"
+                        />
+                        <button class="clear-btn" onclick="clearInput()">
+                            ×
+                        </button>
+                    </div>
+
+                    <div class="occup-submit-button">
+                        <button class="submit-button">Submit</button>
+                    </div>
+
+                    <!-- Status bar -->
+                    <div id="suggest-status-bar" class="status-bar">
+                        You have not submitted your answer!
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="circle">
+                                <div class="text">
+                                    <div>Science</div>
+                                    <div id="percentage5">X%</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="circle">
+                                <div class="text">
+                                    <div>Technology</div>
+                                    <div id="percentage6">X%</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="circle">
+                                <div class="text">
+                                    <div>Engineering</div>
+                                    <div id="percentage7">X%</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="circle">
+                                <div class="text">
+                                    <div>Mathematics</div>
+                                    <div id="percentage8">X%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h1>Subject Guideline</h1>
+                    <p id="prompt">
+                        Subjects may suitable for you in year10-12:
+                    </p>
+                    <div id="subject-guideline"></div>
+
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <button id="turn-button1" onclick="window.location.href='uni.html'">
+                                Find the Uni
+                            </button>
+                        </div>
+                        <div class="col-sm-6">
+                            <button id="turn-button2" onclick="window.location.href='vacancies.html'">
+                                Find the Job 
+                            </button>                            
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Scroll to Top Button -->
+        <button id="scrollToTopBtn" title="Go to top">&#8679;</button>
 
         <div class="cpy_">
             <p class="mx-auto">© 2024 All Rights Reserved By <br /></p>
         </div>
-        <!-- Mapbox GL JS -->
-        <script src='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js'></script>
-        <link href='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css' rel='stylesheet' />
-        
-        <!-- Mapbox GL Directions -->
-        <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js'></script>
-        <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css' type='text/css' />
-
-        <!-- vac js -->
-        <script src="js/vacancies.js" defer></script>
         <!-- jQery -->
         <script src="js/jquery-3.4.1.min.js"></script>
         <!-- popper js -->
