@@ -66,7 +66,8 @@ document.addEventListener('DOMContentLoaded', function () {
             filteredVacancies.forEach(vacancy => {
                 infoHTML += `<li>
                     <strong>${vacancy.title}</strong><br>
-                    State: ${vacancy.state}<br>                  
+                    State: ${vacancy.state}<br>
+                    Month: ${monthNames[vacancy.month] || vacancy.month}<br>
                     Number of Vacancies: ${Math.floor(vacancy.numberOfVacancies)}
                 </li>`;
             });
